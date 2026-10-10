@@ -5,6 +5,7 @@
     "title": "Masthead Hero with Rotating Serif Word",
     "category": "Editorial Hero Sections",
     "description": "A newspaper-style masthead with an issue line, hairline rules and a headline whose final word swaps on a spring-loaded vertical slot.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Editorial",
@@ -21,6 +22,7 @@
     "title": "Draggable Sticker Stack Hero",
     "category": "Editorial Hero Sections",
     "description": "A playful studio hero where hand-cut 'stickers' scattered over the headline can be picked up and thrown with spring inertia.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Drag",
@@ -37,6 +39,7 @@
     "title": "Ink Reveal Cursor Hero",
     "category": "Editorial Hero Sections",
     "description": "A cream hero where a solid charcoal disc follows the cursor with spring lag and inverts the headline beneath it — no glow, just ink.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Cursor",
@@ -53,6 +56,7 @@
     "title": "Index Card Studio Hero",
     "category": "Editorial Hero Sections",
     "description": "A Swiss grid hero with a numbered services index; hovering a row slides a terracotta bar in from the left and shifts the text.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Swiss Grid",
@@ -69,6 +73,7 @@
     "title": "Expanding Bento Grid",
     "category": "Bento Feature Grids",
     "description": "A four-tile bento where clicking any tile expands it to dominate the grid using shared layout animation; the others reflow with springs.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Layout Animation",
@@ -85,6 +90,7 @@
     "title": "Count-Up Stats Bento",
     "category": "Bento Feature Grids",
     "description": "An editorial results bento whose numbers count up with spring easing the moment they scroll into view, with a hand-drawn underline.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "useInView",
@@ -101,6 +107,7 @@
     "title": "Spring Tilt Bento Tiles",
     "category": "Bento Feature Grids",
     "description": "A bento grid where each tile leans toward the pointer on a gentle 3D spring and lifts on a hard offset shadow — tactile, not glossy.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "3D",
@@ -117,6 +124,7 @@
     "title": "Tabbed Showcase Bento",
     "category": "Bento Feature Grids",
     "description": "A bento with a segmented control on top; switching tabs morphs the grid's tile arrangement and swaps content with crossfades.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Tabs",
@@ -133,6 +141,7 @@
     "title": "Magnetic Pull Button",
     "category": "Tactile Micro-Interaction Buttons",
     "description": "A charcoal pill that gets pulled toward the cursor within a 90px field, its label lagging a bit further behind for a layered parallax.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Magnetic",
@@ -149,6 +158,7 @@
     "title": "Squish Press Button",
     "category": "Tactile Micro-Interaction Buttons",
     "description": "A neo-print button with a hard offset shadow that physically presses down into the page on tap, then springs back.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Tactile",
@@ -165,6 +175,7 @@
     "title": "Hold-to-Confirm Button",
     "category": "Tactile Micro-Interaction Buttons",
     "description": "A destructive-action button that must be held for 1.2 seconds; a terracotta fill sweeps across, and releasing early rewinds it on a spring.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "useAnimate",
@@ -181,6 +192,7 @@
     "title": "Copy Button Morph",
     "category": "Tactile Micro-Interaction Buttons",
     "description": "A compact copy button whose icon morphs into a drawn checkmark while the pill widens to reveal 'Copied' — layout-animated, no layout jump.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Layout",
@@ -197,6 +209,7 @@
     "title": "Paper Confetti Like Button",
     "category": "Tactile Micro-Interaction Buttons",
     "description": "A heart button that pops with an overshoot and scatters small paper-cut squares and circles in terracotta, cobalt and charcoal.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Particles",
@@ -213,6 +226,7 @@
     "title": "Elastic Toggle Switch",
     "category": "Tactile Micro-Interaction Buttons",
     "description": "A settings toggle whose knob stretches like taffy while traveling and settles with a bounce; the track ink-fills to cobalt.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Toggle",
@@ -229,6 +243,7 @@
     "title": "Wave Letter Hover Banner",
     "category": "Kinetic Typography Banners",
     "description": "A giant word split into letters; hovering sends a sine wave through them with per-letter spring delays, like a finger brushing piano keys.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Kinetic Type",
@@ -245,6 +260,7 @@
     "title": "Draggable Speed Marquee",
     "category": "Kinetic Typography Banners",
     "description": "An infinite editorial marquee that slows to a crawl when hovered and can be flicked faster or reversed by dragging.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Marquee",
@@ -261,6 +277,7 @@
     "title": "Split-Flap Headline",
     "category": "Kinetic Typography Banners",
     "description": "An airport split-flap board that shuffles random letters before landing on each word of a rotating headline.",
+    "style": "Warm Editorial",
     "tags": [
       "Kinetic Type",
       "Split Flap",
@@ -277,6 +294,7 @@
     "title": "Masked Word Swap Banner",
     "category": "Kinetic Typography Banners",
     "description": "A statement banner where key words slide up through clip masks one by one, and the accent word gets a hand-drawn terracotta circle.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Mask Reveal",
@@ -293,6 +311,7 @@
     "title": "Layered Parallax Postcard",
     "category": "Parallax/3D Interactive Cards",
     "description": "A postcard built from flat paper layers — sky, hills, sun, stamp — that separate in depth as the pointer moves, like a pop-up book.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Parallax",
@@ -309,6 +328,7 @@
     "title": "Specimen Flip Card",
     "category": "Parallax/3D Interactive Cards",
     "description": "A type-specimen card that flips in true 3D on click to reveal the glyph's metrics on the back, with a springy overshoot.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "3D Flip",
@@ -325,6 +345,7 @@
     "title": "Swipe Deck Testimonials",
     "category": "Parallax/3D Interactive Cards",
     "description": "A stack of testimonial cards you can fling left or right; the top card rotates with drag and the next one rises to take its place.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Drag",
@@ -341,6 +362,7 @@
     "title": "Hover Lift Product Card",
     "category": "Parallax/3D Interactive Cards",
     "description": "A product card whose object floats forward in Z on hover while the price tag swings on a pin, with a spring-driven shadow underneath.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "3D",
@@ -357,6 +379,7 @@
     "title": "Editorial FAQ Accordion",
     "category": "Dynamic Accordions",
     "description": "A numbered FAQ with hairline rules where the plus rotates into a cross and answers unfold on measured-height springs.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Accordion",
@@ -373,6 +396,7 @@
     "title": "Horizontal Column Accordion",
     "category": "Dynamic Accordions",
     "description": "Five vertical panels side by side; the hovered panel widens to reveal its story while the rest compress into rotated spine labels.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Flex Grow",
@@ -389,6 +413,7 @@
     "title": "Process Stepper Accordion",
     "category": "Dynamic Accordions",
     "description": "A vertical process timeline where opening a step draws the connecting line down to it and checks off every earlier step.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Timeline",
@@ -405,6 +430,7 @@
     "title": "Image Reveal Service List",
     "category": "Dynamic Accordions",
     "description": "A service list where opening an item reveals a color-block 'photo' that wipes in from a clip-path, paired with its deliverables.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Clip Path",
@@ -421,6 +447,7 @@
     "title": "Sliding Pill Navigation",
     "category": "Animated Navigation Bars",
     "description": "A centered nav with a charcoal pill that glides under the hovered link via shared layout, returning to the active page when you leave.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "layoutId",
@@ -437,6 +464,7 @@
     "title": "Full-Screen Index Menu",
     "category": "Animated Navigation Bars",
     "description": "A hamburger that morphs into a cross and unrolls a full-bleed terracotta menu with giant staggered links rising through masks.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Menu",
@@ -453,6 +481,7 @@
     "title": "Magnifying Dock Bar",
     "category": "Animated Navigation Bars",
     "description": "A bottom app dock whose icons swell based on cursor distance, with labels that pop above — flat paper icons, no gloss.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Dock",
@@ -469,6 +498,7 @@
     "title": "Hide-on-Scroll Header",
     "category": "Animated Navigation Bars",
     "description": "A header that tucks away when you scroll down, slides back on the slightest scroll up, and shows a reading-progress hairline.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "useScroll",
@@ -485,6 +515,7 @@
     "title": "Ink Underline Contact Form",
     "category": "Interactive Forms",
     "description": "A minimal contact form with floating labels and an underline that draws from the caret side on focus, plus a send button that flies its arrow away.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Form",
@@ -501,6 +532,7 @@
     "title": "Multi-Step Brief Form",
     "category": "Interactive Forms",
     "description": "A three-step project brief with chip selectors, a segmented budget control and a progress rail; steps slide horizontally with direction-aware springs.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Multi-Step",
@@ -517,6 +549,7 @@
     "title": "Typewriter OTP Input",
     "category": "Interactive Forms",
     "description": "A six-digit verification code input where each digit drops into its slot like a typewriter key and the row stamps green-free 'Verified' in cobalt.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "OTP",
@@ -533,6 +566,7 @@
     "title": "Spring Budget Slider",
     "category": "Interactive Forms",
     "description": "A range slider with a chunky draggable thumb that squashes on grab, a tick ruler, and a price label that rolls digits as you drag.",
+    "style": "Warm Editorial",
     "tags": [
       "Framer Motion",
       "Slider",
@@ -541,6 +575,262 @@
     ],
     "claudePrompt": "Build a \"Spring Budget Slider\" React component.\n\nCONCEPT: A budget picker for a lead form: a ruler-like track with ticks, a draggable thumb that feels squishy, and a big live value readout.\n\nLAYOUT & CONTENT:\n- Readout: '₪ 35,000' at 3rem with tabular numerals; a sub-label that changes by range ('Landing page', 'Studio site', 'Full platform').\n- Track: 1px charcoal line with 11 ticks (taller every 5th); filled portion cobalt 3px.\n- Thumb: 28px circle, charcoal fill, cream inner dot.\n\nINTERACTIONS & MOTION:\n- Thumb drag='x' constrained to the track; map x to value 5k–100k snapped to 5k.\n- whileDrag: scaleX 1.25 scaleY 0.85 (squash); release springs to snapped position (stiffness 500 damping 30).\n- Keyboard: arrow keys change by 5k; role='slider' with aria-valuenow/min/max/valuetext.\n- Sub-label crossfades when the range bucket changes.\n\nDESIGN SYSTEM (non-negotiable):\n- Palette: paper background #FAF9F6, deep charcoal #121212 for text and 1px borders, ONE human accent: cobalt #1D4ED8 or terracotta #D9534F. Secondary surface #F2EFE8.\n- Typography: Swiss / editorial. A tight grotesk for UI (Instrument Sans, Inter Tight or similar) with negative tracking on display sizes; an italic serif (Instrument Serif) used sparingly for one emphasized word.\n- NO dark-mode neon, NO glow, NO glassmorphism, NO backdrop blur, NO purple-to-blue gradients, NO emoji icons. Solid fills, hairline rules, honest shadows (hard offset or none).\n- Motion: Framer Motion with spring physics (type: \"spring\", stiffness 300-500, damping 20-35). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react, 1.5px stroke.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring (2px cobalt, 3px offset), keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\".",
     "previewCode": "const MIN = 5000, MAX = 100000, STEP = 5000;\nconst W = 280;\n\nfunction Demo() {\n  const [val, setVal] = useState(35000);\n  const x = useMotionValue(((35000 - MIN) / (MAX - MIN)) * W);\n  const fill = useTransform(x, (v) => v + \"px\");\n  const snap = (v) => Math.round(v / STEP) * STEP;\n  const toX = (v) => ((v - MIN) / (MAX - MIN)) * W;\n  const setFromX = (px) => {\n    const v = snap(MIN + (Math.min(Math.max(px, 0), W) / W) * (MAX - MIN));\n    setVal(v);\n    return v;\n  };\n  const label = val < 25000 ? \"Landing page\" : val < 60000 ? \"Studio site\" : \"Full platform\";\n  return (\n    <div className=\"flex h-full w-full flex-col items-center justify-center gap-6 bg-[#FAF9F6] text-[#121212]\">\n      <div className=\"text-center\">\n        <div className=\"text-5xl font-semibold tabular-nums tracking-[-0.04em]\">₪ {val.toLocaleString(\"en-US\")}</div>\n        <AnimatePresence mode=\"wait\">\n          <motion.div key={label} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} className=\"mt-1 font-serif text-lg italic text-[#3a3a38]\">{label}</motion.div>\n        </AnimatePresence>\n      </div>\n      <div className=\"relative\" style={{ width: W }}>\n        <div className=\"absolute left-0 top-1/2 h-px w-full bg-[#121212]\" />\n        <motion.div style={{ width: fill }} className=\"absolute left-0 top-1/2 h-[3px] -translate-y-px bg-[#1D4ED8]\" />\n        <div className=\"relative flex h-10 items-end justify-between\">\n          {Array.from({ length: 11 }).map((_, i) => <span key={i} className={\"w-px bg-[#121212] \" + (i % 5 === 0 ? \"h-3\" : \"h-1.5\")} />)}\n        </div>\n        <motion.div\n          drag=\"x\"\n          dragConstraints={{ left: 0, right: W }}\n          dragElastic={0}\n          dragMomentum={false}\n          style={{ x }}\n          onDrag={() => setFromX(x.get())}\n          onDragEnd={() => animate(x, toX(setFromX(x.get())), { type: \"spring\", stiffness: 500, damping: 30 })}\n          whileDrag={{ scaleX: 1.25, scaleY: 0.85 }}\n          role=\"slider\"\n          tabIndex={0}\n          aria-valuemin={MIN}\n          aria-valuemax={MAX}\n          aria-valuenow={val}\n          aria-valuetext={\"₪\" + val}\n          onKeyDown={(e) => {\n            const d = e.key === \"ArrowRight\" ? STEP : e.key === \"ArrowLeft\" ? -STEP : 0;\n            if (!d) return;\n            const v = Math.min(MAX, Math.max(MIN, val + d));\n            setVal(v);\n            animate(x, toX(v), { type: \"spring\", stiffness: 500, damping: 30 });\n          }}\n          className=\"focus-ring absolute -left-[14px] top-1/2 -mt-[14px] flex h-7 w-7 cursor-grab items-center justify-center rounded-full bg-[#121212] active:cursor-grabbing\"\n        >\n          <span className=\"h-2 w-2 rounded-full bg-[#FAF9F6]\" />\n        </motion.div>\n      </div>\n      <div className=\"flex justify-between font-mono text-[10px] text-[#6f6c66]\" style={{ width: W }}><span>₪5k</span><span>₪100k</span></div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-035",
+    "slug": "brutalist-pricing-toggle",
+    "title": "Brutalist Pricing Toggle",
+    "category": "Bento Feature Grids",
+    "description": "Loud pricing cards with 3px borders and hard shadows; a chunky monthly/yearly switch slams the prices to new values.",
+    "style": "Neo-Brutalist",
+    "tags": [
+      "Framer Motion",
+      "Brutalist",
+      "Pricing",
+      "Toggle"
+    ],
+    "claudePrompt": "Build a \"Brutalist Pricing Toggle\" React component.\n\nCONCEPT: A pricing section that feels printed with a rubber stamp: two plans, a giant billing switch, prices that drop into place.\n\nLAYOUT & CONTENT:\n- Header 'PRICING THAT DOESN'T HIDE' in Archivo Black.\n- Switch: two segments MONTHLY / YEARLY (-20%), the active one filled black.\n- Two cards: Starter $19 / $15 and Studio $49 / $39, feature list with ✕/✓ in Space Mono, black CTA bars.\n\nINTERACTIONS & MOTION:\n- Price change: old number drops out y +100%, new one slams in from y -100% with spring stiffness 700 damping 20.\n- Cards: whileHover translate -4,-4 and shadow grows to 10px 10px 0 #000; whileTap flatten to 0 shadow.\n\nDESIGN SYSTEM — Neo-Brutalist:\n- Acid yellow #FFE600 and white surfaces, pure black #000 text, 3px black borders everywhere.\n- Hard 6px 6px 0 #000 shadows, zero blur, zero gradients, square corners.\n- Type: Archivo Black for display, Space Mono for labels and prices.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const PLANS = [{ n: \"Starter\", m: 19, y: 15, f: [\"1 site\", \"Basic support\"] }, { n: \"Studio\", m: 49, y: 39, f: [\"10 sites\", \"Priority support\"] }];\nfunction Demo() {\n  const [yearly, setYearly] = useState(false);\n  return (\n    <div className=\"flex h-full w-full flex-col gap-3 bg-[#FFE600] p-4 text-black\" style={{ fontFamily: \"'Space Mono', monospace\" }}>\n      <div className=\"flex items-center justify-between\">\n        <h3 className=\"text-xl leading-none\" style={{ fontFamily: \"'Archivo Black', sans-serif\" }}>PRICING THAT<br />DOESN'T HIDE</h3>\n        <div className=\"flex border-[3px] border-black bg-white text-[10px] font-bold\">\n          {[\"MONTHLY\", \"YEARLY -20%\"].map((l, i) => (\n            <button key={l} onClick={() => setYearly(i === 1)} className={\"px-2 py-1.5 \" + ((i === 1) === yearly ? \"bg-black text-[#FFE600]\" : \"\")}>{l}</button>\n          ))}\n        </div>\n      </div>\n      <div className=\"grid flex-1 grid-cols-2 gap-4\">\n        {PLANS.map((p, i) => (\n          <motion.div key={p.n} initial={{ boxShadow: \"6px 6px 0 #000\" }} whileHover={{ x: -4, y: -4, boxShadow: \"10px 10px 0 #000\" }} whileTap={{ x: 6, y: 6, boxShadow: \"0px 0px 0 #000\" }} transition={{ type: \"spring\", stiffness: 600, damping: 22 }}\n            className={\"flex flex-col justify-between border-[3px] border-black p-3 \" + (i ? \"bg-black text-[#FFE600]\" : \"bg-white\")}>\n            <div className=\"text-xs font-bold uppercase\">{p.n}</div>\n            <div className=\"flex h-12 items-end overflow-hidden\" style={{ fontFamily: \"'Archivo Black', sans-serif\" }}>\n              <span className=\"text-2xl\">$</span>\n              <AnimatePresence mode=\"popLayout\" initial={false}>\n                <motion.span key={String(yearly)} initial={{ y: \"-100%\" }} animate={{ y: \"0%\" }} exit={{ y: \"100%\" }} transition={{ type: \"spring\", stiffness: 700, damping: 20 }} className=\"text-5xl leading-none\">{yearly ? p.y : p.m}</motion.span>\n              </AnimatePresence>\n              <span className=\"mb-1 text-[10px]\">/MO</span>\n            </div>\n            <ul className=\"text-[10px] leading-relaxed\">{p.f.map((f) => <li key={f}>✓ {f}</li>)}</ul>\n            <div className={\"mt-2 py-1.5 text-center text-[11px] font-bold \" + (i ? \"bg-[#FFE600] text-black\" : \"bg-black text-white\")}>GET {p.n.toUpperCase()} →</div>\n          </motion.div>\n        ))}\n      </div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-036",
+    "slug": "bauhaus-geometry-hero",
+    "title": "Bauhaus Geometry Hero",
+    "category": "Editorial Hero Sections",
+    "description": "A poster-like hero built from primary-colored circles, squares and half-discs that rotate into a new composition on every click.",
+    "style": "Bauhaus",
+    "tags": [
+      "Framer Motion",
+      "Bauhaus",
+      "Geometric",
+      "Poster"
+    ],
+    "claudePrompt": "Build a \"Bauhaus Geometry Hero\" React component.\n\nCONCEPT: A hero that is a Bauhaus poster: a 3x3 grid of primary geometric tiles beside a stacked uppercase headline. Clicking reshuffles the composition.\n\nLAYOUT & CONTENT:\n- Left: 'FORM / FOLLOWS / FUN' in Syne 800, one word per line, the middle word in red.\n- Right: 3x3 grid of tiles; each tile is a square with a circle, quarter-circle or half-disc in red, blue, yellow or black.\n- Bottom: tiny label 'Est. 1919 — Weimar' and a round 'Shuffle' button.\n\nINTERACTIONS & MOTION:\n- Shuffle rotates each tile's inner shape by a random multiple of 90° and swaps colors, staggered 40ms, spring stiffness 260 damping 16.\n- Hovering a tile scales its shape to 1.12.\n\nDESIGN SYSTEM — Bauhaus:\n- Primary red #E63322, blue #1F4E9E, yellow #F6C21B on off-white #F3EEE3, black #111 type.\n- Pure geometric shapes only: circles, squares, quarter-circles, half-discs.\n- Type: Syne (800) set tight and uppercase; strict grid alignment.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const COLS = [\"#E63322\", \"#1F4E9E\", \"#F6C21B\", \"#111111\"];\nconst SHAPES = [\"circle\", \"quarter\", \"half\", \"square\"];\nfunction Shape({ kind, color }) {\n  if (kind === \"circle\") return <div className=\"h-full w-full rounded-full\" style={{ background: color }} />;\n  if (kind === \"quarter\") return <div className=\"h-full w-full rounded-tl-full\" style={{ background: color }} />;\n  if (kind === \"half\") return <div className=\"h-1/2 w-full self-end rounded-t-full\" style={{ background: color }} />;\n  return <div className=\"m-[18%] h-[64%] w-[64%]\" style={{ background: color }} />;\n}\nfunction seed(n) { return Array.from({ length: 9 }, (_, i) => ({ k: SHAPES[(i * 7 + n * 3) % 4], c: COLS[(i * 5 + n) % 4], r: ((i + n) % 4) * 90 })); }\nfunction Demo() {\n  const [n, setN] = useState(0);\n  const tiles = useMemo(() => seed(n), [n]);\n  return (\n    <div className=\"grid h-full w-full grid-cols-2 gap-4 bg-[#F3EEE3] p-5 text-[#111]\" style={{ fontFamily: \"'Syne', sans-serif\" }}>\n      <div className=\"flex flex-col justify-between\">\n        <h1 className=\"text-[2.15rem] font-extrabold uppercase leading-[0.85] tracking-tight\">Form<br /><span className=\"text-[#E63322]\">Follows</span><br />Fun</h1>\n        <div className=\"flex items-center justify-between text-[10px] uppercase tracking-widest\">\n          <span>Est. 1919 — Weimar</span>\n          <motion.button whileTap={{ rotate: 180 }} onClick={() => setN(n + 1)} className=\"flex h-12 w-12 items-center justify-center rounded-full bg-[#111] text-[10px] font-bold text-[#F3EEE3]\">Shuffle</motion.button>\n        </div>\n      </div>\n      <div className=\"grid grid-cols-3 grid-rows-3 gap-1.5\">\n        {tiles.map((t, i) => (\n          <div key={i} className=\"flex overflow-hidden bg-[#F3EEE3] outline outline-1 outline-[#111]/15\">\n            <motion.div className=\"flex h-full w-full\" animate={{ rotate: t.r }} whileHover={{ scale: 1.12 }} transition={{ type: \"spring\", stiffness: 260, damping: 16, delay: i * 0.04 }}>\n              <Shape kind={t.k} color={t.c} />\n            </motion.div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-037",
+    "slug": "memphis-squiggle-buttons",
+    "title": "Memphis Squiggle Buttons",
+    "category": "Tactile Micro-Interaction Buttons",
+    "description": "Rounded 90s buttons with black outlines; hovering wiggles the squiggle decoration and pressing pops dots out of the button.",
+    "style": "Memphis 90s",
+    "tags": [
+      "Framer Motion",
+      "Memphis",
+      "Playful",
+      "Buttons"
+    ],
+    "claudePrompt": "Build a \"Memphis Squiggle Buttons\" React component.\n\nCONCEPT: Three playful call-to-action buttons on a dotted background, each with its own Memphis decoration that reacts to the pointer.\n\nLAYOUT & CONTENT:\n- Buttons: 'Let's play' (pink), 'Join the club' (teal), 'Surprise me' (yellow), all with 3px black outline and 4px black offset shadow, Fredoka 700.\n- Background: white with a scattered dot pattern and a violet zig-zag in a corner.\n\nINTERACTIONS & MOTION:\n- Hover: the attached squiggle SVG rotates ±12° on a looping spring wiggle.\n- Tap: button squashes (scaleY 0.85, scaleX 1.08) and 6 dots fly out radially then fade.\n- Squiggle paths draw in on mount with pathLength.\n\nDESIGN SYSTEM — Memphis 90s:\n- Hot pink #FF5FA2, teal #1CC6B6, sunflower #FFD23F, violet #7B5CFF on white, black outlines.\n- Squiggles, dots and zig-zags as decoration; playful tilted shapes.\n- Type: Fredoka (600–700) rounded and friendly.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const BTNS = [[\"Let's play\", \"#FF5FA2\"], [\"Join the club\", \"#1CC6B6\"], [\"Surprise me\", \"#FFD23F\"]];\nfunction Btn({ label, color, i }) {\n  const [pops, setPops] = useState(0);\n  return (\n    <div className=\"relative\">\n      <motion.svg width=\"46\" height=\"22\" viewBox=\"0 0 46 22\" className=\"absolute -right-5 -top-4\" whileHover={{ rotate: [0, 12, -12, 0] }} transition={{ duration: 0.6 }}>\n        <motion.path d=\"M2 12 Q 8 2, 14 12 T 26 12 T 38 12 T 46 12\" fill=\"none\" stroke=\"#7B5CFF\" strokeWidth=\"3\" strokeLinecap=\"round\" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.2 + i * 0.15, duration: 0.6 }} />\n      </motion.svg>\n      {Array.from({ length: 6 }).map((_, d) => (\n        <motion.span key={pops + \"-\" + d} initial={{ x: 0, y: 0, opacity: pops ? 1 : 0 }} animate={pops ? { x: Math.cos(d) * 50, y: Math.sin(d) * 34, opacity: 0 } : {}} transition={{ duration: 0.6 }}\n          className=\"pointer-events-none absolute left-1/2 top-1/2 h-2.5 w-2.5 rounded-full border-2 border-black\" style={{ background: BTNS[(d + i) % 3][1] }} />\n      ))}\n      <motion.button onClick={() => setPops(pops + 1)} whileHover={{ rotate: i % 2 ? 2 : -2, y: -2 }} whileTap={{ scaleY: 0.85, scaleX: 1.08 }} transition={{ type: \"spring\", stiffness: 500, damping: 12 }}\n        className=\"relative rounded-full border-[3px] border-black px-5 py-2.5 text-base font-bold text-black\" style={{ background: color, boxShadow: \"4px 4px 0 #000\", fontFamily: \"'Fredoka', sans-serif\" }}>{label}</motion.button>\n    </div>\n  );\n}\nfunction Demo() {\n  return (\n    <div className=\"relative flex h-full w-full flex-wrap items-center justify-center gap-7 overflow-hidden bg-white p-6\" style={{ backgroundImage: \"radial-gradient(#111 1.2px, transparent 1.3px)\", backgroundSize: \"22px 22px\" }}>\n      <svg className=\"absolute bottom-3 left-3\" width=\"90\" height=\"24\" viewBox=\"0 0 90 24\"><path d=\"M0 20 L10 4 L20 20 L30 4 L40 20 L50 4 L60 20 L70 4 L80 20 L90 4\" fill=\"none\" stroke=\"#7B5CFF\" strokeWidth=\"4\" /></svg>\n      <div className=\"absolute right-6 top-5 h-10 w-10 rounded-full border-[3px] border-black bg-[#FFD23F]\" />\n      {BTNS.map(([l, c], i) => <Btn key={l} label={l} color={c} i={i} />)}\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-038",
+    "slug": "groovy-sunset-banner",
+    "title": "Groovy Sunset Banner",
+    "category": "Kinetic Typography Banners",
+    "description": "A 70s banner with stacked sunset stripes that roll in like a record label while a fat Shrikhand word bobs to a groove.",
+    "style": "Retro 70s",
+    "tags": [
+      "Framer Motion",
+      "Retro",
+      "70s",
+      "Kinetic Type"
+    ],
+    "claudePrompt": "Build a \"Groovy Sunset Banner\" React component.\n\nCONCEPT: A promo banner straight off a 1974 album sleeve: rounded sunset stripes rise behind the word 'Groovy' which sways on a loop.\n\nLAYOUT & CONTENT:\n- Five concentric half-arc stripes (orange, mustard, chocolate, cream...) anchored to the bottom center.\n- Word 'Groovy' in Shrikhand at ~5rem, chocolate with a cream 4px outline offset shadow; tagline 'Weekend sale — 70% far out'.\n\nINTERACTIONS & MOTION:\n- Stripes scale from 0 to 1 from the bottom with 90ms stagger, spring stiffness 120 damping 14.\n- Letters sway: rotate [-6, 6] and y [0, -8] looping with per-letter delay for a wave.\n- Hover the word: whole word scales 1.06 with a squash.\n\nDESIGN SYSTEM — Retro 70s:\n- Burnt orange #E2711D, mustard #F2B134, chocolate #4A2C1D, cream #F6E7CB.\n- Rounded stripes and sunset arcs; soft, warm, groovy.\n- Type: Shrikhand for display, DM Sans for small copy.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const STRIPES = [\"#4A2C1D\", \"#E2711D\", \"#F2B134\", \"#E2711D\", \"#4A2C1D\"];\nfunction Demo() {\n  return (\n    <div className=\"relative flex h-full w-full flex-col items-center justify-start overflow-hidden bg-[#F6E7CB] pt-8 text-[#4A2C1D]\">\n      {STRIPES.map((c, i) => (\n        <motion.div key={i} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: \"spring\", stiffness: 120, damping: 14, delay: i * 0.09 }}\n          className=\"absolute bottom-0 left-1/2 rounded-t-full\" style={{ width: 520 - i * 88, height: 260 - i * 44, marginLeft: -(520 - i * 88) / 2, background: c, originY: 1 }} />\n      ))}\n      <motion.h2 whileHover={{ scale: 1.06, scaleY: 0.94 }} className=\"relative z-10 flex text-[4.6rem] leading-none\" style={{ fontFamily: \"'Shrikhand', cursive\", textShadow: \"4px 4px 0 #F6E7CB\" }}>\n        {\"Groovy\".split(\"\").map((l, i) => (\n          <motion.span key={i} className=\"inline-block\" animate={{ rotate: [-6, 6, -6], y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 1.6, delay: i * 0.12, ease: \"easeInOut\" }}>{l}</motion.span>\n        ))}\n      </motion.h2>\n      <p className=\"relative z-10 mt-1 text-sm font-bold uppercase tracking-[0.2em]\">Weekend sale — 70% far out</p>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-039",
+    "slug": "noir-atelier-menu",
+    "title": "Noir Atelier Menu",
+    "category": "Animated Navigation Bars",
+    "description": "A luxury full-screen menu in black and champagne: Bodoni links rise slowly through masks and a hairline follows the hovered item.",
+    "style": "Luxury Noir",
+    "tags": [
+      "Framer Motion",
+      "Luxury",
+      "Menu",
+      "Serif"
+    ],
+    "claudePrompt": "Build a \"Noir Atelier Menu\" React component.\n\nCONCEPT: The navigation of a couture house. A minimal top bar opens into a full-screen index of collections in large Bodoni italics.\n\nLAYOUT & CONTENT:\n- Top bar: wordmark 'MAISON NOIR' tracked, a 'Menu' text button.\n- Overlay: four links (Collections, Atelier, Journal, Appointments) with roman numerals I–IV, and a footer line 'Paris · Milano · Tel Aviv'.\n\nINTERACTIONS & MOTION:\n- Overlay fades in over 0.5s; links rise from y 100% inside masks, 120ms stagger, ease [0.22, 1, 0.36, 1] over 0.9s (deliberately slow).\n- A 1px champagne line slides under the hovered link via layoutId.\n- Non-hovered links dim to 35% opacity.\n\nDESIGN SYSTEM — Luxury Noir:\n- Near-black #0E0D0B background, champagne #CBB68B accent, ivory #EFE9DD text. No glow, no gradients.\n- Hairline 1px champagne rules, very generous spacing, slow and confident motion.\n- Type: Bodoni Moda (italic for accents) with tiny uppercase tracked labels.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const LINKS = [\"Collections\", \"Atelier\", \"Journal\", \"Appointments\"];\nconst ROMAN = [\"I\", \"II\", \"III\", \"IV\"];\nfunction Demo() {\n  const [open, setOpen] = useState(true);\n  const [h, setH] = useState(null);\n  return (\n    <div className=\"relative h-full w-full overflow-hidden bg-[#0E0D0B] text-[#EFE9DD]\" style={{ fontFamily: \"'Bodoni Moda', serif\" }}>\n      <header className=\"relative z-20 flex items-center justify-between border-b border-[#CBB68B]/30 px-6 py-4 text-[10px] uppercase tracking-[0.4em]\">\n        <span>Maison Noir</span>\n        <button onClick={() => setOpen(!open)} className=\"text-[#CBB68B]\">{open ? \"Close\" : \"Menu\"}</button>\n      </header>\n      <AnimatePresence>\n        {open && (\n          <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className=\"absolute inset-0 z-10 flex flex-col justify-center px-8 pt-10\" onPointerLeave={() => setH(null)}>\n            {LINKS.map((l, i) => (\n              <div key={l} className=\"overflow-hidden py-0.5\">\n                <motion.a href=\"#\" onPointerEnter={() => setH(i)} initial={{ y: \"100%\" }} animate={{ y: \"0%\", opacity: h === null || h === i ? 1 : 0.35 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 + i * 0.12 }}\n                  className=\"relative flex w-fit items-baseline gap-4 text-[2.5rem] italic leading-tight\">\n                  <span className=\"w-8 text-[10px] not-italic tracking-[0.3em] text-[#CBB68B]\">{ROMAN[i]}</span>{l}\n                  {h === i && <motion.span layoutId=\"noir-line\" className=\"absolute -bottom-0.5 left-12 right-0 h-px bg-[#CBB68B]\" transition={{ type: \"spring\", stiffness: 300, damping: 34 }} />}\n                </motion.a>\n              </div>\n            ))}\n            <p className=\"mt-6 text-[10px] uppercase tracking-[0.4em] text-[#CBB68B]\">Paris · Milano · Tel Aviv</p>\n          </motion.nav>\n        )}\n      </AnimatePresence>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-040",
+    "slug": "washi-vertical-tabs",
+    "title": "Washi Vertical Tabs",
+    "category": "Dynamic Accordions",
+    "description": "A Japanese-minimal accordion of tall vertical-text columns; opening one unrolls it like a scroll and stamps a vermilion seal.",
+    "style": "Japanese Minimal",
+    "tags": [
+      "Framer Motion",
+      "Japanese",
+      "Vertical Text",
+      "Accordion"
+    ],
+    "claudePrompt": "Build a \"Washi Vertical Tabs\" React component.\n\nCONCEPT: A tea house menu as an accordion of vertical columns written top-to-bottom. The open column widens to show the description.\n\nLAYOUT & CONTENT:\n- Four columns: 煎茶 Sencha, 抹茶 Matcha, 焙じ茶 Hojicha, 玄米茶 Genmaicha; collapsed shows only the vertical kanji.\n- Open column: kanji, romaji name, one-line description, price ¥680-style, and a small vermilion square seal.\n\nINTERACTIONS & MOTION:\n- Width animates via flexGrow 1 → 4 with spring stiffness 180 damping 26 (calm).\n- Seal stamps in: scale 1.6 → 1, rotate -12 → -4, opacity 0 → 1.\n- Text fades in 150ms after the column opens.\n\nDESIGN SYSTEM — Japanese Minimal:\n- Washi off-white #F4F0E6, sumi ink #1B1B1B, one vermilion #C8372D seal.\n- Asymmetry, generous negative space, vertical writing where it helps.\n- Type: Noto Serif JP for Japanese, Shippori-like serif feel for Latin.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const TEAS = [[\"煎茶\", \"Sencha\", \"Grassy, bright, everyday.\", 680], [\"抹茶\", \"Matcha\", \"Stone-ground, whisked to foam.\", 950], [\"焙じ茶\", \"Hojicha\", \"Roasted, nutty, low caffeine.\", 720], [\"玄米茶\", \"Genmaicha\", \"With toasted rice. Warm and round.\", 700]];\nfunction Demo() {\n  const [o, setO] = useState(1);\n  return (\n    <div className=\"flex h-full w-full gap-2 bg-[#F4F0E6] p-5 text-[#1B1B1B]\" style={{ fontFamily: \"'Noto Serif JP', serif\" }}>\n      {TEAS.map(([k, n, d, p], i) => {\n        const on = o === i;\n        return (\n          <motion.button key={n} onClick={() => setO(i)} aria-expanded={on} animate={{ flexGrow: on ? 4 : 1 }} transition={{ type: \"spring\", stiffness: 180, damping: 26 }}\n            className=\"relative flex basis-0 overflow-hidden border-l border-[#1B1B1B]/20 px-3 py-4 text-left\">\n            <span className=\"text-2xl tracking-[0.3em]\" style={{ writingMode: \"vertical-rl\" }}>{k}</span>\n            <AnimatePresence>\n              {on && (\n                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.15 } }} exit={{ opacity: 0 }} className=\"ml-4 flex min-w-[9rem] flex-col justify-between\">\n                  <div><div className=\"text-[10px] uppercase tracking-[0.3em] text-[#1B1B1B]/60\">{n}</div><p className=\"mt-2 text-sm leading-relaxed\">{d}</p></div>\n                  <div className=\"flex items-end justify-between\"><span className=\"text-lg\">¥{p}</span>\n                    <motion.span initial={{ scale: 1.6, rotate: -12, opacity: 0 }} animate={{ scale: 1, rotate: -4, opacity: 1 }} transition={{ type: \"spring\", stiffness: 400, damping: 15, delay: 0.25 }} className=\"flex h-9 w-9 items-center justify-center bg-[#C8372D] text-xs text-[#F4F0E6]\">茶</motion.span>\n                  </div>\n                </motion.div>\n              )}\n            </AnimatePresence>\n          </motion.button>\n        );\n      })}\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-041",
+    "slug": "holo-chrome-card",
+    "title": "Holo Chrome Card",
+    "category": "Parallax/3D Interactive Cards",
+    "description": "A Y2K membership card in brushed chrome; tilting it slides a holographic foil band across the surface and a starburst spins.",
+    "style": "Y2K Chrome",
+    "tags": [
+      "Framer Motion",
+      "Y2K",
+      "3D Tilt",
+      "Holographic"
+    ],
+    "claudePrompt": "Build a \"Holo Chrome Card\" React component.\n\nCONCEPT: A collectible-feeling membership card from 2001: chrome body, bubbly lowercase type, a starburst sticker, and a foil sheen that follows the tilt.\n\nLAYOUT & CONTENT:\n- Card 300x190, radius 24, chrome gradient fill, 2px dark outline.\n- Text: 'club cyber·cute' wordmark, member name 'dana l.', number '0042', 'expires never'.\n- Starburst badge 'VIP' in bubblegum pink top-right.\n\nINTERACTIONS & MOTION:\n- Pointer tilt ±14° rotateX/rotateY with springs (stiffness 200 damping 18).\n- Foil band (pastel rainbow linear-gradient at 60% opacity, mix-blend-mode overlay) translates with the tilt from -60% to 60%.\n- Starburst rotates continuously and speeds up on hover.\n\nDESIGN SYSTEM — Y2K Chrome:\n- Silver chrome gradients #E8ECF2→#9AA4B2, baby blue #A9D6FF, bubblegum #FFB7E1; dark outline #1C2230.\n- Glossy pill shapes, starbursts, holographic foil sheen that moves with the pointer (no glow).\n- Type: Syne 800 or a bubbly display face, all lowercase.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "function Demo() {\n  const px = useSpring(0, { stiffness: 200, damping: 18 });\n  const py = useSpring(0, { stiffness: 200, damping: 18 });\n  const rx = useTransform(py, [-1, 1], [14, -14]);\n  const ry = useTransform(px, [-1, 1], [-14, 14]);\n  const foil = useTransform(px, [-1, 1], [\"-60%\", \"60%\"]);\n  return (\n    <div className=\"flex h-full w-full items-center justify-center bg-[#DCE7F5]\" style={{ perspective: 900 }}\n      onPointerMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); px.set(((e.clientX - r.left) / r.width) * 2 - 1); py.set(((e.clientY - r.top) / r.height) * 2 - 1); }}\n      onPointerLeave={() => { px.set(0); py.set(0); }}>\n      <motion.div style={{ rotateX: rx, rotateY: ry, background: \"linear-gradient(135deg, #F4F7FB 0%, #B9C2CF 35%, #EEF2F7 55%, #9AA4B2 100%)\" }}\n        className=\"relative h-[190px] w-[300px] overflow-hidden rounded-[24px] border-2 border-[#1C2230] p-5 text-[#1C2230]\">\n        <motion.div style={{ x: foil, background: \"linear-gradient(100deg, transparent 20%, #FFB7E1 38%, #A9D6FF 50%, #C9FFE5 62%, transparent 80%)\" }} className=\"pointer-events-none absolute inset-y-0 -left-1/2 w-[200%] opacity-60 mix-blend-overlay\" />\n        <div className=\"relative text-2xl font-extrabold lowercase tracking-tight\" style={{ fontFamily: \"'Syne', sans-serif\" }}>club cyber·cute</div>\n        <motion.div animate={{ rotate: 360 }} whileHover={{ scale: 1.15 }} transition={{ repeat: Infinity, duration: 8, ease: \"linear\" }} className=\"absolute right-4 top-4 flex h-14 w-14 items-center justify-center bg-[#FFB7E1] text-[11px] font-extrabold\" style={{ clipPath: \"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)\" }}>VIP</motion.div>\n        <div className=\"absolute bottom-4 left-5 right-5 flex items-end justify-between font-mono text-xs lowercase\">\n          <div><div className=\"text-[9px] opacity-60\">member</div>dana l.</div>\n          <div className=\"text-right\"><div className=\"text-[9px] opacity-60\">no. 0042</div>expires never</div>\n        </div>\n      </motion.div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-042",
+    "slug": "retro-os-signup-dialog",
+    "title": "Retro OS Signup Dialog",
+    "category": "Interactive Forms",
+    "description": "A beveled 1995-desktop dialog box: the progress bar fills in chunky blocks and the window can be dragged around the teal desktop.",
+    "style": "Retro OS",
+    "tags": [
+      "Framer Motion",
+      "Retro",
+      "Windows 95",
+      "Form",
+      "Drag"
+    ],
+    "claudePrompt": "Build a \"Retro OS Signup Dialog\" React component.\n\nCONCEPT: A newsletter signup presented as an old-school desktop dialog window that you can drag. Submitting shows a blocky progress bar and a 'Setup complete' message.\n\nLAYOUT & CONTENT:\n- Navy title bar 'Subscribe.exe' with _ □ ✕ buttons; grey body; label + sunken text field for email; checkbox 'Send me the weekly digest'.\n- Buttons 'OK' and 'Cancel' with classic 2px bevels; a floppy-disk style icon.\n\nINTERACTIONS & MOTION:\n- Window drag via drag with dragConstraints to the desktop, dragMomentum false.\n- OK: progress bar fills with 12 discrete blocks (one every 120ms), then the dialog content swaps to 'Setup complete. Welcome aboard.'\n- Buttons invert their bevel when pressed (inset look).\n\nDESIGN SYSTEM — Retro OS:\n- Classic desktop: teal desktop #008080, window grey #C0C0C0, navy title bar #000080.\n- Beveled 2px borders (white top-left, dark bottom-right) on every control.\n- Type: pixel-ish sans (Pixelify Sans) or MS Sans Serif stand-in.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const bevel = { boxShadow: \"inset -2px -2px 0 #404040, inset 2px 2px 0 #FFFFFF, inset -3px -3px 0 #808080\" };\nconst sunken = { boxShadow: \"inset 2px 2px 0 #808080, inset -2px -2px 0 #FFFFFF, inset 3px 3px 0 #404040\" };\nfunction Demo() {\n  const desk = useRef(null);\n  const [email, setEmail] = useState(\"dana@kiln.co\");\n  const [blocks, setBlocks] = useState(-1);\n  useEffect(() => {\n    if (blocks < 0 || blocks >= 12) return;\n    const t = setTimeout(() => setBlocks(blocks + 1), 120);\n    return () => clearTimeout(t);\n  }, [blocks]);\n  const done = blocks >= 12;\n  return (\n    <div ref={desk} className=\"relative flex h-full w-full items-center justify-center bg-[#008080] text-black\" style={{ fontFamily: \"'Pixelify Sans', 'Tahoma', sans-serif\" }}>\n      <motion.div drag dragConstraints={desk} dragMomentum={false} className=\"w-[300px] cursor-move bg-[#C0C0C0] p-[3px]\" style={bevel}>\n        <div className=\"flex items-center justify-between bg-[#000080] px-1.5 py-1 text-xs font-bold text-white\">\n          <span>Subscribe.exe</span>\n          <div className=\"flex gap-0.5\">{[\"_\", \"□\", \"✕\"].map((c) => <span key={c} className=\"flex h-4 w-4 items-center justify-center bg-[#C0C0C0] text-[10px] text-black\" style={bevel}>{c}</span>)}</div>\n        </div>\n        <div className=\"space-y-3 p-3 text-xs\">\n          {done ? (\n            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className=\"py-6 text-center text-sm\">Setup complete.<br />Welcome aboard.</motion.p>\n          ) : (\n            <>\n              <label className=\"block\">E-mail address:\n                <input value={email} onChange={(e) => setEmail(e.target.value)} className=\"mt-1 block w-full bg-white px-1.5 py-1 outline-none\" style={sunken} />\n              </label>\n              <label className=\"flex items-center gap-2\"><input type=\"checkbox\" defaultChecked /> Send me the weekly digest</label>\n              <div className=\"flex h-5 gap-[2px] bg-white p-[2px]\" style={sunken}>\n                {Array.from({ length: 12 }).map((_, i) => <span key={i} className={\"h-full flex-1 \" + (i < blocks ? \"bg-[#000080]\" : \"\")} />)}\n              </div>\n            </>\n          )}\n          <div className=\"flex justify-end gap-2\">\n            {[\"OK\", \"Cancel\"].map((b) => (\n              <motion.button key={b} onPointerDown={(e) => e.stopPropagation()} onClick={() => b === \"OK\" ? setBlocks(0) : setBlocks(-1)} whileTap={sunken} className=\"w-16 bg-[#C0C0C0] py-1\" style={bevel}>{b}</motion.button>\n            ))}\n          </div>\n        </div>\n      </motion.div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-043",
+    "slug": "clay-inflate-buttons",
+    "title": "Clay Inflate Buttons",
+    "category": "Tactile Micro-Interaction Buttons",
+    "description": "Puffy pastel clay buttons with inner highlights that deflate when pressed and re-inflate with a wobble.",
+    "style": "Claymorphism",
+    "tags": [
+      "Framer Motion",
+      "Claymorphism",
+      "Soft UI",
+      "Buttons"
+    ],
+    "claudePrompt": "Build a \"Clay Inflate Buttons\" React component.\n\nCONCEPT: A set of chunky clay-like buttons and an icon toggle that look inflated, deflate on press and wobble back.\n\nLAYOUT & CONTENT:\n- Three buttons: lilac 'Get started', peach 'Learn more', mint icon-only heart toggle.\n- Each: radius 999, outer soft drop shadow, inset white highlight top-left, inset darker shade bottom-right.\n\nINTERACTIONS & MOTION:\n- whileTap: scale 0.92 and shadows shrink (deflate).\n- On release spring back with low damping (stiffness 400, damping 9) for a wobble.\n- Heart toggle: icon scales 0 → 1.3 → 1 when turning on.\n\nDESIGN SYSTEM — Claymorphism:\n- Pastel lilac #CDB8FF, peach #FFC9A9, mint #B8F0D8 on #F3EEFF.\n- Inflated rounded shapes: big radius, outer soft shadow plus inner highlight and inner shade (inset shadows).\n- Type: Fredoka 600; everything feels squishy.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "function clay(c) { return { background: c, boxShadow: \"12px 14px 28px rgba(80,60,140,0.25), inset -6px -8px 14px rgba(0,0,0,0.10), inset 8px 8px 14px rgba(255,255,255,0.75)\" }; }\nconst pressed = { scale: 0.92, boxShadow: \"4px 5px 10px rgba(80,60,140,0.2), inset -3px -4px 8px rgba(0,0,0,0.12), inset 4px 4px 8px rgba(255,255,255,0.6)\" };\nfunction Demo() {\n  const [liked, setLiked] = useState(false);\n  return (\n    <div className=\"flex h-full w-full flex-wrap items-center justify-center gap-6 bg-[#F3EEFF] text-[#3B2B63]\" style={{ fontFamily: \"'Fredoka', sans-serif\" }}>\n      <motion.button whileTap={pressed} whileHover={{ y: -3 }} transition={{ type: \"spring\", stiffness: 400, damping: 9 }} className=\"rounded-full px-7 py-4 text-lg font-semibold\" style={clay(\"#CDB8FF\")}>Get started</motion.button>\n      <motion.button whileTap={pressed} whileHover={{ y: -3 }} transition={{ type: \"spring\", stiffness: 400, damping: 9 }} className=\"rounded-full px-7 py-4 text-lg font-semibold\" style={clay(\"#FFC9A9\")}>Learn more</motion.button>\n      <motion.button aria-pressed={liked} aria-label=\"Like\" onClick={() => setLiked(!liked)} whileTap={pressed} transition={{ type: \"spring\", stiffness: 400, damping: 9 }} className=\"flex h-16 w-16 items-center justify-center rounded-full\" style={clay(\"#B8F0D8\")}>\n        <motion.span key={String(liked)} initial={{ scale: liked ? 0 : 1 }} animate={{ scale: liked ? [0, 1.3, 1] : 1 }}>\n          <Heart size={26} strokeWidth={2.2} fill={liked ? \"#FF7AA8\" : \"none\"} color={liked ? \"#FF7AA8\" : \"#3B2B63\"} />\n        </motion.span>\n      </motion.button>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-044",
+    "slug": "riso-overprint-headline",
+    "title": "Riso Overprint Headline",
+    "category": "Kinetic Typography Banners",
+    "description": "A zine headline printed in two riso inks; the pink and blue layers drift out of registration following the cursor, overlapping in multiply.",
+    "style": "Risograph Zine",
+    "tags": [
+      "Framer Motion",
+      "Risograph",
+      "Zine",
+      "Mix Blend"
+    ],
+    "claudePrompt": "Build a \"Riso Overprint Headline\" React component.\n\nCONCEPT: A headline that looks run through a Risograph: the same word printed twice in pink and blue, multiplied together, with misregistration that follows the cursor.\n\nLAYOUT & CONTENT:\n- Headline 'ZINE FEST' stacked on two lines, Archivo Black ~5rem.\n- Halftone dot circle in blue behind; tag line 'Issue 7 · Print is not dead'.\n- Newsprint background with a faint noise texture.\n\nINTERACTIONS & MOTION:\n- Pink layer offset = pointer * 8px, blue layer = pointer * -6px, both via springs (stiffness 150 damping 15).\n- mix-blend-mode multiply on both layers so the overlap turns deep purple.\n- Click re-randomizes the halftone dot size.\n\nDESIGN SYSTEM — Risograph Zine:\n- Fluorescent pink #FF48B0 and riso blue #0078BF overprinting on newsprint #F2EFE4.\n- mix-blend-mode: multiply for overlaps, deliberate 2–4px misregistration, halftone dots.\n- Type: Archivo Black condensed feel, rough and loud.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "function Demo() {\n  const mx = useSpring(0, { stiffness: 150, damping: 15 });\n  const my = useSpring(0, { stiffness: 150, damping: 15 });\n  const pX = useTransform(mx, (v) => v * 8), pY = useTransform(my, (v) => v * 8);\n  const bX = useTransform(mx, (v) => v * -6), bY = useTransform(my, (v) => v * -6);\n  const [dot, setDot] = useState(9);\n  const word = <>ZINE<br />FEST</>;\n  return (\n    <div onClick={() => setDot(6 + Math.round(Math.random() * 8))} onPointerMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); mx.set(((e.clientX - r.left) / r.width) * 2 - 1); my.set(((e.clientY - r.top) / r.height) * 2 - 1); }} onPointerLeave={() => { mx.set(0); my.set(0); }}\n      className=\"relative flex h-full w-full cursor-crosshair flex-col justify-center overflow-hidden bg-[#F2EFE4] px-10\" style={{ fontFamily: \"'Archivo Black', sans-serif\" }}>\n      <motion.div animate={{ backgroundSize: dot + \"px \" + dot + \"px\" }} className=\"absolute right-6 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full mix-blend-multiply\" style={{ backgroundImage: \"radial-gradient(#0078BF 40%, transparent 42%)\", backgroundSize: dot + \"px \" + dot + \"px\" }} />\n      <div className=\"relative text-[5rem] leading-[0.88]\">\n        <motion.div style={{ x: pX, y: pY }} className=\"text-[#FF48B0] mix-blend-multiply\">{word}</motion.div>\n        <motion.div style={{ x: bX, y: bY }} className=\"absolute inset-0 text-[#0078BF] mix-blend-multiply\">{word}</motion.div>\n      </div>\n      <p className=\"relative mt-4 font-mono text-xs uppercase tracking-widest text-[#0078BF]\">Issue 7 · Print is not dead · click to reprint</p>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-045",
+    "slug": "organic-blob-hero",
+    "title": "Organic Blob Hero",
+    "category": "Editorial Hero Sections",
+    "description": "A calm wellness hero where sage and clay blobs morph slowly behind a DM Serif headline, breathing in and out.",
+    "style": "Organic Earth",
+    "tags": [
+      "Framer Motion",
+      "Organic",
+      "SVG Morph",
+      "Wellness"
+    ],
+    "claudePrompt": "Build a \"Organic Blob Hero\" React component.\n\nCONCEPT: A slow, breathing hero for a botanical skincare brand. Soft SVG blobs morph between shapes and the CTA pulses like a heartbeat at rest.\n\nLAYOUT & CONTENT:\n- Headline 'Rooted in / slow rituals.' in DM Serif Display, moss color.\n- Two blobs (sage and clay) behind the right half, one leaf outline icon.\n- CTA 'Shop the ritual' moss pill, small text 'Plant-based · Refillable'.\n\nINTERACTIONS & MOTION:\n- Blob paths morph between 3 shapes on an 8s ease-in-out loop (animate the d attribute).\n- Blobs also rotate slowly (40s per turn) in opposite directions.\n- CTA scale [1, 1.03, 1] every 4s; hover lifts it.\n\nDESIGN SYSTEM — Organic Earth:\n- Sage #A3B18A, moss #3A5A40, clay #DDA15E, bone #F7F3EA.\n- Soft blob shapes that morph slowly; rounded, calm, breathing motion.\n- Type: DM Serif Display for headlines, DM Sans for body.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const A = [\"M60,-60C78,-40,92,-20,90,-2C88,17,70,34,52,50C34,66,17,80,-3,83C-23,86,-46,77,-62,61C-78,45,-87,22,-86,0C-84,-21,-72,-42,-56,-62C-40,-82,-20,-100,0,-100C20,-100,41,-80,60,-60Z\", \"M55,-52C70,-38,80,-19,82,1C84,22,77,44,61,58C44,72,22,78,-1,79C-23,80,-46,76,-63,62C-80,48,-90,24,-88,2C-86,-20,-71,-41,-54,-55C-37,-69,-18,-77,1,-78C20,-79,40,-66,55,-52Z\", \"M64,-66C80,-48,88,-24,86,-2C84,20,72,40,56,55C40,70,20,80,-2,82C-24,84,-48,78,-64,63C-80,48,-88,24,-86,2C-84,-20,-72,-40,-56,-58C-40,-76,-20,-92,2,-94C24,-96,48,-84,64,-66Z\"];\nfunction Demo() {\n  return (\n    <div className=\"relative grid h-full w-full grid-cols-2 overflow-hidden bg-[#F7F3EA] p-7 text-[#3A5A40]\">\n      <div className=\"relative z-10 flex flex-col justify-center gap-4\">\n        <h1 className=\"text-[2.7rem] leading-[1] text-[#3A5A40]\" style={{ fontFamily: \"'DM Serif Display', serif\" }}>Rooted in<br /><span className=\"italic\">slow rituals.</span></h1>\n        <div className=\"flex items-center gap-3\">\n          <motion.button animate={{ scale: [1, 1.03, 1] }} whileHover={{ y: -2 }} transition={{ repeat: Infinity, duration: 4 }} className=\"rounded-full bg-[#3A5A40] px-5 py-2.5 text-sm text-[#F7F3EA]\" style={{ fontFamily: \"'DM Sans', sans-serif\" }}>Shop the ritual</motion.button>\n          <span className=\"text-[11px] uppercase tracking-wider opacity-70\">Plant-based · Refillable</span>\n        </div>\n      </div>\n      <div className=\"relative\">\n        <motion.svg viewBox=\"-100 -100 200 200\" className=\"absolute -right-10 top-0 h-[115%] w-[115%]\" animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 40, ease: \"linear\" }}>\n          <motion.path fill=\"#A3B18A\" animate={{ d: [A[0], A[1], A[2], A[0]] }} transition={{ repeat: Infinity, duration: 8, ease: \"easeInOut\" }} />\n        </motion.svg>\n        <motion.svg viewBox=\"-100 -100 200 200\" className=\"absolute bottom-0 left-4 h-1/2 w-1/2\" animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 30, ease: \"linear\" }}>\n          <motion.path fill=\"#DDA15E\" animate={{ d: [A[2], A[0], A[1], A[2]] }} transition={{ repeat: Infinity, duration: 9, ease: \"easeInOut\" }} />\n        </motion.svg>\n        <Leaf className=\"absolute right-12 top-1/2 text-[#F7F3EA]\" size={48} strokeWidth={1.2} />\n      </div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-046",
+    "slug": "art-deco-faq",
+    "title": "Art Deco FAQ",
+    "category": "Dynamic Accordions",
+    "description": "An emerald-and-gold accordion with stepped corners and a sunburst that fans open behind each answer.",
+    "style": "Art Deco",
+    "tags": [
+      "Framer Motion",
+      "Art Deco",
+      "Accordion",
+      "Luxury"
+    ],
+    "claudePrompt": "Build a \"Art Deco FAQ\" React component.\n\nCONCEPT: A hotel's FAQ in the style of a 1925 lobby: symmetric gold frame, Poiret One type, and a sunburst fan that opens with each answer.\n\nLAYOUT & CONTENT:\n- Title 'Guest Enquiries' centered between two thin double rules.\n- Three questions: check-in time, the rooftop bar dress code, airport transfers — with short real answers.\n- Each row ends with a gold diamond that rotates into a cross when open.\n\nINTERACTIONS & MOTION:\n- Answer panel height auto spring (stiffness 220 damping 28).\n- A sunburst (8 thin gold wedges) behind the answer scales from 0 to 1 from the top center, rotate -20 → 0.\n- Diamond rotates 45° and turns solid gold when open.\n\nDESIGN SYSTEM — Art Deco:\n- Deep emerald #0F3B33 and antique gold #C9A15B with ivory #F3EBD8.\n- Symmetry, fan and sunburst motifs, thin double rules, stepped corners.\n- Type: Poiret One for display, tracked uppercase labels.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const QA = [[\"What time is check-in?\", \"From 3 pm. Early arrival lounge opens at noon.\"], [\"Is there a dress code on the roof?\", \"Smart casual after 7 pm. Jackets optional, smiles required.\"], [\"Do you arrange airport transfers?\", \"Yes, by vintage car. Book 24 hours ahead at the desk.\"]];\nfunction Demo() {\n  const [o, setO] = useState(0);\n  return (\n    <div className=\"flex h-full w-full items-center justify-center bg-[#0F3B33] p-5 text-[#F3EBD8]\">\n      <div className=\"w-full max-w-md border border-[#C9A15B] p-1\"><div className=\"border border-[#C9A15B]/60 px-5 py-4\">\n        <h3 className=\"mb-3 text-center text-2xl tracking-[0.25em] text-[#C9A15B]\" style={{ fontFamily: \"'Poiret One', cursive\" }}>Guest Enquiries</h3>\n        {QA.map(([q, a], i) => (\n          <div key={q} className=\"border-t border-[#C9A15B]/40\">\n            <button aria-expanded={o === i} onClick={() => setO(o === i ? -1 : i)} className=\"flex w-full items-center justify-between py-2.5 text-left text-sm tracking-wide\" style={{ fontFamily: \"'Poiret One', cursive\" }}>\n              {q}\n              <motion.span animate={{ rotate: o === i ? 45 : 0, backgroundColor: o === i ? \"#C9A15B\" : \"rgba(0,0,0,0)\" }} className=\"h-3 w-3 rotate-45 border border-[#C9A15B]\" />\n            </button>\n            <AnimatePresence initial={false}>\n              {o === i && (\n                <motion.div initial={{ height: 0 }} animate={{ height: \"auto\" }} exit={{ height: 0 }} transition={{ type: \"spring\", stiffness: 220, damping: 28 }} className=\"relative overflow-hidden\">\n                  <motion.svg viewBox=\"-50 0 100 50\" className=\"absolute left-1/2 top-0 h-16 w-32 -translate-x-1/2\" initial={{ scale: 0, rotate: -20 }} animate={{ scale: 1, rotate: 0 }} style={{ originY: 0 }}>\n                    {Array.from({ length: 8 }).map((_, k) => <path key={k} d=\"M0 0 L-3 50 L3 50 Z\" fill=\"#C9A15B\" opacity=\"0.18\" transform={\"rotate(\" + (-70 + k * 20) + \")\"} />)}\n                  </motion.svg>\n                  <p className=\"relative pb-3 text-center text-xs leading-relaxed text-[#F3EBD8]/85\">{a}</p>\n                </motion.div>\n              )}\n            </AnimatePresence>\n          </div>\n        ))}\n      </div></div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-047",
+    "slug": "pixel-arcade-start-button",
+    "title": "Pixel Arcade Start Button",
+    "category": "Tactile Micro-Interaction Buttons",
+    "description": "An 8-bit 'PRESS START' screen: a blinking pixel prompt, a chunky stepped button that drops a pixel and a coin counter that ticks up.",
+    "style": "8-bit Arcade",
+    "tags": [
+      "Framer Motion",
+      "Pixel Art",
+      "Arcade",
+      "Retro"
+    ],
+    "claudePrompt": "Build a \"Pixel Arcade Start Button\" React component.\n\nCONCEPT: A game-start screen where the primary button behaves like an arcade cabinet button: hard pixel shadow, a one-step press, and a coin counter.\n\nLAYOUT & CONTENT:\n- Title 'VAULT QUEST' in two pixel colors with a stepped drop shadow.\n- Blinking 'PRESS START' text; button 'INSERT COIN' red with 4px pixel shadow; 'CREDITS 00' counter top-right.\n\nINTERACTIONS & MOTION:\n- Blink with steps: opacity [1,1,0,0] repeat at 1s, ease 'linear' discrete.\n- Button press moves exactly 4px down-right and removes the shadow (no squish — pixels don't squish).\n- Each press increments credits with a quick y bounce on the number.\n\nDESIGN SYSTEM — 8-bit Arcade:\n- Arcade black #111 screen, pixel palette: red #FF004D, yellow #FFEC27, green #00E436, blue #29ADFF, white.\n- Square pixels only: no radius, stepped (steps()) easing allowed for blinks.\n- Type: Press Start 2P.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "function Demo() {\n  const [credits, setCredits] = useState(0);\n  return (\n    <div className=\"relative flex h-full w-full flex-col items-center justify-center gap-6 bg-[#111] text-white\" style={{ fontFamily: \"'Press Start 2P', monospace\", imageRendering: \"pixelated\" }}>\n      <div className=\"absolute right-4 top-4 flex gap-2 text-[10px] text-[#FFEC27]\">CREDITS\n        <motion.span key={credits} initial={{ y: -6 }} animate={{ y: 0 }} transition={{ type: \"spring\", stiffness: 900, damping: 15 }}>{String(credits).padStart(2, \"0\")}</motion.span>\n      </div>\n      <h2 className=\"text-center text-2xl leading-relaxed\" style={{ textShadow: \"4px 4px 0 #29ADFF\" }}><span className=\"text-[#FF004D]\">VAULT</span><br /><span className=\"text-[#00E436]\">QUEST</span></h2>\n      <motion.p animate={{ opacity: [1, 1, 0, 0] }} transition={{ repeat: Infinity, duration: 1, ease: \"linear\", times: [0, 0.5, 0.5, 1] }} className=\"text-[10px]\">PRESS START</motion.p>\n      <motion.button onClick={() => setCredits((c) => Math.min(99, c + 1))} initial={{ boxShadow: \"4px 4px 0 #FFFFFF\" }} whileTap={{ x: 4, y: 4, boxShadow: \"0px 0px 0 #FFFFFF\" }} transition={{ duration: 0 }} className=\"bg-[#FF004D] px-5 py-3 text-xs\">INSERT COIN</motion.button>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-048",
+    "slug": "mono-data-bento",
+    "title": "Mono Data Bento",
+    "category": "Bento Feature Grids",
+    "description": "A dense dashboard bento in slate and IBM Plex Mono: live-ticking metrics, a drawing sparkline and a status grid that flickers like a server rack.",
+    "style": "Mono Data",
+    "tags": [
+      "Framer Motion",
+      "Dashboard",
+      "Data",
+      "Monospace"
+    ],
+    "claudePrompt": "Build a \"Mono Data Bento\" React component.\n\nCONCEPT: An ops-dashboard bento for a developer tool: requests per second ticking live, a latency sparkline, and an uptime grid of 48 tiny cells.\n\nLAYOUT & CONTENT:\n- Tile 1 (wide): 'REQ/S' big tabular number ticking every 700ms with a delta badge.\n- Tile 2: 'P95 LATENCY 182ms' with an SVG sparkline.\n- Tile 3: 'UPTIME 99.98%' and a 12x4 grid of cells (one amber incident cell).\n- Tile 4: region list fra1 / iad1 / sin1 with status dots.\n\nINTERACTIONS & MOTION:\n- Numbers animate to new values with a spring on a motion value, rendered rounded.\n- Sparkline path draws in with pathLength and shifts left by one point each tick.\n- Uptime cells fade in with a random stagger on mount.\n\nDESIGN SYSTEM — Mono Data:\n- Slate #0F172A panel, #1E293B cards, #E2E8F0 text, single signal color lime #A3E635 for live values (flat, no glow).\n- Dense grid, tabular numbers, sparklines, tiny uppercase labels.\n- Type: IBM Plex Mono throughout.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "function Demo() {\n  const [rps, setRps] = useState(1284);\n  const [pts, setPts] = useState([30, 34, 28, 40, 36, 44, 38, 50, 42, 46, 40, 48]);\n  useEffect(() => {\n    const t = setInterval(() => { setRps((v) => Math.max(900, Math.round(v + (Math.random() - 0.45) * 120))); setPts((p) => p.slice(1).concat(30 + Math.round(Math.random() * 24))); }, 700);\n    return () => clearInterval(t);\n  }, []);\n  const d = pts.map((y, i) => (i ? \"L\" : \"M\") + i * 14 + \" \" + (60 - y)).join(\" \");\n  const cell = \"rounded-[3px] bg-[#1E293B] p-3\";\n  return (\n    <div className=\"grid h-full w-full grid-cols-3 grid-rows-2 gap-2 bg-[#0F172A] p-3 text-[#E2E8F0]\" style={{ fontFamily: \"'IBM Plex Mono', monospace\" }}>\n      <div className={cell + \" col-span-2 flex flex-col justify-between\"}>\n        <div className=\"flex justify-between text-[10px] uppercase tracking-widest text-[#94A3B8]\"><span>req/s · global</span><span className=\"text-[#A3E635]\">● live</span></div>\n        <div className=\"flex items-end gap-3\"><span className=\"text-5xl tabular-nums\">{rps.toLocaleString(\"en-US\")}</span><span className=\"mb-2 rounded bg-[#A3E635]/15 px-1.5 text-[10px] text-[#A3E635]\">+4.2%</span></div>\n      </div>\n      <div className={cell + \" flex flex-col justify-between\"}>\n        <span className=\"text-[10px] uppercase tracking-widest text-[#94A3B8]\">uptime 30d</span>\n        <span className=\"text-xl tabular-nums\">99.98%</span>\n        <div className=\"grid grid-cols-12 gap-[2px]\">{Array.from({ length: 48 }).map((_, i) => <motion.span key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: (i * 37 % 48) / 60 }} className={\"h-2 rounded-[1px] \" + (i === 31 ? \"bg-[#F59E0B]\" : \"bg-[#A3E635]/70\")} />)}</div>\n      </div>\n      <div className={cell + \" col-span-2 flex flex-col justify-between\"}>\n        <div className=\"flex justify-between text-[10px] uppercase tracking-widest text-[#94A3B8]\"><span>p95 latency</span><span className=\"text-[#E2E8F0]\">182ms</span></div>\n        <svg viewBox=\"0 0 154 60\" className=\"h-16 w-full\" preserveAspectRatio=\"none\"><motion.path d={d} fill=\"none\" stroke=\"#A3E635\" strokeWidth=\"1.5\" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.6 }} /></svg>\n      </div>\n      <div className={cell + \" flex flex-col justify-center gap-1.5 text-xs\"}>\n        {[[\"fra1\", \"#A3E635\"], [\"iad1\", \"#A3E635\"], [\"sin1\", \"#F59E0B\"]].map(([r, c]) => <div key={r} className=\"flex items-center justify-between\"><span>{r}</span><span className=\"h-2 w-2 rounded-full\" style={{ background: c }} /></div>)}\n      </div>\n    </div>\n  );\n}\nrender(<Demo />);",
+    "addedAt": "2026-10-10"
+  },
+  {
+    "id": "vault-049",
+    "slug": "swiss-grid-index-nav",
+    "title": "Swiss Grid Index Nav",
+    "category": "Animated Navigation Bars",
+    "description": "A strict red-black-white Swiss navigation: giant numerals on a modular grid, a red bar that snaps between columns.",
+    "style": "Swiss International",
+    "tags": [
+      "Framer Motion",
+      "Swiss",
+      "Grid",
+      "Navigation"
+    ],
+    "claudePrompt": "Build a \"Swiss Grid Index Nav\" React component.\n\nCONCEPT: A museum website navigation in the International Typographic Style: four columns, each with a huge numeral and a section name; a red bar marks the current one.\n\nLAYOUT & CONTENT:\n- Columns: 1 Exhibitions, 2 Collection, 3 Visit, 4 Shop. Numerals ~6rem bold black; labels 13px.\n- Top-left wordmark 'Kunsthalle' with 'Zürich' below; top-right 'DE / EN'.\n\nINTERACTIONS & MOTION:\n- A 6px red bar at the top of the active column moves via layoutId (stiffness 600 damping 40, snappy).\n- Hover a column: numeral turns red; the others stay black.\n- Arrow keys move between columns.\n\nDESIGN SYSTEM — Swiss International:\n- Pure white, black, and signal red #E30613 only.\n- Strict modular grid, flush-left ragged-right, huge numerals, no ornament.\n- Type: Inter Tight / Helvetica-like grotesk, bold weights.\n\nCRAFT RULES:\n- Motion: Framer Motion with spring physics (type: \"spring\"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().\n- Icons: lucide-react where icons are needed.\n- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.\n\nOUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with \"use client\". Load any Google Font it needs with next/font/google.",
+    "previewCode": "const COLS = [\"Exhibitions\", \"Collection\", \"Visit\", \"Shop\"];\nfunction Demo() {\n  const [a, setA] = useState(0);\n  const [h, setH] = useState(null);\n  return (\n    <div className=\"flex h-full w-full flex-col bg-white text-black\" style={{ fontFamily: \"'Inter Tight', 'Helvetica Neue', Arial, sans-serif\" }}>\n      <div className=\"flex items-start justify-between p-4 text-xs font-bold leading-tight\"><span>Kunsthalle<br /><span className=\"font-normal\">Zürich</span></span><span>DE / <span className=\"text-[#E30613]\">EN</span></span></div>\n      <nav className=\"grid flex-1 grid-cols-4 border-t-2 border-black\" onKeyDown={(e) => { if (e.key === \"ArrowRight\") setA((a + 1) % 4); if (e.key === \"ArrowLeft\") setA((a + 3) % 4); }}>\n        {COLS.map((c, i) => (\n          <button key={c} onClick={() => setA(i)} onPointerEnter={() => setH(i)} onPointerLeave={() => setH(null)} className=\"relative flex flex-col justify-between border-r border-black/15 p-3 text-left last:border-r-0\">\n            {a === i && <motion.span layoutId=\"swiss-bar\" transition={{ type: \"spring\", stiffness: 600, damping: 40 }} className=\"absolute inset-x-0 top-0 h-1.5 bg-[#E30613]\" />}\n            <span className={\"text-[5.5rem] font-bold leading-none tracking-tighter transition-colors \" + (h === i || a === i ? \"text-[#E30613]\" : \"\")}>{i + 1}</span>\n            <span className=\"text-[13px] font-semibold\">{c}</span>\n          </button>\n        ))}\n      </nav>\n    </div>\n  );\n}\nrender(<Demo />);",
     "addedAt": "2026-10-10"
   }
 ]

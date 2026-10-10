@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy } from "lucide-react";
 import { useToast } from "./Toast";
+import { useLang } from "@/lib/i18n";
 
 export async function copyText(text) {
   try {
@@ -23,7 +24,10 @@ export async function copyText(text) {
   }
 }
 
-export default function CopyButton({ text, label = "Copy Claude Prompt", toastMessage = "Prompt copied", toastSub, variant = "solid", size = "md", className = "" }) {
+export default function CopyButton({ text, label, toastMessage, toastSub, variant = "solid", size = "md", className = "" }) {
+  const { t } = useLang();
+  label = label ?? t.copy.prompt;
+  toastMessage = toastMessage ?? t.copy.toast;
   const [done, setDone] = useState(false);
   const { toast } = useToast();
 
@@ -69,7 +73,7 @@ export default function CopyButton({ text, label = "Copy Claude Prompt", toastMe
           )}
         </AnimatePresence>
       </span>
-      {done ? "Copied" : label}
+      {done ? t.copy.copied : label}
     </motion.button>
   );
 }

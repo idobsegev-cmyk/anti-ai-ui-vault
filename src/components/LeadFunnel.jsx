@@ -3,17 +3,16 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Send } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 
-const BANNER = "Need a high-converting, award-winning site for your business?".split(" ");
 
-const TYPES = ["Business site", "Online shop", "Landing page", "Portfolio", "Web app"];
 const BUDGETS = ["< $3k", "$3–8k", "$8–20k", "$20k+"];
 
-function Word({ word, i, total, progress }) {
+function Word({ word, i, total, progress, accentWord }) {
   const start = i / total;
   const opacity = useTransform(progress, [start * 0.6, start * 0.6 + 0.18], [0.12, 1]);
   const y = useTransform(progress, [start * 0.6, start * 0.6 + 0.18], [18, 0]);
-  const accent = word.startsWith("award") ? "font-serif font-normal italic text-terracotta" : "";
+  const accent = word.includes(accentWord) ? "font-serif font-normal italic text-terracotta rtl:not-italic" : "";
   return (
     <motion.span style={{ opacity, y }} className={`mr-[0.22em] inline-block ${accent}`}>
       {word}
@@ -36,8 +35,7 @@ function Field({ id, label, type = "text", value, onChange, autoComplete, textar
         htmlFor={id}
         animate={{ y: up ? -24 : 0, scale: up ? 0.72 : 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 35 }}
-        style={{ originX: 0 }}
-        className={`pointer-events-none absolute left-0 top-7 text-xl ${error ? "text-terracotta" : "text-ink-2"}`}
+        className={`pointer-events-none absolute start-0 top-7 origin-left text-xl rtl:origin-right ${error ? "text-terracotta" : "text-ink-2"}`}
       >
         {error || label}
       </motion.label>
@@ -57,7 +55,7 @@ function Field({ id, label, type = "text", value, onChange, autoComplete, textar
       <motion.span
         animate={{ scaleX: focus ? 1 : 0 }}
         transition={{ type: "spring", stiffness: 400, damping: 35 }}
-        className="absolute -bottom-px left-0 h-[2px] w-full origin-left bg-cobalt"
+        className="absolute -bottom-px left-0 h-[2px] w-full origin-left bg-cobalt rtl:origin-right"
       />
     </motion.div>
   );
@@ -93,7 +91,6 @@ function Chips({ options, value, onChange, label }) {
   );
 }
 
-const STEP_TITLES = ["Who are we talking to?", "How do we reach you?", "What are we building?"];
 
 async function postLead(form) {
   const res = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
@@ -101,6 +98,9 @@ async function postLead(form) {
 }
 
 export default function LeadFunnel({ submitLead = postLead, note }) {
+  const { t } = useLang();
+  const L = t.lead;
+  const BANNER = L.banner.split(" ");
   const section = useRef(null);
   const { scrollYProgress } = useScroll({ target: section, offset: ["start 85%", "start 15%"] });
 
@@ -114,13 +114,13 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
 
   const validate = (s) => {
     const e = {};
-    if (s === 0 && form.name.trim().length < 2) e.name = "Your name, please";
+    if (s === 0 && form.name.trim().length < 2) e.name = L.errName;
     if (s === 1) {
       const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email);
       const phoneOk = form.phone.replace(/\D/g, "").length >= 7;
-      if (!emailOk && !phoneOk) e.email = "An email or a phone number";
+      if (!emailOk && !phoneOk) e.email = L.errContact;
     }
-    if (s === 2 && !form.type) e.type = "Pick one";
+    if (s === 2 && !form.type) e.type = L.errType;
     setErrors((prev) => {
       const n = {};
       for (const k of Object.keys(e)) n[k] = `${e[k]}${prev[k] ? "​" : ""}`; // retrigger shake
@@ -155,21 +155,20 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
   return (
     <section id="custom" ref={section} className="scroll-mt-20 border-b border-ink bg-paper" aria-labelledby="custom-title">
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-28">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">Studio — by commission</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">{L.kicker}</p>
         <h2 id="custom-title" className="mt-3 max-w-6xl text-[clamp(2.4rem,6.4vw,6.4rem)] font-semibold leading-[0.92] tracking-[-0.05em]">
           {BANNER.map((w, i) => (
-            <Word key={i} word={w} i={i} total={BANNER.length} progress={scrollYProgress} />
+            <Word key={i} word={w} i={i} total={BANNER.length} progress={scrollYProgress} accentWord={L.accentWord} />
           ))}
         </h2>
 
         <div className="mt-14 grid grid-cols-12 gap-8">
           <aside className="col-span-12 flex flex-col justify-between gap-8 md:col-span-4">
             <p className="text-lg leading-snug text-ink-2">
-              The components in this vault are a sample of how we build client work: type set by hand, motion tuned on real devices, and pages
-              structured to turn visitors into enquiries.
+              {L.aside}
             </p>
             <ul className="border-t border-ink">
-              {["Strategy, copy & design in one team", "Next.js build, fast by default", "SEO structure & analytics from day one", "4–6 weeks for most studio sites"].map((t) => (
+              {L.bullets.map((t) => (
                 <li key={t} className="flex items-center gap-3 border-b border-ink py-3 text-sm">
                   <span className="h-2 w-2 rounded-full bg-terracotta" />
                   {t}
@@ -184,12 +183,12 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
                 {status === "done" ? (
                   <motion.div key="done" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 260, damping: 24 }} className="flex min-h-[340px] flex-col items-start justify-center gap-4">
                     <motion.span initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: -6 }} transition={{ type: "spring", stiffness: 400, damping: 14, delay: 0.1 }} className="rounded-lg border-2 border-cobalt px-3 py-1 font-mono text-sm font-bold tracking-widest text-cobalt">
-                      RECEIVED
+                      {L.received}
                     </motion.span>
                     <h3 className="text-4xl font-semibold tracking-[-0.04em]">
-                      Thanks, {form.name.split(" ")[0]}. <span className="font-serif font-normal italic">Talk soon.</span>
+                      {L.thanks(form.name.split(" ")[0])} <span className="font-serif font-normal italic rtl:not-italic">{L.soon}</span>
                     </h3>
-                    <p className="max-w-md text-ink-2">You will hear back within one working day with a few questions and a rough plan.</p>
+                    <p className="max-w-md text-ink-2">{L.reply}</p>
                   </motion.div>
                 ) : (
                   <motion.form key="form" onSubmit={submit} noValidate exit={{ opacity: 0, y: -12 }} className="flex min-h-[340px] flex-col">
@@ -198,7 +197,7 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
 
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-[11px] uppercase tracking-[0.16em]">
-                        Step {step + 1} / 3
+                        {L.step(step + 1)}
                       </span>
                       <div className="flex w-40 gap-1.5">
                         {[0, 1, 2].map((i) => (
@@ -225,24 +224,24 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
                           transition={{ type: "spring", stiffness: 300, damping: 32 }}
                           className="flex flex-col gap-6"
                         >
-                          <h3 className="text-3xl font-semibold tracking-[-0.03em]">{STEP_TITLES[step]}</h3>
+                          <h3 className="text-3xl font-semibold tracking-[-0.03em]">{L.titles[step]}</h3>
                           {step === 0 && (
                             <>
-                              <Field id="name" label="Your name" value={form.name} onChange={set("name")} autoComplete="name" error={errors.name} />
-                              <Field id="company" label="Business name (optional)" value={form.company} onChange={set("company")} autoComplete="organization" />
+                              <Field id="name" label={L.name} value={form.name} onChange={set("name")} autoComplete="name" error={errors.name} />
+                              <Field id="company" label={L.company} value={form.company} onChange={set("company")} autoComplete="organization" />
                             </>
                           )}
                           {step === 1 && (
                             <>
-                              <Field id="email" type="email" label="Email" value={form.email} onChange={set("email")} autoComplete="email" error={errors.email} placeholder="you@business.com" />
-                              <Field id="phone" type="tel" label="Phone / WhatsApp (optional)" value={form.phone} onChange={set("phone")} autoComplete="tel" />
+                              <Field id="email" type="email" label={L.email} value={form.email} onChange={set("email")} autoComplete="email" error={errors.email} placeholder="you@business.com" />
+                              <Field id="phone" type="tel" label={L.phone} value={form.phone} onChange={set("phone")} autoComplete="tel" />
                             </>
                           )}
                           {step === 2 && (
                             <>
-                              <Chips label={errors.type ? `Project type — ${errors.type}` : "Project type"} options={TYPES} value={form.type} onChange={set("type")} />
-                              <Chips label="Budget (USD)" options={BUDGETS} value={form.budget} onChange={set("budget")} />
-                              <Field id="details" label="Anything we should know?" value={form.details} onChange={set("details")} textarea placeholder="Goals, deadline, sites you like…" />
+                              <Chips label={errors.type ? `${L.type} — ${errors.type}` : L.type} options={L.types} value={form.type} onChange={set("type")} />
+                              <Chips label={L.budget} options={BUDGETS} value={form.budget} onChange={set("budget")} />
+                              <Field id="details" label={L.details} value={form.details} onChange={set("details")} textarea placeholder={L.detailsPh} />
                             </>
                           )}
                         </motion.div>
@@ -251,7 +250,7 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
 
                     <div className="mt-8 flex items-center justify-between">
                       <button type="button" onClick={back} disabled={step === 0} className="focus-ring inline-flex items-center gap-1.5 text-sm underline-offset-4 hover:underline disabled:invisible">
-                        <ArrowLeft size={15} strokeWidth={1.75} /> Back
+                        <ArrowLeft size={15} strokeWidth={1.75} className="rtl:-scale-x-100" /> {L.back}
                       </button>
                       <motion.button
                         type="submit"
@@ -263,18 +262,18 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
                       >
                         {step < 2 ? (
                           <>
-                            Continue <ArrowRight size={15} strokeWidth={1.75} />
+                            {L.next} <ArrowRight size={15} strokeWidth={1.75} className="rtl:-scale-x-100" />
                           </>
                         ) : status === "sending" ? (
-                          "Sending…"
+                          L.sending
                         ) : (
                           <>
-                            Send brief <Send size={15} strokeWidth={1.75} />
+                            {L.send} <Send size={15} strokeWidth={1.75} className="rtl:-scale-x-100" />
                           </>
                         )}
                       </motion.button>
                     </div>
-                    {status === "error" && <p className="mt-3 text-sm text-terracotta">Something went wrong. Please try again in a moment.</p>}
+                    {status === "error" && <p className="mt-3 text-sm text-terracotta">{L.fail}</p>}
                     {note && <p className="mt-4 font-mono text-[11px] text-ink-3">{note}</p>}
                   </motion.form>
                 )}

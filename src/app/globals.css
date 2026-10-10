@@ -27,6 +27,22 @@
   color-scheme: light;
 }
 
+/* Hebrew: swap the site's type roles for Hebrew-capable faces */
+[lang="he"] {
+  font-family: var(--font-sans);
+  --font-sans: "Heebo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Frank Ruhl Libre", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Sans Hebrew", "Heebo", ui-monospace, monospace;
+}
+
+/* Live previews are English, left-to-right designs whatever the site language */
+.preview-scope {
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  font-family: var(--font-sans);
+}
+
 html {
   background: var(--color-paper);
   color: var(--color-ink);

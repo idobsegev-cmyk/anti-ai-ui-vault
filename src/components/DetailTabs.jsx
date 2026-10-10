@@ -5,14 +5,16 @@ import { LayoutGroup, motion, AnimatePresence } from "framer-motion";
 import { Code2, Eye, MessageSquareText, RotateCcw } from "lucide-react";
 import LivePreview from "./LivePreview";
 import CopyButton from "./CopyButton";
+import { useLang } from "@/lib/i18n";
 
 const TABS = [
-  { id: "preview", label: "Live Preview", Icon: Eye },
-  { id: "prompt", label: "Claude Prompt", Icon: MessageSquareText },
-  { id: "code", label: "Preview Code", Icon: Code2 },
+  { id: "preview", Icon: Eye },
+  { id: "prompt", Icon: MessageSquareText },
+  { id: "code", Icon: Code2 },
 ];
 
 export default function DetailTabs({ item }) {
+  const { t } = useLang();
   const [tab, setTab] = useState("preview");
   const [run, setRun] = useState(0);
 
@@ -21,7 +23,7 @@ export default function DetailTabs({ item }) {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink p-3">
         <LayoutGroup id="detail-tabs">
           <div role="tablist" aria-label="View" className="flex gap-1 rounded-full border border-ink p-1">
-            {TABS.map(({ id, label, Icon }) => (
+            {TABS.map(({ id, Icon }) => (
               <button
                 key={id}
                 role="tab"
@@ -33,7 +35,7 @@ export default function DetailTabs({ item }) {
                 {tab === id && <motion.span layoutId="detail-pill" transition={{ type: "spring", stiffness: 500, damping: 36 }} className="absolute inset-0 rounded-full bg-ink" />}
                 <span className={`relative flex items-center gap-1.5 ${tab === id ? "text-paper" : ""}`}>
                   <Icon size={14} strokeWidth={1.75} />
-                  <span className="hidden sm:inline">{label}</span>
+                  <span className="hidden sm:inline">{t.detail.tabs[id]}</span>
                 </span>
               </button>
             ))}
@@ -42,11 +44,11 @@ export default function DetailTabs({ item }) {
         <div className="flex items-center gap-2">
           {tab === "preview" && (
             <button onClick={() => setRun((r) => r + 1)} className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-ink px-3 py-1.5 text-xs hover:bg-paper-2">
-              <RotateCcw size={13} strokeWidth={1.75} /> Replay
+              <RotateCcw size={13} strokeWidth={1.75} /> {t.detail.replay}
             </button>
           )}
           {tab === "code" ? (
-            <CopyButton text={item.previewCode} label="Copy code" toastMessage="Code copied" variant="outline" size="sm" />
+            <CopyButton text={item.previewCode} label={t.copy.code} toastMessage={t.copy.codeToast} variant="outline" size="sm" />
           ) : (
             <CopyButton text={item.claudePrompt} size="sm" toastSub={item.title} />
           )}
@@ -67,10 +69,10 @@ export default function DetailTabs({ item }) {
             <LivePreview key={run} eager code={item.previewCode} id={`detail-${item.slug}`} className="h-[min(72vh,640px)] w-full bg-paper-2" fit maxScale={1.6} designWidth={640} designHeight={420} />
           )}
           {tab === "prompt" && (
-            <pre className="max-h-[560px] overflow-auto whitespace-pre-wrap bg-paper-2 p-6 font-mono text-[13px] leading-relaxed text-ink">{item.claudePrompt}</pre>
+            <pre dir="ltr" lang="en" className="max-h-[560px] overflow-auto whitespace-pre-wrap bg-paper-2 p-6 font-mono text-[13px] leading-relaxed text-ink">{item.claudePrompt}</pre>
           )}
           {tab === "code" && (
-            <pre className="max-h-[560px] overflow-auto bg-ink p-6 font-mono text-[12.5px] leading-relaxed text-paper">
+            <pre dir="ltr" className="max-h-[560px] overflow-auto bg-ink p-6 font-mono text-[12.5px] leading-relaxed text-paper">
               <code>{item.previewCode}</code>
             </pre>
           )}

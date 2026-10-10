@@ -22,7 +22,19 @@ DESIGN SYSTEM (non-negotiable):
 
 OUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with "use client".`.trim();
 
-export function buildPrompt({ title, brief, details, interactions }) {
+export const BASE_RULES = `
+CRAFT RULES:
+- Motion: Framer Motion with spring physics (type: "spring"). Animate transform and opacity only. Respect prefers-reduced-motion via useReducedMotion().
+- Icons: lucide-react where icons are needed.
+- Accessibility: real <button>/<a>/<label> elements, visible focus ring, keyboard operable, aria attributes where state changes.
+
+OUTPUT: one self-contained React component file (Tailwind CSS v4 utility classes, framer-motion, lucide-react), no external images, default export, ready to paste into a Next.js App Router page with "use client". Load any Google Font it needs with next/font/google.`.trim();
+
+export function designBlock(design) {
+  return [`DESIGN SYSTEM — ${design.name}:`, ...design.rules.map((r) => `- ${r}`), "", BASE_RULES].join("\n");
+}
+
+export function buildPrompt({ title, brief, details, interactions, design }) {
   return [
     `Build a "${title}" React component.`,
     "",
@@ -34,7 +46,7 @@ export function buildPrompt({ title, brief, details, interactions }) {
     "INTERACTIONS & MOTION:",
     ...interactions.map((d) => `- ${d}`),
     "",
-    STYLE_GUARDRAILS,
+    design ? designBlock(design) : STYLE_GUARDRAILS,
   ].join("\n");
 }
 
@@ -54,6 +66,7 @@ export function finalize(list, startIndex = 1) {
       title: item.title,
       category: item.category,
       description: item.description,
+      style: item.style || "Warm Editorial",
       tags: item.tags,
       claudePrompt: buildPrompt(item.prompt),
       previewCode: item.previewCode.trim(),

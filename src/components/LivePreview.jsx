@@ -56,7 +56,9 @@ export default function LivePreview({ code, id, designWidth = 520, designHeight 
   return (
     <div ref={wrap} className={`relative overflow-hidden ${className}`} style={fit ? undefined : { aspectRatio: `${designWidth} / ${designHeight}` }}>
       <div
-        className="absolute left-1/2 top-1/2"
+        className="preview-scope absolute left-1/2 top-1/2"
+        dir="ltr"
+        lang="en"
         style={{
           width: designWidth,
           height: designHeight,

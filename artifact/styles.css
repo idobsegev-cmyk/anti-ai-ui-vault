@@ -7,6 +7,13 @@
   --font-instrument-sans: "Instrument Sans";
   --font-instrument-serif: "Instrument Serif";
   --font-jetbrains: "JetBrains Mono";
+  --font-bricolage: "Bricolage Grotesque";
+  --font-caveat: "Caveat";
+  --font-bagel: "Bagel Fat One";
+  --font-unbounded: "Unbounded";
+  --font-bodoni: "Bodoni Moda";
+  --font-anton: "Anton";
+  --font-fraunces: "Fraunces";
   color-scheme: light;
 }
 html { scroll-behavior: smooth; }

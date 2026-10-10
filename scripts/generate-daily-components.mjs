@@ -91,6 +91,7 @@ function offlineCandidates(rand, existing) {
       title,
       category: f.category,
       description: f.description(v),
+      style: "Warm Editorial",
       tags: f.tags(v),
       claudePrompt: buildPrompt({ title, brief: p.brief, details: p.details, interactions: p.interactions }),
       previewCode: f.code(v).trim(),
@@ -110,9 +111,10 @@ async function claudeCandidates(n, existing) {
   const system = `You design animated React UI components for the "Anti-AI UI Vault": warm editorial, Swiss typography, human and tactile. ${STYLE_GUARDRAILS}`;
   const user = `Create ${n} NEW components (not variations of: ${existingTitles}).
 Spread them across these categories: ${CATEGORIES.join(", ")}.
+Give each one a DIFFERENT, clearly recognizable design language (e.g. Neo-Brutalist, Bauhaus, Swiss International, Memphis 90s, Retro 70s, Luxury Noir, Japanese Minimal, Y2K Chrome, Retro OS, Claymorphism, Risograph Zine, Organic Earth, Art Deco, 8-bit Arcade, Mono Data, or a new one) and name it in a "style" field. Google Fonts available in previews: Archivo Black, Space Mono, Syne, Fredoka, Shrikhand, DM Serif Display, DM Sans, Noto Serif JP, Pixelify Sans, Poiret One, Press Start 2P, IBM Plex Mono, Inter Tight, Bodoni Moda.
 
 Return ONLY a JSON array. Each element:
-{"title": string, "category": one of the categories above, "description": 1-2 sentences, "tags": 3-5 strings,
+{"title": string, "category": one of the categories above, "style": string, "palette_and_type": string[] (3 rules describing the design language), "description": 1-2 sentences, "tags": 3-5 strings,
  "brief": string, "details": string[], "interactions": string[], "previewCode": string}
 
 previewCode rules (it runs in react-live with noInline):
@@ -125,7 +127,7 @@ previewCode rules (it runs in react-live with noInline):
   ShoppingBag Sparkle Square Star Sun Triangle Type User X Zap.
 - Define function Demo() and end with: render(<Demo />);
 - Root element fills its box: className includes "h-full w-full". Designed for a ~520x390 box.
-- Tailwind classes with hex arbitrary values only (e.g. bg-[#FAF9F6], text-[#121212]).
+- Tailwind classes with hex arbitrary values only (e.g. bg-[#FAF9F6], text-[#121212]). Set fonts with style={{ fontFamily: "'Font Name', fallback" }}.
 - No window/document access during render (only inside effects/handlers). No external images or fetches.
 
 Here is one existing component's previewCode as a style reference:
@@ -150,8 +152,9 @@ ${example.previewCode}`;
       title: c.title,
       category: CATEGORIES.includes(c.category) ? c.category : CATEGORIES[0],
       description: c.description,
+      style: typeof c.style === "string" ? c.style.slice(0, 40) : "Warm Editorial",
       tags: Array.isArray(c.tags) ? c.tags.slice(0, 5) : [],
-      claudePrompt: buildPrompt({ title: c.title, brief: c.brief || c.description, details: c.details || [], interactions: c.interactions || [] }),
+      claudePrompt: buildPrompt({ title: c.title, brief: c.brief || c.description, details: c.details || [], interactions: c.interactions || [], design: Array.isArray(c.palette_and_type) && c.style ? { name: c.style, rules: c.palette_and_type } : undefined }),
       previewCode: String(c.previewCode || "").trim(),
       source: "claude",
     }));

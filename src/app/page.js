@@ -3,11 +3,14 @@ import VaultGrid from "@/components/VaultGrid";
 import HowItWorks from "@/components/HowItWorks";
 import LeadFunnel from "@/components/LeadFunnel";
 import JsonLd from "@/components/JsonLd";
-import { getAll, getCategories, shortCategory } from "@/lib/data";
+import { getAll, getBySlug, getCategories, shortCategory } from "@/lib/data";
 import { SITE, siteUrl } from "@/lib/site";
 
-export default function Home() {
+const FEATURED = ["brutalist-pricing-toggle", "magnetic-pull-button", "holo-chrome-card", "noir-atelier-menu", "groovy-sunset-banner", "expanding-bento-grid", "riso-overprint-headline", "pixel-arcade-start-button"];
+
+export function HomeBody({ lang = "en" }) {
   const items = getAll();
+  const featured = FEATURED.map(getBySlug).filter(Boolean);
   const cats = getCategories();
   const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
   const base = siteUrl();
@@ -17,8 +20,9 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: SITE.name,
-      alternateName: SITE.nameHe,
-      url: base,
+      ...(lang === "he" ? { alternateName: SITE.nameHe } : {}),
+      url: lang === "he" ? `${base}/he` : base,
+      inLanguage: lang,
       description: SITE.description,
     },
     {
@@ -50,10 +54,14 @@ export default function Home() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <Hero count={items.length} />
+      <Hero count={items.length} featured={featured} />
       <VaultGrid items={items} categories={cats} shortNames={short} />
       <HowItWorks />
       <LeadFunnel />
     </>
   );
+}
+
+export default function Home() {
+  return <HomeBody lang="en" />;
 }
