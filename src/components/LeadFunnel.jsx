@@ -95,7 +95,12 @@ function Chips({ options, value, onChange, label }) {
 
 const STEP_TITLES = ["Who are we talking to?", "How do we reach you?", "What are we building?"];
 
-export default function LeadFunnel() {
+async function postLead(form) {
+  const res = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+  if (!res.ok) throw new Error("Lead not accepted");
+}
+
+export default function LeadFunnel({ submitLead = postLead, note }) {
   const section = useRef(null);
   const { scrollYProgress } = useScroll({ target: section, offset: ["start 85%", "start 15%"] });
 
@@ -140,8 +145,7 @@ export default function LeadFunnel() {
     if (!validate(2)) return;
     setStatus("sending");
     try {
-      const res = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
-      if (!res.ok) throw new Error();
+      await submitLead(form);
       setStatus("done");
     } catch {
       setStatus("error");
@@ -271,6 +275,7 @@ export default function LeadFunnel() {
                       </motion.button>
                     </div>
                     {status === "error" && <p className="mt-3 text-sm text-terracotta">Something went wrong. Please try again in a moment.</p>}
+                    {note && <p className="mt-4 font-mono text-[11px] text-ink-3">{note}</p>}
                   </motion.form>
                 )}
               </AnimatePresence>

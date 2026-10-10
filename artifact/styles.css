@@ -1,0 +1,12 @@
+@import "../src/app/globals.css";
+@source "../src";
+@source "./";
+
+/* Fonts come from Google Fonts in the artifact (next/font in the real site) */
+:root {
+  --font-instrument-sans: "Instrument Sans";
+  --font-instrument-serif: "Instrument Serif";
+  --font-jetbrains: "JetBrains Mono";
+  color-scheme: light;
+}
+html { scroll-behavior: smooth; }

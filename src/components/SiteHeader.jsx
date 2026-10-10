@@ -28,7 +28,7 @@ export default function SiteHeader({ count }) {
     <motion.header
       animate={{ y: hidden ? "-110%" : "0%" }}
       transition={{ type: "spring", stiffness: 400, damping: 40 }}
-      className="fixed inset-x-0 top-0 z-50 border-b border-ink bg-paper"
+      className="fixed inset-x-0 top-0 z-50 border-b border-ink bg-paper pt-[env(safe-area-inset-top,0px)]"
     >
       <div className={`mx-auto flex max-w-[1400px] items-center justify-between px-5 transition-[padding] duration-300 md:px-8 ${compact ? "py-2.5" : "py-4"}`}>
         <Link href="/" className="focus-ring group flex items-baseline gap-2">

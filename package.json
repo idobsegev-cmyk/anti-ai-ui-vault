@@ -2,14 +2,15 @@
   "name": "anti-ai-ui-vault",
   "version": "0.1.0",
   "private": true,
-  "description": "Anti-AI UI Vault (מבצר העיצוב) — hand-tuned, human-feeling animated UI components with copy-ready Claude prompts.",
+  "description": "Anti-AI UI Vault (\u05de\u05d1\u05e6\u05e8 \u05d4\u05e2\u05d9\u05e6\u05d5\u05d1) \u2014 hand-tuned, human-feeling animated UI components with copy-ready Claude prompts.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "seed": "node scripts/build-seed.mjs",
     "daily": "node scripts/generate-daily-components.mjs",
-    "check:previews": "node scripts/check-previews.mjs"
+    "check:previews": "node scripts/check-previews.mjs",
+    "build:artifact": "node artifact/build.mjs"
   },
   "dependencies": {
     "framer-motion": "^14.1.0",
@@ -21,9 +22,13 @@
     "react-live": "^5.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/postcss": "^4.3.3",
+    "esbuild": "^0.25.12",
     "sucrase": "^3.35.0",
     "tailwindcss": "^4.3.3"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }
