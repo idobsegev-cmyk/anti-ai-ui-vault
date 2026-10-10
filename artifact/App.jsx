@@ -10,7 +10,7 @@ import LeadFunnel from "@/components/LeadFunnel";
 import ComponentDetail from "@/components/ComponentDetail";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { LangProvider, useLang } from "@/lib/i18n";
-import { getAll, getBySlug, getCategories, getRelated, shortCategory } from "@/lib/data";
+import { getAll, getBySlug, getStrip, getCategories, getRelated, shortCategory } from "@/lib/data";
 
 window.__VAULT_ARTIFACT__ = true;
 
@@ -86,7 +86,7 @@ function Site() {
           <Detail key={route.slug} slug={route.slug} />
         ) : (
           <>
-            <Hero count={items.length} featured={featured} />
+            <Hero count={items.length} featured={featured} strip={getStrip()} />
             <VaultGrid items={items} categories={cats} shortNames={short} />
             <HowItWorks />
             <LeadFunnel submitLead={previewLead} note={t.lead.preview} />

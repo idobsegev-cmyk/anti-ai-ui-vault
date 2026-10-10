@@ -13,6 +13,7 @@ export const STRINGS = {
       l2: "That Feel",
       sr: "Build websites that feel alive, human, creative, young, modern, timeless, bold and warm.",
       lede: ["Complete website designs and animated components, each with a ", "copy-ready Claude prompt", " and a live preview. Sixteen design languages, from brutalist to Bauhaus to 8-bit. The site on screen is running for real: hover it, then copy its prompt."],
+      stripLabel: "Live features · each one comes with its Claude prompt",
       browse: (n) => `Browse all ${n}`,
       bookCustom: "Book Custom Site",
       nextWord: (w) => `Next word (now: ${w})`,
@@ -39,7 +40,8 @@ export const STRINGS = {
     },
     how: {
       kicker: "How it works",
-      title: ["Three steps, ", "zero", " templates."],
+      title: ["Four steps, ", "zero", " templates."],
+      chips: ["Pick a design", "Copy its prompt", "Paste into Claude", "Ship it"],
       steps: [
         ["Pick a component", "Play with the live preview. Drag it, hover it, break it. Every card in the vault is running real code."],
         ["Copy the Claude prompt", "Each prompt spells out layout, spring values, accessibility and the design rules that keep it from looking generated."],
@@ -115,6 +117,7 @@ export const STRINGS = {
       l2: "שמרגישים",
       sr: "בונים אתרים שמרגישים חיים, אנושיים, יצירתיים, צעירים, מודרניים, על־זמניים, נועזים וחמים.",
       lede: ["עיצובים של אתרים שלמים ורכיבי אנימציה, ולכל אחד ", "פרומפט מוכן ל-Claude", " ותצוגה חיה. שש־עשרה שפות עיצוב, מברוטליזם ועד באוהאוס ו־8 ביט. האתר שעל המסך פועל באמת: רחפו מעליו, ואז העתיקו את הפרומפט."],
+      stripLabel: "פיצ׳רים חיים · לכל אחד פרומפט מוכן ל-Claude",
       browse: (n) => `לכל ה-${n}`,
       bookCustom: "להזמנת אתר מותאם",
       nextWord: (w) => `למילה הבאה (כעת: ${w})`,
@@ -141,7 +144,8 @@ export const STRINGS = {
     },
     how: {
       kicker: "איך זה עובד",
-      title: ["שלושה צעדים, ", "אפס", " תבניות."],
+      title: ["ארבעה צעדים, ", "אפס", " תבניות."],
+      chips: ["בוחרים עיצוב", "מעתיקים את הפרומפט", "מדביקים ב-Claude", "מעלים לאוויר"],
       steps: [
         ["בוחרים רכיב", "משחקים עם התצוגה החיה: גוררים, מרחפים, שוברים. כל כרטיס בכספת מריץ קוד אמיתי."],
         ["מעתיקים את הפרומפט", "כל פרומפט מפרט פריסה, ערכי קפיץ, נגישות וכללי עיצוב שמונעים ממנו להיראות כמו תוצר של AI."],

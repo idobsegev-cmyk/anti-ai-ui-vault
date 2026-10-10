@@ -46,3 +46,15 @@ export function shortCategory(c) {
     "Interactive Forms": "Forms",
   }[c] || c;
 }
+
+// Small, legible-when-tiny pieces: each slot rotates through its own list.
+export const STRIP_SLUGS = [
+  ["squish-press-button", "split-flap-headline", "clay-inflate-buttons", "holo-chrome-card", "hold-to-confirm-button", "wave-letter-hover-banner"],
+  ["elastic-toggle-switch", "magnifying-dock-bar", "pixel-arcade-start-button", "specimen-flip-card", "spring-budget-slider", "bauhaus-geometry-hero"],
+  ["paper-confetti-like-button", "sliding-pill-navigation", "memphis-squiggle-buttons", "typewriter-otp-input", "copy-button-morph", "swiss-grid-index-nav"],
+];
+
+
+export function getStrip() {
+  return STRIP_SLUGS.map((list) => list.map(getBySlug).filter(Boolean));
+}

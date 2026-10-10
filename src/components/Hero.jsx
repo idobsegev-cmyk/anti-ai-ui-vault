@@ -8,9 +8,10 @@ import { SplitText } from "gsap/SplitText";
 import Magnetic from "./Magnetic";
 import WordRotator from "./WordRotator";
 import HeroShowcase from "./HeroShowcase";
+import FeatureStrip from "./FeatureStrip";
 import { useLang } from "@/lib/i18n";
 
-export default function Hero({ count, featured = [] }) {
+export default function Hero({ count, featured = [], strip = [] }) {
   const h1 = useRef(null);
   const zone = useRef(null);
   const reduce = useReducedMotion();
@@ -63,11 +64,12 @@ export default function Hero({ count, featured = [] }) {
           </div>
 
           <div className="col-span-12 flex min-w-0 flex-col gap-8 lg:col-span-7 lg:row-start-2">
-            <p data-hero-fade className="max-w-xl text-lg leading-snug text-ink-2">
-              {t.hero.lede[0]}
-              <span className="font-serif text-xl italic text-ink rtl:not-italic">{t.hero.lede[1]}</span>
-              {t.hero.lede[2]}
-            </p>
+            {strip.length > 0 && (
+              <div data-hero-fade className="max-w-2xl">
+                <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-2">{t.hero.stripLabel}</p>
+                <FeatureStrip lists={strip} />
+              </div>
+            )}
             <div data-hero-fade className="flex flex-wrap items-center gap-4">
               <Magnetic href={`${home}#vault`} variant="solid">
                 {t.hero.browse(count)} <ArrowDown size={16} strokeWidth={1.75} />

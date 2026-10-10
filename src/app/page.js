@@ -3,7 +3,7 @@ import VaultGrid from "@/components/VaultGrid";
 import HowItWorks from "@/components/HowItWorks";
 import LeadFunnel from "@/components/LeadFunnel";
 import JsonLd from "@/components/JsonLd";
-import { getAll, getBySlug, getCategories, shortCategory } from "@/lib/data";
+import { getAll, getBySlug, getStrip, getCategories, shortCategory } from "@/lib/data";
 import { SITE, siteUrl } from "@/lib/site";
 
 const FEATURED = ["ledgerly-saas-landing-page", "nocturne-hotel-website", "loudmouth-agency-website", "bloom-root-skincare-shop", "sunwave-festival-website", "brutalist-pricing-toggle", "holo-chrome-card", "pixel-arcade-start-button"];
@@ -54,7 +54,7 @@ export function HomeBody({ lang = "en" }) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <Hero count={items.length} featured={featured} />
+      <Hero count={items.length} featured={featured} strip={getStrip()} />
       <VaultGrid items={items} categories={cats} shortNames={short} />
       <HowItWorks />
       <LeadFunnel />
