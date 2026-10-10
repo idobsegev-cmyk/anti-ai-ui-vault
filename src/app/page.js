@@ -6,7 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import { getAll, getBySlug, getCategories, shortCategory } from "@/lib/data";
 import { SITE, siteUrl } from "@/lib/site";
 
-const FEATURED = ["brutalist-pricing-toggle", "magnetic-pull-button", "holo-chrome-card", "noir-atelier-menu", "groovy-sunset-banner", "expanding-bento-grid", "riso-overprint-headline", "pixel-arcade-start-button"];
+const FEATURED = ["ledgerly-saas-landing-page", "nocturne-hotel-website", "loudmouth-agency-website", "bloom-root-skincare-shop", "sunwave-festival-website", "brutalist-pricing-toggle", "holo-chrome-card", "pixel-arcade-start-button"];
 
 export function HomeBody({ lang = "en" }) {
   const items = getAll();

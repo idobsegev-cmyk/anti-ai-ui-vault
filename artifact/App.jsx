@@ -16,7 +16,7 @@ window.__VAULT_ARTIFACT__ = true;
 
 const items = getAll();
 const cats = getCategories();
-const featured = ["brutalist-pricing-toggle", "magnetic-pull-button", "holo-chrome-card", "noir-atelier-menu", "groovy-sunset-banner", "expanding-bento-grid", "riso-overprint-headline", "pixel-arcade-start-button"].map(getBySlug).filter(Boolean);
+const featured = ["ledgerly-saas-landing-page", "nocturne-hotel-website", "loudmouth-agency-website", "bloom-root-skincare-shop", "sunwave-festival-website", "brutalist-pricing-toggle", "holo-chrome-card", "pixel-arcade-start-button"].map(getBySlug).filter(Boolean);
 const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
 const REPO = "https://github.com/idobsegev-cmyk/anti-ai-ui-vault";
 

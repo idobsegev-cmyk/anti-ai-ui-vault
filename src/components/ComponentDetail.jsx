@@ -4,8 +4,9 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import DetailTabs from "./DetailTabs";
 import LivePreview from "./LivePreview";
+import SitePreview from "./SitePreview";
 import { useLang } from "@/lib/i18n";
-import { shortCategory } from "@/lib/data";
+import { WEBSITE, shortCategory } from "@/lib/data";
 
 /** The body of a component page, shared by the Next.js route and the single-file artifact. */
 export default function ComponentDetail({ item, prev, next, related }) {
@@ -68,7 +69,11 @@ export default function ComponentDetail({ item, prev, next, related }) {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
                 <Link key={r.slug} href={`/vault/${r.slug}`} className="focus-ring group overflow-hidden rounded-2xl border border-ink">
-                  <LivePreview code={r.previewCode} id={`rel-${r.slug}`} className="pointer-events-none w-full border-b border-ink" />
+                  {r.category === WEBSITE ? (
+                    <SitePreview code={r.previewCode} id={`rel-${r.slug}`} className="w-full border-b border-ink" />
+                  ) : (
+                    <LivePreview code={r.previewCode} id={`rel-${r.slug}`} className="pointer-events-none w-full border-b border-ink" />
+                  )}
                   <div className="flex items-center justify-between gap-3 p-4">
                     <span lang="en" className="font-semibold tracking-tight">{r.title}</span>
                     <ArrowUpRight size={16} strokeWidth={1.75} className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" />

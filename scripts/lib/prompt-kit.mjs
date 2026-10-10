@@ -1,6 +1,7 @@
 // Shared helpers for building vault entries (used by the seed and the daily generator).
 
 export const CATEGORIES = [
+  "Full Website Designs",
   "Editorial Hero Sections",
   "Bento Feature Grids",
   "Tactile Micro-Interaction Buttons",

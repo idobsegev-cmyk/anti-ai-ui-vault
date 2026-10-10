@@ -5,10 +5,13 @@ import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 import LivePreview from "./LivePreview";
+import SitePreview from "./SitePreview";
+import { WEBSITE } from "@/lib/data";
 import CopyButton from "./CopyButton";
 import { useLang } from "@/lib/i18n";
 
 const HOLD_MS = 5200;
+const SITE_HOLD_MS = 13000;
 
 /**
  * First-screen proof: a stack of live vault components that cycles on its own.
@@ -24,7 +27,7 @@ export default function HeroShowcase({ items }) {
 
   useEffect(() => {
     if (reduce || hold || paused) return;
-    const t = setTimeout(() => setI((n) => (n + 1) % items.length), HOLD_MS);
+    const t = setTimeout(() => setI((n) => (n + 1) % items.length), items[i].category === WEBSITE ? SITE_HOLD_MS : HOLD_MS);
     return () => clearTimeout(t);
   }, [i, hold, paused, reduce, items.length]);
 
@@ -60,7 +63,11 @@ export default function HeroShowcase({ items }) {
               exit={{ x: -60, opacity: 0, rotate: -1.5 }}
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
-              <LivePreview eager code={item.previewCode} id={`hero-${item.slug}`} className="w-full" designWidth={520} designHeight={360} />
+              {item.category === WEBSITE ? (
+                <SitePreview eager autoplay code={item.previewCode} id={`hero-${item.slug}`} className="w-full" />
+              ) : (
+                <LivePreview eager code={item.previewCode} id={`hero-${item.slug}`} className="w-full" designWidth={520} designHeight={390} />
+              )}
             </motion.div>
           </AnimatePresence>
 
@@ -80,7 +87,7 @@ export default function HeroShowcase({ items }) {
               className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-cobalt rtl:origin-right"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: hold ? 0 : 1 }}
-              transition={{ duration: hold ? 0 : HOLD_MS / 1000, ease: "linear" }}
+              transition={{ duration: hold ? 0 : (item.category === WEBSITE ? SITE_HOLD_MS : HOLD_MS) / 1000, ease: "linear" }}
             />
           )}
         </div>

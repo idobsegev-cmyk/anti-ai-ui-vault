@@ -12,12 +12,12 @@ export const STRINGS = {
       l1: "Build Websites",
       l2: "That Feel",
       sr: "Build websites that feel alive, human, creative, young, modern, timeless, bold and warm.",
-      lede: ["Hand-tuned animated components, each with a ", "copy-ready Claude prompt", " and a live preview. Sixteen design languages, from brutalist to Bauhaus to 8-bit. The card here is running for real: touch it, then copy its prompt."],
+      lede: ["Complete website designs and animated components, each with a ", "copy-ready Claude prompt", " and a live preview. Sixteen design languages, from brutalist to Bauhaus to 8-bit. The site on screen is running for real: hover it, then copy its prompt."],
       browse: (n) => `Browse all ${n}`,
       bookCustom: "Book Custom Site",
       nextWord: (w) => `Next word (now: ${w})`,
     },
-    marquee: ["Editorial Heroes", "Bento Grids", "Tactile Buttons", "Kinetic Type", "3D Cards", "Accordions", "Navigation", "Forms"],
+    marquee: ["Full Websites", "Editorial Heroes", "Bento Grids", "Tactile Buttons", "Kinetic Type", "3D Cards", "Accordions", "Navigation", "Forms"],
     showcase: { live: "Live", pause: "Pause showcase", resume: "Resume showcase", tryIt: "try it", label: "Featured components" },
     copy: { prompt: "Copy Claude Prompt", copied: "Copied", toast: "Prompt copied", code: "Copy code", codeToast: "Code copied" },
     vault: {
@@ -33,6 +33,9 @@ export const STRINGS = {
       live: "Live",
       empty: (q) => `Nothing matches “${q}”. Try “drag” or “spring”.`,
       filter: "Filter by category",
+      websites: ["Full websites", "Complete sites, top to bottom. Hover a shot to scroll the whole page."],
+      components: ["Components", "Single pieces to drop into any site."],
+      sites: (n) => `${n} sites`,
     },
     how: {
       kicker: "How it works",
@@ -111,12 +114,12 @@ export const STRINGS = {
       l1: "בונים אתרים",
       l2: "שמרגישים",
       sr: "בונים אתרים שמרגישים חיים, אנושיים, יצירתיים, צעירים, מודרניים, על־זמניים, נועזים וחמים.",
-      lede: ["רכיבי אנימציה שכוונו ביד, ולכל אחד ", "פרומפט מוכן ל-Claude", " ותצוגה חיה. שש־עשרה שפות עיצוב, מברוטליזם ועד באוהאוס ו־8 ביט. הכרטיס כאן פועל באמת: נסו אותו, ואז העתיקו את הפרומפט."],
+      lede: ["עיצובים של אתרים שלמים ורכיבי אנימציה, ולכל אחד ", "פרומפט מוכן ל-Claude", " ותצוגה חיה. שש־עשרה שפות עיצוב, מברוטליזם ועד באוהאוס ו־8 ביט. האתר שעל המסך פועל באמת: רחפו מעליו, ואז העתיקו את הפרומפט."],
       browse: (n) => `לכל ה-${n}`,
       bookCustom: "להזמנת אתר מותאם",
       nextWord: (w) => `למילה הבאה (כעת: ${w})`,
     },
-    marquee: ["הירו מגזיני", "גרידי בנטו", "כפתורים מוחשיים", "טיפוגרפיה בתנועה", "כרטיסי תלת־ממד", "אקורדיונים", "ניווט", "טפסים"],
+    marquee: ["אתרים מלאים", "הירו מגזיני", "גרידי בנטו", "כפתורים מוחשיים", "טיפוגרפיה בתנועה", "כרטיסי תלת־ממד", "אקורדיונים", "ניווט", "טפסים"],
     showcase: { live: "חי", pause: "השהיית התצוגה", resume: "המשך התצוגה", tryIt: "נסו", label: "רכיבים נבחרים" },
     copy: { prompt: "העתקת הפרומפט ל-Claude", copied: "הועתק", toast: "הפרומפט הועתק", code: "העתקת הקוד", codeToast: "הקוד הועתק" },
     vault: {
@@ -132,6 +135,9 @@ export const STRINGS = {
       live: "חי",
       empty: (q) => `אין תוצאות עבור „${q}”. נסו „drag” או „spring”.`,
       filter: "סינון לפי קטגוריה",
+      websites: ["אתרים מלאים", "אתרים שלמים מלמעלה עד למטה. רחפו מעל צילום כדי לגלול את כל העמוד."],
+      components: ["רכיבים", "חלקים בודדים לשילוב בכל אתר."],
+      sites: (n) => `${n} אתרים`,
     },
     how: {
       kicker: "איך זה עובד",
@@ -205,6 +211,7 @@ export const STRINGS = {
 };
 
 export const CATEGORY_HE = {
+  "Full Website Designs": "אתרים מלאים",
   "Editorial Hero Sections": "הירו",
   "Bento Feature Grids": "בנטו",
   "Tactile Micro-Interaction Buttons": "כפתורים",

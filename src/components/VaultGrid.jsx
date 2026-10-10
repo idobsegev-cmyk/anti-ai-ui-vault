@@ -5,6 +5,8 @@ import Link from "next/link";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import LivePreview from "./LivePreview";
+import SitePreview from "./SitePreview";
+import { WEBSITE } from "@/lib/data";
 import CopyButton from "./CopyButton";
 import { useLang, CATEGORY_HE } from "@/lib/i18n";
 
@@ -23,7 +25,11 @@ function VaultCard({ item, index, wide }) {
       className={`group relative flex flex-col overflow-hidden rounded-2xl border border-ink bg-paper ${wide ? "lg:col-span-2" : ""}`}
     >
       <div className="relative border-b border-ink">
-        <LivePreview code={item.previewCode} id={`card-${item.slug}`} className="w-full" designWidth={wide ? 820 : 520} designHeight={wide ? 400 : 390} />
+        {item.category === WEBSITE ? (
+          <SitePreview code={item.previewCode} id={`card-${item.slug}`} className="w-full" />
+        ) : (
+          <LivePreview code={item.previewCode} id={`card-${item.slug}`} className="w-full" designWidth={wide ? 820 : 520} designHeight={wide ? 400 : 390} />
+        )}
       </div>
       <div className="relative flex flex-1 flex-col gap-3 p-4">
         <div className="flex items-start justify-between gap-3">
@@ -103,6 +109,8 @@ export default function VaultGrid({ items, categories, shortNames }) {
   }, [ordered, cat, style, q]);
 
   const chips = ["All", ...categories];
+  const sites = filtered.filter((it) => it.category === WEBSITE);
+  const parts = filtered.filter((it) => it.category !== WEBSITE);
 
   return (
     <section id="vault" className="scroll-mt-20 border-b border-ink" aria-labelledby="vault-title">
@@ -171,13 +179,37 @@ export default function VaultGrid({ items, categories, shortNames }) {
           ))}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((item, i) => (
-              <VaultCard key={item.slug} item={item} index={i} wide={cat === "All" && style === "All styles" && !q && WIDE.has(i)} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        {sites.length > 0 && (
+          <div className="mb-14">
+            <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-3">
+              <h3 className="text-3xl font-semibold tracking-[-0.03em]">{t.vault.websites[0]} <span className="font-mono text-sm text-ink-3">{t.vault.sites(sites.length)}</span></h3>
+              <p className="text-sm text-ink-2">{t.vault.websites[1]}</p>
+            </div>
+            <motion.div layout className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              <AnimatePresence mode="popLayout">
+                {sites.map((item, i) => (
+                  <VaultCard key={item.slug} item={item} index={i} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </div>
+        )}
+
+        {parts.length > 0 && (
+          <>
+            <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-3">
+              <h3 className="text-3xl font-semibold tracking-[-0.03em]">{t.vault.components[0]} <span className="font-mono text-sm text-ink-3">{parts.length}</span></h3>
+              <p className="text-sm text-ink-2">{t.vault.components[1]}</p>
+            </div>
+            <motion.div layout className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <AnimatePresence mode="popLayout">
+                {parts.map((item, i) => (
+                  <VaultCard key={item.slug} item={item} index={i} wide={cat === "All" && style === "All styles" && !q && WIDE.has(i)} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </>
+        )}
         {filtered.length === 0 && (
           <p className="py-16 text-center font-serif text-2xl italic text-ink-3">{t.vault.empty(q)}</p>
         )}

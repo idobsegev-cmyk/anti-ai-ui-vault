@@ -1,6 +1,9 @@
 import prompts from "@/data/prompts.json";
 
+export const WEBSITE = "Full Website Designs";
+
 export const CATEGORY_ORDER = [
+  "Full Website Designs",
   "Editorial Hero Sections",
   "Bento Feature Grids",
   "Tactile Micro-Interaction Buttons",
@@ -32,6 +35,7 @@ export function getRelated(item, n = 3) {
 
 export function shortCategory(c) {
   return {
+    "Full Website Designs": "Websites",
     "Editorial Hero Sections": "Heroes",
     "Bento Feature Grids": "Bento",
     "Tactile Micro-Interaction Buttons": "Buttons",

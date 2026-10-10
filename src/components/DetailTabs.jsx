@@ -4,6 +4,8 @@ import { useState } from "react";
 import { LayoutGroup, motion, AnimatePresence } from "framer-motion";
 import { Code2, Eye, MessageSquareText, RotateCcw } from "lucide-react";
 import LivePreview from "./LivePreview";
+import SitePreview from "./SitePreview";
+import { WEBSITE } from "@/lib/data";
 import CopyButton from "./CopyButton";
 import { useLang } from "@/lib/i18n";
 
@@ -65,7 +67,10 @@ export default function DetailTabs({ item }) {
           exit={{ opacity: 0, y: -10 }}
           transition={{ type: "spring", stiffness: 400, damping: 34 }}
         >
-          {tab === "preview" && (
+          {tab === "preview" && item.category === WEBSITE && (
+            <SitePreview key={run} eager mode="scroll" code={item.previewCode} id={`detail-${item.slug}`} className="w-full bg-paper-2" height="min(80vh, 860px)" />
+          )}
+          {tab === "preview" && item.category !== WEBSITE && (
             <LivePreview key={run} eager code={item.previewCode} id={`detail-${item.slug}`} className="h-[min(72vh,640px)] w-full bg-paper-2" fit maxScale={1.6} designWidth={640} designHeight={420} />
           )}
           {tab === "prompt" && (
