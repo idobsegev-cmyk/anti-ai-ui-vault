@@ -41,8 +41,8 @@ function Detail({ slug }) {
   const item = getBySlug(slug);
   const idx = items.findIndex((p) => p.slug === slug);
   useEffect(() => {
-    document.title = `${item.title} · Specimen`;
-    return () => (document.title = "Specimen");
+    document.title = `${item.title} · Specimen Design`;
+    return () => (document.title = "Specimen Design");
   }, [item]);
   return (
     <ComponentDetail

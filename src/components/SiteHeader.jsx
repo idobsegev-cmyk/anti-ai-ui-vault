@@ -33,17 +33,39 @@ export default function SiteHeader({ count }) {
       className="fixed inset-x-0 top-0 z-50 border-b border-ink bg-paper pt-[env(safe-area-inset-top,0px)]"
     >
       <div className={`mx-auto flex max-w-[1400px] items-center justify-between px-5 transition-[padding] duration-300 md:px-8 ${compact ? "py-2.5" : "py-4"}`}>
-        <Link href={home} className="focus-ring group flex items-baseline gap-2">
+        <Link href={home} aria-label={lang === "he" ? "דוגמית עיצוב" : "Specimen Design"} className="focus-ring group flex flex-col leading-none">
           {lang === "he" ? (
-            <span className="text-lg font-bold tracking-[-0.01em]">
+            <span className="text-xl font-bold tracking-[-0.01em]">
               דוגמית<span className="text-cobalt">.</span>
             </span>
           ) : (
-            <span className="text-lg font-bold tracking-[-0.03em]">
+            <span className="text-xl font-bold tracking-[-0.035em]">
               Speci<span className="font-serif font-normal italic text-cobalt">men</span>
-              <sup className="ms-1 font-mono text-[9px] font-normal text-ink-3">Nº 01</sup>
             </span>
           )}
+          {/* the second line: a specimen label, set like the caption under a type sample */}
+          <span aria-hidden className="mt-1 flex items-center gap-1.5">
+            <motion.span
+              className="h-px w-5 origin-left bg-terracotta rtl:origin-right"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.3 }}
+            />
+            <span className={`flex font-mono font-medium uppercase text-terracotta ${lang === "he" ? "text-[11px] tracking-[0.12em]" : "text-[9px] tracking-[0.42em]"}`}>
+              {(lang === "he" ? "עיצוב" : "design").split("").map((ch, i) => (
+                <motion.span
+                  key={i}
+                  className="inline-block group-hover:text-cobalt"
+                  initial={{ y: 6, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.4 + i * 0.05 }}
+                  whileHover={{ y: -2 }}
+                >
+                  {ch}
+                </motion.span>
+              ))}
+            </span>
+          </span>
         </Link>
 
         <LayoutGroup id="site-nav">

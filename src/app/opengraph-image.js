@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { OgCard } from "@/lib/og";
 import { getAll } from "@/lib/data";
 
-export const alt = "Specimen — Build websites that feel alive & human";
+export const alt = "Specimen Design — Build websites that feel alive & human";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

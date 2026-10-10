@@ -1,4 +1,6 @@
-# Specimen · דוגמית
+# Specimen Design · דוגמית עיצוב
+
+Live: https://specimen-designs.vercel.app
 
 A specimen book of full website designs and hand-tuned animated React components that do not look generated. Each one has a **live preview**, a **copy-ready Claude prompt**, and its own SEO page at `/vault/[slug]`. English by default, Hebrew at `/he`.
 

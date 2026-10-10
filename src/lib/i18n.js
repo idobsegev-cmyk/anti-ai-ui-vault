@@ -5,7 +5,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 // UI copy for both languages. Hebrew addresses everyone: plural imperatives (neutral) or slash forms.
 export const STRINGS = {
   en: {
-    brand: "Specimen",
+    brand: "Specimen Design",
     nav: { vault: "Specimens", how: "How it works", custom: "Custom site", book: "Book a site", count: (n) => `${n} components · updated daily` },
     hero: {
       meta: ["Issue Nº 01 — The Anti-Template Issue", (n) => `${n} live components`, "Free · Copy · Paste into Claude"],
@@ -87,7 +87,7 @@ export const STRINGS = {
       bookCustom: "Book a custom site",
       sitemap: "Sitemap",
       source: "Source on GitHub",
-      rights: (y) => `© ${y} Specimen. Designs free to use (MIT).`,
+      rights: (y) => `© ${y} Specimen Design. Designs free to use (MIT).`,
       daily: "New specimens land every morning.",
     },
     detail: {
@@ -109,7 +109,7 @@ export const STRINGS = {
     switchLabel: "הצגת האתר בעברית",
   },
   he: {
-    brand: "דוגמית",
+    brand: "דוגמית עיצוב",
     nav: { vault: "הדוגמיות", how: "איך זה עובד", custom: "אתר בהזמנה", book: "להזמנת אתר", count: (n) => `${n} רכיבים · מתעדכן כל יום` },
     hero: {
       meta: ["גיליון 01 — הגיליון נגד התבניות", (n) => `${n} רכיבים חיים`, "בחינם · מעתיקים · מדביקים ב-Claude"],
@@ -191,7 +191,7 @@ export const STRINGS = {
       bookCustom: "להזמנת אתר מותאם",
       sitemap: "מפת האתר",
       source: "הקוד ב-GitHub",
-      rights: (y) => `© ${y} דוגמית. העיצובים חופשיים לשימוש (MIT).`,
+      rights: (y) => `© ${y} דוגמית עיצוב. העיצובים חופשיים לשימוש (MIT).`,
       daily: "דוגמיות חדשות נוספות כל בוקר.",
     },
     detail: {
