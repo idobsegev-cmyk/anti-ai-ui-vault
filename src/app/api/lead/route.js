@@ -22,7 +22,7 @@ export async function POST(req) {
     type: clean(body.type, 60),
     budget: clean(body.budget, 30),
     details: clean(body.details, 4000),
-    source: "anti-ai-ui-vault",
+    source: "specimen",
     receivedAt: new Date().toISOString(),
   };
 

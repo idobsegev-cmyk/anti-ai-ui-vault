@@ -4,7 +4,7 @@ export function OgCard({ kicker, title, foot }) {
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#FAF9F6", color: "#121212", padding: 64, fontFamily: "sans-serif" }}>
       <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "2px solid #121212", paddingBottom: 14, fontSize: 22, letterSpacing: 4, textTransform: "uppercase" }}>
         <span>{kicker}</span>
-        <span style={{ color: "#1D4ED8" }}>Anti-AI UI Vault</span>
+        <span style={{ color: "#1D4ED8" }}>Specimen</span>
       </div>
       <div style={{ display: "flex", fontSize: title.length > 40 ? 82 : 104, fontWeight: 700, lineHeight: 0.95, letterSpacing: -4, maxWidth: 1050 }}>{title}</div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 26 }}>

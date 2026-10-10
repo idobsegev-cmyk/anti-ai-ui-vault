@@ -108,7 +108,7 @@ async function claudeCandidates(n, existing) {
   const existingTitles = existing.map((e) => e.title).join("; ");
   const example = existing.find((e) => e.slug === "squish-press-button") || existing[0];
 
-  const system = `You design animated React UI components for the "Anti-AI UI Vault": warm editorial, Swiss typography, human and tactile. ${STYLE_GUARDRAILS}`;
+  const system = `You design animated React UI components for "Specimen", a design specimen book: warm editorial, Swiss typography, human and tactile. ${STYLE_GUARDRAILS}`;
   const user = `Create ${n} NEW components (not variations of: ${existingTitles}).
 Spread them across these categories: ${CATEGORIES.join(", ")}.
 Give each one a DIFFERENT, clearly recognizable design language (e.g. Neo-Brutalist, Bauhaus, Swiss International, Memphis 90s, Retro 70s, Luxury Noir, Japanese Minimal, Y2K Chrome, Retro OS, Claymorphism, Risograph Zine, Organic Earth, Art Deco, 8-bit Arcade, Mono Data, or a new one) and name it in a "style" field. Google Fonts available in previews: Archivo Black, Space Mono, Syne, Fredoka, Shrikhand, DM Serif Display, DM Sans, Noto Serif JP, Pixelify Sans, Poiret One, Press Start 2P, IBM Plex Mono, Inter Tight, Bodoni Moda.
@@ -212,7 +212,7 @@ async function main() {
   }
 
   writeFileSync(DATA, JSON.stringify([...items, ...added], null, 2) + "\n");
-  log(`Added ${added.length} components for ${today}. Vault now has ${items.length + added.length}.`);
+  log(`Added ${added.length} components for ${today}. Specimen now has ${items.length + added.length}.`);
 }
 
 main().catch((e) => {

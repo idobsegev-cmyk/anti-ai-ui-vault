@@ -72,7 +72,7 @@ export default async function ComponentPage({ params }) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Vault", item: `${base}/#vault` },
+        { "@type": "ListItem", position: 1, name: "Specimens", item: `${base}/#vault` },
         { "@type": "ListItem", position: 2, name: item.category, item: `${base}/#vault` },
         { "@type": "ListItem", position: 3, name: item.title, item: url },
       ],

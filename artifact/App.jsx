@@ -41,8 +41,8 @@ function Detail({ slug }) {
   const item = getBySlug(slug);
   const idx = items.findIndex((p) => p.slug === slug);
   useEffect(() => {
-    document.title = `${item.title} · Anti-AI UI Vault`;
-    return () => (document.title = "Anti-AI UI Vault");
+    document.title = `${item.title} · Specimen`;
+    return () => (document.title = "Specimen");
   }, [item]);
   return (
     <ComponentDetail

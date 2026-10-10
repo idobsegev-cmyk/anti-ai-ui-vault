@@ -1,4 +1,4 @@
-name: Daily Vault Update
+name: Daily Specimen Update
 
 on:
   schedule:

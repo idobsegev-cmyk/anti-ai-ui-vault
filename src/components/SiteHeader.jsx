@@ -36,11 +36,12 @@ export default function SiteHeader({ count }) {
         <Link href={home} className="focus-ring group flex items-baseline gap-2">
           {lang === "he" ? (
             <span className="text-lg font-bold tracking-[-0.01em]">
-              מבצר <span className="font-serif font-normal text-cobalt">העיצוב</span>
+              דוגמית<span className="text-cobalt">.</span>
             </span>
           ) : (
             <span className="text-lg font-bold tracking-[-0.03em]">
-              Anti-AI<span className="font-serif font-normal italic text-cobalt"> UI </span>Vault
+              Speci<span className="font-serif font-normal italic text-cobalt">men</span>
+              <sup className="ms-1 font-mono text-[9px] font-normal text-ink-3">Nº 01</sup>
             </span>
           )}
         </Link>

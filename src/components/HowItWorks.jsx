@@ -148,7 +148,7 @@ function DemoLoop({ scene }) {
           className="absolute inset-0"
         >
           {scene < 2 && (
-            <Window title="anti-ai-ui-vault">
+            <Window title="specimen">
               <VaultScene copied={copied} />
             </Window>
           )}

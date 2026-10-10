@@ -25,7 +25,7 @@ const rotatorFonts = [bricolage, caveat, bagel, unbounded, bodoni, anton, fraunc
 export const metadata = {
   metadataBase: new URL(siteUrl()),
   title: {
-    default: `${SITE.name} — Animated UI components & Claude prompts that feel human`,
+    default: `${SITE.name} — Website designs & animated components with Claude prompts`,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,

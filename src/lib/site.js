@@ -1,9 +1,9 @@
 export const SITE = {
-  name: "Anti-AI UI Vault",
-  nameHe: "מבצר העיצוב",
+  name: "Specimen",
+  nameHe: "דוגמית",
   tagline: "Build websites that feel alive & human.",
   description:
-    "A free vault of hand-tuned, animated React components — editorial heroes, bento grids, tactile buttons, kinetic type — each with a copy-ready Claude prompt and live preview. No neon, no glassmorphism, no template look.",
+    "A free specimen book of full website designs and hand-tuned, animated React components — editorial heroes, bento grids, tactile buttons, kinetic type — each with a copy-ready Claude prompt and live preview. No neon, no glassmorphism, no template look.",
   author: "Ido Segev",
   locale: "en_US",
 };

@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1 className="mt-2 text-[clamp(2.6rem,7vw,6rem)] font-semibold leading-[0.9] tracking-[-0.05em]">
         This page was <span className="font-serif font-normal italic text-terracotta">hand-deleted.</span>
       </h1>
-      <Link href="/#vault" className="focus-ring mt-8 w-fit rounded-full bg-ink px-5 py-3 text-sm font-medium text-paper">Back to the vault</Link>
+      <Link href="/#vault" className="focus-ring mt-8 w-fit rounded-full bg-ink px-5 py-3 text-sm font-medium text-paper">Back to the specimens</Link>
     </section>
   );
 }

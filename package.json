@@ -1,8 +1,8 @@
 {
-  "name": "anti-ai-ui-vault",
+  "name": "specimen",
   "version": "0.1.0",
   "private": true,
-  "description": "Anti-AI UI Vault (\u05de\u05d1\u05e6\u05e8 \u05d4\u05e2\u05d9\u05e6\u05d5\u05d1) \u2014 hand-tuned, human-feeling animated UI components with copy-ready Claude prompts.",
+  "description": "Specimen (דוגמית) — full website designs and animated UI components with copy-ready Claude prompts.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

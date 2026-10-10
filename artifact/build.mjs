@@ -37,7 +37,7 @@ execFileSync("npx", ["@tailwindcss/cli", "-i", path.join(root, "artifact/styles.
 const css = readFileSync(cssFile, "utf8");
 
 const [FONTS, HE_FONTS] = [...readFileSync(path.join(root, "src/lib/preview-fonts.js"), "utf8").matchAll(/"(https:[^"]+)"/g)].map((m) => m[1]);
-const html = `<title>Anti-AI UI Vault</title>
+const html = `<title>Specimen</title>
 <meta name="description" content="Animated, human-feeling UI components with copy-ready Claude prompts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

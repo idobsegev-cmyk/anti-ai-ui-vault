@@ -22,7 +22,7 @@ vercel whoami >/dev/null 2>&1 || { echo "Run: vercel login"; exit 1; }
 if [ ! -d .git ]; then
   git init -b main
   git add -A
-  git commit -m "feat: initial Anti-AI UI Vault"
+  git commit -m "feat: initial Specimen"
 fi
 git branch -M main
 
@@ -34,7 +34,7 @@ if gh repo view "$OWNER/$REPO" >/dev/null 2>&1; then
   git push -u origin main
 else
   gh repo create "$REPO" --public --source=. --remote=origin --push \
-    --description "Anti-AI UI Vault (מבצר העיצוב) — animated, human-feeling UI components with copy-ready Claude prompts."
+    --description "Specimen (דוגמית) — full website designs and animated UI components with copy-ready Claude prompts."
 fi
 # Workflows need write permission for the daily bot commit
 gh api -X PUT "repos/$OWNER/$REPO/actions/permissions/workflow" -f default_workflow_permissions=write >/dev/null || true

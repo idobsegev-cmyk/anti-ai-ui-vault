@@ -5,8 +5,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 // UI copy for both languages. Hebrew addresses everyone: plural imperatives (neutral) or slash forms.
 export const STRINGS = {
   en: {
-    brand: "Anti-AI UI Vault",
-    nav: { vault: "Vault", how: "How it works", custom: "Custom site", book: "Book a site", count: (n) => `${n} components · updated daily` },
+    brand: "Specimen",
+    nav: { vault: "Specimens", how: "How it works", custom: "Custom site", book: "Book a site", count: (n) => `${n} components · updated daily` },
     hero: {
       meta: ["Issue Nº 01 — The Anti-Template Issue", (n) => `${n} live components`, "Free · Copy · Paste into Claude"],
       l1: "Build Websites",
@@ -22,7 +22,7 @@ export const STRINGS = {
     showcase: { live: "Live", pause: "Pause showcase", resume: "Resume showcase", tryIt: "try it", label: "Featured components" },
     copy: { prompt: "Copy Claude Prompt", copied: "Copied", toast: "Prompt copied", code: "Copy code", codeToast: "Code copied" },
     vault: {
-      kicker: (n) => `The Vault — ${n} components`,
+      kicker: (n) => `The specimen book — ${n} designs`,
       title: ["Touch everything. ", "Copy", " what you love."],
       search: "Search: magnetic, drag, accordion…",
       searchLabel: "Search components",
@@ -43,7 +43,7 @@ export const STRINGS = {
       title: ["Four steps, ", "zero", " templates."],
       chips: ["Pick a design", "Copy its prompt", "Paste into Claude", "Ship it"],
       steps: [
-        ["Pick a component", "Play with the live preview. Drag it, hover it, break it. Every card in the vault is running real code."],
+        ["Pick a component", "Play with the live preview. Drag it, hover it, break it. Every specimen here is running real code."],
         ["Copy the Claude prompt", "Each prompt spells out layout, spring values, accessibility and the design rules that keep it from looking generated."],
         ["Paste & ship", "Paste into Claude and get a self-contained React + Tailwind + Framer Motion file. Or take the preview code from the component page."],
       ],
@@ -52,7 +52,7 @@ export const STRINGS = {
       kicker: "Studio — by commission",
       banner: "Need a high-converting, award-winning site for your business?",
       accentWord: "award-winning",
-      aside: "The components in this vault are a sample of how we build client work: type set by hand, motion tuned on real devices, and pages structured to turn visitors into enquiries.",
+      aside: "The specimens here are a sample of how we build client work: type set by hand, motion tuned on real devices, and pages structured to turn visitors into enquiries.",
       bullets: ["Strategy, copy & design in one team", "Next.js build, fast by default", "SEO structure & analytics from day one", "4–6 weeks for most studio sites"],
       step: (n) => `Step ${n} / 3`,
       titles: ["Who are we talking to?", "How do we reach you?", "What are we building?"],
@@ -87,11 +87,11 @@ export const STRINGS = {
       bookCustom: "Book a custom site",
       sitemap: "Sitemap",
       source: "Source on GitHub",
-      rights: (y) => `© ${y} Anti-AI UI Vault. Components free to use (MIT).`,
-      daily: "New components land every morning, 09:00 UTC.",
+      rights: (y) => `© ${y} Specimen. Designs free to use (MIT).`,
+      daily: "New specimens land every morning.",
     },
     detail: {
-      vault: "Vault",
+      vault: "Specimens",
       tabs: { preview: "Live Preview", prompt: "Claude Prompt", code: "Preview Code" },
       replay: "Replay",
       howTitle: ["How to use ", "this prompt"],
@@ -109,8 +109,8 @@ export const STRINGS = {
     switchLabel: "הצגת האתר בעברית",
   },
   he: {
-    brand: "מבצר העיצוב",
-    nav: { vault: "הכספת", how: "איך זה עובד", custom: "אתר בהזמנה", book: "להזמנת אתר", count: (n) => `${n} רכיבים · מתעדכן כל יום` },
+    brand: "דוגמית",
+    nav: { vault: "הדוגמיות", how: "איך זה עובד", custom: "אתר בהזמנה", book: "להזמנת אתר", count: (n) => `${n} רכיבים · מתעדכן כל יום` },
     hero: {
       meta: ["גיליון 01 — הגיליון נגד התבניות", (n) => `${n} רכיבים חיים`, "בחינם · מעתיקים · מדביקים ב-Claude"],
       l1: "בונים אתרים",
@@ -126,7 +126,7 @@ export const STRINGS = {
     showcase: { live: "חי", pause: "השהיית התצוגה", resume: "המשך התצוגה", tryIt: "נסו", label: "רכיבים נבחרים" },
     copy: { prompt: "העתקת הפרומפט ל-Claude", copied: "הועתק", toast: "הפרומפט הועתק", code: "העתקת הקוד", codeToast: "הקוד הועתק" },
     vault: {
-      kicker: (n) => `הכספת — ${n} רכיבים`,
+      kicker: (n) => `ספר הדוגמיות — ${n} עיצובים`,
       title: ["געו בהכול. ", "העתיקו", " את מה שאהבתם."],
       search: "חיפוש: מגנטי, גרירה, אקורדיון…",
       searchLabel: "חיפוש רכיבים",
@@ -147,7 +147,7 @@ export const STRINGS = {
       title: ["ארבעה צעדים, ", "אפס", " תבניות."],
       chips: ["בוחרים עיצוב", "מעתיקים את הפרומפט", "מדביקים ב-Claude", "מעלים לאוויר"],
       steps: [
-        ["בוחרים רכיב", "משחקים עם התצוגה החיה: גוררים, מרחפים, שוברים. כל כרטיס בכספת מריץ קוד אמיתי."],
+        ["בוחרים רכיב", "משחקים עם התצוגה החיה: גוררים, מרחפים, שוברים. כל דוגמית כאן מריצה קוד אמיתי."],
         ["מעתיקים את הפרומפט", "כל פרומפט מפרט פריסה, ערכי קפיץ, נגישות וכללי עיצוב שמונעים ממנו להיראות כמו תוצר של AI."],
         ["מדביקים ומעלים", "מדביקים ב-Claude ומקבלים קובץ React + Tailwind + Framer Motion אחד. אפשר גם לקחת את קוד התצוגה מעמוד הרכיב."],
       ],
@@ -156,7 +156,7 @@ export const STRINGS = {
       kicker: "הסטודיו — בהזמנה אישית",
       banner: "צריכים אתר שממיר, ושיכול לזכות בפרסים, לעסק שלכם?",
       accentWord: "לזכות",
-      aside: "הרכיבים בכספת הם טעימה מהאופן שבו אנחנו בונים ללקוחות: טיפוגרפיה שנבחרה ביד, תנועה שכוונה על מכשירים אמיתיים, ועמודים שבנויים להפוך מבקרים לפניות.",
+      aside: "הדוגמיות כאן הן טעימה מהאופן שבו אנחנו בונים ללקוחות: טיפוגרפיה שנבחרה ביד, תנועה שכוונה על מכשירים אמיתיים, ועמודים שבנויים להפוך מבקרים לפניות.",
       bullets: ["אסטרטגיה, תוכן ועיצוב בצוות אחד", "פיתוח ב-Next.js, מהיר מהיסוד", "מבנה SEO ואנליטיקס מהיום הראשון", "4–6 שבועות לרוב אתרי הסטודיו"],
       step: (n) => `שלב ${n} מתוך 3`,
       titles: ["עם מי אנחנו מדברים?", "איך נחזור אליכם?", "מה אנחנו בונים?"],
@@ -191,11 +191,11 @@ export const STRINGS = {
       bookCustom: "להזמנת אתר מותאם",
       sitemap: "מפת האתר",
       source: "הקוד ב-GitHub",
-      rights: (y) => `© ${y} מבצר העיצוב. הרכיבים חופשיים לשימוש (MIT).`,
-      daily: "רכיבים חדשים נוחתים בכספת כל בוקר.",
+      rights: (y) => `© ${y} דוגמית. העיצובים חופשיים לשימוש (MIT).`,
+      daily: "דוגמיות חדשות נוספות כל בוקר.",
     },
     detail: {
-      vault: "הכספת",
+      vault: "הדוגמיות",
       tabs: { preview: "תצוגה חיה", prompt: "פרומפט ל-Claude", code: "קוד התצוגה" },
       replay: "הפעלה מחדש",
       howTitle: ["איך משתמשים ", "בפרומפט"],

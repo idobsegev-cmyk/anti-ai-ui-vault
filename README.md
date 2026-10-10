@@ -1,6 +1,6 @@
-# Anti-AI UI Vault · מבצר העיצוב
+# Specimen · דוגמית
 
-A vault of hand-tuned, animated React components that don't look generated. Each one has a **live preview**, a **copy-ready Claude prompt**, and its own SEO page at `/vault/[slug]`. New components are added automatically every morning for a week.
+A specimen book of full website designs and hand-tuned animated React components that do not look generated. Each one has a **live preview**, a **copy-ready Claude prompt**, and its own SEO page at `/vault/[slug]`. English by default, Hebrew at `/he`.
 
 Warm paper `#FAF9F6`, charcoal `#121212`, one human accent (cobalt `#1D4ED8` or terracotta `#D9534F`). Swiss type, real springs. No neon, no glassmorphism.
 
