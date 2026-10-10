@@ -1,0 +1,29 @@
+{
+  "name": "anti-ai-ui-vault",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Anti-AI UI Vault (מבצר העיצוב) — hand-tuned, human-feeling animated UI components with copy-ready Claude prompts.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node scripts/build-seed.mjs",
+    "daily": "node scripts/generate-daily-components.mjs",
+    "check:previews": "node scripts/check-previews.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^14.1.0",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.55.0",
+    "next": "^16.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-live": "^5.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "sucrase": "^3.35.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": { "node": ">=20" }
+}
