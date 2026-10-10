@@ -11,7 +11,7 @@ import { categorySlug, styleSlug } from "@/lib/seo-content";
 
 /** The body of a component page, shared by the Next.js route and the single-file artifact. */
 export default function ComponentDetail({ item, prev, next, related }) {
-  const { t, lang, cat, sty, href } = useLang();
+  const { t, lang, cat, sty, tags, href } = useLang();
   const L = localize(item, lang);
   const d = t.detail;
   const home = lang === "he" ? "/he" : "/";
@@ -26,7 +26,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
           </Link>
           <span className="text-ink-3">/</span>
           <span className="text-ink-3">{catShort}</span>
-          <span className="ms-auto text-ink-3">{item.id}</span>
+          <span className="ms-auto text-ink-3">{lang === "he" ? `דוגמית ${item.id.replace("vault-", "")}` : item.id}</span>
         </nav>
 
         <header className="grid grid-cols-12 gap-6 py-10 md:py-14">
@@ -44,7 +44,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
             <p className="text-lg leading-snug text-ink-2">{L.description}</p>
             {lang === "he" && <p lang="en" dir="ltr" className="text-end font-mono text-[11px] text-ink-3">{item.title}</p>}
             <ul className="flex flex-wrap gap-1.5" aria-label={d.tags}>
-              {item.tags.map((tag) => (
+              {tags(item.tags).map((tag) => (
                 <li key={tag} className="rounded-full border border-ink px-2.5 py-0.5 font-mono text-[11px]">{tag}</li>
               ))}
             </ul>

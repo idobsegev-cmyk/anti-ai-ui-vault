@@ -14,7 +14,7 @@ import { useLang, CATEGORY_HE } from "@/lib/i18n";
 const WIDE = new Set([0, 5, 9, 14, 18, 23, 27, 32]);
 
 export function VaultCard({ item, index, wide }) {
-  const { t, cat, sty, lang, href } = useLang();
+  const { t, cat, sty, tags, lang, href } = useLang();
   const L = localize(item, lang);
   return (
     <motion.article
@@ -59,7 +59,7 @@ export function VaultCard({ item, index, wide }) {
         <span className="w-fit rounded-full border border-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider">{t.vault.style} · {sty(item.style || "Warm Editorial")}</span>
         <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
           <ul className="flex flex-wrap gap-1">
-            {item.tags.slice(0, 3).map((t) => (
+            {tags(item.tags).slice(0, 3).map((t) => (
               <li key={t} className="rounded-full bg-paper-2 px-2 py-0.5 font-mono text-[10px] text-ink-2">
                 {t}
               </li>

@@ -27,12 +27,74 @@
   color-scheme: light;
 }
 
-/* Hebrew: swap the site's type roles for Hebrew-capable faces */
+/* Hebrew: swap the site's type roles for Hebrew faces */
 [lang="he"] {
   font-family: var(--font-sans);
-  --font-sans: var(--font-heebo, "Heebo"), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-he, "IBM Plex Sans Hebrew"), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-frank, "Frank Ruhl Libre"), ui-serif, Georgia, serif;
-  --font-mono: var(--font-plex-he, "IBM Plex Sans Hebrew"), var(--font-heebo, "Heebo"), ui-monospace, monospace;
+  --font-mono: var(--font-plex-he, "IBM Plex Sans Hebrew"), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+ * Hebrew typography. The English design leans on Latin conventions that break Hebrew:
+ * tracked-out capitals, italics, tight negative letter-spacing and sub-1 line-heights.
+ * Hebrew has no capitals and no true italic, its letters touch the line above and below
+ * (ל rises, ק ן ף ץ descend), and it reads a size smaller than Latin at the same px.
+ * These rules sit outside Tailwind's layers, so they win over utilities, and they never
+ * reach the live previews (English, left-to-right designs).
+ */
+[lang="he"] body {
+  font-feature-settings: normal;
+  text-rendering: optimizeLegibility;
+}
+[lang="he"] [class*="tracking-"]:not(.preview-scope, .preview-scope *) {
+  letter-spacing: 0;
+}
+[lang="he"] .uppercase:not(.preview-scope, .preview-scope *) {
+  text-transform: none;
+}
+[lang="he"] .italic:not(.preview-scope, .preview-scope *) {
+  font-style: normal;
+}
+[lang="he"] :is(h1, h2):not(.preview-scope *) {
+  line-height: 1.1;
+  font-weight: 600;
+  text-wrap: balance;
+}
+[lang="he"] h3:not(.preview-scope *) {
+  line-height: 1.3;
+}
+[lang="he"] :is(p, li, dd, summary):not(.preview-scope *) {
+  line-height: 1.65;
+}
+/* Accent words inside headlines: the same face in a light cut, so weight carries the emphasis */
+[lang="he"] :is(:is(h1, h2, h3) .font-serif, .font-serif.font-normal):not(.preview-scope, .preview-scope *) {
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+/* The small "mono" labels become calm Hebrew captions */
+[lang="he"] .font-mono:not(.preview-scope, .preview-scope *) {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+/* Hebrew needs a step more size to read like the English at the same layout */
+[lang="he"] :is(.text-\[9px\], .text-\[10px\]):not(.preview-scope, .preview-scope *) {
+  font-size: 12px;
+}
+[lang="he"] :is(.text-\[11px\], .text-\[11\.5px\]):not(.preview-scope, .preview-scope *) {
+  font-size: 12.5px;
+}
+[lang="he"] .text-xs:not(.preview-scope, .preview-scope *) {
+  font-size: 13px;
+}
+[lang="he"] .text-sm:not(.preview-scope, .preview-scope *) {
+  font-size: 15px;
+}
+[lang="he"] .text-base:not(.preview-scope, .preview-scope *) {
+  font-size: 17px;
+}
+[lang="he"] .text-lg:not(.preview-scope, .preview-scope *) {
+  font-size: 19px;
 }
 
 /* Live previews are English, left-to-right designs whatever the site language */

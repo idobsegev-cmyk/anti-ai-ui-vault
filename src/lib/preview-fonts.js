@@ -8,4 +8,4 @@ export const HEBREW_FONTS_URL =
 
 // The single-file artifact has no next/font, so it pulls the Hebrew UI faces from Google directly.
 export const HEBREW_UI_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Heebo:wght@200;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&family=IBM+Plex+Sans+Hebrew:wght@400;500&display=swap";
+  "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap";

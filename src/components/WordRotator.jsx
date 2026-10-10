@@ -92,15 +92,16 @@ export const WORDS = [
 ];
 
 // Hebrew versions: same motion per word, Hebrew-capable faces with a matching character.
+// Plural, to agree with "אתרים שמרגישים …".
 const HE = {
-  Alive: { word: "חי", fontFamily: "'Secular One', var(--font-sans)", fontWeight: 400 },
-  Human: { word: "אנושי", fontFamily: "var(--font-serif)", fontWeight: 500 },
-  Creative: { word: "יצירתי", fontFamily: "'Solitreo', cursive", fontWeight: 400 },
-  Young: { word: "צעיר", fontFamily: "'Varela Round', var(--font-sans)", fontWeight: 400 },
-  Modern: { word: "מודרני", fontFamily: "var(--font-sans)", fontWeight: 200 },
-  Timeless: { word: "על־זמני", fontFamily: "'Bellefair', var(--font-serif)", fontWeight: 400 },
-  Bold: { word: "נועז", fontFamily: "'Karantina', var(--font-sans)", fontWeight: 700, scale: 1.25 },
-  Warm: { word: "חם", fontFamily: "'Suez One', var(--font-serif)", fontWeight: 400 },
+  Alive: { word: "חיים", fontFamily: "'Secular One', var(--font-sans)", fontWeight: 400 },
+  Human: { word: "אנושיים", fontFamily: "var(--font-serif)", fontWeight: 500 },
+  Creative: { word: "יצירתיים", fontFamily: "'Solitreo', cursive", fontWeight: 400 },
+  Young: { word: "צעירים", fontFamily: "'Varela Round', var(--font-sans)", fontWeight: 400 },
+  Modern: { word: "מודרניים", fontFamily: "var(--font-sans)", fontWeight: 300 },
+  Timeless: { word: "על־זמניים", fontFamily: "'Bellefair', var(--font-serif)", fontWeight: 400 },
+  Bold: { word: "נועזים", fontFamily: "'Karantina', var(--font-sans)", fontWeight: 700, scale: 1.25 },
+  Warm: { word: "חמים", fontFamily: "'Suez One', var(--font-serif)", fontWeight: 400 },
 };
 
 export const WORDS_HE = WORDS.map((w) => {

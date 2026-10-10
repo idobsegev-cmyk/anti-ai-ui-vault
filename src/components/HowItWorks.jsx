@@ -29,13 +29,15 @@ function Window({ title, children, tone = "bg-paper" }) {
 }
 
 function VaultScene({ copied }) {
+  const { t, lang } = useLang();
+  const D = t.how.demo;
   const cards = [
-    { c: "#FFE600", label: "Pricing" },
-    { c: "#1D4ED8", label: "Hero" },
-    { c: "#D9534F", label: "Buttons" },
+    { c: "#FFE600", label: D.cards[0] },
+    { c: "#1D4ED8", label: D.cards[1] },
+    { c: "#D9534F", label: D.cards[2] },
   ];
   return (
-    <div className="grid h-full grid-cols-3 gap-3 p-4" dir="ltr">
+    <div className="grid h-full grid-cols-3 gap-3 p-4" dir={lang === "he" ? "rtl" : "ltr"}>
       {cards.map((k, i) => (
         <motion.div
           key={k.label}
@@ -56,7 +58,7 @@ function VaultScene({ copied }) {
                 className="flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-semibold text-paper"
               >
                 {copied ? <Check size={10} strokeWidth={2.5} /> : <Copy size={10} strokeWidth={2} />}
-                {copied ? "Copied" : "Copy prompt"}
+                {copied ? D.copied : D.copy}
               </motion.span>
             )}
           </div>
@@ -67,6 +69,7 @@ function VaultScene({ copied }) {
 }
 
 function ClaudeScene() {
+  const { t, lang } = useLang();
   const [sent, setSent] = useState(false);
   useEffect(() => {
     const id = setTimeout(() => setSent(true), 1400);
@@ -74,11 +77,11 @@ function ClaudeScene() {
   }, []);
   const lines = [92, 78, 85, 60, 70];
   return (
-    <div className="flex h-full flex-col justify-between p-4" dir="ltr">
+    <div className="flex h-full flex-col justify-between p-4" dir={lang === "he" ? "rtl" : "ltr"}>
       <AnimatePresence>
         {sent && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-2">
-            <div className="ml-auto w-2/3 rounded-xl bg-paper-3 p-2.5">
+            <div className="ms-auto w-2/3 rounded-xl bg-paper-3 p-2.5">
               {lines.slice(0, 3).map((w, i) => <div key={i} className="mb-1 h-1.5 rounded bg-ink/30" style={{ width: w + "%" }} />)}
             </div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5 } }} className="w-3/4 rounded-xl border border-ink bg-ink p-2.5">
@@ -97,7 +100,7 @@ function ClaudeScene() {
               <div className="h-1.5 rounded bg-ink/40" style={{ width: "64%" }} />
             </motion.div>
           ) : (
-            <span className="font-mono text-[10px] text-ink-3">Reply to Claude…</span>
+            <span className="font-mono text-[10px] text-ink-3">{t.how.demo.reply}</span>
           )}
         </div>
         <motion.span animate={sent ? { scale: [1, 0.85, 1] } : {}} className="flex h-7 w-7 items-center justify-center rounded-full bg-terracotta text-paper">
@@ -109,11 +112,13 @@ function ClaudeScene() {
 }
 
 function ShipScene() {
+  const { t, lang } = useLang();
+  const D = t.how.demo;
   return (
-    <div className="flex h-full flex-col" dir="ltr">
+    <div className="flex h-full flex-col" dir={lang === "he" ? "rtl" : "ltr"}>
       <div className="flex items-center justify-between border-b border-ink/20 px-4 py-2 text-[11px] font-bold">
-        <span>yourbrand.com</span>
-        <span className="rounded-full bg-ink px-2 py-0.5 text-[9px] text-paper">Live</span>
+        <span dir="ltr">{D.domain}</span>
+        <span className="rounded-full bg-ink px-2 py-0.5 text-[9px] text-paper">{D.live}</span>
       </div>
       <div className="flex flex-1 items-center justify-center gap-3 bg-[#F2EFE8]">
         {["#D9534F", "#FAF9F6", "#1D4ED8"].map((c, i) => (
@@ -125,7 +130,7 @@ function ShipScene() {
             className="rounded-lg border-[1.5px] border-ink px-4 py-2 text-xs font-bold"
             style={{ background: c, color: i === 1 ? "#121212" : "#FAF9F6" }}
           >
-            {["Add to cart", "Save", "Share"][i]}
+            {D.buttons[i]}
           </motion.span>
         ))}
       </div>

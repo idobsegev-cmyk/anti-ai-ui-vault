@@ -64,7 +64,7 @@ export default function HomeView({ lang }) {
       "@type": "ProfessionalService",
       name: `${SITE.name} Studio`,
       url: `${root}#custom`,
-      description: he ? "בניית אתרים מותאמים שממירים, עם עיצוב מגזיני ותנועה שכוונה ביד." : "Custom, high-converting websites with editorial design and hand-tuned motion.",
+      description: he ? "בניית אתרים בהתאמה אישית שמביאים לקוחות, עם עיצוב מוקפד ותנועה מכווננת." : "Custom, high-converting websites with editorial design and hand-tuned motion.",
       areaServed: ["IL", "Worldwide"],
       availableLanguage: ["en", "he"],
     },
