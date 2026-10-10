@@ -4,6 +4,8 @@ import { Component, useEffect, useRef, useState } from "react";
 import { LiveProvider, LivePreview as RLPreview, LiveError } from "react-live";
 import { LayoutGroup } from "framer-motion";
 import { liveScope } from "@/lib/live-scope";
+import "@/lib/preview-guard";
+import { useNearScreen } from "@/lib/use-near-screen";
 
 class Boundary extends Component {
   constructor(props) {
@@ -32,7 +34,7 @@ class Boundary extends Component {
  */
 export default function LivePreview({ code, id, designWidth = 520, designHeight = 380, className = "", eager = false, fit = false, maxScale = 1.2 }) {
   const wrap = useRef(null);
-  const [visible, setVisible] = useState(eager);
+  const visible = useNearScreen(wrap, eager);
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -42,16 +44,8 @@ export default function LivePreview({ code, id, designWidth = 520, designHeight 
       setScale(Math.min(maxScale, entry.contentRect.width / designWidth, entry.contentRect.height / designHeight));
     });
     ro.observe(el);
-    let io;
-    if (!eager) {
-      io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { rootMargin: "200px" });
-      io.observe(el);
-    }
-    return () => {
-      ro.disconnect();
-      io && io.disconnect();
-    };
-  }, [designWidth, designHeight, eager, maxScale]);
+    return () => ro.disconnect();
+  }, [designWidth, designHeight, maxScale]);
 
   return (
     <div ref={wrap} className={`relative overflow-hidden ${className}`} style={fit ? undefined : { aspectRatio: `${designWidth} / ${designHeight}` }}>

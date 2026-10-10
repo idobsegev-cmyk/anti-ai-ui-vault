@@ -20,7 +20,7 @@ function Slot({ list, offset, cat, href }) {
   }, [i, hold, reduce, list.length, offset]);
   const item = list[i];
   return (
-    <div className="min-w-0" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)}>
+    <div data-touch-scroll className="min-w-0" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)}>
       <div className="relative overflow-hidden rounded-xl border border-ink bg-paper">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div

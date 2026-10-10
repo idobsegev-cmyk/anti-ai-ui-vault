@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { LayoutGroup, motion, AnimatePresence } from "framer-motion";
 import { Code2, Eye, MessageSquareText, RotateCcw } from "lucide-react";
 import LivePreview from "./LivePreview";
@@ -19,10 +19,20 @@ export default function DetailTabs({ item }) {
   const { t } = useLang();
   const [tab, setTab] = useState("preview");
   const [run, setRun] = useState(0);
+  const box = useRef(null);
+
+  // Switching from a long page preview to a short panel would shrink the page under the reader.
+  // Bring the panel's top back into view first, so the switch happens where they are looking.
+  const choose = (id) => {
+    const top = box.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) window.scrollTo({ top: window.scrollY + top - 12, behavior: "instant" });
+    setTab(id);
+  };
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-ink bg-paper">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink p-3">
+    <div ref={box} className="scroll-mt-24 overflow-clip rounded-3xl border border-ink bg-paper">
+      {/* stays in reach while a full-length site scrolls past */}
+      <div className="sticky top-0 z-20 flex flex-wrap items-center justify-between gap-3 border-b border-ink bg-paper p-3">
         <LayoutGroup id="detail-tabs">
           <div role="tablist" aria-label="View" className="flex gap-1 rounded-full border border-ink p-1">
             {TABS.map(({ id, Icon }) => (
@@ -31,7 +41,7 @@ export default function DetailTabs({ item }) {
                 role="tab"
                 aria-selected={tab === id}
                 aria-controls={`panel-${id}`}
-                onClick={() => setTab(id)}
+                onClick={() => choose(id)}
                 className="focus-ring relative flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm"
               >
                 {tab === id && <motion.span layoutId="detail-pill" transition={{ type: "spring", stiffness: 500, damping: 36 }} className="absolute inset-0 rounded-full bg-ink" />}
@@ -68,16 +78,16 @@ export default function DetailTabs({ item }) {
           transition={{ type: "spring", stiffness: 400, damping: 34 }}
         >
           {tab === "preview" && item.category === WEBSITE && (
-            <SitePreview key={run} eager mode="scroll" code={item.previewCode} id={`detail-${item.slug}`} className="w-full bg-paper-2" height="min(80vh, 860px)" />
+            <SitePreview key={run} eager mode="full" code={item.previewCode} id={`detail-${item.slug}`} className="w-full bg-paper-2" />
           )}
           {tab === "preview" && item.category !== WEBSITE && (
             <LivePreview key={run} eager code={item.previewCode} id={`detail-${item.slug}`} className="h-[min(72vh,640px)] w-full bg-paper-2" fit maxScale={1.6} designWidth={640} designHeight={420} />
           )}
           {tab === "prompt" && (
-            <pre dir="ltr" lang="en" className="max-h-[560px] overflow-auto whitespace-pre-wrap bg-paper-2 p-6 font-mono text-[13px] leading-relaxed text-ink">{item.claudePrompt}</pre>
+            <pre dir="ltr" lang="en" className="overflow-x-auto whitespace-pre-wrap bg-paper-2 p-6 font-mono text-[13px] leading-relaxed text-ink">{item.claudePrompt}</pre>
           )}
           {tab === "code" && (
-            <pre dir="ltr" className="max-h-[560px] overflow-auto bg-ink p-6 font-mono text-[12.5px] leading-relaxed text-paper">
+            <pre dir="ltr" className="overflow-x-auto bg-ink p-6 font-mono text-[12.5px] leading-relaxed text-paper">
               <code>{item.previewCode}</code>
             </pre>
           )}

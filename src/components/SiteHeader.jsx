@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { LayoutGroup, motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -20,9 +20,19 @@ export default function SiteHeader({ count }) {
   const [hover, setHover] = useState(null);
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
 
+  // Hysteresis: hide after ~80px of scrolling down, reveal after ~40px back up.
+  const travel = useRef({ anchor: 0, dir: 0 });
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
-    setHidden(y > prev && y > 240);
+    const dir = Math.sign(y - prev);
+    const tr = travel.current;
+    if (dir && dir !== tr.dir) {
+      tr.dir = dir;
+      tr.anchor = prev;
+    }
+    if (y < 240) setHidden(false);
+    else if (tr.dir > 0 && y - tr.anchor > 80) setHidden(true);
+    else if (tr.dir < 0 && tr.anchor - y > 40) setHidden(false);
     setCompact(y > 40);
   });
 

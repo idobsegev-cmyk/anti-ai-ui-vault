@@ -94,10 +94,10 @@ export const WORDS = [
 // Hebrew versions: same motion per word, Hebrew-capable faces with a matching character.
 const HE = {
   Alive: { word: "חי", fontFamily: "'Secular One', var(--font-sans)", fontWeight: 400 },
-  Human: { word: "אנושי", fontFamily: "'Frank Ruhl Libre', var(--font-serif)", fontWeight: 500 },
+  Human: { word: "אנושי", fontFamily: "var(--font-serif)", fontWeight: 500 },
   Creative: { word: "יצירתי", fontFamily: "'Solitreo', cursive", fontWeight: 400 },
   Young: { word: "צעיר", fontFamily: "'Varela Round', var(--font-sans)", fontWeight: 400 },
-  Modern: { word: "מודרני", fontFamily: "'Heebo', var(--font-sans)", fontWeight: 200 },
+  Modern: { word: "מודרני", fontFamily: "var(--font-sans)", fontWeight: 200 },
   Timeless: { word: "על־זמני", fontFamily: "'Bellefair', var(--font-serif)", fontWeight: 400 },
   Bold: { word: "נועז", fontFamily: "'Karantina', var(--font-sans)", fontWeight: 700, scale: 1.25 },
   Warm: { word: "חם", fontFamily: "'Suez One', var(--font-serif)", fontWeight: 400 },

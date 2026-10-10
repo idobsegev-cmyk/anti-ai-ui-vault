@@ -10,16 +10,16 @@ import { fontClasses } from "@/lib/fonts";
 import { HEBREW_FONTS_URL, PREVIEW_FONTS_URL } from "@/lib/preview-fonts";
 
 /** The whole document, rendered on the server in the page's own language and direction. */
-export default function SiteShell({ lang, children }) {
+export default function SiteShell({ lang, fonts = "", children }) {
   const all = getAll();
   const cats = getCategories();
   const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
   return (
-    <html lang={lang} dir={lang === "he" ? "rtl" : "ltr"} className={fontClasses}>
+    <html data-scroll-behavior="smooth" lang={lang} dir={lang === "he" ? "rtl" : "ltr"} className={`${fontClasses} ${fonts}`}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href={PREVIEW_FONTS_URL} />
-        <link rel="stylesheet" href={HEBREW_FONTS_URL} />
+        {lang === "he" && <link rel="stylesheet" href={HEBREW_FONTS_URL} />}
       </head>
       <body className="grain min-h-dvh">
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">

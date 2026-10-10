@@ -30,9 +30,9 @@
 /* Hebrew: swap the site's type roles for Hebrew-capable faces */
 [lang="he"] {
   font-family: var(--font-sans);
-  --font-sans: "Heebo", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Frank Ruhl Libre", ui-serif, Georgia, serif;
-  --font-mono: "IBM Plex Sans Hebrew", "Heebo", ui-monospace, monospace;
+  --font-sans: var(--font-heebo, "Heebo"), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-frank, "Frank Ruhl Libre"), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-he, "IBM Plex Sans Hebrew"), var(--font-heebo, "Heebo"), ui-monospace, monospace;
 }
 
 /* Live previews are English, left-to-right designs whatever the site language */
@@ -88,6 +88,31 @@ body {
 .focus-ring:focus-visible {
   outline: 2px solid var(--color-cobalt);
   outline-offset: 3px;
+}
+
+/* In-page anchors glide instead of teleporting, and land below the fixed header. */
+html {
+  scroll-padding-top: 5.5rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* In grids, a mini-page that scrolls on its own would swallow the wheel and stall the real page.
+   Inner scrolling stays available on each design's own page. */
+[data-touch-scroll] .preview-scope :is(.overflow-auto, .overflow-y-auto, .overflow-scroll, .overflow-y-scroll) {
+  overflow-y: hidden !important;
+}
+
+/* On touch screens a swipe over a card preview scrolls the page; draggable demos still move sideways.
+   The detail page keeps previews fully interactive. */
+@media (pointer: coarse) {
+  [data-touch-scroll] .preview-scope,
+  [data-touch-scroll] .preview-scope * {
+    touch-action: pan-y !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

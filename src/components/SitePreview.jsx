@@ -4,6 +4,8 @@ import { Component, useEffect, useRef, useState } from "react";
 import { LiveProvider, LivePreview as RLPreview, LiveError } from "react-live";
 import { LayoutGroup, animate, motion, useMotionValue } from "framer-motion";
 import { liveScope } from "@/lib/live-scope";
+import "@/lib/preview-guard";
+import { useNearScreen } from "@/lib/use-near-screen";
 
 const PAGE_W = 1280;
 
@@ -28,11 +30,12 @@ class Boundary extends Component {
  * A whole website rendered live at desktop width (1280px) and scaled to fit.
  * mode "shot": a 4:3 crop like a Dribbble shot; hovering scrolls down the full page.
  * mode "scroll": a framed browser window you scroll through yourself.
+ * mode "full": the whole page laid out at its scaled height, so it scrolls with the real page (no nested scrolling).
  */
 export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, height = "78vh", autoplay = false }) {
   const wrap = useRef(null);
   const inner = useRef(null);
-  const [visible, setVisible] = useState(eager);
+  const visible = useNearScreen(wrap, eager);
   const [scale, setScale] = useState(0.3);
   const [fullH, setFullH] = useState(2000);
   const y = useMotionValue(0);
@@ -43,16 +46,8 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
     if (!el) return;
     const ro = new ResizeObserver(([e]) => setScale(e.contentRect.width / PAGE_W));
     ro.observe(el);
-    let io;
-    if (!eager) {
-      io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { rootMargin: "300px" });
-      io.observe(el);
-    }
-    return () => {
-      ro.disconnect();
-      io && io.disconnect();
-    };
-  }, [eager]);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!inner.current) return;
@@ -86,6 +81,39 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
     ctl.current = animate(y, 0, { type: "spring", stiffness: 120, damping: 22 });
   };
 
+  // Hover intent: the card only starts its tour once the pointer rests on it.
+  // While the page is scrolling, cards slide under a still cursor; that must not set them all moving.
+  const intent = useRef(null);
+  const lastScroll = useRef(0);
+  useEffect(() => {
+    if (mode !== "shot" || autoplay) return;
+    const on = () => {
+      lastScroll.current = performance.now();
+      clearTimeout(intent.current);
+    };
+    window.addEventListener("scroll", on, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", on);
+      clearTimeout(intent.current);
+    };
+  }, [mode, autoplay]);
+  const touring = useRef(false);
+  const arm = (e) => {
+    if (e.pointerType !== "mouse" || mode !== "shot" || autoplay || touring.current) return;
+    clearTimeout(intent.current);
+    intent.current = setTimeout(() => {
+      if (performance.now() - lastScroll.current > 250) {
+        touring.current = true;
+        scrollDown();
+      }
+    }, 280);
+  };
+  const disarm = () => {
+    clearTimeout(intent.current);
+    touring.current = false;
+    scrollUp();
+  };
+
   const content = visible ? (
     <Boundary key={code}>
       <LayoutGroup id={id}>
@@ -98,6 +126,16 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
   ) : (
     <div style={{ height: 1600 }} className="bg-paper" />
   );
+
+  if (mode === "full") {
+    return (
+      <div ref={wrap} className={`relative overflow-hidden ${className}`} style={{ height: Math.round(fullH * scale) }}>
+        <div ref={inner} className="preview-scope absolute left-0 top-0" dir="ltr" lang="en" style={{ width: PAGE_W, transform: `scale(${scale})`, transformOrigin: "top left" }}>
+          {content}
+        </div>
+      </div>
+    );
+  }
 
   if (mode === "scroll") {
     return (
@@ -112,7 +150,7 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
   }
 
   return (
-    <div ref={wrap} onPointerEnter={scrollDown} onPointerLeave={scrollUp} className={`relative overflow-hidden ${className}`} style={{ aspectRatio: "4 / 3" }}>
+    <div ref={wrap} onPointerEnter={arm} onPointerMove={arm} onPointerLeave={disarm} className={`relative overflow-hidden ${className}`} style={{ aspectRatio: "4 / 3" }}>
       <motion.div ref={inner} className="preview-scope absolute left-0 top-0" dir="ltr" lang="en" style={{ width: PAGE_W, y, scale, transformOrigin: "top left" }}>
         {content}
       </motion.div>

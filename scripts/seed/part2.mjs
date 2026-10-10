@@ -931,8 +931,8 @@ function Demo() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-[#FAF9F6] text-[#121212]">
       <p className="text-xs text-[#3a3a38]">We sent a code to <b>dana@kiln.co</b> · <button className="underline underline-offset-2">Resend</button></p>
-      <div className="relative" onClick={() => ref.current && ref.current.focus()}>
-        <input ref={ref} aria-label="Verification code" value={v} onChange={(e) => setV(e.target.value.replace(/\D/g, "").slice(0, 6))} inputMode="numeric" autoComplete="one-time-code" maxLength={6} autoFocus className="absolute inset-0 opacity-0" />
+      <div className="relative" onClick={() => ref.current && ref.current.focus({ preventScroll: true })}>
+        <input ref={ref} aria-label="Verification code" value={v} onChange={(e) => setV(e.target.value.replace(/\D/g, "").slice(0, 6))} inputMode="numeric" autoComplete="one-time-code" maxLength={6} className="absolute inset-0 opacity-0" />
         <div className="flex gap-2">
           {Array.from({ length: 6 }).map((_, i) => {
             const ch = v[i];

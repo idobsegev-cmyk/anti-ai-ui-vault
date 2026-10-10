@@ -129,6 +129,7 @@ previewCode rules (it runs in react-live with noInline):
 - Root element fills its box: className includes "h-full w-full". Designed for a ~520x390 box.
 - Tailwind classes with hex arbitrary values only (e.g. bg-[#FAF9F6], text-[#121212]). Set fonts with style={{ fontFamily: "'Font Name', fallback" }}.
 - No window/document access during render (only inside effects/handlers). No external images or fetches.
+- Never move the host page: no autoFocus, no .focus() outside a click/key handler, no scrollIntoView, no window.scrollTo/scrollBy. useScroll only with { container: ref }.
 
 Here is one existing component's previewCode as a style reference:
 ${example.previewCode}`;

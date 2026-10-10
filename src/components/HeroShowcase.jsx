@@ -32,7 +32,7 @@ export default function HeroShowcase({ items }) {
   }, [i, hold, paused, reduce, items.length]);
 
   return (
-    <div className="flex w-full min-w-0 flex-col gap-3" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)}>
+    <div data-touch-scroll className="flex w-full min-w-0 flex-col gap-3" onPointerEnter={() => setHold(true)} onPointerLeave={() => setHold(false)}>
       <div className="relative">
         {/* paper cards behind the live one, so it reads as a deck you can flip through */}
         <span aria-hidden className="absolute inset-0 translate-x-3 rtl:-translate-x-3 translate-y-3 rotate-[1.5deg] rounded-2xl border border-ink bg-paper-3" />

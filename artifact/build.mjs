@@ -36,7 +36,7 @@ const cssFile = path.join(out, "artifact.css");
 execFileSync("npx", ["@tailwindcss/cli", "-i", path.join(root, "artifact/styles.css"), "-o", cssFile, "--minify"], { cwd: root, stdio: "inherit" });
 const css = readFileSync(cssFile, "utf8");
 
-const [FONTS, HE_FONTS] = [...readFileSync(path.join(root, "src/lib/preview-fonts.js"), "utf8").matchAll(/"(https:[^"]+)"/g)].map((m) => m[1]);
+const [FONTS, HE_FONTS, HE_UI_FONTS] = [...readFileSync(path.join(root, "src/lib/preview-fonts.js"), "utf8").matchAll(/"(https:[^"]+)"/g)].map((m) => m[1]);
 const html = `<title>Specimen Design</title>
 <meta name="description" content="Animated, human-feeling UI components with copy-ready Claude prompts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +44,7 @@ const html = `<title>Specimen Design</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Caveat:wght@700&family=Bagel+Fat+One&family=Unbounded:wght@300&family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&family=Anton&family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,100,1&display=swap">
 <link rel="stylesheet" href="${FONTS}">
 <link rel="stylesheet" href="${HE_FONTS}">
+<link rel="stylesheet" href="${HE_UI_FONTS}">
 <style>${css}</style>
 <div id="root"></div>
 <script>${bundle}</script>

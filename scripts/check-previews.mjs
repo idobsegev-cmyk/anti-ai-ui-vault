@@ -25,7 +25,11 @@ for (const n of iconNames) {
   scope[n] = L[n];
 }
 
+// Previews run inside our page; anything that grabs focus or scrolls would yank the visitor around.
+const PAGE_MOVERS = [/\bautoFocus\b/, /scrollIntoView\s*\(/, /window\.scroll(To|By)?\s*\(/, /\buseScroll\(\s*\)/];
+
 export function checkItem(item) {
+  for (const re of PAGE_MOVERS) if (re.test(item.previewCode)) throw new Error("previewCode moves the page (" + re.source + ")");
   const code = transform(item.previewCode, { transforms: ["jsx"], production: true }).code;
   let el = null;
   const render = (e) => (el = e);

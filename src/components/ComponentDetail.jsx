@@ -61,7 +61,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
             <summary className="focus-ring cursor-pointer list-none text-sm font-semibold underline underline-offset-4 [&::-webkit-details-marker]:hidden">
               {lang === "he" ? "הצגת הפרומפט שמגדיר את הפריסה, התנועה ושפת העיצוב" : "Show the prompt that defines the layout, motion and design language"}
             </summary>
-            <pre dir="ltr" lang="en" className="mt-4 max-h-[480px] overflow-auto whitespace-pre-wrap rounded-xl bg-paper-2 p-5 font-mono text-[12.5px] leading-relaxed text-ink">{item.claudePrompt}</pre>
+            <pre dir="ltr" lang="en" className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-paper-2 p-5 font-mono text-[12.5px] leading-relaxed text-ink">{item.claudePrompt}</pre>
           </details>
         </section>
 
@@ -85,7 +85,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
             <h2 id="related-title" className="mb-6 text-2xl font-semibold tracking-[-0.03em]">{d.more(catShort)}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
-                <Link key={r.slug} href={href(`/vault/${r.slug}`)} className="focus-ring group overflow-hidden rounded-2xl border border-ink">
+                <Link data-touch-scroll key={r.slug} href={href(`/vault/${r.slug}`)} className="focus-ring group overflow-hidden rounded-2xl border border-ink">
                   {r.category === WEBSITE ? (
                     <SitePreview code={r.previewCode} id={`rel-${r.slug}`} className="w-full border-b border-ink" />
                   ) : (
