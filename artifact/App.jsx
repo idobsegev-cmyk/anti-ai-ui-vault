@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import VaultGrid from "@/components/VaultGrid";
 import HowItWorks from "@/components/HowItWorks";
 import LeadFunnel from "@/components/LeadFunnel";
+import Faq from "@/components/Faq";
 import ComponentDetail from "@/components/ComponentDetail";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { LangProvider, useLang } from "@/lib/i18n";
@@ -55,7 +56,7 @@ function Detail({ slug }) {
 }
 
 function Site() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [route, setRoute] = useState(readRoute);
 
   useEffect(() => {
@@ -89,6 +90,7 @@ function Site() {
             <Hero count={items.length} featured={featured} strip={getStrip()} />
             <VaultGrid items={items} categories={cats} shortNames={short} />
             <HowItWorks />
+            <Faq lang={lang} />
             <LeadFunnel submitLead={previewLead} note={t.lead.preview} />
           </>
         )}

@@ -9,7 +9,7 @@ import { shortCategory } from "@/lib/data";
 
 const HOLD = 3600;
 
-function Slot({ list, offset, cat }) {
+function Slot({ list, offset, cat, href }) {
   const reduce = useReducedMotion();
   const [i, setI] = useState(0);
   const [hold, setHold] = useState(false);
@@ -34,7 +34,7 @@ function Slot({ list, offset, cat }) {
           </motion.div>
         </AnimatePresence>
       </div>
-      <Link href={`/vault/${item.slug}`} className="focus-ring mt-1.5 block truncate font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3 hover:text-ink">
+      <Link href={href(`/vault/${item.slug}`)} className="focus-ring mt-1.5 block truncate font-mono text-[10px] uppercase tracking-[0.12em] text-ink-3 hover:text-ink">
         {cat(item.category)}
       </Link>
     </div>
@@ -43,13 +43,13 @@ function Slot({ list, offset, cat }) {
 
 /** A row of live, self-rotating features: the hero shows what sites can do instead of describing it. */
 export default function FeatureStrip({ lists }) {
-  const { cat: catHe, lang } = useLang();
+  const { cat: catHe, lang, href } = useLang();
   const cat = (c) => (lang === "he" ? catHe(c) : shortCategory(c));
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
       {lists.map((list, k) => (
         <div key={k} className={k === 2 ? "hidden sm:block" : ""}>
-          <Slot list={list} offset={k * 1200} cat={cat} />
+          <Slot list={list} offset={k * 1200} cat={cat} href={href} />
         </div>
       ))}
     </div>

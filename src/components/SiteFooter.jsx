@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useLang, CATEGORY_HE } from "@/lib/i18n";
+import { categorySlug } from "@/lib/seo-content";
 
 export default function SiteFooter({ categories, shortNames, repo }) {
-  const { t, lang } = useLang();
+  const { t, lang, href } = useLang();
   const f = t.footer;
   const home = lang === "he" ? "/he" : "/";
   const year = new Date().getFullYear();
@@ -23,7 +24,7 @@ export default function SiteFooter({ categories, shortNames, repo }) {
           <ul className="space-y-1.5 text-sm">
             {categories.map((c) => (
               <li key={c}>
-                <Link href={`${home}#vault`} className="hover:underline">
+                <Link href={href(`/designs/${categorySlug(c)}`)} className="hover:underline">
                   {lang === "he" ? CATEGORY_HE[c] || c : shortNames[c] || c}
                 </Link>
               </li>

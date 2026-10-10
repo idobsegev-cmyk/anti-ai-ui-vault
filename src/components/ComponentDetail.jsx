@@ -6,11 +6,13 @@ import DetailTabs from "./DetailTabs";
 import LivePreview from "./LivePreview";
 import SitePreview from "./SitePreview";
 import { useLang } from "@/lib/i18n";
-import { WEBSITE, shortCategory } from "@/lib/data";
+import { WEBSITE, localize, shortCategory } from "@/lib/data";
+import { categorySlug, styleSlug } from "@/lib/seo-content";
 
 /** The body of a component page, shared by the Next.js route and the single-file artifact. */
 export default function ComponentDetail({ item, prev, next, related }) {
-  const { t, lang, cat, sty } = useLang();
+  const { t, lang, cat, sty, href } = useLang();
+  const L = localize(item, lang);
   const d = t.detail;
   const home = lang === "he" ? "/he" : "/";
   const catShort = lang === "he" ? cat(item.category) : shortCategory(item.category);
@@ -30,14 +32,17 @@ export default function ComponentDetail({ item, prev, next, related }) {
         <header className="grid grid-cols-12 gap-6 py-10 md:py-14">
           <div className="col-span-12 min-w-0 lg:col-span-8">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-cobalt">
-              {cat(item.category)} · {sty(item.style || "Warm Editorial")}
+              <Link href={href(`/designs/${categorySlug(item.category)}`)} className="hover:underline">{cat(item.category)}</Link>
+              {" · "}
+              <Link href={href(`/styles/${styleSlug(item.style || "Warm Editorial")}`)} className="hover:underline">{sty(item.style || "Warm Editorial")}</Link>
             </p>
-            <h1 lang="en" dir="ltr" className="mt-2 text-[clamp(2.4rem,6vw,5.6rem)] font-semibold leading-[0.92] tracking-[-0.05em] [text-wrap:balance] rtl:text-right">
-              {item.title}
+            <h1 className="mt-2 text-[clamp(2.4rem,6vw,5.6rem)] font-semibold leading-[0.92] tracking-[-0.05em] [text-wrap:balance]">
+              {L.title}
             </h1>
           </div>
           <div className="col-span-12 flex flex-col justify-end gap-4 lg:col-span-4">
-            <p lang="en" className="text-lg leading-snug text-ink-2">{item.description}</p>
+            <p className="text-lg leading-snug text-ink-2">{L.description}</p>
+            {lang === "he" && <p lang="en" dir="ltr" className="text-end font-mono text-[11px] text-ink-3">{item.title}</p>}
             <ul className="flex flex-wrap gap-1.5" aria-label={d.tags}>
               {item.tags.map((tag) => (
                 <li key={tag} className="rounded-full border border-ink px-2.5 py-0.5 font-mono text-[11px]">{tag}</li>
@@ -47,6 +52,18 @@ export default function ComponentDetail({ item, prev, next, related }) {
         </header>
 
         <DetailTabs item={item} />
+
+        <section className="grid grid-cols-12 gap-6 border-b border-ink py-12" aria-labelledby="prompt-title">
+          <h2 id="prompt-title" className="col-span-12 text-2xl font-semibold tracking-[-0.03em] md:col-span-4">
+            {lang === "he" ? "הפרומפט המלא" : "The full prompt"}
+          </h2>
+          <details className="group col-span-12 md:col-span-8">
+            <summary className="focus-ring cursor-pointer list-none text-sm font-semibold underline underline-offset-4 [&::-webkit-details-marker]:hidden">
+              {lang === "he" ? "הצגת הפרומפט שמגדיר את הפריסה, התנועה ושפת העיצוב" : "Show the prompt that defines the layout, motion and design language"}
+            </summary>
+            <pre dir="ltr" lang="en" className="mt-4 max-h-[480px] overflow-auto whitespace-pre-wrap rounded-xl bg-paper-2 p-5 font-mono text-[12.5px] leading-relaxed text-ink">{item.claudePrompt}</pre>
+          </details>
+        </section>
 
         <section className="grid grid-cols-12 gap-6 py-12" aria-labelledby="use-title">
           <h2 id="use-title" className="col-span-12 text-2xl font-semibold tracking-[-0.03em] md:col-span-4">
@@ -68,14 +85,14 @@ export default function ComponentDetail({ item, prev, next, related }) {
             <h2 id="related-title" className="mb-6 text-2xl font-semibold tracking-[-0.03em]">{d.more(catShort)}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
-                <Link key={r.slug} href={`/vault/${r.slug}`} className="focus-ring group overflow-hidden rounded-2xl border border-ink">
+                <Link key={r.slug} href={href(`/vault/${r.slug}`)} className="focus-ring group overflow-hidden rounded-2xl border border-ink">
                   {r.category === WEBSITE ? (
                     <SitePreview code={r.previewCode} id={`rel-${r.slug}`} className="w-full border-b border-ink" />
                   ) : (
                     <LivePreview code={r.previewCode} id={`rel-${r.slug}`} className="pointer-events-none w-full border-b border-ink" />
                   )}
                   <div className="flex items-center justify-between gap-3 p-4">
-                    <span lang="en" className="font-semibold tracking-tight">{r.title}</span>
+                    <span className="font-semibold tracking-tight">{localize(r, lang).title}</span>
                     <ArrowUpRight size={16} strokeWidth={1.75} className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" />
                   </div>
                 </Link>
@@ -85,13 +102,13 @@ export default function ComponentDetail({ item, prev, next, related }) {
         )}
 
         <nav aria-label="Pagination" className="grid grid-cols-2 border-t border-ink">
-          <Link href={`/vault/${prev.slug}`} className="focus-ring group min-w-0 border-e border-ink py-8 pe-4">
+          <Link href={href(`/vault/${prev.slug}`)} className="focus-ring group min-w-0 border-e border-ink py-8 pe-4">
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{d.prev}</span>
-            <span lang="en" className="mt-1 block text-lg font-semibold tracking-tight group-hover:underline">{prev.title}</span>
+            <span className="mt-1 block text-lg font-semibold tracking-tight group-hover:underline">{localize(prev, lang).title}</span>
           </Link>
-          <Link href={`/vault/${next.slug}`} className="focus-ring group min-w-0 py-8 ps-4 text-end">
+          <Link href={href(`/vault/${next.slug}`)} className="focus-ring group min-w-0 py-8 ps-4 text-end">
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{d.next}</span>
-            <span lang="en" className="mt-1 block text-lg font-semibold tracking-tight group-hover:underline">{next.title}</span>
+            <span className="mt-1 block text-lg font-semibold tracking-tight group-hover:underline">{localize(next, lang).title}</span>
           </Link>
         </nav>
       </div>

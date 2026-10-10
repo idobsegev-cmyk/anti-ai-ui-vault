@@ -6,15 +6,16 @@ import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import LivePreview from "./LivePreview";
 import SitePreview from "./SitePreview";
-import { WEBSITE } from "@/lib/data";
+import { WEBSITE, localize } from "@/lib/data";
 import CopyButton from "./CopyButton";
 import { useLang, CATEGORY_HE } from "@/lib/i18n";
 
 // Bento rhythm: which positions in the list become wide cards on large screens.
 const WIDE = new Set([0, 5, 9, 14, 18, 23, 27, 32]);
 
-function VaultCard({ item, index, wide }) {
-  const { t, cat, sty, lang } = useLang();
+export function VaultCard({ item, index, wide }) {
+  const { t, cat, sty, lang, href } = useLang();
+  const L = localize(item, lang);
   return (
     <motion.article
       layout
@@ -41,8 +42,8 @@ function VaultCard({ item, index, wide }) {
               {cat(item.category)}
             </p>
             <h3 className="mt-1 text-lg font-semibold leading-tight tracking-[-0.02em]">
-              <Link href={`/vault/${item.slug}`} className="focus-ring after:absolute after:inset-0 after:content-['']">
-                {item.title}
+              <Link href={href(`/vault/${item.slug}`)} className="focus-ring after:absolute after:inset-0 after:content-['']">
+                {L.title}
               </Link>
             </h3>
           </div>
@@ -53,7 +54,7 @@ function VaultCard({ item, index, wide }) {
             <ArrowUpRight size={15} strokeWidth={1.75} className="rtl:-scale-x-100" />
           </motion.span>
         </div>
-        <p className="line-clamp-2 text-sm leading-snug text-ink-2" lang="en" dir="auto">{item.description}</p>
+        <p className="line-clamp-2 text-sm leading-snug text-ink-2">{L.description}</p>
         <span className="w-fit rounded-full border border-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider">{t.vault.style} · {sty(item.style || "Warm Editorial")}</span>
         <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
           <ul className="flex flex-wrap gap-1">
@@ -63,7 +64,7 @@ function VaultCard({ item, index, wide }) {
               </li>
             ))}
           </ul>
-          <CopyButton text={item.claudePrompt} size="sm" toastSub={item.title} className="relative z-10" />
+          <CopyButton text={item.claudePrompt} size="sm" toastSub={L.title} className="relative z-10" />
         </div>
       </div>
     </motion.article>
@@ -104,7 +105,8 @@ export default function VaultGrid({ items, categories, shortNames }) {
       if (cat !== "All" && it.category !== cat) return false;
       if (style !== "All styles" && (it.style || "Warm Editorial") !== style) return false;
       if (!needle) return true;
-      return (it.title + " " + it.description + " " + it.tags.join(" ")).toLowerCase().includes(needle);
+      const h = localize(it, "he");
+      return (it.title + " " + it.description + " " + h.title + " " + h.description + " " + it.tags.join(" ") + " " + (it.style || "")).toLowerCase().includes(needle);
     });
   }, [ordered, cat, style, q]);
 

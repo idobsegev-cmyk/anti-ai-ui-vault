@@ -59,7 +59,12 @@ The campaign window lives in `scripts/daily-config.json` (default: 2026-10-11 �
 
 ## SEO
 
-Per-page titles, descriptions, canonical URLs and generated OpenGraph images; `sitemap.xml` and `robots.txt`; JSON-LD `WebSite`, `ItemList`, `ProfessionalService` on the home page and `SoftwareSourceCode` + `CreativeWork` + `BreadcrumbList` on every component page.
+- **Two real languages.** English pages live under `src/app/(en)`, Hebrew under `src/app/(he)/he` — each a separate root layout, so Hebrew is server-rendered as `<html lang="he" dir="rtl">` with Hebrew titles, descriptions, h1s and body copy (`src/data/he.json`).
+- **hreflang** `en` / `he` / `x-default` on every page and in `sitemap.xml`; canonical URLs always point at `https://specimen-designs.vercel.app` in production.
+- **Landing pages** for every category (`/designs/website-designs`, `/designs/hero-sections`, …) and design style (`/styles/neo-brutalist`, `/styles/bauhaus`, …) in both languages — copy in `src/lib/seo-content.js`.
+- **JSON-LD:** `WebSite`, `Organization`, `CollectionPage`/`ItemList`, `FAQPage`, `ProfessionalService` on home; `SoftwareSourceCode` + `CreativeWork` + `BreadcrumbList` on items; `CollectionPage` + `BreadcrumbList` on landing pages.
+- Crawlable FAQ (`<details>`), the full prompt text on each item page, internal links between every page.
+- **Search Console:** set `GOOGLE_SITE_VERIFICATION` (and optionally `BING_SITE_VERIFICATION`) in Vercel → the verification meta tag is emitted; then submit `/sitemap.xml`.
 
 ## License
 

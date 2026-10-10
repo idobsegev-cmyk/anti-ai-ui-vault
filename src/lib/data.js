@@ -1,4 +1,6 @@
 import prompts from "@/data/prompts.json";
+import HE from "@/data/he.json";
+import { CATEGORY_HE, STYLE_HE } from "./labels";
 
 export const WEBSITE = "Full Website Designs";
 
@@ -57,4 +59,14 @@ export const STRIP_SLUGS = [
 
 export function getStrip() {
   return STRIP_SLUGS.map((list) => list.map(getBySlug).filter(Boolean));
+}
+
+/** Title and description in the page language. Hebrew falls back to a generated line for new daily items. */
+export function localize(item, lang) {
+  if (lang !== "he") return { title: item.title, description: item.description };
+  const he = HE[item.slug];
+  if (he) return { title: he[0], description: he[1] };
+  const cat = CATEGORY_HE[item.category] || item.category;
+  const sty = STYLE_HE[item.style || "Warm Editorial"] || item.style;
+  return { title: item.title, description: `${cat} בסגנון ${sty}, עם תצוגה חיה, קוד React ופרומפט מוכן ל-Claude.` };
 }

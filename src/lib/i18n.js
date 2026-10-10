@@ -214,38 +214,10 @@ export const STRINGS = {
   },
 };
 
-export const CATEGORY_HE = {
-  "Full Website Designs": "אתרים מלאים",
-  "Editorial Hero Sections": "הירו",
-  "Bento Feature Grids": "בנטו",
-  "Tactile Micro-Interaction Buttons": "כפתורים",
-  "Kinetic Typography Banners": "טיפוגרפיה בתנועה",
-  "Parallax/3D Interactive Cards": "כרטיסי תלת־ממד",
-  "Dynamic Accordions": "אקורדיונים",
-  "Animated Navigation Bars": "ניווט",
-  "Interactive Forms": "טפסים",
-};
+import { CATEGORY_HE, STYLE_HE } from "./labels";
+export { CATEGORY_HE, STYLE_HE };
 
-export const STYLE_HE = {
-  "Warm Editorial": "מגזיני חם",
-  "Neo-Brutalist": "ניאו־ברוטליסטי",
-  Bauhaus: "באוהאוס",
-  "Memphis 90s": "ממפיס שנות ה־90",
-  "Retro 70s": "רטרו שנות ה־70",
-  "Luxury Noir": "יוקרה שחורה",
-  "Japanese Minimal": "מינימליזם יפני",
-  "Y2K Chrome": "כרום Y2K",
-  "Retro OS": "מערכת הפעלה רטרו",
-  Claymorphism: "קליימורפיזם",
-  "Risograph Zine": "זין ריזוגרף",
-  "Organic Earth": "אורגני אדמתי",
-  "Art Deco": "ארט דקו",
-  "8-bit Arcade": "ארקייד 8 ביט",
-  "Mono Data": "דאטה מונו",
-  "Swiss International": "סגנון שוויצרי",
-};
-
-const LangCtx = createContext({ lang: "en", t: STRINGS.en, setLang: () => {}, cat: (c) => c, sty: (s) => s });
+const LangCtx = createContext({ lang: "en", t: STRINGS.en, setLang: () => {}, cat: (c) => c, sty: (s) => s, href: (p) => p });
 
 const KEY = "vault-lang";
 
@@ -267,8 +239,34 @@ export function detectFromSearch() {
   }
 }
 
-export function LangProvider({ initial = "en", children }) {
+/** The same page in the other language: "/vault/x" ↔ "/he/vault/x". */
+export function counterpartPath(path, to) {
+  const bare = path.replace(/^\/he(?=\/|$)/, "") || "/";
+  if (to === "he") return bare === "/" ? "/he" : `/he${bare}`;
+  return bare;
+}
+
+/**
+ * mode "routes" (the live site): each language has its own URLs, so switching navigates.
+ * mode "state" (the single-file artifact): switching re-renders in place.
+ */
+export function LangProvider({ initial = "en", mode = "state", children }) {
   const [lang, setLangState] = useState(initial);
+
+  const go = useCallback(
+    (l) => {
+      if (mode === "routes") {
+        const { pathname, hash } = window.location;
+        const next = counterpartPath(pathname, l);
+        if (next !== pathname) {
+          window.location.assign(next + hash);
+          return;
+        }
+      }
+      setLangState(l);
+    },
+    [mode],
+  );
 
   // First visit: a saved choice wins; otherwise a Hebrew Google visitor gets Hebrew.
   useEffect(() => {
@@ -276,33 +274,27 @@ export function LangProvider({ initial = "en", children }) {
     try {
       saved = localStorage.getItem(KEY);
     } catch {}
-    if (saved === "en" || saved === "he") {
-      if (saved !== lang) setLangState(saved);
-      return;
-    }
-    const detected = detectFromSearch();
-    if (detected && detected !== lang) setLangState(detected);
+    const want = saved === "en" || saved === "he" ? saved : detectFromSearch();
+    if (want && want !== lang) go(want);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    if (mode === "routes") return; // the server already set lang/dir on <html>
     const root = document.documentElement;
     root.lang = lang;
     root.dir = lang === "he" ? "rtl" : "ltr";
-    // Keep the home URL in step with the language on the live site (/ ↔ /he)
-    if (!window.__VAULT_ARTIFACT__) {
-      const p = window.location.pathname;
-      const want = lang === "he" ? "/he" : "/";
-      if ((p === "/" || p === "/he") && p !== want) window.history.replaceState(null, "", want + window.location.hash);
-    }
-  }, [lang]);
+  }, [lang, mode]);
 
-  const setLang = useCallback((l) => {
-    try {
-      localStorage.setItem(KEY, l);
-    } catch {}
-    setLangState(l);
-  }, []);
+  const setLang = useCallback(
+    (l) => {
+      try {
+        localStorage.setItem(KEY, l);
+      } catch {}
+      go(l);
+    },
+    [go],
+  );
 
   const value = useMemo(
     () => ({
@@ -311,6 +303,7 @@ export function LangProvider({ initial = "en", children }) {
       setLang,
       cat: (c) => (lang === "he" ? CATEGORY_HE[c] || c : c),
       sty: (s) => (lang === "he" ? STYLE_HE[s] || s : s),
+      href: (p) => (lang === "he" ? counterpartPath(p, "he") : p),
     }),
     [lang, setLang],
   );

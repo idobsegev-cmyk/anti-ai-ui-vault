@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Pause, Play } from "lucide-react";
 import LivePreview from "./LivePreview";
 import SitePreview from "./SitePreview";
-import { WEBSITE } from "@/lib/data";
+import { WEBSITE, localize } from "@/lib/data";
 import CopyButton from "./CopyButton";
 import { useLang } from "@/lib/i18n";
 
@@ -19,7 +19,7 @@ const SITE_HOLD_MS = 13000;
  */
 export default function HeroShowcase({ items }) {
   const reduce = useReducedMotion();
-  const { t, cat } = useLang();
+  const { t, cat, lang, href } = useLang();
   const [i, setI] = useState(0);
   const [hold, setHold] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -72,11 +72,11 @@ export default function HeroShowcase({ items }) {
           </AnimatePresence>
 
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-ink px-3 py-2.5">
-            <Link href={`/vault/${item.slug}`} className="focus-ring group flex min-w-0 items-center gap-1.5 text-sm font-semibold tracking-tight">
-              <span className="truncate">{item.title}</span>
+            <Link href={href(`/vault/${item.slug}`)} className="focus-ring group flex min-w-0 items-center gap-1.5 text-sm font-semibold tracking-tight">
+              <span className="truncate">{localize(item, lang).title}</span>
               <ArrowUpRight size={14} strokeWidth={1.75} className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" />
             </Link>
-            <CopyButton text={item.claudePrompt} size="sm" toastSub={item.title} />
+            <CopyButton text={item.claudePrompt} size="sm" toastSub={localize(item, lang).title} />
           </div>
 
           {/* time-to-next indicator */}
@@ -99,8 +99,8 @@ export default function HeroShowcase({ items }) {
             key={it.slug}
             role="tab"
             aria-selected={n === i}
-            aria-label={it.title}
-            title={it.title}
+            aria-label={localize(it, lang).title}
+            title={localize(it, lang).title}
             onClick={() => setI(n)}
             className={`focus-ring h-2 rounded-full border border-ink transition-[width,background-color] duration-300 ${n === i ? "w-8 bg-ink" : "w-2 bg-paper hover:bg-paper-3"}`}
           />
