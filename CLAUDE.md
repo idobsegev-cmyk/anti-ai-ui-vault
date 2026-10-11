@@ -3,7 +3,7 @@
 Read `docs/PROJECT-BRIEF.md` first: business, brand, site map, architecture, automation, open tasks.
 It is the source of truth. Standing instruction from the owner: whenever an important fact, change or update about the business or the site comes up, update the brief in the same session (current-state edit + dated changelog line), in both copies: this file's sibling `docs/PROJECT-BRIEF.md` and the claude.ai Project doc `claude/specimen-design-project-brief.md`.
 
-Business email: admin@specimen.org
+Business email: admin@specimendesign.org
 
 Live: https://specimen-designs.vercel.app (Hebrew: /he) · Instagram: https://www.instagram.com/specimen.design/ · Vercel team `segev1`, project `anti-ai-ui-vault` (auto-deploys `main`).
 
