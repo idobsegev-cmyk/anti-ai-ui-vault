@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CATEGORY_PAGES, STYLE_PAGES } from "@/lib/seo-content";
 import { SERVICE_HUB, SERVICE_PAGES } from "@/lib/services-content";
+import { GUIDES, GUIDE_HUB } from "@/lib/guides-content";
 
 /** Crawlable links to every category and design-language page, in the page's language. */
 export default function Explore({ lang, current }) {
@@ -26,6 +27,14 @@ export default function Explore({ lang, current }) {
             {STYLE_PAGES.map((s) => (
               <Link key={s.slug} href={p(`/styles/${s.slug}`)} className={chip(current === s.slug)}>
                 {s[lang].h1}
+              </Link>
+            ))}
+          </nav>
+          <nav aria-label={GUIDE_HUB[lang].h1} className="flex flex-wrap gap-2 border-t border-ink/20 pt-6">
+            <Link href={p("/guides")} className={chip(current === "guides")}>{GUIDE_HUB[lang].h1}</Link>
+            {GUIDES.map((g) => (
+              <Link key={g.slug} href={p(`/guides/${g.slug}`)} className={chip(current === g.slug)}>
+                {g[lang].short}
               </Link>
             ))}
           </nav>

@@ -12,6 +12,7 @@ export default function SiteHeader({ count }) {
   const LINKS = [
     { href: `${home}#vault`, label: t.nav.vault },
     { href: `${home}#how`, label: t.nav.how },
+    { href: lang === "he" ? "/he/guides" : "/guides", label: t.nav.guides },
     { href: `${home}#custom`, label: t.nav.custom },
   ];
   const { scrollY, scrollYProgress } = useScroll();

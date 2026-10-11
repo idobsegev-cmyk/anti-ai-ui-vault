@@ -50,6 +50,7 @@ export default function SiteFooter({ categories, shortNames, repo }) {
           <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper/50">{f.studio}</p>
           <ul className="space-y-1.5 text-sm">
             <li><Link href={href("/services")} className="hover:underline">{f.services}</Link></li>
+            <li><Link href={href("/guides")} className="hover:underline">{f.guides}</Link></li>
             <li><Link href={`${home}#custom`} className="hover:underline">{f.bookCustom}</Link></li>
             <li><a href="/sitemap.xml" className="hover:underline">{f.sitemap}</a></li>
             <li><a href={SITE.instagram} target="_blank" rel="noopener" className="hover:underline">Instagram</a></li>
