@@ -51,8 +51,8 @@ export const STRINGS = {
     },
     lead: {
       kicker: "Studio — by commission",
-      banner: "Need a high-converting, award-winning site for your business?",
-      accentWord: "award-winning",
+      banner: "Need a website that looks made by hand, not by a template?",
+      accentWord: "hand",
       aside: "The specimens here are a sample of how we build client work: type set by hand, motion tuned on real devices, and pages structured to turn visitors into enquiries.",
       bullets: ["Strategy, copy & design in one team", "Next.js build, fast by default", "SEO structure & analytics from day one", "4–6 weeks for most studio sites"],
       step: (n) => `Step ${n} / 3`,
