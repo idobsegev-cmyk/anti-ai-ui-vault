@@ -1,6 +1,8 @@
 # Specimen Design · דוגמית עיצוב
 
-Live: https://specimen-designs.vercel.app
+Live: https://specimen-designs.vercel.app · Instagram: [@specimen.design](https://www.instagram.com/specimen.design/)
+
+Full project brief (business, brand, architecture, open tasks): [`docs/PROJECT-BRIEF.md`](docs/PROJECT-BRIEF.md)
 
 A specimen book of full website designs and hand-tuned animated React components that do not look generated. Each one has a **live preview**, a **copy-ready Claude prompt**, and its own SEO page at `/vault/[slug]`. English by default, Hebrew at `/he`.
 
