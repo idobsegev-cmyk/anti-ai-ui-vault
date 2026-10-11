@@ -5,6 +5,8 @@ export const SITE = {
   description:
     "A free specimen book of full website designs and hand-tuned, animated React components — editorial heroes, bento grids, tactile buttons, kinetic type — each with a copy-ready Claude prompt and live preview. No neon, no glassmorphism, no template look.",
   author: "Ido Segev",
+  instagram: "https://www.instagram.com/specimen.design/",
+  instagramHandle: "@specimen.design",
   locale: "en_US",
 };
 

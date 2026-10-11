@@ -90,6 +90,7 @@ export const STRINGS = {
       source: "Source on GitHub",
       rights: (y) => `© ${y} Specimen Design. Designs free to use (MIT).`,
       daily: "New specimens land every morning.",
+      instagram: "Follow on Instagram",
     },
     detail: {
       vault: "Specimens",
@@ -195,6 +196,7 @@ export const STRINGS = {
       source: "הקוד ב-GitHub",
       rights: (y) => `© ${y} דוגמית עיצוב. העיצובים חופשיים לשימוש (MIT).`,
       daily: "עיצובים חדשים נוספים כל בוקר.",
+      instagram: "אנחנו באינסטגרם",
     },
     detail: {
       vault: "כל העיצובים",

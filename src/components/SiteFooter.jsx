@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang, CATEGORY_HE } from "@/lib/i18n";
 import { categorySlug } from "@/lib/seo-content";
+import { SITE } from "@/lib/site";
 
 export default function SiteFooter({ categories, shortNames, repo }) {
   const { t, lang, href } = useLang();
@@ -18,6 +19,20 @@ export default function SiteFooter({ categories, shortNames, repo }) {
             <span className="font-serif font-normal italic text-terracotta rtl:not-italic">{f.made[1]}</span>
           </p>
           <p className="mt-4 text-sm text-paper/60">{f.tagline}</p>
+          <a
+            href={SITE.instagram}
+            target="_blank"
+            rel="noopener me"
+            className="focus-ring mt-6 inline-flex items-center gap-2.5 rounded-full border border-paper/30 py-2 pe-4 ps-2 text-sm transition-colors hover:border-paper hover:bg-paper hover:text-ink"
+          >
+            <svg aria-hidden viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.75">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+            <span>{f.instagram}</span>
+            <span dir="ltr" className="font-mono text-[11px] opacity-60">{SITE.instagramHandle}</span>
+          </a>
         </div>
         <nav aria-label={f.categories} className="col-span-6 md:col-span-3">
           <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper/50">{f.categories}</p>
@@ -36,6 +51,7 @@ export default function SiteFooter({ categories, shortNames, repo }) {
           <ul className="space-y-1.5 text-sm">
             <li><Link href={`${home}#custom`} className="hover:underline">{f.bookCustom}</Link></li>
             <li><a href="/sitemap.xml" className="hover:underline">{f.sitemap}</a></li>
+            <li><a href={SITE.instagram} target="_blank" rel="noopener" className="hover:underline">Instagram</a></li>
             {repo && <li><a href={repo} className="hover:underline">{f.source}</a></li>}
           </ul>
         </div>

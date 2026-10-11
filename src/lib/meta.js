@@ -42,5 +42,6 @@ export function orgJsonLd() {
     url: base,
     logo: `${base}/icon.svg`,
     founder: { "@type": "Person", name: SITE.author },
+    sameAs: [SITE.instagram, "https://github.com/idobsegev-cmyk/anti-ai-ui-vault"],
   };
 }
