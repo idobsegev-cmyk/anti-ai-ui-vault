@@ -45,6 +45,7 @@
 | האתר (אנגלית) | https://specimen-designs.vercel.app |
 | האתר (עברית) | https://specimen-designs.vercel.app/he |
 | מייל | admin@specimen.org (עדיין לא מופיע באתר) |
+| דומיין specimen.org | רשום ומנוהל ב־**Squarespace** (רשם הדומיין וה־DNS). מחובר ל־Google Workspace עבור המייל העסקי. **אימות הבעלות מול Google בתהליך** (11 באוקטובר 2026) |
 | **אינסטגרם** | **https://www.instagram.com/specimen.design/** (`@specimen.design`). הקישור מופיע בפוטר האתר בשתי השפות ובסכמת ה־Organization (`sameAs`) |
 | קוד | https://github.com/idobsegev-cmyk/anti-ai-ui-vault (ציבורי, ענף `main`) |
 | אחסון | Vercel, צוות `segev1`, פרויקט `anti-ai-ui-vault`. כל push ל־`main` מעלה גרסה חדשה אוטומטית |
@@ -306,7 +307,7 @@
 5. **קישורים חיצוניים:** Product Hunt, Reddit (r/web_design, r/ClaudeAI), קבוצות עיצוב ישראליות ושיתופים באינסטגרם. זה הגורם החזק ביותר לדירוג.
 6. **מנוע Claude לתוכן היומי** (`ANTHROPIC_API_KEY`): בלעדיו התוכן החדש חד־גוני (Warm Editorial בלבד) ואין אתרים מלאים חדשים.
 7. **פרטי קשר באתר:** המייל העסקי admin@specimen.org עדיין לא מופיע באתר (הוא מופיע רק כאן). אפשר להוסיף אותו לפוטר ולסכמת ה־Organization, וגם להפנות אליו את פניות הטופס (סעיף 2 למעלה). טלפון או וואטסאפ עדיין לא נמסרו.
-14. **הדומיין specimen.org:** המייל העסקי יושב על הדומיין הזה. אם הוא בבעלות העסק, הוא מועמד טבעי לכתובת האתר במקום specimen-designs.vercel.app (ראו משימה 4). צריך לאמת בעלות לפני שמחברים.
+14. **הדומיין specimen.org:** רשום ב־Squarespace, והמייל העסקי יושב עליו. **צעד נוכחי:** להשלים את אימות הדומיין ב־Google Workspace (רשומת TXT ב־DNS של Squarespace, או אימות אוטומטי דרך התחברות ל־Squarespace מתוך אשף ההגדרה של Google), ואז רשומות MX והפעלת Gmail, ובהמשך SPF, DKIM ו־DMARC. אחרי זה הדומיין מועמד טבעי לכתובת האתר במקום specimen-designs.vercel.app (ראו משימה 4). שינויי DNS לאתר צריכים לשמור על רשומות המייל.
 
 **שיפורים:**
 8. גרסאות נוספות של סרטון האינסטגרם: 4:5 או 1:1 לפיד, ו/או גרסה בעברית. הסקריפט `scripts/brand/record-reel.py` מוכן להתאמה.
@@ -325,3 +326,4 @@
 | 2026-10-10 | הקמת האתר (Anti-AI UI Vault), Artifact, עלייה ל־Vercel, מגוון סגנונות, אתרים מלאים, אנגלית ועברית, שינוי שם ל־Specimen Design וכתובת specimen-designs.vercel.app, שדרוג SEO בשתי השפות |
 | 2026-10-11 | תיקוני גלילה ו־CLS; קבצי לוגו ואייקון חדש; תמונות 1200×628; שדרוג טיפוגרפיה ותוכן בעברית; סרטון "איך זה עובד" לאינסטגרם; קישור לאינסטגרם @specimen.design באתר; יצירת המסמך הזה |
 | 2026-10-11 | נוסף המייל העסקי admin@specimen.org; נקבעה ההוראה הקבועה לעדכן את המסמך בכל שינוי חשוב (סעיף 0) |
+| 2026-10-11 | הדומיין specimen.org מנוהל ב־Squarespace; התחיל אימות הדומיין מול Google Workspace (סעיף 2, משימה 14) |
