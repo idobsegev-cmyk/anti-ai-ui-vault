@@ -17,7 +17,7 @@ const js = await build({
   target: "es2020",
   jsx: "automatic",
   write: false,
-  alias: { "next/link": path.join(root, "artifact/shims/link.jsx"), "next/navigation": path.join(root, "artifact/shims/navigation.js"), "@": path.join(root, "src") },
+  alias: { "next/link": path.join(root, "artifact/shims/link.jsx"), "next/navigation": path.join(root, "artifact/shims/navigation.js"), "@vercel/analytics/next": path.join(root, "artifact/shims/analytics.js"), "@vercel/analytics": path.join(root, "artifact/shims/analytics.js"), "@": path.join(root, "src") },
   loader: { ".js": "jsx" },
   define: {
     "process.env.NODE_ENV": '"production"',
