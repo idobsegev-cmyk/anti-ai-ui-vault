@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
-import { ArrowUpRight, Search, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import LivePreview from "./LivePreview";
 import SitePreview from "./SitePreview";
-import { WEBSITE, localize } from "@/lib/data";
+import { WEBSITE, CARD_FOCUS, localize } from "@/lib/data";
 import CopyButton from "./CopyButton";
 import { useLang, CATEGORY_HE } from "@/lib/i18n";
 
@@ -14,57 +14,37 @@ import { useLang, CATEGORY_HE } from "@/lib/i18n";
 const WIDE = new Set([0, 5, 9, 14, 18, 23, 27, 32]);
 
 export function VaultCard({ item, index, wide }) {
-  const { t, cat, sty, tags, lang, href } = useLang();
+  const { cat, sty, lang, href } = useLang();
   const L = localize(item, lang);
   return (
     <motion.article
       layout
       data-touch-scroll
-      initial={{ opacity: 0, y: 24, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ type: "spring", stiffness: 260, damping: 30 }}
-      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-ink bg-paper ${wide ? "lg:col-span-2" : ""}`}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0.15 } }}
+      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-ink bg-paper transition-[box-shadow,translate] duration-200 ease-[var(--ease-out)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_var(--color-ink)] rtl:hover:translate-x-0.5 rtl:hover:shadow-[-5px_5px_0_0_var(--color-ink)] ${wide ? "lg:col-span-2" : ""}`}
     >
       <div className="relative border-b border-ink">
         {item.category === WEBSITE ? (
-          <SitePreview code={item.previewCode} id={`card-${item.slug}`} className="w-full" />
+          <SitePreview code={item.previewCode} id={`card-${item.slug}`} className="w-full" focus={CARD_FOCUS[item.slug] || 0} />
         ) : (
           <LivePreview code={item.previewCode} id={`card-${item.slug}`} className="w-full" designWidth={wide ? 820 : 520} designHeight={wide ? 400 : 390} />
         )}
       </div>
-      <div className="relative flex flex-1 flex-col gap-3 p-4">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-3">
-              <span className="inline-flex items-center gap-1 text-cobalt">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cobalt" /> {t.vault.live}
-              </span>
-              {cat(item.category)}
-            </p>
-            <h3 className="mt-1 text-lg font-semibold leading-tight tracking-[-0.02em]">
-              <Link href={href(`/vault/${item.slug}`)} className="focus-ring after:absolute after:inset-0 after:content-['']">
-                {L.title}
-              </Link>
-            </h3>
-          </div>
-          <motion.span
-            className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink transition-colors group-hover:bg-ink group-hover:text-paper"
-            whileHover={{ rotate: 45 }}
-          >
-            <ArrowUpRight size={15} strokeWidth={1.75} className="rtl:-scale-x-100" />
-          </motion.span>
+      <div className="relative flex flex-1 flex-col gap-2 p-4">
+        <div className="flex items-baseline justify-between gap-3">
+          <h3 className="text-lg font-semibold leading-tight tracking-[-0.02em]">
+            <Link href={href(`/vault/${item.slug}`)} className="focus-ring after:absolute after:inset-0 after:content-['']">
+              {L.title}
+            </Link>
+          </h3>
+          <span className="label shrink-0 text-ink-3">{sty(item.style || "Warm Editorial")}</span>
         </div>
         <p className="line-clamp-2 text-sm leading-snug text-ink-2">{L.description}</p>
-        <span className="w-fit rounded-full border border-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider">{t.vault.style} · {sty(item.style || "Warm Editorial")}</span>
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-          <ul className="flex flex-wrap gap-1">
-            {tags(item.tags).slice(0, 3).map((t) => (
-              <li key={t} className="rounded-full bg-paper-2 px-2 py-0.5 font-mono text-[10px] text-ink-2">
-                {t}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-auto flex items-center justify-between gap-2 pt-2">
+          <span className="label text-ink-3">{cat(item.category)}</span>
           <CopyButton text={item.claudePrompt} size="sm" toastSub={L.title} className="relative z-10" />
         </div>
       </div>
@@ -120,7 +100,6 @@ export default function VaultGrid({ items, categories, shortNames }) {
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
         <div className="grid grid-cols-12 items-end gap-6 border-b border-ink pb-6">
           <div className="col-span-12 md:col-span-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">{t.vault.kicker(items.length)}</p>
             <h2 id="vault-title" className="mt-2 text-[clamp(2.4rem,5.5vw,5rem)] font-semibold leading-[0.92] tracking-[-0.045em]">
               {t.vault.title[0]}<span className="font-serif font-normal italic rtl:not-italic">{t.vault.title[1]}</span>{t.vault.title[2]}
             </h2>
@@ -169,7 +148,7 @@ export default function VaultGrid({ items, categories, shortNames }) {
         </LayoutGroup>
 
         <div className="-mt-2 mb-5 flex flex-wrap items-center gap-1.5">
-          <span className="mr-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-3">{t.vault.language}</span>
+          <span className="mr-1 label text-ink-3">{t.vault.language}</span>
           {[["All styles", items.length], ...styles].map(([sname, n]) => (
             <button
               key={sname}

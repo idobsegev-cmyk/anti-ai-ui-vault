@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { ToastProvider } from "@/components/Toast";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import Hero from "@/components/Hero";
+import HeroStage from "@/components/HeroStage";
 import VaultGrid from "@/components/VaultGrid";
 import HowItWorks from "@/components/HowItWorks";
 import LeadFunnel from "@/components/LeadFunnel";
@@ -11,13 +11,13 @@ import Faq from "@/components/Faq";
 import ComponentDetail from "@/components/ComponentDetail";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { LangProvider, useLang } from "@/lib/i18n";
-import { getAll, getBySlug, getStrip, getCategories, getRelated, shortCategory } from "@/lib/data";
+import { getAll, getBySlug, getCategories, getRelated, shortCategory } from "@/lib/data";
 
 window.__VAULT_ARTIFACT__ = true;
 
 const items = getAll();
 const cats = getCategories();
-const featured = ["ledgerly-saas-landing-page", "nocturne-hotel-website", "loudmouth-agency-website", "bloom-root-skincare-shop", "sunwave-festival-website", "brutalist-pricing-toggle", "holo-chrome-card", "pixel-arcade-start-button"].map(getBySlug).filter(Boolean);
+const featured = ["gat-daughters-olive-oil-website", "noa-shiloh-athlete-website", "relay-nine-it-networks-website", "night-oven-bakery-website", "kanso-architects-website"].map(getBySlug).filter(Boolean);
 const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
 const REPO = "https://github.com/idobsegev-cmyk/anti-ai-ui-vault";
 
@@ -87,7 +87,7 @@ function Site() {
           <Detail key={route.slug} slug={route.slug} />
         ) : (
           <>
-            <Hero count={items.length} featured={featured} strip={getStrip()} />
+            <HeroStage count={items.length} items={featured} />
             <VaultGrid items={items} categories={cats} shortNames={short} />
             <HowItWorks />
             <Faq lang={lang} />

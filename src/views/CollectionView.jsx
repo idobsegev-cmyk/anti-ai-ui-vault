@@ -78,7 +78,7 @@ export default function CollectionView({ kind, slug, lang }) {
       <JsonLd data={jsonLd} />
       <section className="pt-24 md:pt-28">
         <div className="mx-auto max-w-[1400px] px-5 md:px-8">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 border-b border-ink pb-2 font-mono text-[11px] uppercase tracking-[0.16em]">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 border-b border-ink pb-2 label">
             <Link href={he ? "/he" : "/"} className="focus-ring hover:underline">{he ? HE_NAME : SITE.name}</Link>
             <span className="text-ink-3">/</span>
             <span className="text-ink-3">{kind === "designs" ? (he ? "סוגים" : "Types") : he ? "סגנונות" : "Styles"}</span>

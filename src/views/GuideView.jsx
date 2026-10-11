@@ -40,7 +40,7 @@ export function guideMetadata(slug, lang) {
 function Breadcrumb({ lang, trail }) {
   const he = lang === "he";
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 border-b border-ink pb-2 font-mono text-[11px] uppercase tracking-[0.16em]">
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 border-b border-ink pb-2 label">
       <Link href={he ? "/he" : "/"} className="focus-ring hover:underline">{brand(he)}</Link>
       {trail.map(([label, href]) => (
         <span key={label} className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export function GuideHubView({ lang }) {
             <h1 className="col-span-12 text-[clamp(2.4rem,6vw,5.6rem)] font-semibold leading-[0.92] tracking-[-0.05em] [text-wrap:balance] lg:col-span-7 rtl:tracking-[-0.02em]">{c.h1}</h1>
             <p className="col-span-12 self-end text-lg leading-snug text-ink-2 lg:col-span-5">{c.intro}</p>
           </header>
-          <p className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3"><GuideLabel k="count" n={GUIDES.length} /></p>
+          <p className="border-t border-ink pt-3 label text-ink-3"><GuideLabel k="count" n={GUIDES.length} /></p>
           <ul className="grid grid-cols-1 gap-5 py-8 md:grid-cols-2">
             {GUIDES.map((g, i) => (
               <li key={g.slug}>
@@ -142,7 +142,7 @@ export default function GuideView({ slug, lang }) {
         <div className="mx-auto max-w-[1400px] px-5 pb-16 md:px-8">
           <Breadcrumb lang={lang} trail={[[GUIDE_HUB[lang].h1, hubPath], [c.short]]} />
           <header className="py-10 md:py-14">
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-terracotta">{c.kicker}</p>
+            <p className="label text-terracotta">{c.kicker}</p>
             <h1 className="mt-3 max-w-5xl text-[clamp(2.2rem,5.2vw,4.8rem)] font-semibold leading-[0.96] tracking-[-0.045em] [text-wrap:balance] rtl:tracking-[-0.02em]">{c.h1}</h1>
             <p className="mt-6 max-w-3xl text-xl leading-snug text-ink-2">{c.intro}</p>
             <div className="mt-6"><GuideMeta minutes={minutes} date={guide.date} /></div>
@@ -156,7 +156,7 @@ export default function GuideView({ slug, lang }) {
             <GuideFaq faq={c.faq} />
             {related.length > 0 && (
               <section aria-labelledby="guide-more" className="mt-16">
-                <h2 id="guide-more" className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3"><GuideLabel k="more" /></h2>
+                <h2 id="guide-more" className="border-t border-ink pt-3 label text-ink-3"><GuideLabel k="more" /></h2>
                 <ul className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
                   {related.map((g, i) => (
                     <li key={g.slug}>

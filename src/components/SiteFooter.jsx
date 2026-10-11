@@ -35,7 +35,7 @@ export default function SiteFooter({ categories, shortNames, repo }) {
           </a>
         </div>
         <nav aria-label={f.categories} className="col-span-6 md:col-span-3">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper/50">{f.categories}</p>
+          <p className="mb-3 label text-paper/50">{f.categories}</p>
           <ul className="space-y-1.5 text-sm">
             {categories.map((c) => (
               <li key={c}>
@@ -47,7 +47,7 @@ export default function SiteFooter({ categories, shortNames, repo }) {
           </ul>
         </nav>
         <div className="col-span-6 md:col-span-3">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper/50">{f.studio}</p>
+          <p className="mb-3 label text-paper/50">{f.studio}</p>
           <ul className="space-y-1.5 text-sm">
             <li><Link href={href("/services")} className="hover:underline">{f.services}</Link></li>
             <li><Link href={href("/guides")} className="hover:underline">{f.guides}</Link></li>

@@ -20,7 +20,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
   return (
     <article className="pt-24 md:pt-28">
       <div className="mx-auto max-w-[1400px] px-5 md:px-8">
-        <nav aria-label="Breadcrumb" className="flex items-center gap-2 border-b border-ink pb-2 font-mono text-[11px] uppercase tracking-[0.16em]">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 border-b border-ink pb-2 label">
           <Link href={`${home}#vault`} className="focus-ring inline-flex items-center gap-1 hover:underline">
             <ArrowLeft size={12} strokeWidth={2} className="rtl:-scale-x-100" /> {d.vault}
           </Link>
@@ -31,7 +31,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
 
         <header className="grid grid-cols-12 gap-6 py-10 md:py-14">
           <div className="col-span-12 min-w-0 lg:col-span-8">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-cobalt">
+            <p className="label text-cobalt">
               <Link href={href(`/designs/${categorySlug(item.category)}`)} className="hover:underline">{cat(item.category)}</Link>
               {" · "}
               <Link href={href(`/styles/${styleSlug(item.style || "Warm Editorial")}`)} className="hover:underline">{sty(item.style || "Warm Editorial")}</Link>
@@ -45,7 +45,7 @@ export default function ComponentDetail({ item, prev, next, related }) {
             {lang === "he" && <p lang="en" dir="ltr" className="text-end font-mono text-[11px] text-ink-3">{item.title}</p>}
             <ul className="flex flex-wrap gap-1.5" aria-label={d.tags}>
               {tags(item.tags).map((tag) => (
-                <li key={tag} className="rounded-full border border-ink px-2.5 py-0.5 font-mono text-[11px]">{tag}</li>
+                <li key={tag} className="rounded-full border border-ink/30 px-2.5 py-0.5 text-[12px]">{tag}</li>
               ))}
             </ul>
           </div>
@@ -85,17 +85,22 @@ export default function ComponentDetail({ item, prev, next, related }) {
             <h2 id="related-title" className="mb-6 text-2xl font-semibold tracking-[-0.03em]">{d.more(catShort)}</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
-                <Link data-touch-scroll key={r.slug} href={href(`/vault/${r.slug}`)} className="focus-ring group overflow-hidden rounded-2xl border border-ink">
-                  {r.category === WEBSITE ? (
-                    <SitePreview code={r.previewCode} id={`rel-${r.slug}`} className="w-full border-b border-ink" />
-                  ) : (
-                    <LivePreview code={r.previewCode} id={`rel-${r.slug}`} className="pointer-events-none w-full border-b border-ink" />
-                  )}
+                <div data-touch-scroll key={r.slug} className="group relative overflow-hidden rounded-2xl border border-ink transition-[box-shadow,translate] duration-200 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_var(--color-ink)]">
+                  {/* the preview is decoration here; one real link covers the card, so no link sits inside another */}
+                  <div inert aria-hidden className="pointer-events-none">
+                    {r.category === WEBSITE ? (
+                      <SitePreview code={r.previewCode} id={`rel-${r.slug}`} className="w-full border-b border-ink" />
+                    ) : (
+                      <LivePreview code={r.previewCode} id={`rel-${r.slug}`} className="w-full border-b border-ink" />
+                    )}
+                  </div>
                   <div className="flex items-center justify-between gap-3 p-4">
-                    <span className="font-semibold tracking-tight">{localize(r, lang).title}</span>
+                    <Link href={href(`/vault/${r.slug}`)} className="focus-ring font-semibold tracking-tight after:absolute after:inset-0 after:content-['']">
+                      {localize(r, lang).title}
+                    </Link>
                     <ArrowUpRight size={16} strokeWidth={1.75} className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" />
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </section>
@@ -103,11 +108,11 @@ export default function ComponentDetail({ item, prev, next, related }) {
 
         <nav aria-label="Pagination" className="grid grid-cols-2 border-t border-ink">
           <Link href={href(`/vault/${prev.slug}`)} className="focus-ring group min-w-0 border-e border-ink py-8 pe-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{d.prev}</span>
+            <span className="label text-ink-3">{d.prev}</span>
             <span className="mt-1 block text-lg font-semibold tracking-tight group-hover:underline">{localize(prev, lang).title}</span>
           </Link>
           <Link href={href(`/vault/${next.slug}`)} className="focus-ring group min-w-0 py-8 ps-4 text-end">
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{d.next}</span>
+            <span className="label text-ink-3">{d.next}</span>
             <span className="mt-1 block text-lg font-semibold tracking-tight group-hover:underline">{localize(next, lang).title}</span>
           </Link>
         </nav>

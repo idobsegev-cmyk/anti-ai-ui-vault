@@ -219,7 +219,7 @@ export default function HowItWorks() {
     <section id="how" className="scroll-mt-20 border-b border-ink bg-paper-2" aria-labelledby="how-title">
       <div className="mx-auto grid max-w-[1400px] grid-cols-12 items-center gap-8 px-5 py-16 md:px-8 md:py-24">
         <div className="col-span-12 md:col-span-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">{t.how.kicker}</p>
+          <p className="label text-ink-3">{t.how.kicker}</p>
           <h2 id="how-title" className="mt-2 text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[0.95] tracking-[-0.04em] rtl:tracking-[-0.01em]">
             {t.how.title[0]}
             <span className="font-serif font-normal italic rtl:not-italic">{t.how.title[1]}</span>

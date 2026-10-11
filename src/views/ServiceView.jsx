@@ -57,7 +57,7 @@ function faqLd(faq) {
 function Breadcrumb({ lang, trail }) {
   const he = lang === "he";
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 border-b border-ink pb-2 font-mono text-[11px] uppercase tracking-[0.16em]">
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 border-b border-ink pb-2 label">
       <Link href={he ? "/he" : "/"} className="focus-ring hover:underline">{brand(he)}</Link>
       {trail.map(([label, href]) => (
         <span key={label} className="flex items-center gap-2">
@@ -170,7 +170,7 @@ export function ServiceHubView({ lang }) {
           <Breadcrumb lang={lang} trail={[[he ? "שירותים" : "Services"]]} />
           <Header h1={c.h1} intro={c.intro} cta={ctaText(he)} ctaHref="#custom" />
 
-          <h2 className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{he ? "מה כלול" : "What's included"}</h2>
+          <h2 className="border-t border-ink pt-3 label text-ink-3">{he ? "מה כלול" : "What's included"}</h2>
           <ul className="grid grid-cols-1 gap-x-8 gap-y-6 py-8 sm:grid-cols-2 lg:grid-cols-3">
             {c.included.map(([t, d], i) => (
               <li key={t} className="border-t border-ink/20 pt-4">
@@ -181,7 +181,7 @@ export function ServiceHubView({ lang }) {
             ))}
           </ul>
 
-          <h2 className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{he ? "איך זה עובד" : "How it works"}</h2>
+          <h2 className="border-t border-ink pt-3 label text-ink-3">{he ? "איך זה עובד" : "How it works"}</h2>
           <ol className="grid grid-cols-1 gap-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
             {c.steps.map(([t, d], i) => (
               <li key={t}>
@@ -192,10 +192,10 @@ export function ServiceHubView({ lang }) {
             ))}
           </ol>
 
-          <h2 className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{c.industriesTitle}</h2>
+          <h2 className="border-t border-ink pt-3 label text-ink-3">{c.industriesTitle}</h2>
           <div className="py-8"><IndustryLinks lang={lang} /></div>
 
-          <h2 className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{he ? "דוגמאות לעבודה" : "Sample work"}</h2>
+          <h2 className="border-t border-ink pt-3 label text-ink-3">{he ? "דוגמאות לעבודה" : "Sample work"}</h2>
           <div className="grid grid-cols-1 gap-5 py-8 md:grid-cols-2">
             {sites.slice(0, 4).map((it, i) => <VaultCard key={it.slug} item={it} index={i} />)}
           </div>
@@ -266,7 +266,7 @@ export default function ServiceDetailView({ slug, lang }) {
 
           {designs.length > 0 && (
             <>
-              <h2 className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{he ? "עיצוב לדוגמה מהספרייה" : "A sample from the library"}</h2>
+              <h2 className="border-t border-ink pt-3 label text-ink-3">{he ? "עיצוב לדוגמה מהספרייה" : "A sample from the library"}</h2>
               <div className="grid grid-cols-1 gap-5 py-8 md:grid-cols-2">
                 {designs.map((it, i) => <VaultCard key={it.slug} item={it} index={i} />)}
               </div>
@@ -285,7 +285,7 @@ export default function ServiceDetailView({ slug, lang }) {
             </div>
           </div>
 
-          <h2 className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{he ? "תחומים נוספים" : "Other industries"}</h2>
+          <h2 className="border-t border-ink pt-3 label text-ink-3">{he ? "תחומים נוספים" : "Other industries"}</h2>
           <div className="py-8"><IndustryLinks lang={lang} current={slug} /></div>
         </div>
       </section>

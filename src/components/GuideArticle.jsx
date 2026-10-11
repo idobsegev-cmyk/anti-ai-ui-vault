@@ -33,7 +33,7 @@ function CodeBlock({ label, code }) {
   return (
     <figure className="my-8 overflow-hidden rounded-xl border border-ink bg-paper shadow-[4px_4px_0_#121212]">
       <figcaption className="flex items-center justify-between gap-3 border-b border-ink bg-paper-2 py-2 pe-2 ps-4">
-        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2">{label}</span>
+        <span className="label text-ink-2">{label}</span>
         <CopyButton text={code} label={t.guides.copy} toastMessage={t.guides.copied} toastSub={label} size="sm" variant="ghost" />
       </figcaption>
       <pre dir="auto" className="max-h-[32rem] overflow-auto whitespace-pre-wrap break-words p-4 text-start font-mono text-[13px] leading-[1.7] text-ink md:p-5">
@@ -91,7 +91,7 @@ export function GuideToc({ headings }) {
   const { t } = useLang();
   return (
     <nav aria-label={t.guides.toc} className="lg:sticky lg:top-28">
-      <p className="border-b border-ink pb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{t.guides.toc}</p>
+      <p className="border-b border-ink pb-2 label text-ink-3">{t.guides.toc}</p>
       <ol className="mt-3 space-y-2 text-sm">
         {headings.map((h, i) => (
           <li key={i} className="grid grid-cols-[1.75rem_1fr] gap-1">
@@ -108,7 +108,7 @@ export function GuideMeta({ minutes, date }) {
   const { t, lang } = useLang();
   const d = new Date(date).toLocaleDateString(lang === "he" ? "he-IL" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
   return (
-    <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-3">
+    <p className="flex flex-wrap items-center gap-x-3 gap-y-1 label text-ink-3">
       <span>{t.guides.read(minutes)}</span>
       <span aria-hidden>·</span>
       <span>{t.guides.updated} <time dateTime={date}>{d}</time></span>
@@ -127,12 +127,12 @@ export function GuideDesigns({ designs }) {
   if (!designs.length) return null;
   return (
     <section aria-labelledby="guide-designs" className="mt-16">
-      <h2 id="guide-designs" className="border-t border-ink pt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{t.guides.designs}</h2>
+      <h2 id="guide-designs" className="border-t border-ink pt-3 label text-ink-3">{t.guides.designs}</h2>
       <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {designs.map((d) => (
           <li key={d.slug}>
             <Link href={href(`/vault/${d.slug}`)} className="focus-ring group flex h-full flex-col gap-2 rounded-xl border border-ink bg-paper p-4 transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[4px_4px_0_#121212]">
-              <span className="flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-3">
+              <span className="flex items-center justify-between gap-2 label text-ink-3">
                 <span>{cat(d.category)} · {sty(d.style)}</span>
                 <ArrowUpRight size={15} strokeWidth={1.75} className="shrink-0 text-ink transition-transform group-hover:rotate-45 rtl:-scale-x-100" />
               </span>
@@ -149,10 +149,10 @@ export function GuideDesigns({ designs }) {
 export function GuideCard({ guide, index }) {
   const { t, href } = useLang();
   return (
-    <Link href={href(`/guides/${guide.slug}`)} className="focus-ring group flex h-full flex-col gap-3 rounded-xl border border-ink bg-paper p-5 transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[5px_5px_0_#121212] md:p-6">
-      <span className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">
-        <span>{String(index + 1).padStart(2, "0")} · {guide.kicker}</span>
-        <span>{t.guides.read(guide.minutes)}</span>
+    <Link href={href(`/guides/${guide.slug}`)} className="focus-ring group flex h-full flex-col gap-3 rounded-xl border border-ink bg-paper p-5 transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-[5px_5px_0_#121212] rtl:hover:shadow-[-5px_5px_0_#121212] md:p-6">
+      <span className="flex items-start justify-between gap-4">
+        <span className="font-serif text-[3.2rem] italic leading-[0.8] text-cobalt rtl:not-italic" style={{ fontVariantNumeric: "tabular-nums" }}>{String(index + 1).padStart(2, "0")}</span>
+        <span className="label pt-1 text-end text-ink-3">{guide.kicker}<br />{t.guides.read(guide.minutes)}</span>
       </span>
       <span className="text-[clamp(1.35rem,2.2vw,1.75rem)] font-semibold leading-[1.1] tracking-[-0.03em] [text-wrap:balance] rtl:tracking-normal">{guide.h1}</span>
       <span className="text-[15px] leading-relaxed text-ink-2">{guide.description}</span>
@@ -169,7 +169,7 @@ export function GuideCta() {
   const [a, b, c] = t.guides.ctaTitle;
   return (
     <aside className="mt-16 rounded-2xl border border-ink bg-paper-2 p-6 shadow-[6px_6px_0_#D9534F] md:p-8">
-      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-terracotta">{t.guides.ctaKicker}</p>
+      <p className="label text-terracotta">{t.guides.ctaKicker}</p>
       <p className="mt-3 text-[clamp(1.7rem,3.4vw,2.6rem)] font-semibold leading-[1.02] tracking-[-0.04em] rtl:tracking-normal">
         {a}<span className="font-serif font-normal italic text-cobalt rtl:not-italic">{b}</span>{c}
       </p>

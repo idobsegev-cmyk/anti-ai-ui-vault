@@ -194,7 +194,7 @@ export const FAQ = {
     ["How do I use a Claude prompt to design a website?", "Open any design, press “Copy Claude Prompt” and paste it into Claude. You get a complete React component with Tailwind CSS and Framer Motion that you can drop into a Next.js site."],
     ["Are the designs free to use?", "Yes. All designs and code are free to use in personal and commercial projects under the MIT license."],
     ["How do I make an AI-built website not look AI-generated?", "Start from a clear design language instead of defaults: a deliberate typeface pairing, a strict palette with one accent, and motion with real spring physics. Every prompt here spells those choices out."],
-    ["Which design styles are included?", "Sixteen design languages, including Neo-Brutalist, Bauhaus, Swiss, Japanese Minimal, Luxury Noir, Retro 70s, Memphis, Y2K, Claymorphism, Risograph, Art Deco and 8-bit."],
+    ["Which design styles are included?", "{styles} design languages, including Neo-Brutalist, Bauhaus, Swiss, Japanese Minimal, Luxury Noir, Retro 70s, Memphis, Y2K, Claymorphism, Risograph, Art Deco and 8-bit."],
     ["Can you build a custom website for my business?", "Yes. Use the brief form on the homepage and you will get a reply within one working day."],
   ],
   he: [
@@ -202,10 +202,16 @@ export const FAQ = {
     ["איך משתמשים בפרומפט ל-Claude כדי לעצב אתר?", "פותחים עיצוב, לוחצים על „העתקת הפרומפט” ומדביקים ב-Claude. מקבלים רכיב React שלם עם Tailwind CSS ו-Framer Motion שאפשר לשלב באתר Next.js."],
     ["העיצובים חופשיים לשימוש?", "כן. כל העיצובים והקוד חופשיים לשימוש בפרויקטים אישיים ומסחריים לפי רישיון MIT."],
     ["איך גורמים לאתר שנבנה עם AI לא להיראות כמו AI?", "מתחילים משפת עיצוב ברורה ולא מברירות מחדל: זוג פונטים שנבחר בכוונה, פלטה קפדנית עם צבע הדגשה אחד ותנועה עם פיזיקה של קפיץ. כל פרומפט כאן מפרט את הבחירות האלה."],
-    ["אילו סגנונות עיצוב יש באתר?", "שש־עשרה שפות עיצוב, בהן ניאו־ברוטליזם, באוהאוס, שוויצרי, מינימליזם יפני, יוקרה כהה, רטרו שנות ה־70, ממפיס, Y2K, קליימורפיזם, ריזוגרף, ארט דקו ו־8 ביט."],
+    ["אילו סגנונות עיצוב יש באתר?", "{styles} שפות עיצוב, בהן ניאו־ברוטליזם, באוהאוס, שוויצרי, מינימליזם יפני, יוקרה כהה, רטרו שנות ה־70, ממפיס, Y2K, קליימורפיזם, ריזוגרף, ארט דקו ו־8 ביט."],
     ["אפשר להזמין אתר מותאם לעסק שלי?", "כן. ממלאים את הבריף בדף הבית ומקבלים תשובה תוך יום עבודה אחד."],
   ],
 };
+
+/** FAQ with live numbers: `stats` comes from getStats() in lib/data.js, so counts never go stale. */
+export function faq(lang, stats) {
+  const n = stats?.styles ?? STYLE_PAGES.length;
+  return FAQ[lang].map(([q, a]) => [q, a.replace("{styles}", String(n))]);
+}
 
 export function categoryPage(slug) {
   return CATEGORY_PAGES.find((c) => c.slug === slug) || null;

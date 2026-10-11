@@ -32,7 +32,7 @@ class Boundary extends Component {
  * mode "scroll": a framed browser window you scroll through yourself.
  * mode "full": the whole page laid out at its scaled height, so it scrolls with the real page (no nested scrolling).
  */
-export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, height = "78vh", autoplay = false }) {
+export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, height = "78vh", autoplay = false, focus = 0, onSection }) {
   const wrap = useRef(null);
   const inner = useRef(null);
   const visible = useNearScreen(wrap, eager);
@@ -67,6 +67,41 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
     return () => c.stop();
   }, [autoplay, visible, mode, fullH, scale, y]);
 
+  // Detail-page lens: report which top-level section of the design sits in the middle of the viewport.
+  useEffect(() => {
+    if (!onSection || !visible || !inner.current) return;
+    let io, tries = 0, timer;
+    const attach = () => {
+      const root = inner.current?.querySelector(":scope > div > div") || inner.current?.firstElementChild?.firstElementChild;
+      const kids = root ? Array.from(root.children).filter((el) => el.offsetHeight > 40) : [];
+      if (kids.length < 2) {
+        if (tries++ < 20) timer = setTimeout(attach, 150);
+        return;
+      }
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) if (e.isIntersecting) onSection(kids.indexOf(e.target), kids.length);
+        },
+        { rootMargin: "-45% 0px -45% 0px" }
+      );
+      kids.forEach((k) => io.observe(k));
+    };
+    attach();
+    return () => {
+      clearTimeout(timer);
+      io?.disconnect();
+    };
+  }, [onSection, visible, code]);
+
+  // Cards can open on a design's signature moment instead of its first pixel.
+  const rest = () => {
+    if (!focus || !wrap.current) return 0;
+    return -Math.min(focus * scale, Math.max(0, fullH * scale - wrap.current.clientHeight));
+  };
+  useEffect(() => {
+    if (mode === "shot" && !autoplay && focus) y.set(rest());
+  }, [scale, fullH, focus, mode, autoplay]);
+
   const scrollDown = () => {
     if (autoplay) return;
     if (mode !== "shot" || !wrap.current) return;
@@ -78,7 +113,7 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
   const scrollUp = () => {
     if (mode !== "shot" || autoplay) return;
     ctl.current?.stop();
-    ctl.current = animate(y, 0, { type: "spring", stiffness: 120, damping: 22 });
+    ctl.current = animate(y, rest(), { type: "spring", stiffness: 120, damping: 22 });
   };
 
   // Hover intent: the card only starts its tour once the pointer rests on it.

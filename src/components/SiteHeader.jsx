@@ -98,7 +98,6 @@ export default function SiteHeader({ count }) {
         </LayoutGroup>
 
         <div className="flex items-center gap-3">
-          <span className="hidden font-mono text-[11px] text-ink-3 lg:inline">{t.nav.count(count)}</span>
           <Link href={`${home}#custom`} className="focus-ring inline-flex items-center gap-1 rounded-full bg-terracotta px-3.5 py-1.5 text-sm font-medium text-paper">
             {t.nav.book} <ArrowUpRight size={14} strokeWidth={1.75} className="rtl:-scale-x-100" />
           </Link>

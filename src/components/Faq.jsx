@@ -1,4 +1,5 @@
-import { FAQ } from "@/lib/seo-content";
+import { faq } from "@/lib/seo-content";
+import { getStats } from "@/lib/data";
 
 /** Plain <details> so every answer is in the HTML for search engines and works without JavaScript. */
 export default function Faq({ lang }) {
@@ -10,7 +11,7 @@ export default function Faq({ lang }) {
           {he ? "שאלות נפוצות" : "Questions, answered"}
         </h2>
         <div className="col-span-12 border-t border-ink md:col-span-8">
-          {FAQ[lang].map(([q, a]) => (
+          {faq(lang, getStats()).map(([q, a]) => (
             <details key={q} className="group border-b border-ink">
               <summary className="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-semibold tracking-tight [&::-webkit-details-marker]:hidden">
                 <h3>{q}</h3>

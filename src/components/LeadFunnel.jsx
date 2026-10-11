@@ -65,7 +65,7 @@ function Field({ id, label, type = "text", value, onChange, autoComplete, textar
 function Chips({ options, value, onChange, label }) {
   return (
     <fieldset>
-      <legend className="mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">{label}</legend>
+      <legend className="mb-3 label text-ink-3">{label}</legend>
       <div className="flex flex-wrap gap-2">
         {options.map((o) => {
           const on = value === o;
@@ -158,7 +158,7 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
   return (
     <section id="custom" ref={section} className="scroll-mt-20 border-b border-ink bg-paper" aria-labelledby="custom-title">
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-28">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">{L.kicker}</p>
+        <p className="label text-ink-3">{L.kicker}</p>
         <h2 id="custom-title" className="mt-3 max-w-6xl text-[clamp(2.4rem,6.4vw,6.4rem)] font-semibold leading-[0.92] tracking-[-0.05em]">
           {BANNER.map((w, i) => (
             <Word key={i} word={w} i={i} total={BANNER.length} progress={scrollYProgress} accentWord={L.accentWord} />
@@ -199,7 +199,7 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => set("website")(e.target.value)} className="hidden" aria-hidden />
 
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.16em]">
+                      <span className="label">
                         {L.step(step + 1)}
                       </span>
                       <div className="flex w-40 gap-1.5">

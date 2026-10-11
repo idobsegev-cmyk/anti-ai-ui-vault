@@ -4,6 +4,9 @@ import { CATEGORY_HE, STYLE_HE } from "./labels";
 
 export const WEBSITE = "Full Website Designs";
 
+/** Where a full-site card opens (px on the 1280 canvas): the design's signature moment, when it is not the hero. */
+export const CARD_FOCUS = {};
+
 export const CATEGORY_ORDER = [
   "Full Website Designs",
   "Editorial Hero Sections",
@@ -18,6 +21,13 @@ export const CATEGORY_ORDER = [
 
 export function getAll() {
   return prompts;
+}
+
+/** Live counts for copy and metadata (never hardcode them). */
+export function getStats() {
+  const sites = prompts.filter((p) => p.category === WEBSITE).length;
+  const styles = new Set(prompts.map((p) => p.style || "Warm Editorial")).size;
+  return { total: prompts.length, sites, components: prompts.length - sites, styles };
 }
 
 export function getBySlug(slug) {

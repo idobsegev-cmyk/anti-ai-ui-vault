@@ -1,5 +1,6 @@
 // Metadata helpers shared by the English and Hebrew route trees.
 import { SITE, siteUrl } from "@/lib/site";
+import { getStats } from "@/lib/data";
 
 export const HE_NAME = "דוגמית עיצוב";
 
@@ -19,7 +20,7 @@ export function baseMetadata(lang) {
       template: he ? `%s · ${HE_NAME}` : `%s · ${SITE.name}`,
     },
     description: he
-      ? "ספרייה חינמית של עיצובי אתרים שלמים ורכיבי ממשק מונפשים ב-16 שפות עיצוב. כל עיצוב רץ חי ומגיע עם קוד React ופרומפט מוכן ל-Claude."
+      ? `ספרייה חינמית של עיצובי אתרים שלמים ורכיבי ממשק מונפשים ב-${getStats().styles} שפות עיצוב. כל עיצוב רץ חי ומגיע עם קוד React ופרומפט מוכן ל-Claude.`
       : SITE.description,
     applicationName: he ? HE_NAME : SITE.name,
     authors: [{ name: SITE.author }],
