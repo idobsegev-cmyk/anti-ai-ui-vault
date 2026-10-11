@@ -32,7 +32,7 @@ class Boundary extends Component {
  * mode "scroll": a framed browser window you scroll through yourself.
  * mode "full": the whole page laid out at its scaled height, so it scrolls with the real page (no nested scrolling).
  */
-export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, height = "78vh", autoplay = false, focus = 0, onSection }) {
+export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, settle = false, height = "78vh", autoplay = false, focus = 0, onSection }) {
   const wrap = useRef(null);
   const inner = useRef(null);
   const visible = useNearScreen(wrap, eager);
@@ -40,6 +40,20 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
   const [fullH, setFullH] = useState(2000);
   const y = useMotionValue(0);
   const ctl = useRef(null);
+  // Eager (above-the-fold) previews stay unpainted until the fonts they pull in have settled, so late
+  // font swaps do not shift their text. Hidden elements are not counted as layout shift. Capped at 1.2s.
+  const [settled, setSettled] = useState(!(eager || settle));
+  useEffect(() => {
+    if (!(eager || settle) || !visible || settled) return;
+    let done = false;
+    const fin = () => { if (!done) { done = true; setSettled(true); } };
+    const cap = setTimeout(fin, 1200);
+    const fonts = document.fonts;
+    if (!fonts?.ready) fin();
+    else requestAnimationFrame(() => requestAnimationFrame(() => fonts.ready.then(() => setTimeout(fin, 50))));
+    return () => clearTimeout(cap);
+  }, [eager, settle, visible, settled]);
+  const hide = settled ? undefined : { visibility: "hidden" };
 
   useEffect(() => {
     const el = wrap.current;
@@ -186,7 +200,7 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
 
   return (
     <div ref={wrap} onPointerEnter={arm} onPointerMove={arm} onPointerLeave={disarm} className={`relative overflow-hidden ${className}`} style={{ aspectRatio: "4 / 3" }}>
-      <motion.div ref={inner} className="preview-scope absolute left-0 top-0" dir="ltr" lang="en" style={{ width: PAGE_W, y, scale, transformOrigin: "top left" }}>
+      <motion.div ref={inner} className="preview-scope absolute left-0 top-0" dir="ltr" lang="en" style={{ width: PAGE_W, y, scale, transformOrigin: "top left", ...hide }}>
         {content}
       </motion.div>
     </div>

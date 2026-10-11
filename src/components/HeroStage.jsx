@@ -31,10 +31,20 @@ function Headline({ count, compact = false, id = "hero-title" }) {
       </motion.span>
     </span>
   );
+  // Keep the punctuation glued to the last highlighted word so a comma can never wrap onto a line of its own.
+  const hl = "font-serif font-normal italic text-cobalt rtl:not-italic";
+  const words = h[1].split(" ");
+  const last = words.pop();
+  const accent = (
+    <>
+      {words.length > 0 && <span className={hl}>{words.join(" ")} </span>}
+      <span className="whitespace-nowrap"><span className={hl}>{last}</span>{h[2]}</span>
+    </>
+  );
   return (
     <div className="max-w-[980px]">
       <h1 id={id} className="text-[clamp(2.7rem,6.2vw,6.4rem)] font-semibold leading-[0.94] tracking-[-0.05em] rtl:leading-[1.08] rtl:tracking-normal">
-        {line(0, <>{h[0]}<span className="font-serif font-normal italic text-cobalt rtl:not-italic">{h[1]}</span>{h[2]}</>)}
+        {line(0, <>{h[0]}{accent}</>)}
         {line(1, h[3])}
       </h1>
       <motion.div initial={reduce ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35, ease: EASE_OUT }}>
@@ -58,7 +68,7 @@ function Frame({ item, eager }) {
     <div data-touch-scroll className="overflow-hidden rounded-[20px] border border-ink bg-paper shadow-[0_30px_60px_-30px_rgba(18,18,18,0.35)]">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={item.slug} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.12 } }} transition={{ duration: 0.25 }}>
-          <SitePreview eager={eager} code={item.previewCode} id={`stage-${item.slug}`} className="w-full" />
+          <SitePreview eager={eager} settle code={item.previewCode} id={`stage-${item.slug}`} className="w-full" />
         </motion.div>
       </AnimatePresence>
     </div>
