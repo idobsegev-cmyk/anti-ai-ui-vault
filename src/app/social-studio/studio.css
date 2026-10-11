@@ -1,0 +1,17 @@
+/* Capture studio: canvases are authored at 540 CSS px wide and captured at 2x (1080 px). */
+.studio-body { margin: 0; background: #faf9f6; color: #121212; font-family: var(--font-sans); overflow: hidden; -webkit-font-smoothing: antialiased; }
+.cv { position: relative; width: 540px; overflow: hidden; background: #faf9f6; }
+.cv.feed { height: 675px; }
+.cv.story { height: 960px; }
+.cv.ink { background: #121212; color: #faf9f6; }
+.cv.paper2 { background: #f2efe8; }
+.mono { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 9.5px; }
+.serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+.hair { border-color: #121212; border-style: solid; border-width: 0; }
+.frame { border: 1.5px solid #121212; background: #fff; box-shadow: 5px 5px 0 #121212; }
+.chrome { height: 18px; border-bottom: 1.5px solid #121212; display: flex; align-items: center; gap: 4px; padding: 0 7px; background: #faf9f6; }
+.chrome i { width: 6px; height: 6px; border-radius: 99px; border: 1.2px solid #121212; display: block; }
+.chrome span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left: 8px; font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.08em; color: #6f6c66; }
+.pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; background: #121212; color: #faf9f6; font-weight: 600; box-shadow: 3px 3px 0 #d9534f; }
+.tag { display: inline-flex; align-items: center; border: 1.2px solid currentColor; border-radius: 999px; padding: 3px 9px; }
+nextjs-portal { display: none !important; }

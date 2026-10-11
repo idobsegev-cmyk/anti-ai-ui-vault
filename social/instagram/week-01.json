@@ -1,0 +1,93 @@
+[
+ {
+  "date": "2026-10-12",
+  "day": "Mon",
+  "dir": "2026-10-12-reel-10-sites",
+  "type": "Reel",
+  "title": "10 websites, 10 design languages",
+  "caption": "10 websites. 10 design languages. Not one template.\n\nA luxury noir hotel, a neo-brutalist agency, a Bauhaus café, an 8-bit game studio, a riso zine fair… Every one is live code you can open, scroll and copy, and each comes with the Claude prompt that builds it.\n\nFree library, no sign-up → link in bio.\n\nWhich one would you steal first? 👇",
+  "tags": "#webdesign #websitedesign #uidesign #designinspiration #claudeai #landingpage #webdevelopment #frontend #typography #aitools #smallbusiness",
+  "stories": [
+   "Share the reel to your story + link sticker → specimen-designs.vercel.app",
+   "Poll sticker on a still: “Dark or loud?” (Nocturne vs Loudmouth)"
+  ]
+ },
+ {
+  "date": "2026-10-13",
+  "day": "Tue",
+  "dir": "2026-10-13-carousel-nocturne-angles",
+  "type": "Carousel · 7 slides",
+  "title": "Nocturne Hotel, every angle",
+  "caption": "One website, every angle. 🖤\n\nNocturne Hotel is a complete one-page site in our Luxury Noir language: a Bodoni hero, suite cards, a bar section, one guest quote and a reservation band.\n\nSwipe for each part, and the exact prompt Claude builds it from. The prompt is free. Change the hotel, keep the evening.\n\nSave this for when your next site needs to feel expensive.",
+  "tags": "#webdesign #websitedesign #uidesign #designinspiration #claudeai #luxurydesign #hotelwebsite #editorialdesign #darkmode #webdevelopment #branding",
+  "stories": [
+   "story-01 (new post) → tap-through to the carousel",
+   "story-02 + link sticker → /vault/nocturne-hotel-website"
+  ]
+ },
+ {
+  "date": "2026-10-14",
+  "day": "Wed",
+  "dir": "2026-10-14-reel-buttons",
+  "type": "Reel",
+  "title": "Buttons you'll want to press",
+  "caption": "Buttons you'll want to press.\n\nA squish that sinks into the page, a heart that throws paper confetti, toggles that stretch like taffy, clay that deflates, a hold-to-delete that actually makes you hold.\n\nSpring physics, no stock gradients. Each one: live demo, code and the Claude prompt, free.\n\nLink in bio. Tell us which one you pressed twice.",
+  "tags": "#webdesign #websitedesign #uidesign #designinspiration #claudeai #microinteractions #uianimation #framermotion #reactjs #frontend #motiondesign",
+  "stories": [
+   "Share the reel + link sticker",
+   "Quiz sticker: “Which button is fake?” (all real 😉)"
+  ]
+ },
+ {
+  "date": "2026-10-15",
+  "day": "Thu",
+  "dir": "2026-10-15-carousel-design-languages",
+  "type": "Carousel · 11 slides",
+  "title": "Pick your design language",
+  "caption": "Pick your design language before you pick a template.\n\n9 of the 16 styles in our library, what each one is best for, and the three rules that make it work. From Neo-Brutalist to Risograph Zine.\n\nEvery style has a full website or components in the library, with the prompt that builds them.\n\nSave this, and comment the style that fits your business.",
+  "tags": "#webdesign #websitedesign #uidesign #designinspiration #claudeai #designstyles #brutalism #bauhaus #swissdesign #japaneseminimalism #claymorphism #graphicdesign",
+  "stories": [
+   "story-01 + poll sticker in the dashed box (A/B or 4-option quiz)",
+   "Repost the best comment answer the next morning"
+  ]
+ },
+ {
+  "date": "2026-10-16",
+  "day": "Fri",
+  "dir": "2026-10-16-carousel-november-offer",
+  "type": "Carousel · 4 slides",
+  "title": "70% off a custom website (until Nov 30)",
+  "caption": "70% off a custom website, until November 30.\n\nStrategy, content, design, development in Next.js, SEO and analytics from day one, and ongoing care after launch. One team, made by people, for small businesses that don't want to look like a template.\n\nMost projects go live in 4–6 weeks.\n\nDM us “SITE” and tell us what your business does. We reply within one business day.",
+  "tags": "#webdesign #websitedesign #smallbusiness #smallbusinessowner #websitedevelopment #nextjs #seo #branding #webdesigner",
+  "stories": [
+   "story-01 (70% off) + link sticker → specimen-designs.vercel.app/#custom",
+   "story-02 (DM “SITE”) + countdown sticker to Nov 30"
+  ]
+ },
+ {
+  "date": "2026-10-17",
+  "day": "Sat",
+  "dir": "2026-10-17-reel-kinetic-type",
+  "type": "Reel",
+  "title": "Headlines that refuse to sit still",
+  "caption": "Headlines that refuse to sit still.\n\nAn airport split-flap board, masked word swaps, a riso overprint that follows your cursor, letters that wave when you hover, a 70s sunset and a marquee you can drag.\n\nKinetic typography you can paste into Claude in one go. Free, prompt included → link in bio.",
+  "tags": "#webdesign #websitedesign #uidesign #designinspiration #claudeai #kinetictypography #typography #motiondesign #typedesign #uianimation #frontend",
+  "stories": [
+   "Share the reel + link sticker",
+   "Slider sticker: “How much motion is too much?”"
+  ]
+ },
+ {
+  "date": "2026-10-18",
+  "day": "Sun",
+  "dir": "2026-10-18-carousel-prompt-to-page",
+  "type": "Carousel · 7 slides",
+  "title": "One prompt → one website",
+  "caption": "One prompt. One website. ☕\n\nWe matched lines of the prompt to the sections they built: the hero, the menu tiles, the hours chart, the map made of squares. Café Bauhaus, start to finish.\n\nThe prompt is free. Copy it, paste it into Claude, swap the café for your business.\n\nLink in bio. 59 designs, all with their prompts.",
+  "tags": "#webdesign #websitedesign #uidesign #designinspiration #claudeai #promptengineering #aitools #bauhaus #coffeeshop #nocode #webdevelopment",
+  "stories": [
+   "story-01 + link sticker → /vault/caf-bauhaus-website",
+   "Share the “how it works” video (public/brand/video/specimen-how-it-works.mp4)"
+  ]
+ }
+]

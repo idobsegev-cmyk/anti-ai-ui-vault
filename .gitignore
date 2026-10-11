@@ -6,3 +6,7 @@ out
 .DS_Store
 *.log
 dist
+
+# social capture scratch
+social/out/
+AGENTS.md
