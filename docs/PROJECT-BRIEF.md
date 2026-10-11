@@ -146,8 +146,10 @@
 | `/vault/[slug]` | עמוד לכל עיצוב, 59 עמודים: תצוגה חיה (אתר מלא מוצג באורכו ונגלל עם העמוד), לשוניות פרומפט וקוד, כפתור העתקה, איך משתמשים, הפרומפט המלא ועיצובים קשורים |
 | `/designs/[category]` | 9 עמודי נחיתה לפי סוג (website-designs, hero-sections, bento-grids, animated-buttons, kinetic-typography, 3d-cards, accordions, navigation-bars, forms) |
 | `/styles/[style]` | 16 עמודי נחיתה לפי סגנון (neo-brutalist, bauhaus, swiss-international, japanese-minimal, luxury-noir, retro-70s, memphis-90s, y2k-chrome, retro-os, claymorphism, risograph-zine, organic-earth, art-deco, 8-bit-arcade, mono-data, warm-editorial) |
+| `/services` | עמוד שירות ראשי ("בניית אתרים לעסקים קטנים"): מה כלול, תהליך, תחומים, עבודות לדוגמה, שאלות נפוצות וטופס פנייה. התוכן ב־`src/lib/services-content.js`, התצוגה ב־`src/views/ServiceView.jsx` |
+| `/services/[slug]` | 7 עמודי שירות לפי תחום, כל אחד מחובר לאתרים המלאים המתאימים: website-for-restaurants-cafes, website-for-hotels, website-for-architects, website-for-beauty-brands, website-for-startups, website-for-events, website-for-creative-studios |
 | `/api/lead` | קולט את טופס הפנייה ומעביר ל־`LEAD_WEBHOOK_URL` (**עדיין לא מוגדר**, ראו סעיף 9) |
-| `/sitemap.xml`, `/robots.txt` | אוטומטיים. ב־sitemap יש 170 כתובות: 85 באנגלית ו־85 בעברית |
+| `/sitemap.xml`, `/robots.txt` | אוטומטיים. ב־sitemap יש 196 כתובות (נכון ל־11 באוקטובר, 64 פריטים): 98 באנגלית ו־98 בעברית |
 
 ### התוכן (59 פריטים)
 
@@ -299,7 +301,7 @@
 ## 9. משימות פתוחות ורעיונות להמשך
 
 **חשוב ודחוף:**
-1. **Google Search Console:** להוסיף את הנכס, לשים את קוד האימות ב־Vercel כ־`GOOGLE_SITE_VERIFICATION` ולהגיש את `/sitemap.xml`. בלי זה גוגל ימצא את האתר לאט. Bing Webmaster הוא אופציונלי ויכול לייבא מ־Search Console.
+1. ✅ **Google Search Console (בוצע 11.10.2026):** נכס URL-prefix `https://specimen-designs.vercel.app/` בחשבון ido.b.segev@gmail.com, מאומת בשיטת קובץ HTML (`public/googlea0d70d67d075e052.html`, **אסור למחוק אותו**). ה־sitemap הוגש וקיבל בהתחלה סטטוס "Couldn't fetch", שהוא זמני בנכס חדש. **להמשך:** לבדוק שהסטטוס התחלף ל־Success; לבקש אינדוקס לדף הבית, ל־`/he` ול־`/services` (הבקשה הראשונה נחסמה במכסה יומית); Bing Webmaster אופציונלי, דרך ייבוא מ־Search Console.
 2. **`LEAD_WEBHOOK_URL`:** כרגע פניות מהטופס נכתבות רק ללוג של Vercel ו**לא מגיעות לאף אחד**. צריך לחבר יעד כמו Zapier, Make, Formspree, מייל או CRM.
 3. ~~**חלון התוכן היומי**~~: הוארך עד 30.11.2026 (11.10).
 
@@ -309,8 +311,8 @@
 6. **מנוע Claude לתוכן היומי** (`ANTHROPIC_API_KEY`): בלעדיו התוכן החדש חד־גוני (Warm Editorial בלבד) ואין אתרים מלאים חדשים.
 7. **פרטי קשר באתר:** המייל העסקי admin@specimendesign.org עדיין לא מופיע באתר (הוא מופיע רק כאן). אפשר להוסיף אותו לפוטר ולסכמת ה־Organization, וגם להפנות אליו את פניות הטופס (סעיף 2 למעלה). טלפון או וואטסאפ עדיין לא נמסרו.
 14. **הדומיין specimendesign.org:** רשום ב־Squarespace, והמייל העסקי יושב עליו. **צעד נוכחי:** להשלים את אימות הדומיין ב־Google Workspace (רשומת TXT ב־DNS של Squarespace, או אימות אוטומטי דרך התחברות ל־Squarespace מתוך אשף ההגדרה של Google), ואז רשומות MX והפעלת Gmail, ובהמשך SPF, DKIM ו־DMARC. אחרי זה הדומיין מועמד טבעי לכתובת האתר במקום specimen-designs.vercel.app (ראו משימה 4). שינויי DNS לאתר צריכים לשמור על רשומות המייל.
-15. **אנליטיקס:** ✅ הקוד הותקן (11.10, Vercel Web Analytics עם אירוע `lead_submit`). **נשאר לעידו:** להפעיל Analytics בלוח הבקרה של Vercel (פרויקט → Analytics → Enable), אחרת לא נאסף כלום. רקע: להתקין מדידה (המלצה: Vercel Web Analytics, חינמי, בלי עוגיות ובלי באנר הסכמה) ולמדוד שליחת טופס כהמרה. בלי זה אי אפשר לדעת מה עובד (סעיף 11).
-16. **עמודי שירות ל־SEO:** ✅ שלב ראשון באוויר (11.10): `/services` ו־7 עמודי ענף (restaurants-cafes, hotels, architects, beauty-brands, startups, events, creative-studios) בשתי השפות, כולל sitemap. רקע: עמוד שירות ראשי בשתי השפות ועמודי שירות לפי ענף (בית קפה, מלון, אדריכלים, קוסמטיקה, SaaS, אירועים), כל אחד מחובר לאתר המלא המתאים מהספרייה (סעיף 11, אשכולות C ו־D).
+15. ✅ **אנליטיקס (בוצע 11.10.2026):** Vercel Web Analytics הופעל בפרויקט (תוכנית Hobby, חינם, 50 אלף אירועים בחודש, היסטוריה של 30 יום) והרכיב `<Analytics />` נמצא ב־`SiteShell`. ב־`LeadFunnel` נשלח אירוע `lead_submit`, אבל **ב־Hobby אין Custom Events**, ולכן ההמרות לא יוצגו בלוח. את הפניות סופרים דרך `LEAD_WEBHOOK_URL` (משימה 2), או שמשדרגים ל־Pro.
+16. ✅ **עמודי שירות (בוצע 11.10.2026):** `/services` ו־7 עמודי תחום בשתי השפות, עם JSON-LD מסוג Service, FAQPage ו־BreadcrumbList, וקישורים מהפוטר ומרכיב Explore (סעיף 5). **להמשך:** להוסיף תחומים, בהם קליניקות, עורכי דין, מאמנים וחנויות, ולהעשיר את התוכן עם תיקי עבודות של לקוחות אמיתיים כשיהיו.
 
 **שיפורים:**
 8. גרסאות נוספות של סרטון האינסטגרם: 4:5 או 1:1 לפיד, ו/או גרסה בעברית. הסקריפט `scripts/brand/record-reel.py` מוכן להתאמה.
@@ -357,10 +359,10 @@
 - **אינדוקס:** האתר עדיין לא מופיע בחיפוש `site:`. צפוי לאתר בן יום, אבל בלי Search Console זה ייקח זמן רב.
 - **בסיס טכני תקין:** robots.txt פתוח (חוסם רק `/api/`) ומפנה ל־sitemap; title ו־description ייחודיים בשתי השפות; canonical ו־hreflang תקינים; JSON-LD עשיר; HTML מרונדר בשרת.
 - **חסר:**
-  1. אין קוד אימות של Google ב־`<head>` (המשתנה `GOOGLE_SITE_VERIFICATION` לא מוגדר).
-  2. **אין שום אנליטיקס באתר**, למרות שזו אחת מטענות השיווק. אין מדידה של תנועה, מקורות או המרות לטופס.
+  1. ~~האתר לא מאומת ב־Search Console~~. תוקן: אומת דרך קובץ HTML וה־sitemap הוגש (משימה 1).
+  2. ~~אין שום אנליטיקס באתר~~. תוקן: Vercel Web Analytics הותקן (משימה 15).
   3. האתר יושב על תת־דומיין של vercel.app. הדומיין specimendesign.org כבר בבעלות העסק ועדיין לא מחובר לאתר.
-  4. אין עמודים שמכוונים לחיפושים של **השירות** ("בניית אתרים לעסקים קטנים", "website design for small business"). כל התוכן הנוכחי מכוון לחיפושי השראה ופרומפטים.
+  4. ~~אין עמודים שמכוונים לחיפושים של השירות~~. תוקן: נוספו `/services` ו־7 עמודי תחום (משימה 16).
   5. דף הבית שוקל כ־630KB של HTML (משימה 10).
 
 ### אסטרטגיית מילות מפתח
@@ -411,3 +413,4 @@
 | 2026-10-11 | התחלת ניהול אינסטגרם: אנגלית, Meta Business Suite, פוסט ביום + סטוריז; מבצע 70% על בנייה וליווי עד 30.11.2026 (סעיפים 2, 10) |
 | 2026-10-11 | Claude מונה למנהל הדאטה וה־SEO; בדיקת SEO ראשונה, אסטרטגיית מילות מפתח ומדדים (סעיף 11); משימות חדשות: אנליטיקס (15) ועמודי שירות (16); המלצה לחבר את specimendesign.org מוקדם (משימה 4) |
 | 2026-10-11 | מונה מנהל פרויקט (סעיף 12); הופעלה ידנית ריצת התוכן היומי (לא רצה מעצמה), 64 פריטים; תרגום עברי לרכיבים החדשים; חלון התוכן הוארך עד 30.11; עמודי שירות ואנליטיקס באוויר (משימות 15, 16); ההחלטה לא להציג את המייל עד שיקבל דואר |
+| 2026-10-11 | SEO: האתר אומת ב־Google Search Console (קובץ HTML) וה־sitemap הוגש; Vercel Web Analytics הופעל (Hobby); נוספו `/services` ו־7 עמודי שירות לפי תחום בשתי השפות; ה־sitemap גדל ל־196 כתובות (משימות 1, 15, 16, סעיף 5) |
