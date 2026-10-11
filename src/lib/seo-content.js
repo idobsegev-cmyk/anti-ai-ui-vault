@@ -181,7 +181,7 @@ export const STYLE_PAGES = [
   S("art-deco", "Art Deco", "Art Deco", "ארט דקו", "Emerald and gold, symmetry, fans and sunbursts.", "אמרלד וזהב, סימטריה, מניפות וקרני שמש."),
   S("8-bit-arcade", "8-bit Arcade", "8-bit Pixel", "פיקסל 8 ביט", "Square pixels, blinking prompts and arcade colors.", "פיקסלים מרובעים, הודעות מהבהבות וצבעי ארקייד."),
   S("mono-data", "Mono Data", "Data Dashboard", "דשבורד נתונים", "Dense monospace dashboards with live numbers and sparklines.", "דשבורדים צפופים במונוספייס עם מספרים חיים וספארקליינים."),
-  S("warm-editorial", "Warm Editorial", "Editorial", "מגזיני", "Paper tones, Swiss type and one human accent color.", "גווני נייר, טיפוגרפיה שוויצרית וצבע הדגשה אנושי אחד."),
+  S("warm-editorial", "Warm Editorial", "Editorial", "מגזיני", "Paper tones, Swiss type and one warm accent color.", "גווני נייר, טיפוגרפיה שוויצרית וצבע הדגשה חם אחד."),
 ];
 
 export const FAQ = {

@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Specimen Design",
   nameHe: "דוגמית עיצוב",
-  tagline: "Build websites that feel alive & human.",
+  tagline: "Start from a real design, not a blank page.",
   description:
-    "A free specimen book of full website designs and hand-tuned, animated React components — editorial heroes, bento grids, tactile buttons, kinetic type — each with a copy-ready Claude prompt and live preview. No neon, no glassmorphism, no template look.",
+    "A free library of full website designs and animated components. Each has a live preview and the exact Claude prompt used to make it, and new ones land daily. Copy one, or hire the studio to turn it into your business site.",
   author: "Ido Segev",
   instagram: "https://www.instagram.com/specimen.design/",
   instagramHandle: "@specimen.design",

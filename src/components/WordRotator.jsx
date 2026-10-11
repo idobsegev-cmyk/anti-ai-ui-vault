@@ -19,7 +19,7 @@ export const WORDS = [
     idle: (i) => ({ y: [0, -6, 0], transition: { duration: 0.9, repeat: Infinity, delay: 0.6 + i * 0.09, ease: "easeInOut" } }),
   },
   {
-    word: "Human",
+    word: "Real",
     style: { fontFamily: "var(--font-serif)", fontStyle: "italic", fontWeight: 400, color: "var(--color-cobalt)", letterSpacing: "-0.03em" },
     letter: {
       hidden: { y: "40%", opacity: 0, rotate: 6 },
@@ -95,7 +95,7 @@ export const WORDS = [
 // Plural, to agree with "אתרים שמרגישים …".
 const HE = {
   Alive: { word: "חיים", fontFamily: "'Secular One', var(--font-sans)", fontWeight: 400 },
-  Human: { word: "אנושיים", fontFamily: "var(--font-serif)", fontWeight: 500 },
+  Real: { word: "אמיתיים", fontFamily: "var(--font-serif)", fontWeight: 500 },
   Creative: { word: "יצירתיים", fontFamily: "'Solitreo', cursive", fontWeight: 400 },
   Young: { word: "צעירים", fontFamily: "'Varela Round', var(--font-sans)", fontWeight: 400 },
   Modern: { word: "מודרניים", fontFamily: "var(--font-sans)", fontWeight: 300 },
@@ -186,7 +186,7 @@ export default function WordRotator({ startDelay = 1400 }) {
   const reduce = useReducedMotion();
   const { lang, t } = useLang();
   const list = lang === "he" ? WORDS_HE : WORDS;
-  const [i, setI] = useState(1); // open on "Human"
+  const [i, setI] = useState(1); // open on "Real"
   const [paused, setPaused] = useState(false);
   const [started, setStarted] = useState(false);
 

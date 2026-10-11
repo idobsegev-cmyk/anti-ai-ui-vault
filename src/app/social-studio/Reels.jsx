@@ -61,7 +61,7 @@ export function ReelSites({ q }) {
               <span className="serif" style={{ color: "#1d4ed8", fontWeight: 400, letterSpacing: "-0.02em" }}>languages.</span>
             </span>,
             <span key="z">
-              0 templates.
+              Prompts included.
             </span>,
           ]}
         />
@@ -100,7 +100,7 @@ const SCENE_SETS = {
     label: "Buttons worth pressing",
     dims: [380, 500],
     intro: { title: "Specimen Design — micro-interactions", lines: ["Buttons", "you'll want", <span key="s" className="serif" style={{ color: "#d9534f", fontWeight: 400 }}>to press.</span>] },
-    outro: { title: "Free — prompt included", lines: ["Spring physics,", "not templates."], sub: "Every button comes with the Claude prompt that builds it." },
+    outro: { title: "Free — prompt included", lines: ["Spring physics,", "prompt included."], sub: "Every button comes with the Claude prompt that builds it." },
     slugs: ["squish-press-button", "paper-confetti-like-button", "elastic-toggle-switch", "clay-inflate-buttons", "copy-button-morph", "memphis-squiggle-buttons", "pixel-arcade-start-button", "hold-to-confirm-button"],
   },
   type: {

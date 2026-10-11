@@ -8,6 +8,7 @@ Strategy: `docs/BRAND-MARKETING-STRATEGY.md` (Hebrew). Week 1 is `WEEK-01.md`. F
 2. **Two posts push the offer** (Thu, Sun) and **one ties to the new Guides section** (Tue, `/guides`). The other four are pure library inspiration.
 3. **Show range:** small-business pieces (clinic, bakery, bookshop), a SaaS-style page, an architecture site, forms and FAQs. Week 1 skewed toward showy designs.
 4. **Every post still shows the proof:** a live design, with its prompt. Never mock-ups or fake client work.
+5. **Messaging (updated 12 Oct):** "Start from a real design, not a blank page." We make the designs with Claude and say so; the prompt is on the page. Never say or imply "no templates", "made by hand", "hand-tuned", "human-made" or "anti-AI", and never claim awards, conversion rates, client counts or results. The service line: we take a library design, or a new direction, and turn it into a real business site. See `docs/BRAND-MARKETING-STRATEGY.md`.
 
 ## Rules of the week
 - **Lead path today is DM only: "DM us SITE".** The website form doesn't deliver leads yet, and the business email isn't live. Don't send people to the form. Check with Ido before posting whether this has changed. Use the link sticker only for the site or a design page.
@@ -28,7 +29,7 @@ Strategy: `docs/BRAND-MARKETING-STRATEGY.md` (Hebrew). Week 1 is `WEEK-01.md`. F
 ### Tue Oct 20 · Carousel (6 slides) · GUIDES TIE-IN: "The same Claude, two prompts"
 - **Feature:** `bloom-root-skincare-shop` (Organic Earth). Show its result next to a generic result.
 - **Concept:** left, a vague prompt ("make a modern skincare website") and the generic purple output (draw it as a flat paper-style sketch; don't use any real brand). Right, the specific prompt from our library and the real result. Slide order: the vague prompt, the generic result, 3 things that were missing (a named style, a type pairing, a banned list), the specific prompt, the result, "Full guide on the site".
-- **Hook (slide 1):** "Why do all AI websites look the same? Because of the prompt."
+- **Hook (slide 1):** "Same Claude, different prompt, very different website."
 - **Caption direction:** short, useful, one lesson per slide; mention the new Guides section as "we just published guides on writing Claude prompts for websites".
 - **CTA:** "Read the guides → link in bio" (link sticker to `/guides`). Ask people to save for their next site.
 - **Story:** link sticker to `/guides`; quiz sticker "Which prompt made this?".
@@ -43,15 +44,15 @@ Strategy: `docs/BRAND-MARKETING-STRATEGY.md` (Hebrew). Week 1 is `WEEK-01.md`. F
 
 ### Thu Oct 22 · Offer post #1 · Carousel (5 slides) · "Your competitor has the same website"
 - **Feature:** small-business pieces from the library: `dental-clinic-spotlight-bento`, `bakery-staggered-word-banner`, `independent-bookshop-offerings-accordion`, `photography-studio-spring-chip-booking-form`, `dental-clinic-fanned-card-deck`. (Present them as library designs, not as client work.)
-- **Hook:** "Swap the logo on your competitor's site. Does anyone notice?"
-- **Slides:** the problem (same template, different logo) → what a designed site does instead (3 sample pieces) → what we do (strategy, copy, design, Next.js, SEO, care in one team) → how it works in 4 steps (Brief, Direction, Build, Launch and care) → the offer.
+- **Hook:** "Swap the logo on your competitor's site. Does anyone notice?" (Then: "Start from a design, not a blank page.")
+- **Slides:** the problem (same layout, different logo) → what a site that fits the business does instead (3 sample library pieces) → what we do (take a library design or a new direction and fit it: content, brand, Hebrew and English, SEO, hosting, care) → how it works in 4 steps (Brief, Direction, Build, Launch and care) → the offer.
 - **Offer slide:** "70% off the build and care, until November 30. Most sites go live in 4–6 weeks." Under it: "DM us SITE and tell us what your business does. We reply within one business day." Optionally a day count to Nov 30 (39 days).
 - **Caption direction:** direct, plain, no jargon, one clear ask. Avoid "stunning" and "high-converting".
 - **Story:** countdown sticker to Nov 30 + DM-us-"SITE" frame; question box "What does your business do?" (replies feed the DMs).
 
 ### Fri Oct 23 · Carousel (7 slides) · "A SaaS landing page without a purple gradient"
 - **Feature:** `ledgerly-saas-landing-page` (Swiss International), plus `mono-data-bento` as a bonus detail.
-- **Hook:** "No gradient. No glass. Still converts?" (Don't claim conversion numbers. Phrase it as a design question.)
+- **Hook:** "No gradient. No glass. Does it still work?" (Phrase it as a design question. No claims about conversion or results.)
 - **Slides:** hero, grid, type scale, pricing section, the data bento, the prompt excerpt (3 lines), "Free prompt in the library".
 - **Caption direction:** speaks to the DIY/Claude audience; the stance is "a grid and good type beat effects". Mention Swiss International by name for search.
 - **CTA:** Save + link in bio.
@@ -61,7 +62,7 @@ Strategy: `docs/BRAND-MARKETING-STRATEGY.md` (Hebrew). Week 1 is `WEEK-01.md`. F
 - **Feature:** `multi-step-brief-form`, `spring-budget-slider`, `ink-underline-contact-form`, `typewriter-otp-input`, `retro-os-signup-dialog`.
 - **Hook:** "Filling this out is the fun part."
 - **Reel idea:** each form is filled by the scripted cursor; end on the budget slider snapping like a spring. Keep it lighter and shorter (about 10 seconds) for the weekend.
-- **Caption direction:** forms are where visitors turn into customers; these are the interactions behind that moment. Soft tie-in: "our own brief form works like the first one".
+- **Caption direction:** forms are where visitors turn into customers; these are the interactions behind that moment. Soft tie-in: "the studio can fit one of these to your site".
 - **CTA:** Link in bio.
 - **Story:** quiz sticker "Which form is the most fun?".
 

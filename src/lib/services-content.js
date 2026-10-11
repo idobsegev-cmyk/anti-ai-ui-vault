@@ -8,13 +8,13 @@ export const SERVICE_HUB = {
     h1: "Website design & development for small businesses",
     title: "Website Design & Development for Small Businesses",
     description:
-      "Custom websites for small businesses that look hand-made, not templated: strategy, copy, design, Next.js build, SEO and ongoing care in one team. Most sites live in 4–6 weeks.",
+      "Websites for small businesses, started from a design you have already seen working: strategy, copy, design, Next.js build, SEO and ongoing care in one team. Most sites live in 4–6 weeks.",
     intro:
       "A website that looks like your business and nobody else's. We plan it, write it, design it, build it and keep it running, so you get one team and one point of contact instead of five freelancers.",
     included: [
       ["Strategy & structure", "Who the site is for, what it must make them do, and the pages that get them there."],
       ["Copy that sounds like you", "Headlines and page text written with you, in English, Hebrew or both."],
-      ["Design from scratch", "A design language chosen for your brand. No themes, no stock templates."],
+      ["Start from a design", "Pick a design from the library, or a new direction, and we fit it to your brand and content. You see it working before you commit."],
       ["Fast Next.js build", "Clean code, quick on phones, easy to grow later."],
       ["SEO & analytics from day one", "Titles, structure, schema and measurement set up before launch, not after."],
       ["Care after launch", "Updates, new pages and fixes, so the site never goes stale."],
@@ -36,15 +36,15 @@ export const SERVICE_HUB = {
   },
   he: {
     h1: "בניית אתרים לעסקים קטנים",
-    title: "בניית אתרים לעסקים קטנים, בעיצוב אישי ולא מתבנית",
+    title: "בניית אתרים לעסקים קטנים, מתחילים מעיצוב שכבר ראיתם",
     description:
-      "בניית וניהול אתרים לעסקים קטנים: אסטרטגיה, תוכן, עיצוב, פיתוח ב-Next.js, SEO וליווי שוטף בצוות אחד. אתרים שנראים עשויים ביד ולא כמו תבנית. רוב האתרים באוויר תוך 4–6 שבועות.",
+      "בניית וניהול אתרים לעסקים קטנים: אסטרטגיה, תוכן, עיצוב, פיתוח ב-Next.js, SEO וליווי שוטף בצוות אחד. מתחילים מעיצוב מהספרייה, או מכיוון חדש, ורואים אותו עובד לפני שמחליטים. רוב האתרים באוויר תוך 4–6 שבועות.",
     intro:
       "אתר שנראה כמו העסק שלכם ולא כמו של כולם. מתכננים, כותבים, מעצבים, בונים ומתחזקים, כך שיש צוות אחד וכתובת אחת במקום חמישה פרילנסרים.",
     included: [
       ["אסטרטגיה ומבנה", "למי האתר מיועד, מה הוא צריך לגרום לגולשים לעשות, ואילו עמודים מובילים לשם."],
       ["תוכן שנשמע כמוכם", "כותרות וטקסטים שנכתבים יחד איתכם, בעברית, באנגלית או בשתיהן."],
-      ["עיצוב מאפס", "שפת עיצוב שנבחרת למותג שלכם. בלי ערכות נושא ובלי תבניות מדף."],
+      ["מתחילים מעיצוב", "בוחרים עיצוב מהספרייה, או כיוון חדש, ואנחנו מתאימים אותו למותג ולתוכן שלכם. רואים אותו עובד לפני שמתחייבים."],
       ["פיתוח מהיר ב-Next.js", "קוד נקי, אתר מהיר בטלפון וקל להרחבה בהמשך."],
       ["SEO ואנליטיקס מהיום הראשון", "כותרות, מבנה, נתונים מובנים ומדידה מוכנים לפני ההשקה, לא אחריה."],
       ["ליווי אחרי ההשקה", "עדכונים, עמודים חדשים ותיקונים, כדי שהאתר לא יתיישן."],
@@ -73,7 +73,7 @@ export const SERVICE_PAGES = [
     en: {
       h1: "Websites for restaurants & cafés",
       title: "Restaurant & Café Website Design",
-      description: "Websites for restaurants, cafés and bakeries that feel like walking in: menu, hours, location and bookings, designed from scratch and built fast for phones.",
+      description: "Websites for restaurants, cafés and bakeries that feel like walking in: menu, hours, location and bookings, designed to fit your place and built fast for phones.",
       intro: "People look up a café on their phone, on the way. The site has to answer three things in seconds, what you serve, when you are open and where you are, and still feel like your place.",
       needs: ["A menu that is easy to read and easy for you to update", "Opening hours, map and directions in one tap", "Table bookings or orders linked to the tools you already use", "Local SEO so you show up for searches near you"],
       faq: [
@@ -85,7 +85,7 @@ export const SERVICE_PAGES = [
     he: {
       h1: "בניית אתר למסעדה ולבית קפה",
       title: "בניית אתר למסעדה ולבית קפה בעיצוב אישי",
-      description: "אתרים למסעדות, בתי קפה ומאפיות שמרגישים כמו להיכנס למקום: תפריט, שעות פתיחה, מיקום והזמנות, בעיצוב מאפס ומהירים בטלפון.",
+      description: "אתרים למסעדות, בתי קפה ומאפיות שמרגישים כמו להיכנס למקום: תפריט, שעות פתיחה, מיקום והזמנות, בעיצוב שמתאים למקום ומהירים בטלפון.",
       intro: "מחפשים בית קפה בטלפון, בדרך. האתר צריך לענות תוך שניות על שלוש שאלות, מה מגישים, מתי פתוח ואיפה זה, ועדיין להרגיש כמו המקום עצמו.",
       needs: ["תפריט שקל לקרוא וקל לעדכן", "שעות פתיחה, מפה והגעה בלחיצה אחת", "הזמנת מקום או משלוחים, מחוברים לכלים שכבר עובדים איתם", "קידום מקומי, כדי להופיע בחיפושים באזור"],
       faq: [

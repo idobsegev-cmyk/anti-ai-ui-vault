@@ -8,13 +8,13 @@ Nothing here is published until Ido approves each post.
 Folder: `2026-10-12-reel-10-sites/`
 
 ```
-10 websites. 10 design languages. Not one template.
+10 websites. 10 design languages. All of them live.
 
-A luxury noir hotel, a neo-brutalist agency, a Bauhaus café, an 8-bit game studio, a riso zine fair… Every one is live code you can open, scroll and copy, and each comes with the Claude prompt that builds it.
+A luxury noir hotel, a neo-brutalist agency, a Bauhaus café, an 8-bit game studio, a riso zine fair… Open them, scroll them, and copy the exact Claude prompt each one was made from. Made with Claude, shown openly.
 
 Free library, no sign-up → link in bio.
 
-Which one would you steal first? 👇
+Which one would you start from? 👇
 
 #webdesign #websitedesign #uidesign #designinspiration #claudeai #landingpage #webdevelopment #frontend #typography #aitools #smallbusiness
 ```
@@ -65,11 +65,11 @@ Stories:
 Folder: `2026-10-15-carousel-design-languages/`
 
 ```
-Pick your design language before you pick a template.
+Pick your design language before you start building.
 
 9 of the 16 styles in our library, what each one is best for, and the three rules that make it work. From Neo-Brutalist to Risograph Zine.
 
-Every style has a full website or components in the library, with the prompt that builds them.
+Every style has a full website or components in the library, with the exact prompt Claude used to make it.
 
 Save this, and comment the style that fits your business.
 
@@ -84,9 +84,9 @@ Stories:
 Folder: `2026-10-16-carousel-november-offer/`
 
 ```
-70% off a custom website, until November 30.
+70% off the build and care of your website, until November 30.
 
-Strategy, content, design, development in Next.js, SEO and analytics from day one, and ongoing care after launch. One team, made by people, for small businesses that don't want to look like a template.
+Pick a design from our library, or a new direction, and we turn it into your site: content, brand fit, Hebrew and English, SEO, hosting and ongoing care. One team, for small businesses.
 
 Most projects go live in 4–6 weeks.
 

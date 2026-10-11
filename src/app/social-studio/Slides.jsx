@@ -213,9 +213,9 @@ const offer = [
           <div style={{ ...H, fontSize: format === "story" ? 210 : 190, color: "#e8705f", letterSpacing: "-0.06em", lineHeight: 0.85 }}>70%</div>
           <div style={{ ...H, fontSize: 64, paddingBottom: 10 }}>{accent("off", "#faf9f6")}</div>
         </div>
-        <div style={{ ...H, fontSize: 38, marginTop: 22 }}>Your website, made by people.</div>
+        <div style={{ ...H, fontSize: 34, marginTop: 22 }}>Start from a design you’ve seen working.</div>
         <div style={{ fontSize: 16, lineHeight: 1.45, color: "#b9b4aa", marginTop: 14, maxWidth: 430 }}>
-          Strategy, content, design, development and ongoing care, for small businesses that don't want to look like a template.
+          Strategy, content, design, development and ongoing care, for small businesses. Pick a design from our free library, or a new direction, and we make it yours.
         </div>
         {format === "story" && (
           <div style={{ marginTop: 34 }}>
@@ -236,7 +236,7 @@ const offer = [
       <div style={{ position: "absolute", left: 28, right: 28, top: 214 }}>
         {[
           ["Strategy & content", "What the site says, and who it's for."],
-          ["Custom design", "Drawn for your business. No templates."],
+          ["Design that fits", "A library design, or a new direction, fitted to your brand."],
           ["Built in Next.js", "Fast, solid, yours."],
           ["SEO & analytics", "From day one, not as an add-on."],
           ["Ongoing care", "We keep managing it after launch."],
@@ -255,11 +255,11 @@ const offer = [
   ),
   () => (
     <div className="cv feed paper2">
-      <Top label="The level we work at" />
+      <Top label="Where it starts" />
       <div style={{ position: "absolute", left: 28, right: 28, top: 80 }}>
-        <div style={{ ...H, fontSize: 38 }}>Our free library</div>
-        <div style={{ ...H, fontSize: 38 }}>is the {accent("floor,")}</div>
-        <div style={{ ...H, fontSize: 38 }}>not the ceiling.</div>
+        <div style={{ ...H, fontSize: 38 }}>Start from a design</div>
+        <div style={{ ...H, fontSize: 38 }}>you’ve {accent("seen working,")}</div>
+        <div style={{ ...H, fontSize: 38 }}>not a blank page.</div>
       </div>
       <Crop slug="ledgerly-saas-landing-page" left={28} top={238} w={300} h={186} />
       <Crop slug="nocturne-hotel-website" left={212} top={314} w={300} h={186} />

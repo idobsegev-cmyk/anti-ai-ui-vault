@@ -8,7 +8,7 @@ export default {
     keyword: "how to make an AI website not look AI",
     title: "How to Make an AI-Built Website Not Look AI-Generated",
     h1: "How to make an AI-built website not look AI-generated",
-    description: "Why AI websites all look alike, and nine concrete design rules (with prompt snippets) to make a Claude-built site feel hand-made: palette, type, shadows, layout and motion.",
+    description: "Why AI websites all look alike, and nine concrete design rules (with prompt snippets) to make a Claude-built site feel designed: palette, type, shadows, layout and motion.",
     kicker: "Design principles",
     short: "Avoid the AI look",
     intro: "People can spot an AI-generated website in about a second: purple gradient, glassy cards, three icons in a row, a headline about “unlocking your potential.” None of it is caused by AI itself. It comes from defaults. Change the defaults and the look goes away.",
@@ -74,7 +74,7 @@ It should look like a risograph-printed zine, slightly misregistered.`],
       ["p", "Nothing gives a site away faster than vague copy. Write the actual headline, the actual prices, the actual opening hours, and put them in the prompt. Specific words (“Open from 7. Closed Saturdays.”) make the design specific too, because Claude lays out what is really there."],
 
       ["h2", "9. Add one detail nobody asked for"],
-      ["p", "Hand-made sites have small surprises: a ticker strip, a hand-drawn underline, a page number in the corner, a cursor that leaves ink. These details cost one line in a prompt and are the part visitors remember. Browse the [hero sections](/designs/hero-sections) for ideas."],
+      ["p", "Well-designed sites have small surprises: a ticker strip, a drawn underline, a page number in the corner, a cursor that leaves ink. These details cost one line in a prompt and are the part visitors remember. Browse the [hero sections](/designs/hero-sections) for ideas."],
 
       ["h2", "Before and after: the same request, rewritten"],
       ["p", "Here is a typical prompt, followed by the same request with the rules applied. The second is longer, but every extra line removes a default."],
@@ -93,8 +93,8 @@ AVOID: gradients, glassmorphism, neon, icon cards, fade-in on every section, sto
       ["p", "The first prompt leaves about thirty decisions to chance. The second makes them all, and the result looks like a studio with a point of view."],
 
       ["h2", "Putting it together"],
-      ["p", "You do not need all nine rules on every page. A reference, a fixed palette, a ban list and a real type system already move a site out of the template look. Add hard shadows and one piece of physical motion and most people will assume a designer built it."],
-      ["p", "Every design in the [Specimen library](/designs/website-designs) was built with these rules. Open one, read its prompt, and you will see each principle written out."],
+      ["p", "You do not need all nine rules on every page. A reference, a fixed palette, a ban list and a real type system already move a site out of the template look. Add hard shadows and one piece of physical motion and most people will read it as a designed site."],
+      ["p", "Every design in the [Specimen library](/designs/website-designs) is made with Claude from prompts that follow these rules. Open one, read its prompt, and you will see each principle written out."],
     ],
     faq: [
       ["Why do AI-generated websites all look the same?", "Because open questions in a prompt get the most common answer: gradient hero, glass cards, three icons, neutral sans-serif. The sameness comes from defaults, not from the model's ability."],
@@ -106,7 +106,7 @@ AVOID: gradients, glassmorphism, neon, icon cards, fade-in on every section, sto
     keyword: "אתר שנבנה עם AI שלא נראה כמו AI",
     title: "איך גורמים לאתר שנבנה עם AI לא להיראות כמו AI",
     h1: "איך גורמים לאתר שנבנה עם AI לא להיראות כמו AI",
-    description: "למה כל אתרי ה-AI נראים אותו דבר, ותשעה כללי עיצוב מעשיים, עם קטעי פרומפט, שהופכים אתר שנבנה עם Claude לאתר שנראה עשוי ביד.",
+    description: "למה כל אתרי ה-AI נראים אותו דבר, ותשעה כללי עיצוב מעשיים, עם קטעי פרומפט, שהופכים אתר שנבנה עם Claude לאתר שנראה מעוצב.",
     kicker: "עקרונות עיצוב",
     short: "אתר AI שלא נראה כמו AI",
     intro: "אתר שנבנה עם AI מזהים תוך שנייה: גרדיאנט סגול, כרטיסים מזכוכית, שלושה אייקונים בשורה וכותרת על „לממש את הפוטנציאל”. שום דבר מזה לא נובע מה-AI עצמו. הוא נובע מברירות מחדל. משנים אותן, והמראה נעלם.",
@@ -148,7 +148,7 @@ It should look like a risograph-printed zine, slightly misregistered.`],
 - Stock phrases like "elevate", "unlock", "seamless", "next-level".`],
 
       ["h2", "4. הטיפוגרפיה עושה את העבודה"],
-      ["p", "אתרים שנוצרים אוטומטית משתמשים בגופן אחד במשקל אחד. לאתר שנבנה ביד יש מערכת טיפוגרפית: גופן תצוגה עם אופי, גופן גוף שקט, ולעיתים גופן מונו או סריף לתוויות ולהדגשות. מגדירים את שלושתם, עם משקלים וגדלים, ונותנים לכותרת להיות גדולה. כותרת ענקית עם ריווח צפוף אומרת יותר מכל איור."],
+      ["p", "אתרים שנוצרים אוטומטית משתמשים בגופן אחד במשקל אחד. לאתר מעוצב היטב יש מערכת טיפוגרפית: גופן תצוגה עם אופי, גופן גוף שקט, ולעיתים גופן מונו או סריף לתוויות ולהדגשות. מגדירים את שלושתם, עם משקלים וגדלים, ונותנים לכותרת להיות גדולה. כותרת ענקית עם ריווח צפוף אומרת יותר מכל איור."],
       ["p", "באתר עברי הכללים קצת אחרים: בלי ריווח בין אותיות, בלי אותיות גדולות ובלי נטוי. את ההדגשה עושים במשקל, למשל מילה אחת במשקל light מאותו גופן."],
       ["code", "מערכת טיפוגרפית לאתר בעברית", `TYPE (Hebrew):
 - Display: IBM Plex Sans Hebrew 600, line-height 1.1, headline at clamp(2.6rem, 7vw, 6rem).
@@ -173,7 +173,7 @@ It should look like a risograph-printed zine, slightly misregistered.`],
       ["p", "שום דבר לא מסגיר אתר מהר יותר מטקסט כללי. כותבים את הכותרת האמיתית, המחירים האמיתיים, שעות הפתיחה האמיתיות, ומכניסים אותם לפרומפט. מילים ספציפיות („פתוח משבע. סגור בשבת.”) הופכות גם את העיצוב לספציפי, כי Claude בונה את העמוד סביב מה שבאמת קיים."],
 
       ["h2", "9. פרט אחד שאף אחד לא ביקש"],
-      ["p", "לאתרים שנבנו ביד יש הפתעות קטנות: פס טקסט רץ, קו תחתון שנראה מצויר, מספר עמוד בפינה, סמן שמשאיר דיו. כל פרט כזה עולה שורה אחת בפרומפט, והוא החלק שמבקרים זוכרים. ב[אזורי הפתיחה](/designs/hero-sections) יש לא מעט רעיונות."],
+      ["p", "לאתרים מעוצבים היטב יש הפתעות קטנות: פס טקסט רץ, קו תחתון שנראה מצויר, מספר עמוד בפינה, סמן שמשאיר דיו. כל פרט כזה עולה שורה אחת בפרומפט, והוא החלק שמבקרים זוכרים. ב[אזורי הפתיחה](/designs/hero-sections) יש לא מעט רעיונות."],
 
       ["h2", "לפני ואחרי: אותה בקשה, בכתיבה אחרת"],
       ["p", "הנה פרומפט טיפוסי, ואחריו אותה בקשה עם הכללים. השני ארוך יותר, אבל כל שורה נוספת מבטלת ברירת מחדל."],
@@ -194,7 +194,7 @@ AVOID: gradients, glassmorphism, neon, icon cards, fade-in on every section, sto
       ["p", "הפרומפט הראשון משאיר בערך שלושים החלטות ליד המקרה. השני מקבל את כולן, והתוצאה נראית כמו סטודיו עם נקודת מבט."],
 
       ["h2", "לחבר את הכול"],
-      ["p", "לא צריך את כל תשעת הכללים בכל עמוד. דימוי, פלטה קבועה, רשימת איסורים ומערכת טיפוגרפית אמיתית כבר מוציאים אתר מהמראה של תבנית. מוסיפים צל קשיח ותנועה פיזית אחת, ורוב האנשים יניחו שמעצב/ת בנו אותו."],
+      ["p", "לא צריך את כל תשעת הכללים בכל עמוד. דימוי, פלטה קבועה, רשימת איסורים ומערכת טיפוגרפית אמיתית כבר מוציאים אתר מהמראה של תבנית. מוסיפים צל קשיח ותנועה פיזית אחת, ורוב האנשים יקראו אותו כאתר מעוצב."],
       ["p", "כל עיצוב ב[ספרייה](/designs/website-designs) נבנה לפי הכללים האלה. פותחים אחד, קוראים את הפרומפט, ורואים כל עיקרון כתוב במפורש."],
     ],
     faq: [

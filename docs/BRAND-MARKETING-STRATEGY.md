@@ -1,30 +1,41 @@
 # אסטרטגיית מותג ושיווק: Specimen Design (דוגמית עיצוב)
 
-נכתב ב־11.10.2026 על ידי ראש מותג ושיווק (Claude). תקף ל־12.10 עד 30.11.2026. מבוסס על `docs/PROJECT-BRIEF.md`, `social/instagram/WEEK-01.md` ותוכן האתר. **לא משנה את הבריף.** החלטות שמחכות לעידו מסומנות 🔶. כל פרסום ציבורי דורש אישור מפורש של עידו.
+גרסה 2, 12.10.2026, על ידי ראש מותג ושיווק (Claude). תקף ל־12.10 עד 30.11.2026. מבוסס על `docs/PROJECT-BRIEF.md`, `social/instagram/WEEK-01.md` ותוכן האתר. **לא משנה את הבריף.** החלטות שמחכות לעידו מסומנות 🔶. כל פרסום ציבורי דורש אישור מפורש של עידו.
+
+## למה שינינו (גרסה 1 נפסלה)
+
+הגרסה הראשונה בנתה את המותג על שני טענות שאינן נכונות, ועידו פסל אותן:
+
+1. **"אין לנו תבניות" / "לא תבנית".** בפועל הספרייה *היא* קבוצה של עיצובים מוכנים שאפשר להעתיק, והשירות מתחיל בדרך כלל מהם.
+2. **"הכול נעשה ביד" / "עבודת יד" / "אנושי" / "אנטי AI".** בפועל העיצובים נוצרים עם Claude (AI) מפרומפטים מפורטים, ואחר כך הצוות מכוון, בוחר, בודק ומשפר.
+
+מותג שמבוסס על טענה שקרית נשבר ברגע שמישהו פותח את הספרייה ורואה פרומפט ל־Claude ליד כל עיצוב. לכן במקום להסתיר את התהליך, **הופכים אותו למסר**. מה שהיה "החולשה" (תבניות ו־AI) הוא עכשיו מה שאפשר להראות ולהוכיח. כלל נוסף: אין לטעון פרסים, אחוזי המרה, מספר לקוחות או תוצאות שאין לנו.
 
 ---
 
 ## 1. מיצוב
 
 **משפט מיצוב:**
-לבעלי עסקים קטנים שרוצים אתר שנראה כמו העסק שלהם ולא כמו כולם, Specimen Design היא ספריית עיצובים חיה וחינמית וגם סטודיו שבונה ומנהל אתרים כאלה. אפשר לראות, לגעת ולהעתיק את רמת העיצוב לפני שמזמינים כל דבר.
+Specimen Design היא ספרייה חינמית ופתוחה של עיצובים מלאים לאתרים, שכל אחד מהם רץ חי ומגיע עם הפרומפט המדויק ל־Claude שבו נוצר. אפשר לראות עיצוב עובד, להעתיק אותו, או לשכור את הסטודיו כדי להפוך אותו (או כיוון חדש) לאתר אמיתי לעסק.
 
-**משפט קצר (פנימי):** *ספריית עיצובים חינמית שמוכיחה את הרמה, וסטודיו שבונה כך לעסקים קטנים.*
+**קו מרכזי:** *מתחילים מעיצוב אמיתי, לא מדף ריק.*
 
-**הניגוד (האויב):** אתרים גנריים. תבנית שמאה עסקים אחרים משתמשים בה, או אתר ש־AI הוציא בלי כיוון, עם אותו גרדיאנט סגול, אותן כרטיסיות זכוכית ואותו "Unlock the power of…". חשוב: **האויב הוא הגנריות, לא ה־AI.** אנחנו עצמנו עובדים עם Claude והפרומפטים הם חלק מהמוצר. הקו הנכון: "AI הוא כלי, וטעם הוא הבחירה שלכם". לא להציג את עצמנו כ"נגד AI" בפני הקהל, כי זה לא אמין וגם מרחיק את קהל ה־DIY.
+**משפט קצר (פנימי):** *רואים עיצוב עובד, רואים איך הוא נעשה, ואז הופכים אותו לשלכם.*
 
-**הוכחות שאפשר להראות היום (כולן מתועדות בבריף):**
-- 60+ עיצובים חיים שרצים בדפדפן, מהם 10 אתרים שלמים, ב־16 שפות עיצוב (ברוטליסט, באוהאוס, Luxury Noir, מינימליזם יפני, ריזוגרף ועוד).
-- לכל עיצוב פרומפט גלוי ומוכן להעתקה. שקיפות מלאה, בלי הרשמה.
-- הקוד ציבורי ב־GitHub; האתר עצמו דו־לשוני מלא (אנגלית ועברית RTL) ובנוי ב־Next.js עם SEO ו־Schema.
-- סרטון "איך זה עובד" ו־7 עמודי שירות לפי ענף, שכל אחד מפנה לאתר מלא שמתאים לו מהספרייה.
-- התהליך והזמנים המוצהרים: אסטרטגיה, תוכן, עיצוב ופיתוח בצוות אחד; 4–6 שבועות; תשובה תוך יום עבודה.
+**ההבדל בשני משפטים:** רוב המתחרים מראים תמונה או מוכרים תבנית סגורה. אצלנו רואים את העיצוב רץ, רואים את הפרומפט המלא שיצר אותו, ואפשר לקחת אותו לבד או עם סטודיו.
 
-**מה אין לנו (ולא טוענים):** תיקי עבודות של לקוחות, המלצות, פרסים, מספרי המרה, הבטחות דירוג. הספרייה היא תיק העבודות. 🔶 **המלצה חזקה:** לסגור 1–2 פרויקטים ראשונים בהנחת הנובמבר בתמורה לרשות להציג אותם כסיפור לקוח (case study). זה החסר הגדול ביותר בהוכחה.
+**הניגוד (מה אנחנו לא):** לא "מתחילים מאפס ומקווים". מי שפותח דף ריק, או פרומפט של שורה אחת, מקבל את התוצאה הממוצעת. אנחנו מציעים נקודת התחלה שכבר ראיתם שעובדת. אין כאן עמדה *נגד* שום דבר: לא נגד תבניות ולא נגד AI. אנחנו עובדים עם שניהם בגלוי.
 
-⚠️ **תיקון מסרים נדרש:** בבאנר ההזמנה באתר באנגלית (`i18n.js`, `lead.banner`) כתוב "high-converting, award-winning site". אין לנו פרסים ואין נתוני המרה. מומלץ להחליף לניסוח אמיתי כמו "A site that looks like your business and nobody else's." (הנוסח כבר קיים ב־`/services`). בעברית הבאנר תקין.
+**הוכחות שאפשר להראות היום (כולן מתועדות בבריף; לאמת מספרים ביום הפרסום):**
+- ספרייה חינמית של עשרות עיצובים חיים, מהם אתרים שלמים, בכמה שפות עיצוב (ברוטליסט, באוהאוס, Luxury Noir, מינימליזם יפני, ריזוגרף ועוד), ועיצובים חדשים כל יום.
+- לכל עיצוב תצוגה חיה שעובדת בדפדפן וגם הפרומפט המדויק ל־Claude שבו נוצר. בלי הרשמה.
+- הקוד ציבורי ב־GitHub (רישיון MIT); האתר דו־לשוני מלא (אנגלית ועברית RTL).
+- סרטון "איך זה עובד" ועמודי שירות לפי ענף, שכל אחד מפנה לעיצוב מלא מהספרייה.
+- תהליך וזמנים מוצהרים: אסטרטגיה, תוכן, עיצוב ופיתוח בצוות אחד; רוב האתרים באוויר תוך 4–6 שבועות; תשובה תוך יום עבודה.
 
----
+**מה אין לנו (ולא טוענים):** תיקי עבודות של לקוחות, המלצות, פרסים, אחוזי המרה, מספרי לקוחות, הבטחות דירוג. הספרייה היא תיק העבודות, והיא מוצגת כספרייה ולא כעבודות לקוחות. 🔶 **המלצה חזקה:** לסגור 1–2 פרויקטים ראשונים בהנחת הנובמבר בתמורה לרשות להציג אותם כסיפור לקוח. זה החסר הגדול ביותר בהוכחה.
+
+**יושרה בתהליך:** נאמר בפשטות "נוצר עם Claude, ואז מכוון ונבדק על ידינו". לא להציג את זה כסוד וגם לא כקוסמות. עידו ביקש שנדבר על התהליך בגלוי, וזה יתרון: אין כמעט מי שמראה את הפרומפט.
 
 ## 2. קהלים
 
@@ -33,7 +44,7 @@
 
 | | |
 |---|---|
-| **כאבים** | האתר הנוכחי (Wix או וורדפרס עם תבנית) נראה כמו של כולם; פעם הוקם ונשכח; לא מביא פניות; לא עובד טוב בנייד; בלי עברית/אנגלית תקינות; פרילנסר שנעלם או חמישה ספקים שצריך לתאם |
+| **כאבים** | האתר הנוכחי נראה כמו של כולם; פעם הוקם ונשכח; לא מביא פניות; לא עובד טוב בנייד; בלי עברית/אנגלית תקינות; פרילנסר שנעלם או חמישה ספקים שצריך לתאם |
 | **טריגרים** | פתיחת עסק או מיתוג מחדש; עונה עמוסה בפתח; לקוח שאמר "אין לכם אתר?"; השוואה למתחרה שנראה טוב יותר; מבצע עם תאריך סיום |
 | **התנגדויות** | "זה יקר" (המחיר לא פורסם: סעיף 4); "אין לי זמן לתכנן"; "מי יתחזק"; "אין לכם עבודות ללקוחות"; "למה לא Wix בעצמי"; "לא מכירים אתכם" |
 | **איפה נמצאים** | וואטסאפ ופייסבוק (קבוצות עסקים, קבוצות אזוריות, קבוצות ענף), אינסטגרם, גוגל ("בניית אתר ל…"), לינקדאין (ענפים מקצועיים), המלצות מפה לאוזן |
@@ -45,7 +56,7 @@
 
 | | |
 |---|---|
-| **כאבים** | כל אתר ש־AI מייצר נראה אותו דבר; פרומפטים כלליים מחזירים תוצאה בינונית; אין לאן להשתמש כהשראה מעבר ל־Dribbble סטטי |
+| **כאבים** | תוצאות גנריות כשמבקשים מ־AI אתר בלי כיוון; פרומפטים כלליים מחזירים תוצאה בינונית; אין לאן להשתמש כהשראה מעבר ל־Dribbble סטטי |
 | **טריגרים** | פרויקט צד חדש; תסכול מתוצאה גנרית; מדריך או פרומפט שמישהו שיתף; חיפוש "Claude prompt for landing page" |
 | **התנגדויות** | "עוד ספריית פרומפטים" (יש מתחרים כמו 5sdesign ו־SuperDesign); חשד לשיווק מחופש; "ראיתי את זה כבר" |
 | **איפה נמצאים** | r/ClaudeAI, r/web_design, r/webdev, r/SideProject, Hacker News, Product Hunt, X, מדריכי בלוג, ספריות עיצוב כמו Godly ו־Lapa Ninja |
@@ -57,24 +68,50 @@
 ## 3. בית המסרים
 
 **תגית (Tagline)**
-- **EN:** *Websites that look made by hand.*
-- **HE:** *אתרים שנראים כמו עבודת יד.*
-- משנית (EN): *Not a template.* משנית (HE): *טועמים עיצוב לפני שמזמינים.* (משחק על "דוגמית")
-- ביו אינסטגרם קיים בבריף ("Inspiration and tools to build a website that feels hand-made, yourself.") מתאים לקהל ב'. מומלץ לעדכן ל־*"Real website designs + the Claude prompts that build them. Custom sites in DM ↓"* כדי שגם קהל א' יבין שיש שירות. 🔶
+- **EN:** *Start from a real design, not a blank page.*
+- **HE:** *מתחילים מעיצוב אמיתי, לא מדף ריק.*
+- משנית (EN): *See exactly how it's made.* משנית (HE): *רואים בדיוק איך זה נעשה.* (גם משחק על "דוגמית": טועמים לפני שמזמינים)
 
 **שלושה עמודי מסר**
 
 | # | מסר | הוכחה | דוגמת ניסוח |
 |---|---|---|---|
-| 1 | **נראה אחרת, בכוונה** (נגד גנריות) | 16 שפות עיצוב, צל קשיח במקום טשטוש, פלטה חמה, סרגל "אנטי תבנית"; כל אחד מהאתרים השלמים | EN: "Pick a design language, not a template." HE: "בוחרים שפת עיצוב, לא תבנית." |
-| 2 | **רואים לפני שמזמינים** (שקיפות) | ספרייה חיה, פרומפטים וקוד גלויים, בלי הרשמה | EN: "See the level before you hire us." HE: "רואים את הרמה לפני שמדברים איתנו." |
-| 3 | **צוות אחד, כל העבודה** (פשטות) | אסטרטגיה, תוכן, עיצוב, Next.js, SEO ואנליטיקס, ליווי; 4–6 שבועות; תשובה תוך יום עבודה | EN: "One team. Strategy to launch to care." HE: "צוות אחד מהרעיון ועד אחרי ההשקה." |
+| 1 | **רואים עיצוב עובד לפני שמחליטים** | תצוגה חיה לכל עיצוב, בדפדפן, בלי הרשמה; עיצובים חדשים כל יום בשפות עיצוב רבות | EN: "See it working before you commit." HE: "רואים את זה עובד לפני שמתחייבים." |
+| 2 | **רואים בדיוק איך זה נעשה** | הפרומפט המדויק ל־Claude ליד כל עיצוב, קוד פתוח (MIT); אנחנו אומרים בגלוי שהעיצובים נוצרים עם Claude ומכוונים על ידי הצוות | EN: "The exact prompt is right there. Copy it." HE: "הפרומפט המלא כאן. מעתיקים." |
+| 3 | **מעיצוב לאתר אמיתי של העסק** | הסטודיו לוקח עיצוב או כיוון חדש והופך אותו לאתר: תוכן, התאמה למותג, עברית ואנגלית, SEO, אחסון וליווי; 4–6 שבועות; תשובה תוך יום עבודה | EN: "Pick a design. We make it your business site." HE: "בוחרים עיצוב. אנחנו הופכים אותו לאתר של העסק." |
 
-**מילים לשימוש:** עבודת יד, דוגמית, נייר, עיתון/מגזין, שפת עיצוב, בנוי לפי העסק, אמיתי, חי, העתיקו, נסו, מדפיסים. בעברית: ניסוח ניטרלי מגדרית (רבים בהווה, שם פועל, לוכסן כשחייבים); פנזין (לא "זין"); "אזור פתיחה" במקום Hero בטקסט לקוח.
+**אוצר מילים: להשתמש**
+עיצוב, פרומפט, תצוגה חיה, מעתיקים, רואים, בודקים, מתחילים מ, נקודת התחלה, שפת עיצוב, נוצר עם Claude, בגלוי, מותאם לעסק, אתר אמיתי, ליווי, עברית ואנגלית, דוגמית. בעברית: ניסוח ניטרלי מגדרית (רבים בהווה, שם פועל, לוכסן כשחייבים); פנזין (לא "זין"); "אזור פתיחה" במקום Hero בטקסט לקוח. משפטים קצרים, בלי ז'רגון.
 
-**מילים להימנע מהן:** award-winning, high-converting, stunning, seamless, game-changing, unlock, revolutionary, "AI-powered"; "מוגבל!" ו"אחרונים!" בלי בסיס; "הכי טוב"; ניאון, זוהר, זכוכית, גרדיאנט גנרי (גם בקריאייטיב); אימוג'י מרובים בפוסטי השירות; "מחיר מצחיק". אין להבטיח דירוג בגוגל או מספר לידים.
+**אוצר מילים: אסור (חובה להסיר גם מקריאייטיב ומכתוביות)**
 
-**כללי ויזואל לכל קריאייטיב:** paper `#FAF9F6`, ink `#121212`, cobalt, terracotta; Instrument Sans + Instrument Serif נטוי + JetBrains Mono; קווים דקים וצל קשיח; בעברית: בלי tracking, uppercase או נטוי.
+| אסור | למה | במקום |
+|---|---|---|
+| "בלי תבניות", "לא תבנית", "Not a template", "no template look" (הכחשת תבניות) | הספרייה היא עיצובים מוכנים להעתקה | "מתחילים מעיצוב", "נקודת התחלה" |
+| "עבודת יד", "hand-made", "hand-tuned", "ביד", "נראה כאילו נעשה ביד" | העיצובים נוצרים עם Claude | "נוצר עם Claude, בגלוי" |
+| "אנושי", "human-made", "Made by people" | לא מדויק | "מכוון ונבדק על ידי הצוות" |
+| "אנטי AI", "anti-AI", "נראה לא כמו AI" כהבטחה על העיצובים שלנו | אנחנו עובדים עם AI. (מדריכים שמלמדים להימנע מברירות מחדל גנריות רשאים להישאר) | לתאר מה שעשינו, לא מה שלא |
+| "award-winning", "פרס" | אין פרסים | להשמיט |
+| "high-converting", "ממיר", "מביא לקוחות" כהבטחה | אין נתוני המרה | "אתר שנבנה לעסק שלכם" |
+| מספרי לקוחות, "מאות עסקים", תוצאות, "עלייה של X%" | אין נתונים | להשמיט |
+| stunning, seamless, game-changing, unlock, revolutionary, "AI-powered" | באזוז | משפט פשוט |
+| "מוגבל!" ו"אחרונים!" בלי בסיס; "הכי טוב" | אין תקרה אמיתית | תאריך אמיתי בלבד (30.11) |
+
+**כללי ויזואל לכל קריאייטיב:** paper `#FAF9F6`, ink `#121212`, cobalt, terracotta; Instrument Sans + Instrument Serif נטוי + JetBrains Mono; קווים דקים וצל קשיח; בעברית: בלי tracking, uppercase או נטוי. ניאון, זוהר, זכוכית וגרדיאנט גנרי נשארים מחוץ לקריאייטיב כבחירה עיצובית (לא כטענה על אחרים).
+
+**טקסטים מוכנים (EN)**
+
+`instagramBio` (עד 150 תווים):
+```
+Free website designs, each with the exact Claude prompt behind it. Copy one, or we turn it into your business site. DM “SITE” ↓
+```
+
+`facebookPageAbout`:
+```
+Specimen Design is a free library of full website designs and animated components. Each one has a live preview and the exact Claude prompt used to make it, and new designs are added every day. See a design working, copy the prompt, or hire our studio to turn it into a real website for your business: content, brand fit, Hebrew and English, SEO, hosting and ongoing care. We make our designs with Claude, openly, and we direct and refine them ourselves. Browse the library: https://specimen-designs.vercel.app
+```
+
+**HE (לביו בעברית, אם יידרש):** `ספריית עיצובים חינמית לאתרים, ולכל אחד הפרומפט המדויק ל־Claude. מעתיקים, או שאנחנו הופכים אותו לאתר של העסק. הודעה עם “SITE” ↓`
 
 ---
 
@@ -158,51 +195,53 @@
 
 ### 7.1 Product Hunt — DRAFT — needs Ido's approval to publish
 **Name:** Specimen Design
-**Tagline (60 תווים לכל היותר):** `Website designs with the Claude prompt that builds them`
+**Tagline (60 תווים לכל היותר):** `Website designs, with the exact Claude prompt behind each`
 **Description (260 תווים):**
-`A free library of full website designs and animated UI components, each running live in your browser with a copy-ready Claude prompt. Pick a design language, paste, build. No sign-up. Need one made for your business? The studio behind it builds custom sites.`
+`A free library of full website designs and animated components. Each runs live in your browser, with the exact Claude prompt used to make it. See a design working, copy the prompt, or hire the studio to turn it into your business site. No sign-up.`
 **Topics:** Design Tools, Web Design, Artificial Intelligence, Developer Tools
 **First comment (ממייק):**
-"Hi, I'm Ido. Most AI-built sites look the same: purple gradient, glass cards, the same hero. I wanted a library that starts from a point of view instead. Every design here is a complete, editorial design language (Bauhaus, Luxury Noir, Japanese Minimal, Risograph Zine…) that runs live, with the exact prompt that builds it. Copy it into Claude, swap in your business, keep the taste. It's free, there's no sign-up, and the code is public. I also run a small studio that builds custom sites for small businesses, so if you'd rather not do it yourself, say hi. I'd love to hear which design language you'd use first."
+"Hi, I'm Ido. I make these designs with Claude, and I think you should be able to see exactly how. So every design in the library runs live and has the exact prompt that made it, next to the code. Some are complete sites (Bauhaus café, Luxury Noir hotel, Japanese minimal architects, riso zine fair), some are single components. New ones are added every day. It's free, there's no sign-up, and the code is public. I also run a small studio: if you'd rather not do it yourself, we take a design (or a new direction) and turn it into your business site, with content, Hebrew and English, SEO, hosting and ongoing care. Which design language would you start from?"
 
 ### 7.2 Show HN — DRAFT — needs Ido's approval to publish
-**Title:** `Show HN: Specimen – live website designs, each with the Claude prompt that builds it`
+**Title:** `Show HN: Specimen – live website designs, each with the Claude prompt that made it`
 **URL:** האתר
 **Text:**
-"Hi HN. I got tired of AI-generated sites that all look the same, so I built a library of complete designs in distinct visual languages (Swiss, Bauhaus, Luxury Noir, Japanese minimal, riso zine, 8-bit…). Each one runs live in the browser, and next to it is the exact prompt I used with Claude to generate it, plus the code. No sign-up, nothing to buy.
+"Hi HN. I make website designs with Claude and I wanted the process to be visible, so I built a library where every design runs live in the browser and sits next to the exact prompt that produced it, plus the code. Complete sites and single components, in a range of design languages (Swiss, Bauhaus, Luxury Noir, Japanese minimal, riso zine, 8-bit…). New ones are added daily. No sign-up, nothing to buy.
 
-It's a Next.js site, both English and Hebrew (RTL). Previews are sandboxed React snippets; the prompts are the interesting part, because most of the difference between a generic output and a designed one is in how the style is specified (type pairing, spacing, shadows, motion).
+It's a Next.js site, in English and Hebrew (RTL). Previews are sandboxed React snippets. The prompts are the interesting part: most of the difference between a generic output and a considered one is in how the style is specified (type pairing, spacing, shadows, motion). I direct, test and refine the results; Claude does the first pass.
 
-Things I'd like feedback on: which prompts transfer to other models, and whether the live previews feel fast enough on mobile. Code is on GitHub. I run a small studio that builds sites for local businesses, which is why this exists, but the library is free to use however you like."
+Things I'd like feedback on: which prompts transfer to other models, and whether the live previews feel fast enough on mobile. Code is on GitHub. I also run a small studio that turns these designs into real sites for local businesses, which is why this exists, but the library is free to use however you like."
 (לענות לכל תגובה, ללא קמפיין העלאות; לא לבקש upvotes.)
 
 ### 7.3 r/ClaudeAI — DRAFT — needs Ido's approval to publish
-**Title:** `The 4 lines that stopped my Claude websites from looking generic (with the prompts)`
+**Title:** `The 4 lines that made my Claude websites more specific (with the prompts)`
 **Body:**
-"I kept getting the same site out of Claude: purple gradient, glass cards, centered hero. What changed things wasn't a longer prompt, it was naming a few specific constraints:
+"I kept getting the average site out of Claude: purple gradient, glass cards, centered hero. What changed things wasn't a longer prompt, it was naming a few specific constraints:
 
 1. A named visual reference (Swiss poster, Bauhaus, riso zine), not 'modern and clean'.
 2. Two fonts, with roles: 'sans for UI, italic serif for one emphasized word'.
 3. A banned list: 'no gradients, no blur, no glass, hard offset shadows only'.
 4. One motion rule: 'springs, never linear easing'.
 
-Here's the Café Bauhaus prompt I used and what it produced [screenshots]. Same structure works for hotels, architects, clinics. I put ~60 of these with live previews and the prompts in a free library if useful: [link]. No sign-up. Happy to share how I'd adapt the prompt for your use case, drop it below."
+Here's the Café Bauhaus prompt I used and what it produced [screenshots]. Same structure works for hotels, architects, clinics. I put the full prompts with live previews in a free library if useful: [link]. No sign-up. Happy to share how I'd adapt the prompt for your use case, drop it below."
 (לבדוק לפני: כללי הקידום העצמי והאם נדרש flair; לפרסם רק אם עידו עומד מאחורי הטיפים; לצרף ריל/תמונה אמיתית.)
 
 ### 7.4 פוסט לקבוצות פייסבוק של בעלי עסקים קטנים — DRAFT — needs Ido's approval to publish
 *(בעברית, ניטרלית מגדרית. לפרסם רק בקבוצות שמתירות, או באישור מנהל/ת)*
 
-**האתר של העסק שלכם נראה כמו עוד עשרה אתרים אחרים? זה לא במקרה.**
+**לפני שמשלמים על אתר חדש: כדאי לראות איך הוא ייראה**
 
-רוב האתרים לעסקים קטנים נבנים על אותה תבנית, ואז כל העסקים נראים אותו דבר. לפני שמשקיעים כסף, שלושה דברים שכדאי לבדוק:
+רוב מי שבונה אתר לעסק מתחיל מדף ריק, ומקבל את התוצאה רק בסוף. אפשר גם להפוך את הסדר: לראות עיצוב עובד, ורק אז להחליט.
+
+שלושה דברים שכדאי לבדוק באתר העסק, לפני כל החלטה:
 
 1. **אחרי 5 שניות: מבינים מה העסק עושה ומה לעשות הלאה?** אם צריך לחפש את כפתור יצירת הקשר, כדאי לתקן.
-2. **הנייד.** רוב הגולשים מגיעים מהטלפון. פותחים את האתר שלכם בנייד ובודקים בעצמכם.
-3. **האם זה נראה כמו העסק שלכם, או כמו כל תבנית?** אם מחליפים את הלוגו באתר של מתחרה ואף אחד לא מבחין, זה סימן.
+2. **הנייד.** רוב הגולשים מגיעים מהטלפון. פותחים את האתר בנייד ובודקים בעצמכם.
+3. **האם זה נראה כמו העסק שלכם?** אם מחליפים את הלוגו באתר של מתחרה ואף אחד לא מבחין, זה סימן.
 
-אנחנו סטודיו קטן שבונה ומנהל אתרים לעסקים קטנים: אסטרטגיה, תוכן, עיצוב ופיתוח בצוות אחד, ורוב האתרים באוויר תוך 4–6 שבועות. עד סוף נובמבר יש הנחה של 70% על הבנייה והליווי.
+אנחנו סטודיו קטן שבונה ומנהל אתרים לעסקים קטנים. אנחנו מתחילים מעיצוב מהספרייה שלנו (או מכיוון חדש) ומתאימים אותו לעסק: תוכן, מותג, עברית ואנגלית, SEO, אחסון וליווי. רוב האתרים באוויר תוך 4–6 שבועות. עד סוף נובמבר יש הנחה של 70% על הבנייה והליווי.
 
-מי שרוצה לראות את רמת העיצוב לפני כל שיחה, יש אצלנו ספרייה חינמית של עיצובים לאתרים שלמים: [קישור]
+הספרייה חינמית ופתוחה: כל עיצוב רץ חי, ולידו הפרומפט המדויק ל־Claude שבו נוצר. אנחנו עובדים עם Claude בגלוי, ואפשר לראות איך כל דבר נעשה: [קישור]
 אפשר לכתוב לנו כאן או באינסטגרם @specimen.design, ונחזור תוך יום עבודה.
 
 *(לפני פרסום: לוודא שהטופס/ה־DM עובדים, ושהמחיר המקורי ומה שכלול בהנחה הוגדרו, סעיף 4.)*
@@ -213,6 +252,6 @@ Here's the Café Bauhaus prompt I used and what it produced [screenshots]. Same 
 1. מחירי בסיס ומבנה הצעה (A/B/C), כמה חודשי ליווי בהנחה, תקרת פרויקטים אמיתית.
 2. וואטסאפ עסקי: כן/לא.
 3. פיילוט/Case study: להציע 1–2 פרויקטים בהנחה בתמורה לסיפור לקוח.
-4. החלפת "award-winning / high-converting" בבאנר האנגלי; עדכון ביו האינסטגרם.
+4. אישור המיצוב החדש ("מתחילים מעיצוב אמיתי, לא מדף ריק"), ביו האינסטגרם ו־`facebookPageAbout` שבסעיף 3. (הבאנר באנגלית כבר הוחלף בקוד.)
 5. חיבור הדומיין והמייל לפני ההשקות (HN/PH); אישור לחשבונות Reddit/HN/PH/Facebook/LinkedIn ולפרסום שם.
 6. אישור התוכנית: Show HN ו־r/ClaudeAI בשבוע 26.10, Product Hunt ב־10.11.
