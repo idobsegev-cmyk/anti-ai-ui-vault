@@ -1,0 +1,30 @@
+name: IndexNow ping
+
+# Notifies Bing and the other IndexNow engines about every page after the site changes.
+# Runs on human/agent pushes, and daily after vault-bot (its pushes use GITHUB_TOKEN,
+# which does not trigger other workflows).
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["docs/**", "social/**", "**/*.md"]
+  schedule:
+    - cron: "40 9 * * *" # 40 min after the daily content run
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          INDEXNOW_WAIT_FOR: ${{ github.event_name == 'push' && github.sha || '' }}
+        run: node scripts/indexnow.mjs
