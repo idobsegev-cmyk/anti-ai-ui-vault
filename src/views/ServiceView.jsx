@@ -42,7 +42,6 @@ function providerLd(lang) {
     alternateName: HE_NAME,
     url: root,
     logo: `${base}/icon.svg`,
-    email: "admin@specimendesign.org",
     sameAs: [SITE.instagram],
   };
 }
