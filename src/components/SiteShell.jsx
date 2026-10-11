@@ -1,4 +1,5 @@
 import "../app/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { ToastProvider } from "@/components/Toast";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -33,6 +34,7 @@ export default function SiteShell({ lang, fonts = "", children }) {
             <LanguageSwitch />
           </ToastProvider>
         </LangProvider>
+        <Analytics />
       </body>
     </html>
   );

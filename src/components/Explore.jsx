@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CATEGORY_PAGES, STYLE_PAGES } from "@/lib/seo-content";
+import { SERVICE_HUB, SERVICE_PAGES } from "@/lib/services-content";
 
 /** Crawlable links to every category and design-language page, in the page's language. */
 export default function Explore({ lang, current }) {
@@ -24,6 +25,14 @@ export default function Explore({ lang, current }) {
           <nav aria-label={he ? "שפות עיצוב" : "Design languages"} className="flex flex-wrap gap-2">
             {STYLE_PAGES.map((s) => (
               <Link key={s.slug} href={p(`/styles/${s.slug}`)} className={chip(current === s.slug)}>
+                {s[lang].h1}
+              </Link>
+            ))}
+          </nav>
+          <nav aria-label={SERVICE_HUB[lang].industriesTitle} className="flex flex-wrap gap-2 border-t border-ink/20 pt-6">
+            <Link href={p("/services")} className={chip(current === "services")}>{SERVICE_HUB[lang].h1}</Link>
+            {SERVICE_PAGES.map((s) => (
+              <Link key={s.slug} href={p(`/services/${s.slug}`)} className={chip(current === s.slug)}>
                 {s[lang].h1}
               </Link>
             ))}

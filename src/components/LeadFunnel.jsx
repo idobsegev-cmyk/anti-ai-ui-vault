@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { track } from "@vercel/analytics";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Send } from "lucide-react";
 import { useLang } from "@/lib/i18n";
@@ -98,7 +99,7 @@ async function postLead(form) {
 }
 
 export default function LeadFunnel({ submitLead = postLead, note }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const L = t.lead;
   const BANNER = L.banner.split(" ");
   const section = useRef(null);
@@ -147,6 +148,8 @@ export default function LeadFunnel({ submitLead = postLead, note }) {
     try {
       await submitLead(form);
       setStatus("done");
+      // Conversion event for Vercel Web Analytics (custom events show on plans that support them)
+      try { track("lead_submit", { lang, type: form.type || "unknown", budget: form.budget || "unknown" }); } catch {}
     } catch {
       setStatus("error");
     }
