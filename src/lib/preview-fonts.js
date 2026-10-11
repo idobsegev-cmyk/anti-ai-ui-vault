@@ -1,6 +1,6 @@
 // Google Fonts used inside vault previews (each design language brings its own type).
 export const PREVIEW_FONTS_URL =
-  "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Fredoka:wght@500;600;700&family=Shrikhand&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;600&family=Noto+Serif+JP:wght@400;600&family=Pixelify+Sans:wght@400;600&family=Poiret+One&family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;600&family=Inter+Tight:wght@400;600;700&family=Bodoni+Moda:ital,wght@0,500;1,500&display=swap";
+  "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Fredoka:wght@500;600;700&family=Shrikhand&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;600&family=Noto+Serif+JP:wght@400;600&family=Pixelify+Sans:wght@400;600&family=Poiret+One&family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;600&family=Inter+Tight:wght@400;600;700&family=Bodoni+Moda:ital,wght@0,500;1,500&family=Big+Shoulders+Display:wght@700;800;900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Young+Serif&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap";
 
 // Hebrew faces of the hero's rotating word (the Hebrew UI faces are self-hosted via next/font in fonts-he.js).
 export const HEBREW_FONTS_URL =

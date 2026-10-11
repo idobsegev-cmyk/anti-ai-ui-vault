@@ -181,6 +181,10 @@ export const STYLE_PAGES = [
   S("art-deco", "Art Deco", "Art Deco", "ארט דקו", "Emerald and gold, symmetry, fans and sunbursts.", "אמרלד וזהב, סימטריה, מניפות וקרני שמש."),
   S("8-bit-arcade", "8-bit Arcade", "8-bit Pixel", "פיקסל 8 ביט", "Square pixels, blinking prompts and arcade colors.", "פיקסלים מרובעים, הודעות מהבהבות וצבעי ארקייד."),
   S("mono-data", "Mono Data", "Data Dashboard", "דשבורד נתונים", "Dense monospace dashboards with live numbers and sparklines.", "דשבורדים צפופים במונוספייס עם מספרים חיים וספארקליינים."),
+  S("sticker-pop", "Sticker Pop", "Sticker Pop", "פופ מדבקות", "Giant condensed type, die-cut stickers and one acid accent, like a race-day poster.", "טיפוגרפיה צרה וענקית, מדבקות חתוכות וצבע הדגשה חומצי אחד, כמו כרזה של יום תחרות."),
+  S("storybook", "Storybook", "Storybook", "ספר תמונות", "Flat illustrated scenes, thick outlines and handwritten notes, like a picture book.", "סצנות מאוירות בצבע שטוח, קווי מתאר עבים ופתקים בכתב יד, כמו ספר תמונות."),
+  S("line-node", "Line Node", "Technical Line Art", "קווים וצמתים", "Dark engineering drawings: hairline line art, mono labels and one signal colour.", "שרטוטים הנדסיים כהים: איור בקווים דקים, תוויות במונוספייס וצבע אות אחד."),
+  S("tactile-pack", "Tactile Pack", "Packaging", "אריזה", "Bold packaging colours, condensed type and a product you can grab and spin.", "צבעי אריזה נועזים, טיפוגרפיה צרה ומוצר שאפשר לתפוס ולסובב."),
   S("warm-editorial", "Warm Editorial", "Editorial", "מגזיני", "Paper tones, Swiss type and one warm accent color.", "גווני נייר, טיפוגרפיה שוויצרית וצבע הדגשה חם אחד."),
 ];
 

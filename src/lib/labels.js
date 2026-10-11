@@ -28,6 +28,10 @@ export const STYLE_HE = {
   "8-bit Arcade": "ארקייד 8 ביט",
   "Mono Data": "דאטה מונו",
   "Swiss International": "סגנון שוויצרי",
+  "Sticker Pop": "פופ מדבקות",
+  Storybook: "ספר תמונות",
+  "Line Node": "קווים וצמתים",
+  "Tactile Pack": "אריזה מוחשית",
 };
 
 
@@ -50,5 +54,6 @@ export const TAG_HE = {
   Hospitality: "אירוח", Agency: "סוכנות", Portfolio: "תיק עבודות", Architecture: "אדריכלות", Minimal: "מינימליסטי",
   "Landing Page": "דף נחיתה", Events: "אירועים", Music: "מוזיקה", Games: "משחקים", Studio: "סטודיו", Restaurant: "מסעדה",
   "Mobile App": "אפליקציה", Health: "בריאות", Print: "דפוס", Fintech: "פינטק", "Swiss Grid": "גריד שוויצרי", "Neo-Print": "דפוס",
+  Sports: "ספורט", "Personal Brand": "מותג אישי", Stickers: "מדבקות", Bakery: "מאפייה", B2B: "B2B", "Line Art": "איור קווי",
   "Mix Blend": "מיזוג צבעים", "3D Tilt": "הטיה בתלת־ממד", "Flex Grow": "התרחבות", "Clip Path": "חיתוך", "Layout Animation": "אנימציית פריסה",
 };
