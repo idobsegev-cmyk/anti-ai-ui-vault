@@ -2,7 +2,7 @@
   "name": "specimen",
   "version": "0.1.0",
   "private": true,
-  "description": "Specimen (דוגמית) — full website designs and animated UI components with copy-ready Claude prompts.",
+  "description": "Specimen (דוגמית) — full website designs and animated website designs with copy-ready Claude prompts.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
