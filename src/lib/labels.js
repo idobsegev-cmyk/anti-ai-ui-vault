@@ -32,6 +32,20 @@ export const STYLE_HE = {
   Storybook: "ספר תמונות",
   "Line Node": "קווים וצמתים",
   "Tactile Pack": "אריזה מוחשית",
+  "Floodlight Matchday": "יום משחק בזרקורים",
+  "Street Court": "מגרש רחוב",
+  "Telemetry Speed": "טלמטריה ומהירות",
+  "Jet Set Departure": "ג׳ט־סט רטרו",
+  "Cockpit HUD": "תא טייס",
+  "Tactical HUD": "ממשק טקטי",
+  "Cinematic Epic": "אפי קולנועי",
+  "Candy Cabinet": "ארקייד ממתקים",
+  "Rave Poster": "כרזת רייב",
+  "Skate Collage": "קולאז׳ סקייט",
+  "Engraved Ledger": "חריטה קלאסית",
+  "Wheel-Thrown": "עבודת אובניים",
+  "Seasonal Estate": "אחוזה עונתית",
+  "Paper Cut-Out": "גזרי נייר",
 };
 
 
@@ -55,5 +69,6 @@ export const TAG_HE = {
   "Landing Page": "דף נחיתה", Events: "אירועים", Music: "מוזיקה", Games: "משחקים", Studio: "סטודיו", Restaurant: "מסעדה",
   "Mobile App": "אפליקציה", Health: "בריאות", Print: "דפוס", Fintech: "פינטק", "Swiss Grid": "גריד שוויצרי", "Neo-Print": "דפוס",
   Sports: "ספורט", "Personal Brand": "מותג אישי", Stickers: "מדבקות", Bakery: "מאפייה", B2B: "B2B", "Line Art": "איור קווי",
+  Travel: "תיירות", Education: "לימודים",
   "Mix Blend": "מיזוג צבעים", "3D Tilt": "הטיה בתלת־ממד", "Flex Grow": "התרחבות", "Clip Path": "חיתוך", "Layout Animation": "אנימציית פריסה",
 };
