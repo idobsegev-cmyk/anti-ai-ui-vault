@@ -206,3 +206,61 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Window wall (home v2): every window keeps its own idle life. Transform-only, compositor-run. ── */
+.alive {
+  animation: var(--life, win-bob) var(--dur, 7s) cubic-bezier(0.45, 0, 0.55, 1) var(--delay, 0s) infinite;
+  will-change: transform;
+}
+@keyframes win-bob {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)); }
+  50% { transform: translate3d(0, calc(var(--amp, 8px) * -1), 0) rotate(var(--rot, 0deg)); }
+}
+@keyframes win-sway {
+  0%, 100% { transform: rotate(calc(var(--rot, 0deg) - var(--swing, 1deg))); }
+  50% { transform: rotate(calc(var(--rot, 0deg) + var(--swing, 1deg))); }
+}
+@keyframes win-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)); }
+  33% { transform: translate3d(var(--amp, 8px), calc(var(--amp, 8px) * -0.7), 0) rotate(calc(var(--rot, 0deg) + 0.6deg)); }
+  66% { transform: translate3d(calc(var(--amp, 8px) * -0.6), calc(var(--amp, 8px) * -1.1), 0) rotate(calc(var(--rot, 0deg) - 0.4deg)); }
+}
+/* rests, then rises out from behind whatever it sits under, holds, and sinks back */
+@keyframes win-peek {
+  0%, 55%, 100% { transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg)); }
+  68%, 86% { transform: translate3d(0, calc(var(--amp, 8px) * -5), 0) rotate(calc(var(--rot, 0deg) * -1)); }
+}
+.live-dot {
+  animation: live-dot 1.8s ease-in-out infinite;
+}
+@keyframes live-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.spin-slow {
+  animation: spin-slow 26s linear infinite;
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+/* the departures board under the hero */
+.board-track {
+  animation: board 60s linear infinite;
+}
+.board:hover .board-track {
+  animation-play-state: paused;
+}
+@keyframes board {
+  to { transform: translateX(-50%); }
+}
+[dir="rtl"] .board-track {
+  animation-name: board-rtl;
+}
+@keyframes board-rtl {
+  to { transform: translateX(50%); }
+}
+/* a soft dotted field behind the wall, like a cutting mat */
+.dot-field {
+  background-image: radial-gradient(color-mix(in srgb, var(--color-ink) 16%, transparent) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+}

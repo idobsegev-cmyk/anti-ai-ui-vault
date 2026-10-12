@@ -92,6 +92,18 @@ export const STRIP_SLUGS = [
 ];
 
 
+/** The home page's window wall, in order of prominence (see HeroStage WALL). */
+export const HERO_SLUGS = [
+  "ostro-racing-team-website",
+  "paloma-jet-charter-website",
+  "kestrel-nine-esports-site",
+  "harbour-lights-fc-matchday-website",
+  "small-kettle-arcade-studio",
+  "tiefdruck-techno-night",
+  "no-look-hoops-drop-website",
+  "clos-verane-winery-website",
+];
+
 export function getStrip() {
   return STRIP_SLUGS.map((list) => list.map(getBySlug).filter(Boolean));
 }

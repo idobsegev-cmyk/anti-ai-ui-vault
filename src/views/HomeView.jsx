@@ -5,12 +5,11 @@ import LeadFunnel from "@/components/LeadFunnel";
 import Faq from "@/components/Faq";
 import Explore from "@/components/Explore";
 import JsonLd from "@/components/JsonLd";
-import { getBySlug, getSites, getStats, localize } from "@/lib/data";
+import { HERO_SLUGS, getBySlug, getSites, getStats, localize } from "@/lib/data";
 import { faq } from "@/lib/seo-content";
 import { SITE, siteUrl } from "@/lib/site";
 import { HE_NAME, alternates, orgJsonLd } from "@/lib/meta";
 
-const STAGE = ["gat-daughters-olive-oil-website", "noa-shiloh-athlete-website", "relay-nine-it-networks-website", "night-oven-bakery-website", "kanso-architects-website"];
 
 export function homeMetadata(lang) {
   const he = lang === "he";
@@ -71,7 +70,7 @@ export default function HomeView({ lang }) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <HeroStage count={items.length} items={STAGE.map(getBySlug).filter(Boolean)} />
+      <HeroStage count={items.length} items={HERO_SLUGS.map(getBySlug).filter(Boolean)} all={items.map(({ slug, title, style }) => ({ slug, title, style }))} />
       <VaultGrid items={items} />
       <HowItWorks />
       <Explore lang={lang} />

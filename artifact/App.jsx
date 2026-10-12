@@ -12,7 +12,7 @@ import ComponentDetail from "@/components/ComponentDetail";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { LangProvider, useLang } from "@/lib/i18n";
 import LabBody from "@/components/LabBody";
-import { WEBSITE, getAll, getBySlug, getComponentCategories, getComponents, getRelated, getSiblings, getSites, shortCategory } from "@/lib/data";
+import { HERO_SLUGS, WEBSITE, getAll, getBySlug, getComponentCategories, getComponents, getRelated, getSiblings, getSites, shortCategory } from "@/lib/data";
 
 window.__VAULT_ARTIFACT__ = true;
 
@@ -20,7 +20,7 @@ const items = getSites();
 const cats = [WEBSITE];
 const labGroups = getComponentCategories().map((c) => [c, getComponents().filter((i) => i.category === c)]).filter(([, l]) => l.length);
 const labShort = Object.fromEntries(labGroups.map(([c]) => [c, shortCategory(c)]));
-const featured = ["gat-daughters-olive-oil-website", "noa-shiloh-athlete-website", "relay-nine-it-networks-website", "night-oven-bakery-website", "kanso-architects-website"].map(getBySlug).filter(Boolean);
+const featured = HERO_SLUGS.map(getBySlug).filter(Boolean);
 const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
 const REPO = "https://github.com/idobsegev-cmyk/anti-ai-ui-vault";
 
@@ -94,7 +94,7 @@ function Site() {
           <Detail key={route.slug} slug={route.slug} />
         ) : (
           <>
-            <HeroStage count={items.length} items={featured} />
+            <HeroStage count={items.length} items={featured} all={items} />
             <VaultGrid items={items} />
             <HowItWorks />
             <Faq lang={lang} />

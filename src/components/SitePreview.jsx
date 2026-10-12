@@ -32,7 +32,7 @@ class Boundary extends Component {
  * mode "scroll": a framed browser window you scroll through yourself.
  * mode "full": the whole page laid out at its scaled height, so it scrolls with the real page (no nested scrolling).
  */
-export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, settle = false, height = "78vh", autoplay = false, focus = 0, onSection }) {
+export default function SitePreview({ code, id, mode = "shot", className = "", eager = false, settle = false, height = "78vh", autoplay = false, focus = 0, onSection, aspect = "4 / 3" }) {
   const wrap = useRef(null);
   const inner = useRef(null);
   const visible = useNearScreen(wrap, eager);
@@ -199,7 +199,7 @@ export default function SitePreview({ code, id, mode = "shot", className = "", e
   }
 
   return (
-    <div ref={wrap} onPointerEnter={arm} onPointerMove={arm} onPointerLeave={disarm} className={`relative overflow-hidden ${className}`} style={{ aspectRatio: "4 / 3" }}>
+    <div ref={wrap} onPointerEnter={arm} onPointerMove={arm} onPointerLeave={disarm} className={`relative overflow-hidden ${className}`} style={{ aspectRatio: aspect }}>
       <motion.div ref={inner} className="preview-scope absolute left-0 top-0" dir="ltr" lang="en" style={{ width: PAGE_W, y, scale, transformOrigin: "top left", ...hide }}>
         {content}
       </motion.div>

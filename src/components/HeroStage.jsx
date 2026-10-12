@@ -1,31 +1,43 @@
 "use client";
 
-import { useRef, useState } from "react";
-import Link from "next/link";
-import { AnimatePresence, cubicBezier, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import SitePreview from "./SitePreview";
-import CopyButton from "./CopyButton";
+import WindowFrame from "./WindowFrame";
 import Magnetic from "./Magnetic";
 import { localize } from "@/lib/data";
-import { promptParts } from "@/lib/prompt-parts";
+import { brandOf } from "@/lib/palette";
 import { useLang } from "@/lib/i18n";
 
 const EASE_OUT = [0.23, 1, 0.32, 1];
-const scrollEase = cubicBezier(0.65, 0, 0.35, 1);
 
-function Headline({ count, compact = false, id = "hero-title" }) {
+/*
+ * The window wall on large screens. Positions are in % of the stage (inline-start, so Hebrew mirrors it), widths in vw.
+ * depth drives cursor parallax, scroll speed and stacking; life is the idle loop each window keeps.
+ */
+const WALL = [
+  { left: 57, top: 13, w: 29, aspect: "4 / 3", depth: 1, rot: -1.6, life: "win-drift", dur: 9, amp: 7, live: true, autoplay: true, plate: "cobalt", from: [260, -160] },
+  { left: 79, top: 41, w: 23, aspect: "4 / 5", depth: 0.75, rot: 2.4, life: "win-sway", dur: 7.5, amp: 6, live: true, autoplay: true, plate: "ink", from: [320, 60] },
+  { left: 47, top: 55, w: 26, aspect: "16 / 10", depth: 1.25, rot: 1.2, life: "win-bob", dur: 6, amp: 9, live: true, plate: "terracotta", from: [80, 320] },
+  { left: 3, bottom: -9, w: 21, aspect: "4 / 3", depth: 0.7, rot: -3, life: "win-peek", dur: 8, amp: 8, live: true, plate: "ink", from: [-260, 300] },
+  { left: 25.5, bottom: -12, w: 18, aspect: "4 / 3", depth: 0.9, rot: 2.2, life: "win-peek", dur: 9.5, amp: 9, live: true, plate: "cobalt", from: [-60, 320] },
+  { left: 85, top: 4, w: 14, aspect: "4 / 3", depth: 0.45, rot: 4, life: "win-sway", dur: 6.5, amp: 5, live: false, plate: "terracotta", from: [200, -220], chrome: "sm" },
+  { left: 40, top: 3, w: 12, aspect: "4 / 3", depth: 0.4, rot: -4.5, life: "win-bob", dur: 5.5, amp: 6, live: false, plate: "ink", from: [0, -260], chrome: "sm" },
+  { left: 91, bottom: -4, w: 13, aspect: "4 / 3", depth: 0.55, rot: -5, life: "win-peek", dur: 7, amp: 7, live: false, plate: "moss", from: [200, 260], chrome: "sm" },
+];
+
+function Headline({ count }) {
   const { t, lang } = useLang();
   const reduce = useReducedMotion();
   const home = lang === "he" ? "/he" : "/";
   const h = t.hero.head;
   const line = (i, children) => (
-    <span className="block overflow-hidden pb-[0.06em]">
+    <span className="block overflow-hidden pb-[0.08em]">
       <motion.span
-        className="block"
-        initial={reduce ? false : { y: "105%" }}
-        animate={{ y: "0%" }}
-        transition={{ duration: 0.9, delay: 0.08 + i * 0.09, ease: EASE_OUT }}
+        className="inline-block bg-paper pe-[0.12em]"
+        initial={reduce ? false : { y: "108%", rotate: i % 2 ? -2 : 2 }}
+        animate={{ y: "0%", rotate: 0 }}
+        transition={{ type: "spring", stiffness: 140, damping: 18, delay: 0.05 + i * 0.1 }}
       >
         {children}
       </motion.span>
@@ -35,6 +47,7 @@ function Headline({ count, compact = false, id = "hero-title" }) {
   const hl = "font-serif font-normal italic text-cobalt rtl:not-italic";
   const words = h[1].split(" ");
   const last = words.pop();
+  const glued = !h[0].endsWith(" ");
   const accent = (
     <>
       {words.length > 0 && <span className={hl}>{words.join(" ")} </span>}
@@ -42,13 +55,14 @@ function Headline({ count, compact = false, id = "hero-title" }) {
     </>
   );
   return (
-    <div className="max-w-[980px]">
-      <h1 id={id} className="text-[clamp(2.7rem,6.2vw,6.4rem)] font-semibold leading-[0.94] tracking-[-0.05em] rtl:leading-[1.08] rtl:tracking-normal">
-        {line(0, <>{h[0]}{accent}</>)}
-        {line(1, h[3])}
+    <div>
+      <h1 id="hero-title" className="text-[clamp(2.7rem,5.5vw,6rem)] font-semibold leading-[0.93] tracking-[-0.05em] rtl:leading-[1.1] rtl:tracking-normal">
+        {/* Hebrew glues its prefix to the accent ("מ" + "עיצוב"), so it never gets a line of its own */}
+        {glued ? line(0, <>{h[0]}{accent}</>) : <>{line(0, h[0])}{line(1, accent)}</>}
+        {line(glued ? 1 : 2, h[3])}
       </h1>
-      <motion.div initial={reduce ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35, ease: EASE_OUT }}>
-        <p className="mt-6 max-w-[560px] text-lg leading-relaxed text-ink-2 md:text-xl">{t.hero.sub}</p>
+      <motion.div initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4, ease: EASE_OUT }}>
+        <p className="mt-6 max-w-[520px] text-lg leading-relaxed text-ink-2 md:text-xl"><span className="bg-paper box-decoration-clone">{t.hero.sub}</span></p>
         <div className="mt-7 flex flex-wrap items-center gap-3">
           <Magnetic href={`${home}#vault`} variant="solid">
             {t.hero.browse(count)} <ArrowDown size={16} strokeWidth={1.75} />
@@ -56,150 +70,178 @@ function Headline({ count, compact = false, id = "hero-title" }) {
           <Magnetic href={`${home}#custom`} variant="outline">
             {t.hero.bookCustom} <ArrowUpRight size={16} strokeWidth={1.75} className="rtl:-scale-x-100" />
           </Magnetic>
-          {!compact && <span className="label hidden text-ink-3 xl:inline">{t.hero.scroll} ↓</span>}
         </div>
+        <p className="label mt-5 flex max-w-[440px] items-center gap-2 text-ink-3">
+          <span aria-hidden className="live-dot size-2 shrink-0 rounded-full bg-terracotta" />
+          <span className="bg-paper box-decoration-clone">{t.hero.note}</span>
+        </p>
       </motion.div>
     </div>
   );
 }
 
-function Frame({ item, eager }) {
+/** A window on the wall: parallax by depth (outer), a springy entrance (middle), its own idle loop (inner). */
+function HeroWindow({ spec, item, i, mx, my, p }) {
+  const { t, lang } = useLang();
+  const reduce = useReducedMotion();
+  const flip = lang === "he" ? -1 : 1;
+  const x = useTransform(mx, (v) => v * spec.depth * 28);
+  const y = useTransform([my, p], ([m, s]) => m * spec.depth * 18 - s * spec.depth * 320);
   return (
-    <div data-touch-scroll className="overflow-hidden rounded-[20px] border border-ink bg-paper shadow-[0_30px_60px_-30px_rgba(18,18,18,0.35)]">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div key={item.slug} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 0.12 } }} transition={{ duration: 0.25 }}>
-          <SitePreview eager={eager} settle code={item.previewCode} id={`stage-${item.slug}`} className="w-full" />
-        </motion.div>
-      </AnimatePresence>
+    <motion.div
+      className="absolute hover:!z-40"
+      style={{ insetInlineStart: `${spec.left}%`, top: spec.top != null ? `${spec.top}%` : undefined, bottom: spec.bottom != null ? `${spec.bottom}%` : undefined, width: `${spec.w}vw`, zIndex: Math.round(spec.depth * 20), x, y }}
+    >
+      <motion.div
+        initial={reduce ? false : { opacity: 0, x: spec.from[0] * flip, y: spec.from[1], rotate: spec.rot * 6, scale: 0.92 }}
+        animate={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
+        whileHover={reduce ? undefined : { scale: 1.04 }}
+        transition={{ type: "spring", stiffness: 95, damping: 15, mass: 0.9, delay: 0.1 + i * 0.07, opacity: { duration: 0.25, delay: 0.1 + i * 0.07 } }}
+      >
+        <div
+          className={reduce ? "" : "alive hover:[animation-play-state:paused]"}
+          style={{ "--life": spec.life, "--dur": `${spec.dur}s`, "--amp": `${spec.amp}px`, "--rot": `${spec.rot * flip}deg`, "--delay": `${-i * 1.7}s`, transform: reduce ? `rotate(${spec.rot * flip}deg)` : undefined }}
+        >
+          <WindowFrame
+            item={item}
+            aspect={spec.aspect}
+            plate={spec.plate}
+            live={spec.live}
+            priority={2}
+            autoplay={spec.autoplay}
+            chrome={spec.chrome}
+            linkLabel={t.hero.openLabel(localize(item, lang).title)}
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/** A rotating stamp, the kind pinned to a match poster or a boarding gate. */
+function Stamp({ count }) {
+  const { t, lang } = useLang();
+  const he = lang === "he";
+  return (
+    <div aria-hidden className="pointer-events-none relative size-[132px]">
+      <div className="absolute inset-0 rounded-full border border-ink bg-terracotta" />
+      <svg viewBox="0 0 132 132" dir="ltr" className="spin-slow absolute inset-0">
+        <defs>
+          <path id="stamp-ring" d="M66,66 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0" />
+        </defs>
+        {he ? (
+          // Hebrew on a curved path breaks its letter order in some browsers: a ring of ticks instead.
+          <circle cx="66" cy="66" r="52" fill="none" stroke="var(--color-paper)" strokeWidth="5" strokeDasharray="1.5 6.6" />
+        ) : (
+          <text className="fill-paper font-mono" style={{ fontSize: 9.5 }}>
+            <textPath href="#stamp-ring" textLength="312" lengthAdjust="spacing">{t.hero.stamp(count)}</textPath>
+          </text>
+        )}
+      </svg>
+      <span className="absolute inset-0 flex flex-col items-center justify-center text-paper">
+        <span className="text-[40px] font-semibold leading-none tracking-[-0.04em]">{count}</span>
+        {he && <span className="mt-1 text-[13px] font-medium leading-none">{t.hero.stampShort}</span>}
+      </span>
     </div>
   );
 }
 
-/** "Gat & Daughters Olive Oil Website" -> "Gat & Daughters": the business name reads the same in both languages. */
-function brandName(title) {
-  const words = title.split(" ");
-  const tail = /^(Website|Site|Landing|Page|Olive|Oil|IT|Networks|Athlete|Bakery|Architects|Hotel|Agency|Studio|Festival|Game|Shop|SaaS|Habit|App)$/;
-  while (words.length > 1 && tail.test(words[words.length - 1])) words.pop();
-  return words.join(" ");
-}
-
-function clip(s, n) {
-  return s.length > n ? s.slice(0, n - 1).trimEnd() + "…" : s;
-}
-
-function Lens({ items, i, setI, count }) {
-  const { t, lang, href, sty } = useLang();
-  const item = items[i];
-  const L = localize(item, lang);
-  const P = promptParts(item.claudePrompt);
-  const rows = [
-    ["concept", [clip(P.concept, 190)]],
-    ["layout", P.layout.slice(1, 2).map((b) => clip(b, 150))],
-    ["motion", P.motion.slice(0, 1).map((b) => clip(b, 150))],
-    ["system", P.system.slice(0, 1).map((b) => clip(b, 120))],
-  ];
+/** The departures board: every design rolling past, with a status like a gate or a scoreboard. */
+export function Board({ items }) {
+  const { t, sty } = useLang();
+  const row = items.map((it, n) => ({ it, n, status: t.hero.board[n % t.hero.board.length] }));
+  const tone = ["bg-terracotta", "bg-cobalt", "bg-paper text-ink", "bg-moss"];
   return (
-    <div>
-      <h2 className="text-[clamp(2rem,3.4vw,3.2rem)] font-semibold leading-[0.98] tracking-[-0.04em] rtl:leading-[1.1] rtl:tracking-normal">
-        {t.hero.lensTitle[0]}<span className="font-serif font-normal italic rtl:not-italic">{t.hero.lensTitle[1]}</span>{t.hero.lensTitle[2]}
-      </h2>
-      <p className="mt-4 max-w-[480px] text-base leading-relaxed text-ink-2">{t.hero.lensText}</p>
-
-      <div role="tablist" aria-label={t.hero.pick} className="mt-6 flex flex-wrap gap-1.5">
-        {items.map((it, n) => (
-          <button
-            key={it.slug}
-            role="tab"
-            aria-selected={n === i}
-            onClick={() => setI(n)}
-            className={`focus-ring rounded-full border px-3 py-1 text-[13px] transition-colors duration-150 ${n === i ? "border-ink bg-ink text-paper" : "border-ink/25 hover:border-ink"}`}
-          >
-            <bdi>{brandName(it.title)}</bdi>
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-5 overflow-hidden rounded-2xl border border-ink bg-paper">
-        <div className="flex items-center justify-between gap-3 border-b border-ink/15 px-4 py-2.5">
-          <span className="label truncate text-ink-3">{sty(item.style)} · Claude prompt</span>
-          <CopyButton text={item.claudePrompt} size="sm" toastSub={L.title} />
-        </div>
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.dl
-            key={item.slug}
-            initial={{ opacity: 0, filter: "blur(2px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, transition: { duration: 0.1 } }}
-            transition={{ duration: 0.25, ease: EASE_OUT }}
-            className="divide-y divide-ink/10"
-          >
-            {rows.map(([k, lines]) => (
-              <div key={k} className="grid grid-cols-[96px_1fr] gap-3 px-4 py-3">
-                <dt className="label pt-0.5 text-cobalt">{t.hero.parts[k]}</dt>
-                <dd dir="ltr" lang="en" className="space-y-1 font-mono text-[12px] leading-[1.55] text-ink-2">
-                  {lines.map((l, n) => <p key={n}>{l}</p>)}
-                </dd>
-              </div>
+    <div aria-hidden className="board relative z-30 overflow-hidden border-y border-ink bg-ink py-3 text-paper">
+      <div className="board-track flex w-max">
+        {[0, 1].map((k) => (
+          <div key={k} className="flex shrink-0 items-center">
+            {row.map(({ it, n, status }) => (
+              <span key={it.slug} className="flex items-center gap-3 pe-10">
+                <span className="font-mono text-[11px] text-paper/50">SD{String(n + 101)}</span>
+                <bdi className="text-[15px] font-semibold tracking-[-0.01em]">{brandOf(it.title)}</bdi>
+                <span className="text-[13px] text-paper/70">{sty(it.style)}</span>
+                <span className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${tone[n % tone.length]}`}>{status}</span>
+              </span>
             ))}
-          </motion.dl>
-        </AnimatePresence>
-      </div>
-      <div className="mt-5 flex flex-wrap items-center gap-4">
-        <Link href={href(`/vault/${item.slug}`)} className="focus-ring group inline-flex items-center gap-1.5 text-sm font-semibold underline decoration-ink/25 underline-offset-[5px] hover:decoration-ink">
-          {t.hero.open} <ArrowUpRight size={14} strokeWidth={1.75} className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" />
-        </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
 /**
- * First screen: the promise, then the proof. On large screens a live library design opens full-bleed under the
- * headline; scrolling settles it into a card while the prompt behind it slides in beside it.
+ * First screen: the promise, set on a wall of live websites. Every window runs its real code,
+ * keeps its own idle motion, leans toward the cursor and drifts away at its own depth on scroll.
  */
-export default function HeroStage({ count, items }) {
-  const { lang } = useLang();
+export default function HeroStage({ count, items, all = items }) {
+  const { t, lang } = useLang();
   const reduce = useReducedMotion();
-  const [i, setI] = useState(0);
   const ref = useRef(null);
-  const rtl = lang === "he";
-  const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const hOp = useTransform(p, [0, 0.28], [1, 0]);
-  const hY = useTransform(p, [0, 0.28], [0, -48]);
-  const scale = useTransform(p, [0.04, 0.72], [1, 0.5], { ease: scrollEase });
-  const y = useTransform(p, [0.04, 0.72], ["62vh", "14vh"], { ease: scrollEase });
-  const x = useTransform(p, [0.04, 0.72], ["0%", rtl ? "-50%" : "50%"], { ease: scrollEase });
-  const lOp = useTransform(p, [0.55, 0.85], [0, 1]);
-  const lY = useTransform(p, [0.55, 0.85], [24, 0]);
-  const lPe = useTransform(p, (v) => (v > 0.6 ? "auto" : "none"));
-  const hPe = useTransform(p, (v) => (v < 0.2 ? "auto" : "none"));
-  const item = items[i];
+  const mxRaw = useMotionValue(0);
+  const myRaw = useMotionValue(0);
+  const mx = useSpring(mxRaw, { stiffness: 60, damping: 18 });
+  const my = useSpring(myRaw, { stiffness: 60, damping: 18 });
+  const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const headY = useTransform(p, [0, 1], [0, -90]);
+  const flip = lang === "he" ? -1 : 1;
+
+  const move = (e) => {
+    if (reduce || e.pointerType !== "mouse") return;
+    const r = e.currentTarget.getBoundingClientRect();
+    mxRaw.set(((e.clientX - r.left) / r.width - 0.5) * 2);
+    myRaw.set(((e.clientY - r.top) / r.height - 0.5) * 2);
+  };
+
+  const pile = [items[2], items[1], items[0]].filter(Boolean);
 
   return (
-    <div aria-labelledby="hero-title" className="border-b border-ink">
-      {/* Large screens: the scroll-driven stage */}
-      <section ref={ref} className={reduce ? "hidden" : "relative hidden h-[260vh] lg:block"}>
-        <div className="sticky top-0 h-[100svh] overflow-hidden">
-          <div className="relative mx-auto h-full max-w-[1400px] px-8">
-            <motion.div style={{ opacity: hOp, y: hY, pointerEvents: hPe }} className="relative z-10 pt-[13vh]">
-              <Headline count={count} />
-            </motion.div>
-            <motion.div style={{ x, y, scale, transformOrigin: rtl ? "top right" : "top left" }} className="absolute inset-x-8 top-0 z-0 will-change-transform">
-              <Frame item={item} eager />
-            </motion.div>
-            <motion.div style={{ opacity: lOp, y: lY, pointerEvents: lPe }} className="absolute start-8 top-[14vh] z-10 w-[44%]">
-              <Lens items={items} i={i} setI={setI} count={count} />
-            </motion.div>
-          </div>
+    <div aria-labelledby="hero-title">
+      <section ref={ref} onPointerMove={move} className="dot-field relative overflow-hidden lg:h-[100svh] lg:max-h-[1080px] lg:min-h-[700px]">
+        {/* the wall, large screens */}
+        <div className="absolute inset-0 hidden lg:block">
+          {WALL.map((spec, i) => items[i] && <HeroWindow key={items[i].slug} spec={spec} item={items[i]} i={i} mx={mx} my={my} p={p} />)}
+          <motion.div
+            className="absolute z-30"
+            style={{ insetInlineStart: "calc(57% - 70px)", top: "7%" }}
+            initial={reduce ? false : { scale: 0.4, rotate: -40 * flip, opacity: 0 }}
+            animate={{ scale: 1, rotate: -8 * flip, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 220, damping: 12, delay: 0.75 }}
+          >
+            <Stamp count={count} />
+          </motion.div>
         </div>
-      </section>
 
-      {/* Phones, tablets and reduced motion: the same story, stacked */}
-      <section className={reduce ? "mx-auto max-w-[1400px] px-5 pb-16 pt-28 md:px-8" : "mx-auto max-w-[1400px] px-5 pb-16 pt-28 md:px-8 lg:hidden"}>
-        <Headline count={count} compact id="hero-title-stacked" />
-        <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
-          <div className="lg:order-2"><Frame item={item} /></div>
-          <Lens items={items} i={i} setI={setI} count={count} />
+        <motion.div style={reduce ? undefined : { y: headY }} className="relative z-20 px-5 pb-12 pt-28 md:px-8 lg:absolute lg:start-[4.5vw] lg:top-[17%] lg:w-[46vw] lg:p-0">
+          <Headline count={count} />
+        </motion.div>
+
+        {/* phones and tablets: a small pile of windows */}
+        <div className="relative mx-auto mb-14 h-[clamp(300px,82vw,560px)] w-[min(88vw,640px)] lg:hidden">
+          {pile.map((it, n) => {
+            const front = n === pile.length - 1;
+            const rot = [-7, 5, -1.5][n] * flip;
+            const off = [["-6%", "0%"], ["8%", "6%"], ["0%", "14%"]][n];
+            return (
+              <motion.div
+                key={it.slug}
+                className="absolute w-[86%]"
+                style={{ insetInlineStart: off[0], top: off[1], zIndex: n + 1 }}
+                initial={reduce ? false : { opacity: 0, y: 120, rotate: rot * 3 }}
+                animate={{ opacity: 1, y: 0, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 110, damping: 15, delay: 0.25 + n * 0.12 }}
+              >
+                <div className={reduce ? "" : "alive"} style={{ "--life": front ? "win-bob" : "win-sway", "--dur": `${6 + n}s`, "--amp": "6px", "--rot": `${rot}deg`, "--swing": "1.4deg", transform: reduce ? `rotate(${rot}deg)` : undefined }}>
+                  <WindowFrame item={it} live={front} priority={2} autoplay={front} plate={["terracotta", "cobalt", "ink"][n]} tilt={false} chrome={front ? "md" : "sm"} linkLabel={t.hero.openLabel(localize(it, lang).title)} />
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className="relative z-30 lg:absolute lg:inset-x-0 lg:bottom-0">
+          <Board items={all} />
         </div>
       </section>
     </div>

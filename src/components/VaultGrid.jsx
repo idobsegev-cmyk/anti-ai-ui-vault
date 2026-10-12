@@ -1,13 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Search, X } from "lucide-react";
 import LivePreview from "./LivePreview";
 import SitePreview from "./SitePreview";
 import { WEBSITE, CARD_FOCUS, localize } from "@/lib/data";
 import CopyButton from "./CopyButton";
+import WindowFrame from "./WindowFrame";
+import { seeded } from "@/lib/palette";
 import { useLang } from "@/lib/i18n";
 
 export function VaultCard({ item, index, wide }) {
@@ -49,10 +51,117 @@ export function VaultCard({ item, index, wide }) {
   );
 }
 
+const ASPECTS = ["4 / 3", "4 / 5", "16 / 10", "4 / 3", "1 / 1"];
+const LIVES = ["win-bob", "win-sway", "win-drift", "win-bob"];
+const PLATES = ["ink", "cobalt", "terracotta", "ink", "moss"];
+const STICKERS = ["bg-terracotta text-paper", "bg-cobalt text-paper", "bg-paper text-ink", "bg-ink text-paper"];
+
+/** How many columns the wall has. Before hydration phones still read one column, in order (CSS order on a flattened flex). */
+function useColumns() {
+  const [n, setN] = useState(3);
+  useEffect(() => {
+    const q2 = window.matchMedia("(min-width: 768px)");
+    const q3 = window.matchMedia("(min-width: 1100px)");
+    const on = () => setN(q3.matches ? 3 : q2.matches ? 2 : 1);
+    on();
+    q2.addEventListener("change", on);
+    q3.addEventListener("change", on);
+    return () => {
+      q2.removeEventListener("change", on);
+      q3.removeEventListener("change", on);
+    };
+  }, []);
+  return n;
+}
+
+/** One window on the wall: peeks in when it reaches the screen, then keeps its own idle loop. */
+function WallWindow({ item, order, col }) {
+  const { sty, lang, href } = useLang();
+  const reduce = useReducedMotion();
+  const L = localize(item, lang);
+  const r = seeded(item.slug);
+  const r2 = seeded(item.slug, 7);
+  const flip = lang === "he" ? -1 : 1;
+  const tilt = Number(((r - 0.5) * 2.6).toFixed(2)) * flip;
+  const aspect = ASPECTS[Math.floor(r2 * ASPECTS.length)];
+  return (
+    <motion.article
+      style={{ order }}
+      initial={reduce ? false : { opacity: 0, y: 110, x: (col - 1) * 50 * flip, rotate: tilt * 5 }}
+      whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0.15 } }}
+      viewport={{ once: true, margin: "0px 0px 80px 0px" }}
+      transition={{ type: "spring", stiffness: 85, damping: 15, mass: 0.9, opacity: { duration: 0.3 } }}
+      className="relative"
+    >
+      <div
+        className={reduce ? "relative" : "alive relative hover:[animation-play-state:paused]"}
+        style={{
+          "--life": LIVES[Math.floor(r * LIVES.length)],
+          "--dur": `${6 + r2 * 4}s`,
+          "--amp": `${4 + r * 5}px`,
+          "--rot": `${tilt}deg`,
+          "--swing": "0.7deg",
+          "--delay": `${-r2 * 8}s`,
+          transform: reduce ? `rotate(${tilt}deg)` : undefined,
+        }}
+      >
+        <WindowFrame
+          item={item}
+          aspect={aspect}
+          plate={PLATES[Math.floor(r2 * PLATES.length)]}
+          sticker={
+            <span
+              aria-hidden
+              className={`pointer-events-none absolute -top-3.5 right-6 z-10 whitespace-nowrap rounded-full border border-ink px-2.5 py-1 text-[12px] font-medium transition-transform duration-300 ease-[var(--ease-spring)] group-hover/win:-translate-y-1.5 ${STICKERS[Math.floor(r * STICKERS.length)]}`}
+              style={{ rotate: `${(r2 - 0.5) * 10 * flip}deg` }}
+            >
+              {sty(item.style || "Warm Editorial")}
+            </span>
+          }
+        >
+          <div className="relative flex items-start justify-between gap-3 border-t border-ink p-4">
+            <div className="min-w-0">
+              <h3 className="text-lg font-semibold leading-tight tracking-[-0.02em]">
+                <Link href={href(`/vault/${item.slug}`)} className="focus-ring hover:underline hover:decoration-1 hover:underline-offset-4">
+                  {L.title}
+                </Link>
+              </h3>
+              <p className="mt-1 line-clamp-2 text-sm leading-snug text-ink-2">{L.description}</p>
+            </div>
+            <CopyButton text={item.claudePrompt} size="sm" toastSub={L.title} className="relative z-10 shrink-0" />
+          </div>
+        </WindowFrame>
+      </div>
+    </motion.article>
+  );
+}
+
+/** A column of windows that slides at its own speed while the wall scrolls past. */
+function Column({ items, col, of, progress, reduce }) {
+  const speeds = of === 3 ? [40, -110, 70] : of === 2 ? [30, -60] : [0];
+  const y = useTransform(progress, [0, 1], [0, speeds[col] || 0]);
+  const pad = of === 3 ? ["md:pt-16", "md:pt-0", "md:pt-28"][col] : of === 2 ? ["md:pt-0", "md:pt-20"][col] : "";
+  return (
+    <motion.div style={reduce || of === 1 ? undefined : { y }} className={`contents md:flex md:min-w-0 md:flex-1 md:flex-col md:gap-14 ${pad}`}>
+      <AnimatePresence initial={false}>
+        {items.map(({ item, order }) => (
+          <WallWindow key={item.slug} item={item} order={order} col={of === 1 ? 1 : col} />
+        ))}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+/** The library as a wall of live windows: search and style filter on top, three drifting columns below. */
 export default function VaultGrid({ items }) {
   const { t, sty } = useLang();
+  const reduce = useReducedMotion();
   const [style, setStyle] = useState("All styles");
   const [q, setQ] = useState("");
+  const cols = useColumns();
+  const wall = useRef(null);
+  const { scrollYProgress } = useScroll({ target: wall, offset: ["start end", "end start"] });
 
   const styles = useMemo(() => {
     const counts = {};
@@ -60,20 +169,17 @@ export default function VaultGrid({ items }) {
     return Object.entries(counts).sort((a, b) => a[0].localeCompare(b[0]));
   }, [items]);
 
-  // Interleave design languages so the grid never opens on a wall of one look.
+  // Mix wild and calm so neighbouring windows rarely share a mood: newest first, alternating with the classics.
   const ordered = useMemo(() => {
-    const groups = {};
-    for (const it of items) (groups[it.style || "Warm Editorial"] ||= []).push(it);
-    const queues = Object.values(groups).sort((a, b) => b.length - a.length);
-    const warm = groups["Warm Editorial"] || [];
-    const others = items.filter((it) => (it.style || "Warm Editorial") !== "Warm Editorial");
+    const half = Math.ceil(items.length / 2);
+    const fresh = items.slice(half).reverse();
+    const older = items.slice(0, half);
     const out = [];
-    let w = 0, o = 0;
-    while (w < warm.length || o < others.length) {
-      if (o < others.length) out.push(others[o++]);
-      if (w < warm.length) out.push(warm[w++]);
+    for (let i = 0; i < Math.max(fresh.length, older.length); i++) {
+      if (fresh[i]) out.push(fresh[i]);
+      if (older[i]) out.push(older[i]);
     }
-    return queues.length ? out : items;
+    return out;
   }, [items]);
 
   const filtered = useMemo(() => {
@@ -86,15 +192,23 @@ export default function VaultGrid({ items }) {
     });
   }, [ordered, style, q]);
 
-  const sites = filtered;
+  const columns = useMemo(() => {
+    const out = Array.from({ length: cols }, () => []);
+    filtered.forEach((item, order) => out[order % cols].push({ item, order }));
+    return out;
+  }, [filtered, cols]);
 
   return (
-    <section id="vault" className="scroll-mt-20 border-b border-ink" aria-labelledby="vault-title">
-      <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
+    <section id="vault" className="dot-field scroll-mt-20 overflow-hidden border-b border-ink" aria-labelledby="vault-title">
+      <div className="mx-auto max-w-[1400px] px-5 pb-24 pt-16 md:px-8 md:pt-24">
         <div className="grid grid-cols-12 items-end gap-6 border-b border-ink pb-6">
           <div className="col-span-12 md:col-span-7">
-            <h2 id="vault-title" className="mt-2 text-[clamp(2.4rem,5.5vw,5rem)] font-semibold leading-[0.92] tracking-[-0.045em]">
-              {t.vault.title[0]}<span className="font-serif font-normal italic rtl:not-italic">{t.vault.title[1]}</span>{t.vault.title[2]}
+            <p className="label flex items-center gap-2 text-ink-3">
+              <span aria-hidden className="live-dot size-2 rounded-full bg-terracotta" />
+              {t.vault.wall(items.length)}
+            </p>
+            <h2 id="vault-title" className="mt-3 text-[clamp(2.4rem,5.5vw,5rem)] font-semibold leading-[0.92] tracking-[-0.045em]">
+              {t.vault.title[0]}<span className="font-serif font-normal italic text-cobalt rtl:not-italic">{t.vault.title[1]}</span>{t.vault.title[2]}
             </h2>
           </div>
           <div className="col-span-12 md:col-span-5">
@@ -116,33 +230,31 @@ export default function VaultGrid({ items }) {
           </div>
         </div>
 
-        <div className="mb-6 mt-5 flex flex-wrap items-center gap-1.5">
-          <span className="mr-1 label text-ink-3">{t.vault.language}</span>
+        <div className="-mx-5 mt-5 flex items-center gap-1.5 overflow-x-auto px-5 py-1 [scrollbar-width:none] md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+          <span className="me-1 shrink-0 label text-ink-3">{t.vault.language}</span>
           {[["All styles", items.length], ...styles].map(([sname, n]) => (
             <button
               key={sname}
               onClick={() => setStyle(sname)}
               aria-pressed={style === sname}
-              className={`focus-ring rounded-full border px-2.5 py-1 text-xs transition-colors ${style === sname ? "border-cobalt bg-cobalt text-paper" : "border-ink/30 hover:border-ink"}`}
+              className={`focus-ring shrink-0 rounded-full border px-2.5 py-1 text-xs transition-[background-color,border-color,color,transform] duration-150 active:scale-95 ${style === sname ? "border-cobalt bg-cobalt text-paper" : "border-ink/30 bg-paper hover:border-ink"}`}
             >
               {sname === "All styles" ? t.vault.allStyles : sty(sname)} <span className="font-mono text-[10px] opacity-60">{n}</span>
             </button>
           ))}
         </div>
 
-        {sites.length > 0 && (
-          <div className="mb-14">
-            <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-3">
-              <h3 className="text-3xl font-semibold tracking-[-0.03em]">{t.vault.websites[0]} <span className="font-mono text-sm text-ink-3">{t.vault.sites(sites.length)}</span></h3>
+        {filtered.length > 0 && (
+          <div className="mt-12">
+            <div className="mb-10 flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="text-3xl font-semibold tracking-[-0.03em]">{t.vault.websites[0]} <span className="font-mono text-sm text-ink-3">{t.vault.sites(filtered.length)}</span></h3>
               <p className="text-sm text-ink-2">{t.vault.websites[1]}</p>
             </div>
-            <motion.div layout className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              <AnimatePresence mode="popLayout">
-                {sites.map((item, i) => (
-                  <VaultCard key={item.slug} item={item} index={i} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
+            <div ref={wall} className="flex flex-col gap-12 md:flex-row md:items-start md:gap-10 lg:gap-12">
+              {columns.map((list, c) => (
+                <Column key={c} items={list} col={c} of={cols} progress={scrollYProgress} reduce={reduce} />
+              ))}
+            </div>
           </div>
         )}
 
