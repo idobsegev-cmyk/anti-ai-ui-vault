@@ -14,7 +14,7 @@ DT = 1000 / FPS
 CLOCK = open(os.path.join(os.path.dirname(__file__), "clock.js")).read()
 
 PRESS = ["squish-press-button", "paper-confetti-like-button", "elastic-toggle-switch", "clay-inflate-buttons", "copy-button-morph", "memphis-squiggle-buttons", "pixel-arcade-start-button", "hold-to-confirm-button"]
-TYPE = ["split-flap-headline", "masked-word-swap-banner", "riso-overprint-headline", "wave-letter-hover-banner", "groovy-sunset-banner", "draggable-speed-marquee", "masthead-hero-with-rotating-serif-word"]
+TYPE = ["split-flap-headline", "masked-word-swap-banner", "riso-overprint-headline", "wave-letter-hover-banner", "groovy-sunset-banner", "bakery-staggered-word-banner"]
 
 def ease(t):
     return 0.5 - 0.5 * math.cos(math.pi * max(0, min(1, t)))

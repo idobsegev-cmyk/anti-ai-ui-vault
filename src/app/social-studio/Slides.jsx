@@ -62,7 +62,7 @@ function PromptLine({ children, top = 150 }) {
   );
 }
 
-function Cta({ title = "Copy the prompt.", line2 = "Build it in Claude.", sub = "Free. No sign-up. 59 designs and counting.", format = "feed", dark = false }) {
+function Cta({ title = "Copy the prompt.", line2 = "Build it in Claude.", sub = "Free. No sign-up. 68 designs and counting.", format = "feed", dark = false }) {
   return (
     <div className={`cv ${format} ${dark ? "ink" : "paper2"}`}>
       <Top label="Link in bio" dark={dark} />
@@ -99,7 +99,7 @@ const nocturne = [
     </Angle>
   ),
   () => (
-    <Angle no={2} total={6} title="The suites" note="Numbers set on hairlines like a hotel menu card, then three tall suite cards with size, price and one quiet link.">
+    <Angle no={2} total={6} title="The suites" note="Three tall suite cards drawn as floor plans, each with its size, price and one quiet link.">
       <Crop slug={N} top={218} h={380} zoom={1} y={700} />
     </Angle>
   ),
@@ -110,7 +110,7 @@ const nocturne = [
   ),
   () => (
     <Angle no={4} total={6} title="The finish" note="One guest quote with a lot of black around it, a reservation band, and a footer that stays out of the way.">
-      <Crop slug={N} top={218} h={380} zoom={1} y={2059} />
+      <Crop slug={N} top={218} h={380} zoom={1} y={1880} />
     </Angle>
   ),
   () => (
@@ -128,9 +128,9 @@ const nocturne = [
       </div>
       <div style={{ position: "absolute", left: 268, right: 28, top: 92 }}>
         <div className="mono" style={{ color: "#d9534f" }}>The whole page</div>
-        <div style={{ ...H, fontSize: 30, marginTop: 10 }}>3,064 px, one voice, top to bottom.</div>
+        <div style={{ ...H, fontSize: 30, marginTop: 10 }}>2,891 px, one voice, top to bottom.</div>
         <div style={{ marginTop: 18, fontSize: 13.5, lineHeight: 1.9, color: "#3a3a38" }}>
-          {["Nav", "Hero", "Stats", "Suites", "Dining", "Quote", "Reserve", "Footer"].map((s, i) => (
+          {["Nav", "Hero", "Suites", "Dining", "Quote", "Reserve", "Footer"].map((s, i) => (
             <div key={s} style={{ borderTop: "1px solid #e8e3d8", display: "flex", justifyContent: "space-between" }}>
               <span>{s}</span>
               <span className="mono" style={{ fontSize: 9, color: "#6f6c66", alignSelf: "center" }}>{String(i + 1).padStart(2, "0")}</span>
@@ -199,7 +199,7 @@ const languages = [
       <Bottom left={SITES.find((s) => s[0] === slug)[1]} />
     </div>
   )),
-  () => <Cta title="16 languages." line2="Every prompt free." sub="Each style in the library comes with a full website or components, and the Claude prompt that builds them." />,
+  () => <Cta title="20 languages." line2="Every prompt free." sub="Each style in the library comes with a full website or components, and the Claude prompt that builds them." />,
 ];
 
 /* ---------- Post: the November offer ---------- */
@@ -331,7 +331,7 @@ const bauhaus = [
       <Crop slug={B} top={238} h={360} zoom={1.15} y={1780} x={20} />
     </Angle>
   ),
-  () => <Cta title="Your turn." line2="Steal the prompt." sub="Pick a design, copy its prompt, paste it into Claude, make it yours. All 59 designs are free." />,
+  () => <Cta title="Your turn." line2="Steal the prompt." sub="Pick a design, copy its prompt, paste it into Claude, make it yours. All 68 designs are free." />,
 ];
 
 /* ---------- Stories (9:16) ---------- */
@@ -349,7 +349,7 @@ const stories = {
         <Bottom left="Full carousel on our profile" url={false} />
       </div>
     ),
-    () => <Cta format="story" title="The prompt" line2="is free." sub="Nocturne Hotel and 58 more designs, each with the Claude prompt that builds it." />,
+    () => <Cta format="story" title="The prompt" line2="is free." sub="Nocturne Hotel and 67 more designs, each with the Claude prompt that builds it." />,
   ],
   languages: [
     () => (

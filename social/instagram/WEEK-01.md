@@ -67,7 +67,7 @@ Folder: `2026-10-15-carousel-design-languages/`
 ```
 Pick your design language before you start building.
 
-9 of the 16 styles in our library, what each one is best for, and the three rules that make it work. From Neo-Brutalist to Risograph Zine.
+9 of the 20 styles in our library, what each one is best for, and the three rules that make it work. From Neo-Brutalist to Risograph Zine.
 
 Every style has a full website or components in the library, with the exact prompt Claude used to make it.
 
@@ -105,7 +105,7 @@ Folder: `2026-10-17-reel-kinetic-type/`
 ```
 Headlines that refuse to sit still.
 
-An airport split-flap board, masked word swaps, a riso overprint that follows your cursor, letters that wave when you hover, a 70s sunset and a marquee you can drag.
+An airport split-flap board, masked word swaps, a riso overprint that follows your cursor, letters that wave when you hover, a 70s sunset and a bakery banner whose words drop in one by one.
 
 Kinetic typography you can paste into Claude in one go. Free, prompt included → link in bio.
 
@@ -126,7 +126,7 @@ We matched lines of the prompt to the sections they built: the hero, the menu ti
 
 The prompt is free. Copy it, paste it into Claude, swap the café for your business.
 
-Link in bio. 59 designs, all with their prompts.
+Link in bio. 68 designs, all with their prompts.
 
 #webdesign #websitedesign #uidesign #designinspiration #claudeai #promptengineering #aitools #bauhaus #coffeeshop #nocode #webdevelopment
 ```

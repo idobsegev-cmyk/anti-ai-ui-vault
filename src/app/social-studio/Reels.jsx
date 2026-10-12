@@ -108,7 +108,7 @@ const SCENE_SETS = {
     dims: [440, 580],
     intro: { title: "Specimen Design — kinetic type", lines: ["Headlines", "that refuse", <span key="s" className="serif" style={{ color: "#1d4ed8", fontWeight: 400 }}>to sit still.</span>] },
     outro: { title: "Free — prompt included", lines: ["Copy the prompt.", "Ship the motion."], sub: "Kinetic typography, ready to paste into Claude." },
-    slugs: ["split-flap-headline", "masked-word-swap-banner", "riso-overprint-headline", "wave-letter-hover-banner", "groovy-sunset-banner", "draggable-speed-marquee", "masthead-hero-with-rotating-serif-word"],
+    slugs: ["split-flap-headline", "masked-word-swap-banner", "riso-overprint-headline", "wave-letter-hover-banner", "groovy-sunset-banner", "bakery-staggered-word-banner"],
   },
 };
 

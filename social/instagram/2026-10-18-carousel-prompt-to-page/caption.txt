@@ -4,7 +4,7 @@ We matched lines of the prompt to the sections they built: the hero, the menu ti
 
 The prompt is free. Copy it, paste it into Claude, swap the café for your business.
 
-Link in bio. 59 designs, all with their prompts.
+Link in bio. 68 designs, all with their prompts.
 .
 .
 #webdesign #websitedesign #uidesign #designinspiration #claudeai #promptengineering #aitools #bauhaus #coffeeshop #nocode #webdevelopment
