@@ -5,15 +5,15 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { LangProvider } from "@/lib/i18n";
-import { getAll, getCategories, shortCategory } from "@/lib/data";
+import { WEBSITE, getSites, shortCategory } from "@/lib/data";
 import { repoUrl } from "@/lib/site";
 import { fontClasses } from "@/lib/fonts";
 import { HEBREW_FONTS_URL, PREVIEW_FONTS_URL } from "@/lib/preview-fonts";
 
 /** The whole document, rendered on the server in the page's own language and direction. */
 export default function SiteShell({ lang, fonts = "", children }) {
-  const all = getAll();
-  const cats = getCategories();
+  const all = getSites();
+  const cats = [WEBSITE]; // the footer lists full-site designs; components sit in the lab
   const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
   return (
     <html data-scroll-behavior="smooth" lang={lang} dir={lang === "he" ? "rtl" : "ltr"} className={`${fontClasses} ${fonts}`}>

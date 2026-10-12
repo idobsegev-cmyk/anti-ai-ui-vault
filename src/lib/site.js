@@ -3,7 +3,7 @@ export const SITE = {
   nameHe: "דוגמית עיצוב",
   tagline: "Start from a real design, not a blank page.",
   description:
-    "A free library of full website designs and animated components. Each has a live preview and the exact Claude prompt used to make it, and new ones land daily. Copy one, or hire the studio to turn it into your business site.",
+    "A free library of full website designs. Each has a live preview and the exact Claude prompt used to make it, and new ones land regularly. Copy one, or hire the studio to turn it into your business site.",
   author: "Ido Segev",
   instagram: "https://www.instagram.com/specimen.design/",
   instagramHandle: "@specimen.design",

@@ -23,11 +23,36 @@ export function getAll() {
   return prompts;
 }
 
-/** Live counts for copy and metadata (never hardcode them). */
+export const isSite = (p) => p.category === WEBSITE;
+
+/** The primary catalogue: full website designs only. */
+export function getSites() {
+  return prompts.filter(isSite);
+}
+
+/** The secondary "components lab": every single-piece item (buttons, navbars, forms...). */
+export function getComponents() {
+  return prompts.filter((p) => !isSite(p));
+}
+
+/** Component categories in display order (the lab's groups). */
+export function getComponentCategories() {
+  return getCategories().filter((c) => c !== WEBSITE);
+}
+
+/** The prev/next cycle for a detail page: sites cycle through sites, components through components. */
+export function getSiblings(item) {
+  return isSite(item) ? getSites() : getComponents();
+}
+
+/**
+ * Live counts for copy and metadata (never hardcode them).
+ * `sites` and `styles` are the primary counters and describe full websites only; `components` is the lab's count.
+ */
 export function getStats() {
-  const sites = prompts.filter((p) => p.category === WEBSITE).length;
-  const styles = new Set(prompts.map((p) => p.style || "Warm Editorial")).size;
-  return { total: prompts.length, sites, components: prompts.length - sites, styles };
+  const sites = getSites();
+  const styles = new Set(sites.map((p) => p.style || "Warm Editorial")).size;
+  return { total: prompts.length, sites: sites.length, components: prompts.length - sites.length, styles };
 }
 
 export function getBySlug(slug) {

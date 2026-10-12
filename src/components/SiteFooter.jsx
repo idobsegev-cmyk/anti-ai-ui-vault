@@ -44,6 +44,9 @@ export default function SiteFooter({ categories, shortNames, repo }) {
                 </Link>
               </li>
             ))}
+            <li className="pt-2">
+              <Link href={href("/components")} className="text-paper/60 hover:text-paper hover:underline">{f.lab}</Link>
+            </li>
           </ul>
         </nav>
         <div className="col-span-6 md:col-span-3">

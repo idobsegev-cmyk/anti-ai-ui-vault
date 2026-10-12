@@ -11,12 +11,15 @@ import Faq from "@/components/Faq";
 import ComponentDetail from "@/components/ComponentDetail";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import { LangProvider, useLang } from "@/lib/i18n";
-import { getAll, getBySlug, getCategories, getRelated, shortCategory } from "@/lib/data";
+import LabBody from "@/components/LabBody";
+import { WEBSITE, getAll, getBySlug, getComponentCategories, getComponents, getRelated, getSiblings, getSites, shortCategory } from "@/lib/data";
 
 window.__VAULT_ARTIFACT__ = true;
 
-const items = getAll();
-const cats = getCategories();
+const items = getSites();
+const cats = [WEBSITE];
+const labGroups = getComponentCategories().map((c) => [c, getComponents().filter((i) => i.category === c)]).filter(([, l]) => l.length);
+const labShort = Object.fromEntries(labGroups.map(([c]) => [c, shortCategory(c)]));
 const featured = ["gat-daughters-olive-oil-website", "noa-shiloh-athlete-website", "relay-nine-it-networks-website", "night-oven-bakery-website", "kanso-architects-website"].map(getBySlug).filter(Boolean);
 const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
 const REPO = "https://github.com/idobsegev-cmyk/anti-ai-ui-vault";
@@ -34,13 +37,15 @@ async function previewLead(form) {
 
 function readRoute() {
   const h = decodeURIComponent(location.hash.slice(1));
+  if (h === "components") return { view: "lab" };
   if (h.startsWith("c-") && getBySlug(h.slice(2))) return { view: "detail", slug: h.slice(2) };
   return { view: "home", anchor: h };
 }
 
 function Detail({ slug }) {
   const item = getBySlug(slug);
-  const idx = items.findIndex((p) => p.slug === slug);
+  const group = getSiblings(item);
+  const idx = group.findIndex((p) => p.slug === slug);
   useEffect(() => {
     document.title = `${item.title} · Specimen Design`;
     return () => (document.title = "Specimen Design");
@@ -48,8 +53,8 @@ function Detail({ slug }) {
   return (
     <ComponentDetail
       item={item}
-      prev={items[(idx - 1 + items.length) % items.length]}
-      next={items[(idx + 1) % items.length]}
+      prev={group[(idx - 1 + group.length) % group.length]}
+      next={group[(idx + 1) % group.length]}
       related={getRelated(item)}
     />
   );
@@ -66,7 +71,7 @@ function Site() {
   }, []);
 
   useLayoutEffect(() => {
-    if (route.view === "detail") {
+    if (route.view === "detail" || route.view === "lab") {
       window.scrollTo(0, 0);
       return;
     }
@@ -83,12 +88,14 @@ function Site() {
       <div id="top" />
       <SiteHeader count={items.length} />
       <main id="main">
-        {route.view === "detail" ? (
+        {route.view === "lab" ? (
+          <LabBody groups={labGroups} shortNames={labShort} />
+        ) : route.view === "detail" ? (
           <Detail key={route.slug} slug={route.slug} />
         ) : (
           <>
             <HeroStage count={items.length} items={featured} />
-            <VaultGrid items={items} categories={cats} shortNames={short} />
+            <VaultGrid items={items} />
             <HowItWorks />
             <Faq lang={lang} />
             <LeadFunnel submitLead={previewLead} note={t.lead.preview} />

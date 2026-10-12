@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { CATEGORY_PAGES, STYLE_PAGES } from "@/lib/seo-content";
+import { WEBSITE, getSites } from "@/lib/data";
 import { SERVICE_HUB, SERVICE_PAGES } from "@/lib/services-content";
 import { GUIDES, GUIDE_HUB } from "@/lib/guides-content";
 
 /** Crawlable links to every category and design-language page, in the page's language. */
 export default function Explore({ lang, current }) {
   const he = lang === "he";
+  // Style chips lead with the full-site catalogue: only languages that have a site are advertised here.
+  const siteStyles = new Set(getSites().map((i) => i.style || "Warm Editorial"));
+  const hasSite = (k) => siteStyles.has(k);
   const p = (x) => (he ? `/he${x}` : x);
   const chip = (active) =>
     `focus-ring rounded-full border px-3.5 py-1.5 text-sm transition-colors ${active ? "border-ink bg-ink text-paper" : "border-ink/30 hover:border-ink"}`;
@@ -17,14 +21,17 @@ export default function Explore({ lang, current }) {
         </h2>
         <div className="col-span-12 flex flex-col gap-6 md:col-span-9">
           <nav aria-label={he ? "סוגי עיצובים" : "Design types"} className="flex flex-wrap gap-2">
-            {CATEGORY_PAGES.map((c) => (
+            {CATEGORY_PAGES.filter((c) => c.key === WEBSITE).map((c) => (
               <Link key={c.slug} href={p(`/designs/${c.slug}`)} className={chip(current === c.slug)}>
                 {c[lang].h1}
               </Link>
             ))}
+            <Link href={p("/components")} className={`${chip(current === "components")} text-ink-3`}>
+              {he ? "מעבדת רכיבים" : "Components lab"}
+            </Link>
           </nav>
           <nav aria-label={he ? "שפות עיצוב" : "Design languages"} className="flex flex-wrap gap-2">
-            {STYLE_PAGES.map((s) => (
+            {STYLE_PAGES.filter((s) => s.slug === current || hasSite(s.key)).map((s) => (
               <Link key={s.slug} href={p(`/styles/${s.slug}`)} className={chip(current === s.slug)}>
                 {s[lang].h1}
               </Link>

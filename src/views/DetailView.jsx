@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import ComponentDetail from "@/components/ComponentDetail";
 import Explore from "@/components/Explore";
 import JsonLd from "@/components/JsonLd";
-import { WEBSITE, getAll, getBySlug, getRelated, localize } from "@/lib/data";
+import { WEBSITE, getAll, getBySlug, getRelated, getSiblings, localize } from "@/lib/data";
 import { CATEGORY_HE, STYLE_HE } from "@/lib/labels";
 import { categoryPage, categorySlug, styleSlug } from "@/lib/seo-content";
 import { SITE, siteUrl } from "@/lib/site";
@@ -40,7 +40,7 @@ export default function DetailView({ slug, lang }) {
   const item = getBySlug(slug);
   if (!item) notFound();
   const he = lang === "he";
-  const all = getAll();
+  const all = getSiblings(item);
   const idx = all.findIndex((p) => p.slug === slug);
   const prev = all[(idx - 1 + all.length) % all.length];
   const next = all[(idx + 1) % all.length];
@@ -50,6 +50,7 @@ export default function DetailView({ slug, lang }) {
   const url = `${root}/vault/${item.slug}`;
   const L = localize(item, lang);
   const cat = categoryPage(categorySlug(item.category));
+  const isSite = item.category === WEBSITE;
 
   const jsonLd = [
     {
@@ -88,8 +89,13 @@ export default function DetailView({ slug, lang }) {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: he ? HE_NAME : SITE.name, item: root },
-        { "@type": "ListItem", position: 2, name: cat ? cat[lang].h1 : item.category, item: `${root}/designs/${categorySlug(item.category)}` },
-        { "@type": "ListItem", position: 3, name: L.title, item: url },
+        ...(isSite
+          ? [{ "@type": "ListItem", position: 2, name: cat ? cat[lang].h1 : item.category, item: `${root}/designs/${categorySlug(item.category)}` }]
+          : [
+              { "@type": "ListItem", position: 2, name: he ? "מעבדת רכיבים" : "Components lab", item: `${root}/components` },
+              { "@type": "ListItem", position: 3, name: cat ? cat[lang].h1 : item.category, item: `${root}/designs/${categorySlug(item.category)}` },
+            ]),
+        { "@type": "ListItem", position: isSite ? 3 : 4, name: L.title, item: url },
       ],
     },
   ];

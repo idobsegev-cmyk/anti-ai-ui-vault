@@ -5,7 +5,7 @@ import LeadFunnel from "@/components/LeadFunnel";
 import Faq from "@/components/Faq";
 import Explore from "@/components/Explore";
 import JsonLd from "@/components/JsonLd";
-import { getAll, getBySlug, getCategories, getStats, localize, shortCategory } from "@/lib/data";
+import { getBySlug, getSites, getStats, localize } from "@/lib/data";
 import { faq } from "@/lib/seo-content";
 import { SITE, siteUrl } from "@/lib/site";
 import { HE_NAME, alternates, orgJsonLd } from "@/lib/meta";
@@ -19,8 +19,8 @@ export function homeMetadata(lang) {
     : `${SITE.name} — Website Design Examples & Claude Prompts`;
   const s = getStats();
   const description = he
-    ? `השראה לעיצוב אתרים: ${s.sites} אתרים שלמים ו־${s.components} רכיבים מונפשים ב־${s.styles} שפות עיצוב, מברוטליזם ועד באוהאוס. כל עיצוב רץ חי ומגיע עם קוד React ופרומפט מוכן ל-Claude. בחינם.`
-    : `Website design inspiration you can copy: ${s.sites} full sites and ${s.components} animated components in ${s.styles} design languages, from brutalist to Bauhaus. Each runs live with React code and a ready Claude prompt. Free.`;
+    ? `השראה לעיצוב אתרים: ${s.sites} עיצובים של אתרים שלמים ב־${s.styles} שפות עיצוב, מברוטליזם ועד באוהאוס. כל עיצוב רץ חי ומגיע עם קוד React ופרומפט מוכן ל-Claude. בחינם.`
+    : `Website design inspiration you can copy: ${s.sites} full website designs in ${s.styles} design languages, from brutalist to Bauhaus. Each runs live with React code and a ready Claude prompt. Free.`;
   return {
     title: { absolute: title },
     description,
@@ -32,9 +32,7 @@ export function homeMetadata(lang) {
 
 export default function HomeView({ lang }) {
   const he = lang === "he";
-  const items = getAll();
-  const cats = getCategories();
-  const short = Object.fromEntries(cats.map((c) => [c, shortCategory(c)]));
+  const items = getSites();
   const base = siteUrl();
   const root = he ? `${base}/he` : base;
 
@@ -44,7 +42,7 @@ export default function HomeView({ lang }) {
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: he ? "ספר הדוגמיות" : "The specimen book",
+      name: he ? "ספר הדוגמיות: עיצובי אתרים מלאים" : "The specimen book: full website designs",
       url: `${root}#vault`,
       inLanguage: lang,
       mainEntity: {
@@ -74,7 +72,7 @@ export default function HomeView({ lang }) {
     <>
       <JsonLd data={jsonLd} />
       <HeroStage count={items.length} items={STAGE.map(getBySlug).filter(Boolean)} />
-      <VaultGrid items={items} categories={cats} shortNames={short} />
+      <VaultGrid items={items} />
       <HowItWorks />
       <Explore lang={lang} />
       <Faq lang={lang} />

@@ -21,6 +21,7 @@ export default function sitemap() {
   return [
     ...pair("", { lastModified: new Date(latest), changeFrequency: "daily", priority: 1 }),
     ...pair("/services", { lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.9 }),
+    ...pair("/components", { lastModified: new Date(latest), changeFrequency: "weekly", priority: 0.5 }),
     ...SERVICE_PAGES.flatMap((p) => pair(`/services/${p.slug}`, { lastModified: new Date("2026-10-11"), changeFrequency: "monthly", priority: 0.8 })),
     ...pair("/guides", { lastModified: new Date(GUIDES.reduce((d, g) => (g.date > d ? g.date : d), "2026-10-11")), changeFrequency: "weekly", priority: 0.8 }),
     ...GUIDES.flatMap((g) => pair(`/guides/${g.slug}`, { lastModified: new Date(g.date), changeFrequency: "monthly", priority: 0.8 })),

@@ -154,13 +154,13 @@ const S = (slug, key, enName, heName, enIntro, heIntro) => ({
   en: {
     h1: `${enName} web design`,
     title: `${enName} Web Design Examples & Claude Prompts`,
-    description: `${enName} website designs and UI components you can try live, each with React code and a copy-ready Claude prompt. ${enIntro}`,
+    description: `${enName} website designs you can try live, each with React code and a copy-ready Claude prompt. ${enIntro}`,
     intro: enIntro,
   },
   he: {
     h1: `עיצוב אתרים בסגנון ${heName}`,
     title: `עיצוב אתרים בסגנון ${heName} — דוגמאות ופרומפטים`,
-    description: `עיצובי אתרים ורכיבים בסגנון ${heName} שאפשר לנסות חי, עם קוד React ופרומפט מוכן ל-Claude. ${heIntro}`,
+    description: `עיצובי אתרים בסגנון ${heName} שאפשר לנסות חי, עם קוד React ופרומפט מוכן ל-Claude. ${heIntro}`,
     intro: heIntro,
   },
 });
@@ -190,7 +190,7 @@ export const STYLE_PAGES = [
 
 export const FAQ = {
   en: [
-    ["What is Specimen Design?", "A free library of website designs and animated UI components. Every design runs live in your browser and comes with a detailed prompt you can paste into Claude to build it."],
+    ["What is Specimen Design?", "A free library of full website designs. Every design runs live in your browser and comes with a detailed prompt you can paste into Claude to build it. Single UI components live separately, in the components lab."],
     ["How do I use a Claude prompt to design a website?", "Open any design, press “Copy Claude Prompt” and paste it into Claude. You get a complete React component with Tailwind CSS and Framer Motion that you can drop into a Next.js site."],
     ["Are the designs free to use?", "Yes. All designs and code are free to use in personal and commercial projects under the MIT license."],
     ["How do I make an AI-built website not look AI-generated?", "Start from a clear design language instead of defaults: a deliberate typeface pairing, a strict palette with one accent, and motion with real spring physics. Every prompt here spells those choices out."],
@@ -198,7 +198,7 @@ export const FAQ = {
     ["Can you build a custom website for my business?", "Yes. Use the brief form on the homepage and you will get a reply within one working day."],
   ],
   he: [
-    ["מה זה דוגמית עיצוב?", "ספרייה חינמית של עיצובי אתרים ורכיבי ממשק מונפשים. כל עיצוב רץ חי בדפדפן ומגיע עם פרומפט מפורט שאפשר להדביק ב-Claude כדי לבנות אותו."],
+    ["מה זה דוגמית עיצוב?", "ספרייה חינמית של עיצובי אתרים שלמים. כל עיצוב רץ חי בדפדפן ומגיע עם פרומפט מפורט שאפשר להדביק ב-Claude כדי לבנות אותו. רכיבים בודדים נמצאים בנפרד, במעבדת הרכיבים."],
     ["איך משתמשים בפרומפט ל-Claude כדי לעצב אתר?", "פותחים עיצוב, לוחצים על „העתקת הפרומפט” ומדביקים ב-Claude. מקבלים רכיב React שלם עם Tailwind CSS ו-Framer Motion שאפשר לשלב באתר Next.js."],
     ["העיצובים חופשיים לשימוש?", "כן. כל העיצובים והקוד חופשיים לשימוש בפרויקטים אישיים ומסחריים לפי רישיון MIT."],
     ["איך גורמים לאתר שנבנה עם AI לא להיראות כמו AI?", "מתחילים משפת עיצוב ברורה ולא מברירות מחדל: זוג פונטים שנבחר בכוונה, פלטה קפדנית עם צבע הדגשה אחד ותנועה עם פיזיקה של קפיץ. כל פרומפט כאן מפרט את הבחירות האלה."],

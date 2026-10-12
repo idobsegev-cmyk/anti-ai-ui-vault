@@ -2,16 +2,13 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import LivePreview from "./LivePreview";
 import SitePreview from "./SitePreview";
 import { WEBSITE, CARD_FOCUS, localize } from "@/lib/data";
 import CopyButton from "./CopyButton";
-import { useLang, CATEGORY_HE } from "@/lib/i18n";
-
-// Bento rhythm: which positions in the list become wide cards on large screens.
-const WIDE = new Set([0, 5, 9, 14, 18, 23, 27, 32]);
+import { useLang } from "@/lib/i18n";
 
 export function VaultCard({ item, index, wide }) {
   const { cat, sty, lang, href } = useLang();
@@ -52,9 +49,8 @@ export function VaultCard({ item, index, wide }) {
   );
 }
 
-export default function VaultGrid({ items, categories, shortNames }) {
-  const { t, sty, lang } = useLang();
-  const [cat, setCat] = useState("All");
+export default function VaultGrid({ items }) {
+  const { t, sty } = useLang();
   const [style, setStyle] = useState("All styles");
   const [q, setQ] = useState("");
 
@@ -83,17 +79,14 @@ export default function VaultGrid({ items, categories, shortNames }) {
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return ordered.filter((it) => {
-      if (cat !== "All" && it.category !== cat) return false;
       if (style !== "All styles" && (it.style || "Warm Editorial") !== style) return false;
       if (!needle) return true;
       const h = localize(it, "he");
       return (it.title + " " + it.description + " " + h.title + " " + h.description + " " + it.tags.join(" ") + " " + (it.style || "")).toLowerCase().includes(needle);
     });
-  }, [ordered, cat, style, q]);
+  }, [ordered, style, q]);
 
-  const chips = ["All", ...categories];
-  const sites = filtered.filter((it) => it.category === WEBSITE);
-  const parts = filtered.filter((it) => it.category !== WEBSITE);
+  const sites = filtered;
 
   return (
     <section id="vault" className="scroll-mt-20 border-b border-ink" aria-labelledby="vault-title">
@@ -123,31 +116,7 @@ export default function VaultGrid({ items, categories, shortNames }) {
           </div>
         </div>
 
-        <LayoutGroup id="vault-filter">
-          <div role="tablist" aria-label={t.vault.filter} className="-mx-1 flex gap-1 overflow-x-auto py-5">
-            {chips.map((c) => {
-              const on = c === cat;
-              const n = c === "All" ? items.length : items.filter((i) => i.category === c).length;
-              return (
-                <button
-                  key={c}
-                  role="tab"
-                  aria-selected={on}
-                  onClick={() => setCat(c)}
-                  className="focus-ring relative shrink-0 rounded-full border border-ink px-3.5 py-1.5 text-sm"
-                >
-                  {on && <motion.span layoutId="cat-pill" transition={{ type: "spring", stiffness: 500, damping: 36 }} className="absolute -inset-px rounded-full bg-ink" />}
-                  <span className={`relative flex items-center gap-1.5 ${on ? "text-paper" : ""}`}>
-                    {c === "All" ? t.vault.all : lang === "he" ? CATEGORY_HE[c] || c : shortNames[c] || c}
-                    <span className={`font-mono text-[10px] ${on ? "text-paper/60" : "text-ink-3"}`}>{n}</span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </LayoutGroup>
-
-        <div className="-mt-2 mb-5 flex flex-wrap items-center gap-1.5">
+        <div className="mb-6 mt-5 flex flex-wrap items-center gap-1.5">
           <span className="mr-1 label text-ink-3">{t.vault.language}</span>
           {[["All styles", items.length], ...styles].map(([sname, n]) => (
             <button
@@ -177,23 +146,8 @@ export default function VaultGrid({ items, categories, shortNames }) {
           </div>
         )}
 
-        {parts.length > 0 && (
-          <>
-            <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-3">
-              <h3 className="text-3xl font-semibold tracking-[-0.03em]">{t.vault.components[0]} <span className="font-mono text-sm text-ink-3">{parts.length}</span></h3>
-              <p className="text-sm text-ink-2">{t.vault.components[1]}</p>
-            </div>
-            <motion.div layout className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <AnimatePresence mode="popLayout">
-                {parts.map((item, i) => (
-                  <VaultCard key={item.slug} item={item} index={i} wide={cat === "All" && style === "All styles" && !q && WIDE.has(i)} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          </>
-        )}
         {filtered.length === 0 && (
-          <p className="py-16 text-center font-serif text-2xl italic text-ink-3">{t.vault.empty(q)}</p>
+          <p className="py-16 text-center font-serif text-2xl italic text-ink-3 rtl:not-italic">{t.vault.empty(q)}</p>
         )}
       </div>
     </section>

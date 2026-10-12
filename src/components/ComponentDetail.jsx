@@ -21,9 +21,15 @@ export default function ComponentDetail({ item, prev, next, related }) {
     <article className="pt-24 md:pt-28">
       <div className="mx-auto max-w-[1400px] px-5 md:px-8">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 border-b border-ink pb-2 label">
-          <Link href={`${home}#vault`} className="focus-ring inline-flex items-center gap-1 hover:underline">
-            <ArrowLeft size={12} strokeWidth={2} className="rtl:-scale-x-100" /> {d.vault}
-          </Link>
+          {item.category === WEBSITE ? (
+            <Link href={`${home}#vault`} className="focus-ring inline-flex items-center gap-1 hover:underline">
+              <ArrowLeft size={12} strokeWidth={2} className="rtl:-scale-x-100" /> {d.vault}
+            </Link>
+          ) : (
+            <Link href={href("/components")} className="focus-ring inline-flex items-center gap-1 hover:underline">
+              <ArrowLeft size={12} strokeWidth={2} className="rtl:-scale-x-100" /> {d.lab}
+            </Link>
+          )}
           <span className="text-ink-3">/</span>
           <span className="text-ink-3">{catShort}</span>
           <span className="ms-auto text-ink-3">{lang === "he" ? `דוגמית ${item.id.replace("vault-", "")}` : item.id}</span>

@@ -4,6 +4,7 @@ export function toHash(href = "") {
   if (href === "/" || href === "") return "#top";
   if (href.startsWith("/#")) return href.slice(1);
   if (href.startsWith("#")) return href;
+  if (href === "/components" || href.startsWith("/components#")) return "#components";
   const m = href.match(/^\/vault\/([a-z0-9-]+)/);
   if (m) return "#c-" + m[1];
   if (href.startsWith("/")) return "#top";

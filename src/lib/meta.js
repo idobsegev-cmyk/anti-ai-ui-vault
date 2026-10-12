@@ -16,11 +16,11 @@ export function baseMetadata(lang) {
   return {
     metadataBase: new URL(siteUrl()),
     title: {
-      default: he ? `${HE_NAME} — עיצוב אתרים ורכיבים מונפשים עם פרומפטים ל-Claude` : `${SITE.name} — Website design examples & animated components with Claude prompts`,
+      default: he ? `${HE_NAME} — דוגמאות לעיצוב אתרים עם פרומפטים ל-Claude` : `${SITE.name} — Website design examples with Claude prompts`,
       template: he ? `%s · ${HE_NAME}` : `%s · ${SITE.name}`,
     },
     description: he
-      ? `ספרייה חינמית של עיצובי אתרים שלמים ורכיבי ממשק מונפשים ב-${getStats().styles} שפות עיצוב. כל עיצוב רץ חי ומגיע עם קוד React ופרומפט מוכן ל-Claude.`
+      ? `ספרייה חינמית של עיצובי אתרים שלמים ב-${getStats().styles} שפות עיצוב. כל עיצוב רץ חי ומגיע עם קוד React ופרומפט מוכן ל-Claude.`
       : SITE.description,
     applicationName: he ? HE_NAME : SITE.name,
     authors: [{ name: SITE.author }],

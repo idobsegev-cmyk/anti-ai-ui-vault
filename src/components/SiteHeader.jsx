@@ -14,6 +14,7 @@ export default function SiteHeader({ count }) {
     { href: `${home}#how`, label: t.nav.how },
     { href: lang === "he" ? "/he/guides" : "/guides", label: t.nav.guides },
     { href: `${home}#custom`, label: t.nav.custom },
+    { href: lang === "he" ? "/he/components" : "/components", label: t.nav.lab, quiet: true },
   ];
   const { scrollY, scrollYProgress } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -91,7 +92,7 @@ export default function SiteHeader({ count }) {
                 {hover === i && (
                   <motion.span layoutId="site-pill" transition={{ type: "spring", stiffness: 500, damping: 38 }} className="absolute inset-0 rounded-full bg-ink" />
                 )}
-                <span className={`relative transition-colors ${hover === i ? "text-paper" : ""}`}>{l.label}</span>
+                <span className={`relative transition-colors ${hover === i ? "text-paper" : l.quiet ? "text-ink-3" : ""}`}>{l.label}</span>
               </Link>
             ))}
           </nav>
